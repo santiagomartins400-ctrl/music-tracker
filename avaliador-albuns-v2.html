@@ -177,6 +177,7 @@ main{max-width:1240px;margin:auto;padding:26px 20px 60px}
     <div class="tabs">
       <button class="tab on" data-tab="catalog">Catálogo</button>
       <button class="tab" data-tab="library">Biblioteca</button>
+      <button class="tab" data-tab="charts">Top semanal</button>
     </div>
     <button class="btn ghost" id="btnAccount" type="button">Entrar</button>
   </div>
@@ -267,6 +268,25 @@ main{max-width:1240px;margin:auto;padding:26px 20px 60px}
     <section class="grid" id="libGrid"></section>
   </section>
 </main>
+
+<section id="view-charts" class="hidden" style="max-width:1240px;margin:auto;padding:26px 20px 60px">
+  <div class="searchbox" style="grid-template-columns:200px 1fr">
+    <select id="chCountry">
+      <option value="pt">Portugal</option>
+      <option value="br">Brasil</option>
+      <option value="es">Espanha</option>
+      <option value="us" selected>Estados Unidos</option>
+      <option value="gb">Reino Unido</option>
+    </select>
+    <span class="status" id="chStatus" style="margin:0;align-self:center"></span>
+  </div>
+  <div class="tabs" style="display:inline-flex;margin:4px 0 18px">
+    <button class="tab on" data-chk="albums">Álbuns</button>
+    <button class="tab" data-chk="songs">Músicas</button>
+    <button class="tab" data-chk="artists">Artistas</button>
+  </div>
+  <section class="grid" id="chGrid"></section>
+</section>
 
 <div class="overlay" id="overlay"><div class="modal" id="modal"></div></div>
 <div class="toast" id="toast"></div>
@@ -605,6 +625,8 @@ function setTab(name){
   document.querySelectorAll('header .tab').forEach(x=>x.classList.toggle('on',x.dataset.tab===name));
   $('#view-catalog').classList.toggle('hidden',name!=='catalog');
   $('#view-library').classList.toggle('hidden',name!=='library');
+  $('#view-charts').classList.toggle('hidden',name!=='charts');
+  if(name==='charts') loadCharts();
   if(name==='library') renderAllLibrary();
   if(name==='catalog') renderCatalog();
 }
@@ -755,6 +777,47 @@ function showTermsIfNeeded(){
   });
 }
 showTermsIfNeeded();
+
+/* ---------- Top semanal (data/charts.json, atualizado por tarefa semanal) ---------- */
+let chartsData = null, chKind = 'albums';
+async function loadCharts(){
+  if(!chartsData){
+    try{ const r = await fetch('data/charts.json', {cache:'no-cache'}); chartsData = await r.json(); }
+    catch(e){ chartsData = null; }
+  }
+  renderCharts();
+}
+function renderCharts(){
+  const cc = $('#chCountry').value;
+  const data = chartsData?.countries?.[cc];
+  $('#chStatus').textContent = chartsData?.updated
+    ? `Atualizado em ${new Date(chartsData.updated).toLocaleDateString('pt-PT')}`
+    : 'O top semanal ainda não está disponível.';
+  if(!data){ $('#chGrid').innerHTML = `<div class="empty"><b>Sem dados para este país</b>Escolhe outro país ou volta mais tarde.</div>`; return; }
+  let list;
+  if(chKind==='albums') list = data.albums;
+  else if(chKind==='songs') list = data.songs;
+  else {
+    const c = {};
+    data.albums.forEach(a => { c[a.artist] = (c[a.artist]||0)+1; });
+    list = Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,50).map(([name,n],i)=>({
+      rank:i+1, title:name, artist:`${n} ${n===1?'álbum':'álbuns'} no top`,
+      cover: data.albums.find(a=>a.artist===name)?.cover || ''
+    }));
+  }
+  $('#chGrid').innerHTML = list.map(x => `
+    <article class="card">
+      <div class="cover">${x.cover ? `<img loading="lazy" src="${esc(x.cover)}" alt="">` : ''}</div>
+      <span class="badge-stars">#${x.rank}</span>
+      <div class="meta"><h3>${esc(x.title)}</h3><p>${esc(x.artist)}</p></div>
+    </article>`).join('');
+}
+$('#chCountry').addEventListener('change', renderCharts);
+document.querySelectorAll('[data-chk]').forEach(b => b.addEventListener('click', () => {
+  chKind = b.dataset.chk;
+  document.querySelectorAll('[data-chk]').forEach(x => x.classList.toggle('on', x===b));
+  renderCharts();
+}));
 
 /* ---------- Conta: criar conta e iniciar sessão ---------- */
 function refreshAccountButton(){

@@ -1,0 +1,16 @@
+{
+  "name": "Álbum Crítico",
+  "short_name": "Álbum Crítico",
+  "description": "Avalia álbuns com critérios próprios, pesquisa um catálogo e vê capas e fotos.",
+  "start_url": "avaliador-albuns-v2.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a0a0f",
+  "theme_color": "#0a0a0f",
+  "lang": "pt-PT",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

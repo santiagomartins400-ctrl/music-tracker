@@ -13,6 +13,7 @@ async function feed(cc, kind) {
       title: e['im:name']?.label || '',
       artist: e['im:artist']?.label || '',
       cover: imgs.length ? imgs[imgs.length - 1].label : '',
+      genre: e.category?.attributes?.label || 'Outros',
       url: e.link?.attributes?.href || ''
     };
   });
@@ -32,7 +33,7 @@ function aggregate(lists) {
   return [...map.values()]
     .sort((a, b) => b.points - a.points)
     .slice(0, 50)
-    .map((x, i) => ({ rank: i + 1, title: x.title, artist: x.artist, cover: x.cover, url: x.url }));
+    .map((x, i) => ({ rank: i + 1, title: x.title, artist: x.artist, genre: x.genre, cover: x.cover, url: x.url }));
 }
 
 const albumLists = [], songLists = [];

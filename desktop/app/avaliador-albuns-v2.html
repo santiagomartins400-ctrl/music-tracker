@@ -336,15 +336,23 @@ function renderCatalog(){
 function setStatus(t){ $('#status').textContent = t; }
 function skeletons(n){ return Array.from({length:n},()=>`<div class="card"><div class="cover"><div class="skel" style="position:absolute;inset:0;background:linear-gradient(90deg,var(--panel2),#22222f,var(--panel2));background-size:200% 100%;animation:sh 1.2s infinite"></div></div><div class="meta"><h3>&nbsp;</h3><p>&nbsp;</p></div></div>`).join(''); }
 
-/* ---------- Fotos (Wikimedia Commons) ---------- */
+/* ---------- Capas e artes (MusicBrainz + Cover Art Archive) ---------- */
 async function loadPhotos(a){
-  const q = `${a.artist} ${a.title} album`;
-  const url = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${encodeURIComponent(q)}&gsrnamespace=6&gsrlimit=30&prop=imageinfo&iiprop=url&iiurlwidth=600&format=json&origin=*`;
-  const r = await fetch(url); if(!r.ok) throw new Error();
-  const j = await r.json();
-  return Object.values(j.query?.pages||{})
-    .filter(p=>p.imageinfo?.[0] && /\.(jpe?g|png|webp|gif)$/i.test(p.title||''))
-    .map(p=>({src:p.imageinfo[0].thumburl||p.imageinfo[0].url, page:p.imageinfo[0].descriptionurl, title:p.title.replace(/^File:/,'').replace(/\.[a-z]+$/i,'').replace(/_/g,' ')}));
+  const q = `artist:"${a.artist}" AND releasegroup:"${a.title}"`;
+  const mbR = await fetch(`https://musicbrainz.org/ws/2/release-group/?query=${encodeURIComponent(q)}&fmt=json&limit=5`);
+  if(!mbR.ok) throw new Error();
+  const mb = await mbR.json();
+  const groups = (mb['release-groups']||[]).filter(g => (g.title||'').toLowerCase() === a.title.toLowerCase());
+  const rg = groups[0] || (mb['release-groups']||[])[0];
+  if(!rg) return [];
+  const caR = await fetch(`https://coverartarchive.org/release-group/${rg.id}`);
+  if(!caR.ok) return [];
+  const ca = await caR.json();
+  return (ca.images||[]).map(img => ({
+    src: img.thumbnails?.large || img.thumbnails?.['500'] || img.image,
+    page: img.image,
+    title: (img.types||[]).join(' · ') || 'Capa'
+  }));
 }
 
 /* ---------- Helpers de capa ---------- */
@@ -425,16 +433,17 @@ function openAlbum(id){
       </div>
       ${rated ? `<div class="review ${rated.review?'':'muted'}">${rated.review?esc(rated.review):'Sem review escrita.'}</div>` : ''}
       <div class="actions">${actions}</div>
-      <div class="gal-title">Fotos <small>Wikimedia Commons</small></div>
+      <div class="gal-title">Capas e artes <small>Cover Art Archive</small></div>
       <div class="gallery" id="gallery">${Array.from({length:6},()=>'<div><div class="skel"></div></div>').join('')}</div>
     </div>`);
   loadPhotos(a).then(photos=>{
+    if(!photos.length && a.cover) photos=[{src:a.cover,page:a.cover,title:a.title}];
     const g=$('#gallery'); if(!g) return;
     g.innerHTML = photos.length
       ? photos.map(p=>`<a href="${esc(p.page)}" target="_blank" rel="noopener" title="${esc(p.title)}"><img loading="lazy" src="${esc(p.src)}" alt="${esc(p.title)}" onerror="this.parentElement.remove()"></a>`).join('')
-      : `<div class="empty" style="grid-column:1/-1;padding:30px">Sem fotos encontradas para este álbum.</div>`;
+      : `<div class="empty" style="grid-column:1/-1;padding:30px">Sem capas disponíveis para este álbum.</div>`;
   }).catch(()=>{
-    const g=$('#gallery'); if(g) g.innerHTML=`<div class="empty" style="grid-column:1/-1;padding:30px">Não foi possível carregar as fotos.</div>`;
+    const g=$('#gallery'); if(g) g.innerHTML=`<div class="empty" style="grid-column:1/-1;padding:30px">Não foi possível carregar as capas.</div>`;
   });
 }
 

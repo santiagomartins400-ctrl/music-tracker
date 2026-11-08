@@ -146,6 +146,24 @@ main{max-width:1240px;margin:auto;padding:26px 20px 60px}
   .rate-head{grid-template-columns:1fr;text-align:center}
   .rate-cover{margin:auto}
 }
+
+/* Ecrã de conta: moldura animada e pré-visualização */
+.modal.auth-glow{
+  border:1px solid transparent;
+  background:linear-gradient(var(--panel),var(--panel)) padding-box, linear-gradient(120deg,#8b5cf6,#ec4899,#22d3ee,#8b5cf6) border-box;
+  background-size:100% 100%, 300% 100%;
+  animation:pop .25s both, gshift 5s linear infinite, glowb 3s ease-in-out infinite;
+}
+@keyframes gshift{from{background-position:0 0,0 0}to{background-position:0 0,300% 0}}
+@keyframes glowb{0%,100%{box-shadow:0 0 0 1px rgba(139,92,246,.35),0 0 30px -6px rgba(139,92,246,.5)}50%{box-shadow:0 0 0 1px rgba(236,72,153,.35),0 0 40px -4px rgba(236,72,153,.55)}}
+.live{margin:6px 0 16px;padding:14px 16px;border-radius:14px;background:var(--panel2);border:1px solid var(--line);min-height:88px}
+.pv-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+.pv-email{font-family:"Space Grotesk",Inter,sans-serif;font-size:1.05rem;margin-top:4px;word-break:break-all;min-height:1.4em}
+.pv-email::after{content:"";display:inline-block;width:2px;height:1.1em;margin-left:3px;vertical-align:-3px;background:var(--accent2);animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.pv-stars{margin-top:6px;display:flex;gap:6px;flex-wrap:wrap;min-height:24px;color:#f59e0b;font-size:1.25rem}
+.pv-stars span{animation:starpop .35s both}
+@keyframes starpop{0%{transform:scale(0) rotate(-60deg);opacity:0}70%{transform:scale(1.25);opacity:1}100%{transform:none}}
 </style>
 </head>
 <body>
@@ -471,7 +489,7 @@ function renderAllLibrary(){ renderStats(); renderLibGenres(); renderLibrary(); 
 function refreshAll(){ renderCatalog(); renderAllLibrary(); }
 
 /* ---------- Modais ---------- */
-function openModal(html){ $('#modal').innerHTML=html; $('#overlay').classList.add('open'); }
+function openModal(html){ $('#modal').classList.remove('auth-glow'); $('#modal').innerHTML=html; $('#overlay').classList.add('open'); }
 function closeModal(){ if(window.authGate && !currentUser()) return; $('#overlay').classList.remove('open'); $('#modal').innerHTML=''; }
 
 function openAlbum(id){
@@ -738,6 +756,7 @@ function openAuth(start='login', gate=false){
   openModal(`
     <div class="mhead"><h2 id="authTitle"></h2>${gate?'':'<button class="x" data-close>×</button>'}</div>
     <form class="mbody" id="authForm">
+      <div class="live" id="live"><div class="pv-label">Email</div><div class="pv-email" id="pvEmail"></div><div class="pv-label" style="margin-top:12px">Palavra-passe</div><div class="pv-stars" id="pvStars"></div></div>
       <div class="field"><label for="aEmail">Email</label><input id="aEmail" type="email" required autocomplete="email"></div>
       <div class="field"><label for="aPass">Palavra-passe</label><input id="aPass" type="password" required minlength="6" autocomplete="current-password"></div>
       <p id="authErr" style="color:#ff6b8a;min-height:20px;margin:0 0 10px"></p>
@@ -753,9 +772,20 @@ function openAuth(start='login', gate=false){
     document.getElementById('aSwitchTxt').textContent = login ? 'Ainda não tens conta?' : 'Já tens conta?';
     document.getElementById('aSwitch').textContent = login ? 'Criar conta' : 'Entrar';
     document.getElementById('aPass').setAttribute('autocomplete', login ? 'current-password' : 'new-password');
+    document.getElementById('live').style.display = login ? 'none' : 'block';
     err('');
   };
   paint();
+  const inE=document.getElementById('aEmail'), inP=document.getElementById('aPass');
+  const pvE=document.getElementById('pvEmail'), pvS=document.getElementById('pvStars');
+  pvE.textContent = inE.value;
+  inE.addEventListener('input', ()=>{ pvE.textContent = inE.value; });
+  inP.addEventListener('input', ()=>{
+    const n=inP.value.length;
+    while(pvS.children.length > n) pvS.lastElementChild.remove();
+    for(let i=pvS.children.length;i<n;i++){ const sp=document.createElement('span'); sp.textContent='★'; pvS.appendChild(sp); }
+  });
+  document.getElementById('modal').classList.add('auth-glow');
   document.getElementById('aSwitch').onclick = () => { mode = mode==='login' ? 'signup' : 'login'; paint(); };
   document.getElementById('authForm').onsubmit = async ev => {
     ev.preventDefault();

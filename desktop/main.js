@@ -16,7 +16,8 @@ function createWindow() {
     }
   });
 
-  win.loadFile(path.join(__dirname, 'app', 'avaliador-albuns-v2.html'));
+  // Carrega a versão online: o login (Firebase) não funciona a partir de ficheiros locais.
+  win.loadURL('https://santiagomartins400-ctrl.github.io/album-critico/avaliador-albuns-v2.html');
 
   // Links externos (fotos da Wikimedia, páginas dos álbuns) abrem no navegador do sistema.
   win.webContents.setWindowOpenHandler(({ url }) => {

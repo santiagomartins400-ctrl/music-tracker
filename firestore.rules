@@ -1,0 +1,9 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Cada utilizador só lê e escreve a sua própria biblioteca.
+    match /users/{uid}/library/{itemId} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+  }
+}

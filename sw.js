@@ -1,6 +1,6 @@
 /* Service worker: guarda a página e a app para funcionarem offline.
    Estratégia: cache primeiro para os ficheiros do site; rede para o resto (APIs de música e fotos). */
-const CACHE = 'album-critico-v2-10';
+const CACHE = 'album-critico-v2-11';
 const SHELL = [
   './',
   './index.html',

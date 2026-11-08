@@ -733,6 +733,29 @@ document.getElementById('btnSpotify').addEventListener('click', ()=>{
   if(spConnected()) spotifyImport(); else spotifyConnect();
 });
 
+/* ---------- Aviso de conduta (primeira entrada, em inglês) ---------- */
+function showTermsIfNeeded(){
+  let ok=false; try{ ok = localStorage.getItem('music-tracker-terms')==='1'; }catch(e){}
+  if(ok){ if(!currentUser()) openAuth('login', true); return; }
+  window.authGate = true;
+  openModal(`
+    <div class="mhead"><h2>Welcome to Music Tracker</h2></div>
+    <div class="mbody">
+      <p style="line-height:1.7;color:#d6d4e6">Please behave respectfully. Harassment, hate speech, threats, spam and offensive content are not allowed in reviews or comments. Content that breaks these rules may be removed, and accounts may be restricted.</p>
+      <label class="check" style="margin:18px 0"><input type="checkbox" id="termsChk"> I accept and I understand.</label>
+      <div class="form-actions"><button type="button" class="btn primary" id="termsOk" disabled>Accept and continue</button></div>
+    </div>`);
+  const chk=document.getElementById('termsChk'), btn=document.getElementById('termsOk');
+  chk.addEventListener('change', ()=>{ btn.disabled = !chk.checked; });
+  btn.addEventListener('click', ()=>{
+    try{ localStorage.setItem('music-tracker-terms','1'); }catch(e){}
+    window.authGate = false;
+    closeModal();
+    if(!currentUser()) openAuth('login', true);
+  });
+}
+showTermsIfNeeded();
+
 /* ---------- Conta: criar conta e iniciar sessão ---------- */
 function refreshAccountButton(){
   document.getElementById('btnAccount').textContent = currentUser() || 'Entrar';
@@ -822,7 +845,7 @@ document.getElementById('btnAccount').addEventListener('click', () => {
 refreshAccountButton();
 refreshSpotifyButton();
 spotifyHandleRedirect();
-if(!currentUser()) openAuth('login', true);
+showTermsIfNeeded();
 
 renderChips();
 renderAllLibrary();

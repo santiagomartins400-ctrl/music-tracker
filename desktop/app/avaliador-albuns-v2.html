@@ -42,6 +42,21 @@ header{position:sticky;top:0;z-index:10;backdrop-filter:blur(14px);-webkit-backd
 .btn.ghost{background:transparent}
 input[type=file]{display:none}
 
+@media (min-width:900px){
+  body{padding-left:250px}
+  header{position:fixed;top:0;left:0;bottom:0;width:250px;z-index:20;background:rgba(12,12,20,.88);border-right:1px solid var(--line);border-bottom:none;overflow-y:auto}
+  header .bar{flex-direction:column;align-items:stretch;min-height:100%;max-width:none;margin:0;padding:26px 16px;gap:22px;flex-wrap:nowrap}
+  header .brand{margin:0;padding:4px 8px}
+  header .brand i{animation:floaty 4s ease-in-out infinite}
+  header .tabs{flex-direction:column;gap:6px;background:none;border:none;padding:0}
+  header .tab{text-align:left;padding:13px 16px;border-radius:14px;transition:transform .25s,background .25s,color .25s;color:var(--muted)}
+  header .tab:hover{background:rgba(255,255,255,.05);color:var(--text);transform:translateX(5px)}
+  header .tab.on{background-size:200% 200%;animation:gshift2 5s ease infinite;color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 12px 34px -10px rgba(139,92,246,.8)}
+  header #btnAccount{margin-top:auto;justify-content:center;padding:12px 14px}
+  main{margin:0;max-width:none;padding:30px 36px 60px}
+}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-3px) rotate(8deg)}}
+@keyframes gshift2{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 main{max-width:1240px;margin:auto;padding:26px 20px 60px}
 .split{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:start}
 .side{position:sticky;top:18px}

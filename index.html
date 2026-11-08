@@ -108,6 +108,15 @@ footer{max-width:1100px;margin:90px auto 0;padding:30px 20px 50px;border-top:1px
   nav a.link{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.fcard{opacity:1;transform:none}}
+
+/* Parede de capas */
+.preview{max-width:1100px;margin:60px auto 0;padding:0 20px;animation:up 1s .5s both}
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.wall a{display:block;aspect-ratio:1;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--panel2);transition:transform .3s,border-color .3s,box-shadow .3s;animation:up .6s both}
+.wall a:hover{transform:translateY(-4px) scale(1.02);border-color:#3c3c58;box-shadow:0 18px 40px -16px rgba(139,92,246,.6)}
+.wall img{width:100%;height:100%;object-fit:cover;display:block}
+.more-wrap{text-align:center;margin-top:22px}
+.more-wrap .btn:disabled{opacity:.5;cursor:default;transform:none}
 </style>
 </head>
 <body>
@@ -142,15 +151,8 @@ footer{max-width:1100px;margin:90px auto 0;padding:30px 20px 50px;border-top:1px
 </header>
 
 <div class="preview">
-  <div class="window">
-    <div class="wbar"><span></span><span></span><span></span></div>
-    <div class="wgrid">
-      <div class="mini"><div class="mc" style="background:linear-gradient(135deg,#f43f5e,#7c2d12)">O<em>9.1</em></div><div class="mt"><b>OK Computer</b><small>Radiohead · 1997</small></div></div>
-      <div class="mini"><div class="mc" style="background:linear-gradient(135deg,#8b5cf6,#1e1b4b)">B<em>8.9</em></div><div class="mt"><b>Blonde</b><small>Frank Ocean · 2016</small></div></div>
-      <div class="mini"><div class="mc" style="background:linear-gradient(135deg,#06b6d4,#0c4a6e)">L<em>8.4</em></div><div class="mt"><b>Lemonade</b><small>Beyoncé · 2016</small></div></div>
-      <div class="mini"><div class="mc" style="background:linear-gradient(135deg,#eab308,#713f12)">T<em>7.8</em></div><div class="mt"><b>Tó Dourado</b><small>Exemplo · 2019</small></div></div>
-    </div>
-  </div>
+  <div class="wall" id="wall"></div>
+  <div class="more-wrap"><button class="btn" id="more" type="button">Carregar mais capas</button></div>
 </div>
 
 <section class="feat">
@@ -230,6 +232,41 @@ document.getElementById('btnDownload').addEventListener('click',()=>toast('A des
 const t=document.getElementById('toast');
 let tt;
 function toast(m){ t.textContent=m; t.classList.add('show'); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('show'),2200); }
+
+/* Parede de capas: carrega capas reais da iTunes por artista/género */
+const ARTISTS=['Radiohead','Frank Ocean','Beyoncé','Amália Rodrigues','Daft Punk','Kendrick Lamar','Bob Marley','Miles Davis','Adele','Pink Floyd','Michael Jackson','Rihanna','Coldplay','Nirvana','Sade','Stevie Wonder','Pixies','Tame Impala','Bon Iver','Amy Winehouse','Madonna','Queen','The Beatles','David Bowie','Led Zeppelin','Kanye West','Lauryn Hill','Joni Mitchell','Nina Simone','Fleetwood Mac'];
+let next=0;
+const wall=document.getElementById('wall');
+const moreBtn=document.getElementById('more');
+async function loadCovers(){
+  moreBtn.disabled=true; moreBtn.textContent='A carregar…';
+  const terms=ARTISTS.slice(next,next+3); next+=3;
+  await Promise.all(terms.map(async t=>{
+    try{
+      const r=await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(t)}&entity=album&media=music&limit=8`);
+      const j=await r.json();
+      j.results.forEach(x=>{
+        if(!x.artworkUrl100) return;
+        const a=document.createElement('a');
+        a.href=x.collectionViewUrl||'#'; a.target='_blank'; a.rel='noopener';
+        a.title=`${x.collectionName} — ${x.artistName}`;
+        const img=document.createElement('img');
+        img.loading='lazy'; img.alt=a.title;
+        img.src=x.artworkUrl100.replace('100x100bb','400x400bb');
+        img.onerror=()=>a.remove();
+        a.appendChild(img); wall.appendChild(a);
+      });
+    }catch(e){}
+  }));
+  if(!wall.children.length){
+    wall.innerHTML='<p style="color:var(--muted);grid-column:1/-1;text-align:center">Não foi possível carregar as capas. Verifica a ligação e tenta de novo.</p>';
+  }
+  const done=next>=ARTISTS.length;
+  moreBtn.disabled=done;
+  moreBtn.textContent=done?'Sem mais capas':'Carregar mais capas';
+}
+moreBtn.addEventListener('click',loadCovers);
+loadCovers();
 </script>
 </body>
 </html>

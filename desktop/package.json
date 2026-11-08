@@ -1,7 +1,7 @@
 {
   "name": "album-critico",
   "productName": "Music Tracker",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "Avalia álbuns com critérios próprios, pesquisa um catálogo e vê capas e fotos.",
   "main": "main.js",
   "license": "UNLICENSED",

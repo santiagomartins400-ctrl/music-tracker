@@ -238,6 +238,7 @@ main{max-width:1240px;margin:auto;padding:26px 20px 60px}
         <option value="artist">Artista (A → Z)</option>
         <option value="fav">Favoritos primeiro</option>
       </select>
+      <button class="btn ghost" id="btnSpotify">Ligar Spotify</button>
       <button class="btn ghost" id="btnExport">Exportar</button>
       <label class="btn ghost" for="fileImport">Importar</label>
       <input type="file" id="fileImport" accept="application/json">
@@ -431,11 +432,12 @@ async function loadCovers(a){
 
 /* ---------- Biblioteca ---------- */
 function renderStats(){
-  const n=db.length, mean=n?db.reduce((s,a)=>s+a.stars,0)/n:0;
-  const best=n?[...db].sort((a,b)=>b.stars-a.stars)[0]:null;
+  const n=db.length, rated=db.filter(a=>a.stars>0);
+  const mean=rated.length?rated.reduce((s,a)=>s+a.stars,0)/rated.length:0;
+  const best=rated.length?[...rated].sort((a,b)=>b.stars-a.stars)[0]:null;
   $('#stats').innerHTML=`
     <div class="stat"><small>Álbuns avaliados</small><b>${n}</b><span>${db.filter(a=>a.fav).length} favoritos</span></div>
-    <div class="stat"><small>Média</small><b>${n?fmt(mean):'—'} <span style="font-size:1rem;color:var(--muted)">/ 5</span></b><span>${n?starsRead(mean):''}</span></div>
+    <div class="stat"><small>Média</small><b>${rated.length?fmt(mean):'—'} <span style="font-size:1rem;color:var(--muted)">/ 5</span></b><span>${rated.length?starsRead(mean):''}</span></div>
     <div class="stat"><small>Melhor avaliado</small><b title="${esc(best?.title)}">${best?esc(best.title):'—'}</b><span>${best?esc(best.artist)+' · '+fmt(best.stars)+' / 5':''}</span></div>
     <div class="stat"><small>Artista mais ouvido</small><b>${(()=>{const c={};db.forEach(a=>c[a.artist]=(c[a.artist]||0)+1);const t=Object.entries(c).sort((a,b)=>b[1]-a[1])[0];return t?esc(t[0]):'—';})()}</b><span></span></div>`;
 }
@@ -459,7 +461,7 @@ function renderLibrary(){
     return `<article class="card" style="animation-delay:${Math.min(i,12)*25}ms" data-open="${a.id}">
       ${coverHTML(a)}
       ${a.fav?'<span class="fav">★</span>':''}
-      <span class="badge-stars">${starsRead(a.stars)} ${fmt(a.stars)}</span>
+      <span class="badge-stars">${a.stars?starsRead(a.stars)+' '+fmt(a.stars):'Por avaliar'}</span>
       <div class="meta"><h3>${esc(a.title)}</h3><p>${esc(a.artist)}${a.year?' · '+esc(a.year):''}</p>
         ${a.genre?`<span class="tag">${esc(a.genre)}</span>`:''}</div>
     </article>`;
@@ -633,6 +635,83 @@ $('#fileImport').onchange=async e=>{
   e.target.value='';
 };
 
+/* ---------- Spotify (ligação por conta e importação dos álbuns guardados) ---------- */
+const SPOTIFY_CLIENT_ID = 'COLOCAR_AQUI';
+const SPOTIFY_REDIRECT = 'https://santiagomartins400-ctrl.github.io/album-critico/avaliador-albuns-v2.html';
+const spKey = () => 'album-critico-spotify:' + (currentUser() || 'guest');
+const spConnected = () => !!localStorage.getItem(spKey());
+function b64url(bytes){ return btoa(String.fromCharCode(...new Uint8Array(bytes))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,''); }
+function refreshSpotifyButton(){
+  const b=document.getElementById('btnSpotify'); if(b) b.textContent = spConnected() ? 'Importar do Spotify' : 'Ligar Spotify';
+}
+async function spotifyConnect(){
+  if(SPOTIFY_CLIENT_ID.startsWith('COLOCAR')){ toast('Falta o SPOTIFY_CLIENT_ID no ficheiro'); return; }
+  const verifier = b64url(crypto.getRandomValues(new Uint8Array(32)));
+  const challenge = b64url(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier)));
+  sessionStorage.setItem('sp_verifier', verifier);
+  sessionStorage.setItem('sp_account', currentUser());
+  const p = new URLSearchParams({client_id:SPOTIFY_CLIENT_ID, response_type:'code', redirect_uri:SPOTIFY_REDIRECT,
+    scope:'user-library-read', code_challenge_method:'S256', code_challenge:challenge});
+  location.href = 'https://accounts.spotify.com/authorize?' + p.toString();
+}
+async function spotifyHandleRedirect(){
+  const code = new URLSearchParams(location.search).get('code');
+  if(!code || !currentUser()) return;
+  history.replaceState({}, '', location.pathname);
+  const verifier = sessionStorage.getItem('sp_verifier');
+  if(!verifier) return;
+  const r = await fetch('https://accounts.spotify.com/api/token', {method:'POST',
+    headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body:new URLSearchParams({client_id:SPOTIFY_CLIENT_ID, grant_type:'authorization_code', code, redirect_uri:SPOTIFY_REDIRECT, code_verifier:verifier})});
+  sessionStorage.removeItem('sp_verifier');
+  if(!r.ok){ toast('Não foi possível ligar ao Spotify'); return; }
+  const t = await r.json();
+  localStorage.setItem(spKey(), JSON.stringify({access:t.access_token, refresh:t.refresh_token, exp:Date.now()+t.expires_in*1000}));
+  refreshSpotifyButton();
+  toast('Spotify ligado');
+  await spotifyImport();
+}
+async function spotifyToken(){
+  let st; try{ st = JSON.parse(localStorage.getItem(spKey())); }catch(e){}
+  if(!st) return null;
+  if(Date.now() < st.exp - 60000) return st.access;
+  const r = await fetch('https://accounts.spotify.com/api/token', {method:'POST',
+    headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body:new URLSearchParams({client_id:SPOTIFY_CLIENT_ID, grant_type:'refresh_token', refresh_token:st.refresh})});
+  if(!r.ok) return null;
+  const t = await r.json();
+  const n = {access:t.access_token, refresh:t.refresh_token||st.refresh, exp:Date.now()+t.expires_in*1000};
+  localStorage.setItem(spKey(), JSON.stringify(n));
+  return n.access;
+}
+async function spotifyImport(){
+  const tok = await spotifyToken();
+  if(!tok){ toast('Liga primeiro o Spotify'); refreshSpotifyButton(); return; }
+  let url = 'https://api.spotify.com/v1/me/albums?limit=50';
+  let added = 0;
+  try{
+    while(url){
+      const r = await fetch(url, {headers:{Authorization:'Bearer '+tok}});
+      if(!r.ok){ toast('Não foi possível importar do Spotify'); break; }
+      const j = await r.json();
+      (j.items||[]).forEach(it=>{
+        const al = it.album; const sid = 'spotify-'+al.id;
+        if(db.some(x=>x.sourceId===sid)) return;
+        db.unshift({id:uid(), sourceId:sid, artist:al.artists.map(x=>x.name).join(', '), title:al.name,
+          year:(al.release_date||'').slice(0,4), genre:'', cover:al.images?.[0]?.url||'', tracks:al.total_tracks||0,
+          stars:0, review:'', fav:false, createdAt:Date.now()});
+        added++;
+      });
+      url = j.next;
+    }
+  }catch(e){ toast('Sem ligação ao Spotify'); }
+  persist(); refreshAll();
+  toast(`${added} álbuns importados do Spotify`);
+}
+document.getElementById('btnSpotify').addEventListener('click', ()=>{
+  if(spConnected()) spotifyImport(); else spotifyConnect();
+});
+
 /* ---------- Conta: criar conta e iniciar sessão ---------- */
 function refreshAccountButton(){
   document.getElementById('btnAccount').textContent = currentUser() || 'Entrar';
@@ -641,12 +720,14 @@ function loginAs(email){
   try{ localStorage.setItem(SESS_KEY, email); }catch(e){}
   db = load();
   refreshAccountButton();
+  refreshSpotifyButton();
   refreshAll();
 }
 function logout(){
   try{ localStorage.removeItem(SESS_KEY); }catch(e){}
   db = load();
   refreshAccountButton();
+  refreshSpotifyButton();
   refreshAll();
   toast('Sessão terminada');
   openAuth('login', true);
@@ -706,6 +787,8 @@ document.getElementById('btnAccount').addEventListener('click', () => {
   else openAuth('login');
 });
 refreshAccountButton();
+refreshSpotifyButton();
+spotifyHandleRedirect();
 if(!currentUser()) openAuth('login', true);
 
 renderChips();

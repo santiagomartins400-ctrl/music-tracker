@@ -185,11 +185,15 @@ main{max-width:1240px;margin:auto;padding:26px 20px 60px}
         <option value="ZA">África do Sul</option>
         <option value="KR">Coreia do Sul</option>
       </select>
-      <select id="genre"><option value="all">Todos os géneros</option></select>
       <button class="btn primary" type="submit">Pesquisar</button>
     </form>
     <div class="chips" id="chips"></div>
     <div class="status" id="status">Escreve algo na pesquisa ou escolhe um género sugerido.</div>
+    <div class="tabs" style="display:inline-flex;margin-bottom:18px">
+      <button class="tab on" data-ct="Album">Álbuns <span id="cnt-Album"></span></button>
+      <button class="tab" data-ct="EP">EPs <span id="cnt-EP"></span></button>
+      <button class="tab" data-ct="Single">Singles <span id="cnt-Single"></span></button>
+    </div>
     <section class="grid" id="catGrid"></section>
   </section>
 
@@ -276,49 +280,76 @@ function coverHTML(a){
   return `<div class="cover">${img}</div>`;
 }
 
-/* ---------- Catálogo (iTunes) ---------- */
+/* ---------- Catálogo (MusicBrainz: país de origem do artista) ---------- */
 let catalog = [];
-function normalize(x){
+let catTab = 'Album';
+const sleep = ms => new Promise(r=>setTimeout(r,ms));
+const MB = 'https://musicbrainz.org/ws/2';
+async function mbGet(path){
+  const r = await fetch(MB + path);
+  if(!r.ok) throw new Error('mb '+r.status);
+  return r.json();
+}
+function rgNormalize(g, fallback){
+  const artist = (g['artist-credit']||[]).map(c=>c.name + (c.joinphrase||'')).join('') || fallback;
   return {
-    id:'itunes-'+x.collectionId, sourceId:'itunes-'+x.collectionId,
-    artist:x.artistName||'', title:x.collectionName||'', year:(x.releaseDate||'').slice(0,4),
-    genre:x.primaryGenreName||'', cover:(x.artworkUrl100||'').replace('100x100bb','600x600bb'),
-    tracks:x.trackCount||0
+    id:'mb-'+g.id, sourceId:'mb-'+g.id, rgid:g.id,
+    artist, title:g.title||'', year:(g['first-release-date']||'').slice(0,4),
+    type:g['primary-type']||'Album', genre:'',
+    cover:`https://coverartarchive.org/release-group/${g.id}/front-500`, tracks:0
   };
 }
 async function searchCatalog(term){
-  const q=(term ?? $('#cq').value).trim();
-  if(!q){ toast('Escreve algo para pesquisar'); return; }
-  $('#cq').value=q;
+  const raw=(term ?? $('#cq').value).trim();
+  if(!raw){ toast('Escreve algo para pesquisar'); return; }
+  $('#cq').value=raw;
+  const q=raw.replace(/"/g,'');
   const country=$('#country').value;
-  setStatus(`A pesquisar “${q}”…`);
+  const countryName=$('#country').selectedOptions[0].textContent;
+  catalog=[]; renderCatalog();
+  setStatus(`A procurar artistas de ${countryName}…`);
   $('#catGrid').innerHTML=skeletons(8);
   try{
-    const r=await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(q)}&entity=album&media=music&country=${country}&limit=200`);
-    if(!r.ok) throw new Error();
-    const j=await r.json();
-    catalog=j.results.map(normalize);
-    catalog.forEach(a=>registry.set(a.id,a));
-    fillGenreSelect(); renderCatalog();
-    setStatus(`${catalog.length} álbuns encontrados · mercado: ${$('#country').selectedOptions[0].textContent}`);
+    const a = await mbGet(`/artist/?query=${encodeURIComponent(`(artist:"${q}" OR tag:"${q}") AND country:${country}`)}&fmt=json&limit=8`);
+    const artists = a.artists||[];
+    if(!artists.length){
+      $('#catGrid').innerHTML='';
+      setStatus(`Nenhum artista de ${countryName} encontrado para “${q}”. Experimenta outro termo ou outro país.`);
+      return;
+    }
+    const all=[];
+    for(let i=0;i<artists.length;i++){
+      const ar=artists[i];
+      setStatus(`A carregar a discografia de ${ar.name} (${i+1}/${artists.length})…`);
+      try{
+        const rg = await mbGet(`/release-group/?artist=${ar.id}&limit=100&fmt=json`);
+        (rg['release-groups']||[]).forEach(g=>{
+          if((g['secondary-types']||[]).length) return;
+          if(!['Album','EP','Single'].includes(g['primary-type'])) return;
+          all.push(rgNormalize(g, ar.name));
+        });
+      }catch(e){}
+      if(i<artists.length-1) await sleep(1100);
+    }
+    catalog=all; all.forEach(x=>registry.set(x.id,x));
+    renderCatalog();
+    setStatus(`${all.length} lançamentos de ${artists.length} artistas de ${countryName} · fonte: MusicBrainz`);
   }catch(e){
-    catalog=[]; renderCatalog();
+    renderCatalog();
     setStatus('Não foi possível obter resultados. Verifica a ligação à internet e tenta de novo.');
   }
 }
-function fillGenreSelect(){
-  const cur=$('#genre').value;
-  const gs=[...new Set(catalog.map(a=>a.genre).filter(Boolean))].sort();
-  $('#genre').innerHTML=`<option value="all">Todos os géneros</option>`+gs.map(g=>`<option ${g===cur?'selected':''}>${esc(g)}</option>`).join('');
-}
-function renderChips(){
-  $('#chips').innerHTML=SUGGESTIONS.map(s=>`<button class="chip" data-chip="${esc(s)}">${esc(s)}</button>`).join('');
-}
 function renderCatalog(){
-  const g=$('#genre').value;
-  const list=catalog.filter(a=>g==='all'||a.genre===g);
-  if(!catalog.length){ $('#catGrid').innerHTML=`<div class="empty"><b>Pesquisa um artista, álbum ou género</b>Vais ver capas de álbuns reais, filtradas pelo mercado escolhido.</div>`; return; }
-  if(!list.length){ $('#catGrid').innerHTML=`<div class="empty"><b>Sem resultados para este género</b>Escolhe outro género ou “Todos os géneros”.</div>`; return; }
+  const count=t=>catalog.filter(a=>a.type===t).length;
+  ['Album','EP','Single'].forEach(t=>{ const el=$('#cnt-'+t); if(el) el.textContent=count(t)?`(${count(t)})`:''; });
+  document.querySelectorAll('[data-ct]').forEach(b=>b.classList.toggle('on', b.dataset.ct===catTab));
+  if(!catalog.length){
+    $('#catGrid').innerHTML=`<div class="empty"><b>Pesquisa um artista, álbum ou género</b>Escolhe o país e vais ver álbuns, EPs e singles de artistas desse país.</div>`;
+    return;
+  }
+  const list=catalog.filter(a=>a.type===catTab).sort((a,b)=>(b.year||0)-(a.year||0)||a.title.localeCompare(b.title,'pt'));
+  const label={Album:'álbuns',EP:'EPs',Single:'singles'}[catTab];
+  if(!list.length){ $('#catGrid').innerHTML=`<div class="empty"><b>Sem ${label} nesta pesquisa</b>Experimenta outro separador.</div>`; return; }
   $('#catGrid').innerHTML=list.map((a,i)=>{
     registry.set(a.id,a);
     const mine=findLib(a);
@@ -326,7 +357,7 @@ function renderCatalog(){
       ${coverHTML(a)}
       ${mine?`<span class="badge-stars">${starsRead(mine.stars)}</span>`:''}
       <div class="meta"><h3>${esc(a.title)}</h3><p>${esc(a.artist)}${a.year?' · '+esc(a.year):''}</p>
-        ${a.genre?`<span class="tag">${esc(a.genre)}</span>`:''}</div>
+        <span class="tag">${({Album:'Álbum',EP:'EP',Single:'Single'})[a.type]||a.type}</span></div>
     </article>`;
   }).join('');
 }
@@ -335,22 +366,21 @@ function skeletons(n){
   return Array.from({length:n},()=>`<div class="card"><div class="cover skel"></div><div class="meta"><h3>&nbsp;</h3><p>&nbsp;</p></div></div>`).join('');
 }
 
-/* ---------- Capas e artes (MusicBrainz + Cover Art Archive) ---------- */
+/* ---------- Capas e artes (Cover Art Archive) ---------- */
+async function findRgid(a){
+  const j = await mbGet(`/release-group/?query=${encodeURIComponent(`artist:"${a.artist}" AND releasegroup:"${a.title}"`)}&fmt=json&limit=3`);
+  return (j['release-groups']||[])[0]?.id || null;
+}
 async function loadCovers(a){
-  const q=`artist:"${a.artist}" AND releasegroup:"${a.title}"`;
-  const mbR=await fetch(`https://musicbrainz.org/ws/2/release-group/?query=${encodeURIComponent(q)}&fmt=json&limit=5`);
-  if(!mbR.ok) throw new Error();
-  const mb=await mbR.json();
-  const groups=(mb['release-groups']||[]).filter(g=>(g.title||'').toLowerCase()===a.title.toLowerCase());
-  const rg=groups[0]||(mb['release-groups']||[])[0];
-  if(!rg) return [];
-  const caR=await fetch(`https://coverartarchive.org/release-group/${rg.id}`);
-  if(!caR.ok) return [];
-  const ca=await caR.json();
+  const rgid = a.rgid || await findRgid(a);
+  if(!rgid) return [];
+  const r = await fetch(`https://coverartarchive.org/release-group/${rgid}`);
+  if(!r.ok) return [];
+  const ca = await r.json();
   return (ca.images||[]).map(img=>({
-    src:img.thumbnails?.large||img.thumbnails?.['500']||img.image,
-    page:img.image,
-    title:(img.types||[]).join(' · ')||'Capa'
+    src: img.thumbnails?.large || img.image,
+    page: img.image,
+    title: (img.types||[]).join(' · ') || 'Capa'
   }));
 }
 
@@ -504,18 +534,18 @@ function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('sh
 
 /* ---------- Separadores ---------- */
 function setTab(name){
-  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.tab===name));
+  document.querySelectorAll('header .tab').forEach(x=>x.classList.toggle('on',x.dataset.tab===name));
   $('#view-catalog').classList.toggle('hidden',name!=='catalog');
   $('#view-library').classList.toggle('hidden',name!=='library');
   if(name==='library') renderAllLibrary();
   if(name==='catalog') renderCatalog();
 }
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>setTab(b.dataset.tab));
+document.querySelectorAll('header .tab').forEach(b=>b.onclick=()=>setTab(b.dataset.tab));
 
 /* ---------- Eventos ---------- */
 $('#searchForm').addEventListener('submit',e=>{ e.preventDefault(); searchCatalog(); });
 $('#chips').addEventListener('click',e=>{ const c=e.target.closest('[data-chip]'); if(c){ $('#cq').value=c.dataset.chip; searchCatalog(c.dataset.chip); } });
-$('#genre').addEventListener('change',renderCatalog);
+document.querySelectorAll('[data-ct]').forEach(b=>b.addEventListener('click',()=>{ catTab=b.dataset.ct; renderCatalog(); }));
 $('#country').addEventListener('change',()=>{ if($('#cq').value.trim()) searchCatalog(); });
 
 $('#q').addEventListener('input',renderLibrary);

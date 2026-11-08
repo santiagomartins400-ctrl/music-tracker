@@ -13,28 +13,50 @@ async function feed(cc, kind) {
       title: e['im:name']?.label || '',
       artist: e['im:artist']?.label || '',
       cover: imgs.length ? imgs[imgs.length - 1].label : '',
-      url: e.link?.attributes?.href || '',
-      genre: e.category?.attributes?.label || ''
+      url: e.link?.attributes?.href || ''
     };
   });
 }
 
-const out = { updated: new Date().toISOString(), countries: {} };
+// Junta os tops dos vários países num único top global, somando pontos pela posição.
+function aggregate(lists) {
+  const map = new Map();
+  for (const list of lists) {
+    list.forEach((item, i) => {
+      const key = `${item.artist}|${item.title}`;
+      const points = 50 - i;
+      if (map.has(key)) map.get(key).points += points;
+      else map.set(key, { ...item, points });
+    });
+  }
+  return [...map.values()]
+    .sort((a, b) => b.points - a.points)
+    .slice(0, 50)
+    .map((x, i) => ({ rank: i + 1, title: x.title, artist: x.artist, cover: x.cover, url: x.url }));
+}
+
+const albumLists = [], songLists = [];
 for (const cc of COUNTRIES) {
   try {
     const [albums, songs] = await Promise.all([feed(cc, 'topalbums'), feed(cc, 'topsongs')]);
-    out.countries[cc] = { albums, songs };
+    albumLists.push(albums);
+    songLists.push(songs);
     console.log(`${cc}: ${albums.length} álbuns, ${songs.length} músicas`);
   } catch (e) {
     console.warn(`${cc}: ${e.message}`);
   }
 }
 
-if (Object.keys(out.countries).length === 0) {
-  console.error('Nenhum país foi atualizado; o ficheiro anterior mantém-se.');
+if (albumLists.length === 0) {
+  console.error('Nenhum top foi obtido; o ficheiro anterior mantém-se.');
   process.exit(1);
 }
 
+const out = {
+  updated: new Date().toISOString(),
+  global: { albums: aggregate(albumLists), songs: aggregate(songLists) }
+};
+
 await mkdir('data', { recursive: true });
 await writeFile('data/charts.json', JSON.stringify(out, null, 2));
-console.log('data/charts.json atualizado');
+console.log('data/charts.json atualizado (top global)');

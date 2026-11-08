@@ -45,7 +45,7 @@ input[type=file]{display:none}
 main{max-width:1240px;margin:auto;padding:26px 20px 60px}
 
 /* Pesquisa */
-.searchbox{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:14px;margin-bottom:12px;display:grid;grid-template-columns:1fr 150px 160px 150px auto;gap:10px}
+.searchbox{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:14px;margin-bottom:12px;display:grid;grid-template-columns:1fr auto;gap:10px}
 .searchbox input,.searchbox select,.tools input,.tools select{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;outline:none;transition:.2s;min-width:0}
 .searchbox input:focus,.searchbox select:focus,.tools input:focus,.tools select:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(139,92,246,.15)}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
@@ -188,55 +188,9 @@ main{max-width:1240px;margin:auto;padding:26px 20px 60px}
   <section id="view-catalog">
     <form class="searchbox" id="searchForm">
       <input id="cq" placeholder="Artista ou álbum (opcional) — ex.: Radiohead, Amália…" autocomplete="off">
-      <select id="country">
-        <option value="PT">Portugal</option>
-        <option value="BR">Brasil</option>
-        <option value="ES">Espanha</option>
-        <option value="FR">França</option>
-        <option value="DE">Alemanha</option>
-        <option value="IT">Itália</option>
-        <option value="GB">Reino Unido</option>
-        <option value="US" selected>Estados Unidos</option>
-        <option value="CA">Canadá</option>
-        <option value="MX">México</option>
-        <option value="AR">Argentina</option>
-        <option value="JP">Japão</option>
-        <option value="AU">Austrália</option>
-        <option value="NL">Países Baixos</option>
-        <option value="SE">Suécia</option>
-        <option value="NG">Nigéria</option>
-        <option value="ZA">África do Sul</option>
-        <option value="KR">Coreia do Sul</option>
-      </select>
-      <select id="genre">
-        <option value="all">Todos os géneros</option>
-        <option value="rock">Rock</option>
-        <option value="pop">Pop</option>
-        <option value="hip hop">Hip-hop</option>
-        <option value="r&b">R&amp;B</option>
-        <option value="soul">Soul</option>
-        <option value="jazz">Jazz</option>
-        <option value="fado">Fado</option>
-        <option value="electronic">Eletrónica</option>
-        <option value="house">House</option>
-        <option value="techno">Techno</option>
-        <option value="metal">Metal</option>
-        <option value="punk">Punk</option>
-        <option value="indie rock">Indie</option>
-        <option value="folk">Folk</option>
-        <option value="blues">Blues</option>
-        <option value="country">Country</option>
-        <option value="reggae">Reggae</option>
-        <option value="funk">Funk</option>
-        <option value="classical">Clássica</option>
-        <option value="samba">Samba</option>
-        <option value="kizomba">Kizomba</option>
-        <option value="sertanejo">Sertanejo</option>
-      </select>
       <button class="btn primary" type="submit">Pesquisar</button>
     </form>
-    <div class="chips" id="chips"></div>
-    <div class="status" id="status">Escreve algo na pesquisa ou escolhe um género sugerido.</div>
+    <div class="status" id="status">Escreve um artista ou álbum para pesquisar. Enquanto não pesquisas, aparecem os álbuns mais ouvidos da semana.</div>
     <div class="tabs" style="display:inline-flex;margin-bottom:18px">
       <button class="tab on" data-ct="Album">Álbuns <span id="cnt-Album"></span></button>
       <button class="tab" data-ct="EP">EPs <span id="cnt-EP"></span></button>
@@ -267,26 +221,17 @@ main{max-width:1240px;margin:auto;padding:26px 20px 60px}
     </section>
     <section class="grid" id="libGrid"></section>
   </section>
-</main>
 
-<section id="view-charts" class="hidden" style="max-width:1240px;margin:auto;padding:26px 20px 60px">
-  <div class="searchbox" style="grid-template-columns:200px 1fr">
-    <select id="chCountry">
-      <option value="pt">Portugal</option>
-      <option value="br">Brasil</option>
-      <option value="es">Espanha</option>
-      <option value="us" selected>Estados Unidos</option>
-      <option value="gb">Reino Unido</option>
-    </select>
-    <span class="status" id="chStatus" style="margin:0;align-self:center"></span>
-  </div>
-  <div class="tabs" style="display:inline-flex;margin:4px 0 18px">
-    <button class="tab on" data-chk="albums">Álbuns</button>
-    <button class="tab" data-chk="songs">Músicas</button>
-    <button class="tab" data-chk="artists">Artistas</button>
-  </div>
-  <section class="grid" id="chGrid"></section>
-</section>
+  <section id="view-charts" class="hidden">
+    <span class="status" id="chStatus" style="display:block;margin:0 0 14px"></span>
+    <div class="tabs" style="display:inline-flex;margin:4px 0 18px">
+      <button class="tab on" data-chk="albums">Álbuns</button>
+      <button class="tab" data-chk="songs">Músicas</button>
+      <button class="tab" data-chk="artists">Artistas</button>
+    </div>
+    <section class="grid" id="chGrid"></section>
+  </section>
+</main>
 
 <div class="overlay" id="overlay"><div class="modal" id="modal"></div></div>
 <div class="toast" id="toast"></div>
@@ -380,28 +325,43 @@ function rgNormalize(g, fallback){
     cover:`https://coverartarchive.org/release-group/${g.id}/front-500`, tracks:0
   };
 }
+function getCharts(){
+  if(chartsData) return Promise.resolve(chartsData);
+  return fetch('data/charts.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>(chartsData=d)).catch(()=>null);
+}
+async function loadSuggestions(){
+  setStatus('A carregar os álbuns mais populares…');
+  $('#catGrid').innerHTML=skeletons(8);
+  const d = await getCharts();
+  const list = d?.global?.albums || [];
+  if(!list.length){
+    catalog=[]; renderCatalog();
+    setStatus('Escreve um artista ou álbum para pesquisar.');
+    return;
+  }
+  catalog = list.map(x=>({
+    id:'top-'+x.artist+'|'+x.title, sourceId:'top-'+x.artist+'|'+x.title,
+    title:x.title, artist:x.artist, type:'Album', rgid:null,
+    year:null, cover:x.cover, tracks:0
+  }));
+  catalog.forEach(x=>registry.set(x.id,x));
+  renderCatalog();
+  setStatus('Sugestões: os álbuns mais populares da semana · escreve acima para pesquisar');
+}
 async function searchCatalog(term){
-  const raw=(term ?? $('#cq').value).trim();
-  const genre=$('#genre').value;
-  if(!raw && genre==='all'){ toast('Escreve um artista ou escolhe um género'); return; }
-  $('#cq').value=raw;
-  const q=raw.replace(/"/g,'');
-  const country=$('#country').value;
-  const countryName=$('#country').selectedOptions[0].textContent;
-  const parts=[];
-  if(q) parts.push(`(artist:"${q}" OR tag:"${q}")`);
-  if(genre!=='all') parts.push(`tag:"${genre}"`);
-  parts.push(`country:${country}`);
-  const query=parts.join(' AND ');
+  const q=(term ?? $('#cq').value).trim().replace(/"/g,'');
+  $('#cq').value=q;
+  if(!q){ loadSuggestions(); return; }
+  const query=`(artist:"${q}" OR tag:"${q}")`;
   catalog=[]; renderCatalog();
-  setStatus(`A procurar artistas de ${countryName}…`);
+  setStatus(`A procurar “${q}”…`);
   $('#catGrid').innerHTML=skeletons(8);
   try{
     const a = await mbGet(`/artist/?query=${encodeURIComponent(query)}&fmt=json&limit=8`);
     const artists = a.artists||[];
     if(!artists.length){
       $('#catGrid').innerHTML='';
-      setStatus(`Nenhum artista de ${countryName}${genre!=='all'?' com este género':''}${q?' para “'+q+'”':''}. Experimenta outro termo, género ou país.`);
+      setStatus(`Nenhum resultado para “${q}”. Experimenta outro termo.`);
       return;
     }
     const all=[];
@@ -420,7 +380,7 @@ async function searchCatalog(term){
     }
     catalog=all; all.forEach(x=>registry.set(x.id,x));
     renderCatalog();
-    setStatus(`${all.length} lançamentos de ${artists.length} artistas de ${countryName} · fonte: MusicBrainz`);
+    setStatus(`${all.length} lançamentos de ${artists.length} artistas para “${q}” · fonte: MusicBrainz`);
   }catch(e){
     renderCatalog();
     setStatus('Não foi possível obter resultados. Verifica a ligação à internet e tenta de novo.');
@@ -431,7 +391,7 @@ function renderCatalog(){
   ['Album','EP','Single'].forEach(t=>{ const el=$('#cnt-'+t); if(el) el.textContent=count(t)?`(${count(t)})`:''; });
   document.querySelectorAll('[data-ct]').forEach(b=>b.classList.toggle('on', b.dataset.ct===catTab));
   if(!catalog.length){
-    $('#catGrid').innerHTML=`<div class="empty"><b>Pesquisa um artista, álbum ou género</b>Escolhe o país e vais ver álbuns, EPs e singles de artistas desse país.</div>`;
+    $('#catGrid').innerHTML=`<div class="empty"><b>Pesquisa um artista ou álbum</b>Os resultados aparecem aqui.</div>`;
     return;
   }
   const list=catalog.filter(a=>a.type===catTab).sort((a,b)=>(b.year||0)-(a.year||0)||a.title.localeCompare(b.title,'pt'));
@@ -634,10 +594,7 @@ document.querySelectorAll('header .tab').forEach(b=>b.onclick=()=>setTab(b.datas
 
 /* ---------- Eventos ---------- */
 $('#searchForm').addEventListener('submit',e=>{ e.preventDefault(); searchCatalog(); });
-$('#chips').addEventListener('click',e=>{ const c=e.target.closest('[data-chip]'); if(c){ $('#cq').value=c.dataset.chip; searchCatalog(c.dataset.chip); } });
 document.querySelectorAll('[data-ct]').forEach(b=>b.addEventListener('click',()=>{ catTab=b.dataset.ct; renderCatalog(); }));
-$('#country').addEventListener('change',()=>{ if($('#cq').value.trim()||$('#genre').value!=='all') searchCatalog(); });
-$('#genre').addEventListener('change',()=>{ if($('#cq').value.trim()||$('#genre').value!=='all') searchCatalog(); });
 
 $('#q').addEventListener('input',renderLibrary);
 $('#lgenre').addEventListener('change',renderLibrary);
@@ -788,12 +745,11 @@ async function loadCharts(){
   renderCharts();
 }
 function renderCharts(){
-  const cc = $('#chCountry').value;
-  const data = chartsData?.countries?.[cc];
+  const data = chartsData?.global;
   $('#chStatus').textContent = chartsData?.updated
     ? `Atualizado em ${new Date(chartsData.updated).toLocaleDateString('pt-PT')}`
     : 'O top semanal ainda não está disponível.';
-  if(!data){ $('#chGrid').innerHTML = `<div class="empty"><b>Sem dados para este país</b>Escolhe outro país ou volta mais tarde.</div>`; return; }
+  if(!data){ $('#chGrid').innerHTML = `<div class="empty"><b>Top ainda não disponível</b>Volta mais tarde.</div>`; return; }
   let list;
   if(chKind==='albums') list = data.albums;
   else if(chKind==='songs') list = data.songs;
@@ -812,7 +768,6 @@ function renderCharts(){
       <div class="meta"><h3>${esc(x.title)}</h3><p>${esc(x.artist)}</p></div>
     </article>`).join('');
 }
-$('#chCountry').addEventListener('change', renderCharts);
 document.querySelectorAll('[data-chk]').forEach(b => b.addEventListener('click', () => {
   chKind = b.dataset.chk;
   document.querySelectorAll('[data-chk]').forEach(x => x.classList.toggle('on', x===b));
@@ -910,7 +865,7 @@ refreshSpotifyButton();
 spotifyHandleRedirect();
 showTermsIfNeeded();
 
-renderChips();
+loadSuggestions();
 renderAllLibrary();
 </script>
 

@@ -1,1 +1,4035 @@
-{"updated":null,"countries":{}}
+{
+  "updated": "2026-11-08T20:17:08.585Z",
+  "countries": {
+    "pt": {
+      "albums": [
+        {
+          "rank": 1,
+          "title": "VENDETTA: Veni, Vidi, Vici",
+          "artist": "Plutónio",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c3/4a/bb/c34abba0-7871-267d-b584-9375510945eb/196874900376.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/vendetta-veni-vidi-vici/6823691673?uo=2",
+          "genre": "Hip-Hop/Rap"
+        },
+        {
+          "rank": 2,
+          "title": "RADIANTE ESTRELA DECADENTE",
+          "artist": "David Fonseca",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8b/54/7d/8b547dd0-2ebd-e478-a69e-c0daa54d8b7b/26UM1IM40520.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/radiante-estrela-decadente/6828099341?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 3,
+          "title": "Odeon Hotel",
+          "artist": "Dead Combo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/8a/6e/14/8a6e14fe-ff74-6d7f-646a-849b263b6dfa/886447040416.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/odeon-hotel/1370385856?uo=2",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 4,
+          "title": "C Nou Mem Again",
+          "artist": "Abege",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/d7/bc/2b/mzi.iqthenzk.tif/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/c-nou-mem-again/262000077?uo=2",
+          "genre": "Hip-Hop/Rap"
+        },
+        {
+          "rank": 5,
+          "title": "Indigo",
+          "artist": "Asia",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ee/21/88/ee218830-cc6a-c9ac-4d0f-5daf3ad73913/820233957458.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/indigo/6786070473?uo=2",
+          "genre": "Hard rock"
+        },
+        {
+          "rank": 6,
+          "title": "David Crosby and Graham Nash - The Second Duo Album",
+          "artist": "David Crosby & Graham Nash",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/69/0c/3c/mzi.wbpqrhmt.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/david-crosby-and-graham-nash-the-second-duo-album/422033880?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 7,
+          "title": "Still Life",
+          "artist": "Van Der Graaf Generator",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/fc/12/c7/fc12c7a1-561d-c04a-9db0-dc0b9686c51e/00094631139451.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/still-life/714502369?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 8,
+          "title": "As Várias Pontas de uma Estrela (Ao Vivo no Coala Festival)",
+          "artist": "Gal Costa",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/0f/43/12/0f4312c7-5fce-a1e2-4b64-df39035f15f2/7898539579899.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/as-v%C3%A1rias-pontas-de-uma-estrela-ao-vivo-no-coala-festival/1842205436?uo=2",
+          "genre": "MPB"
+        },
+        {
+          "rank": 9,
+          "title": "Caetano Veloso",
+          "artist": "Caetano Veloso",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/9e/a0/21/9ea02193-671f-9b8f-2362-d1f858bc08a6/00602577446184.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/caetano-veloso/1450294674?uo=2",
+          "genre": "MPB"
+        },
+        {
+          "rank": 10,
+          "title": "Trend after Trend - EP",
+          "artist": "Bello B",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/fd/1c/32/fd1c32df-38a4-e684-07a2-ead5587f8615/6009553476199_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/trend-after-trend-ep/6818147215?uo=2",
+          "genre": "Dança"
+        },
+        {
+          "rank": 11,
+          "title": "SONHE DE NHA VIDA",
+          "artist": "Cabo X",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/22/8a/51/228a5180-8f90-3563-9ac4-3f80b3c0fe30/cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/sonhe-de-nha-vida/6807187934?uo=2",
+          "genre": "Kizomba"
+        },
+        {
+          "rank": 12,
+          "title": "Devagar Que A Vida É Curta",
+          "artist": "Ana Lua Caiano",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/1b/56/ae/1b56ae2a-e03f-3acd-c33c-3738374734e1/4030433618776_cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/devagar-que-a-vida-%C3%A9-curta/6788797099?uo=2",
+          "genre": "Urbana latina"
+        },
+        {
+          "rank": 13,
+          "title": "Lost Tales, Vol. 1 - EP",
+          "artist": "Finnegan Tui",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/98/86/bd/9886bd4f-ea9f-c2d9-77fd-a6944d290d36/199538471731.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/lost-tales-vol-1-ep/1831464175?uo=2",
+          "genre": "Folk alternativa"
+        },
+        {
+          "rank": 14,
+          "title": "Las Italianas",
+          "artist": "Alexander Acha",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/cb/da/5b/cbda5bcc-d5f8-01b7-8102-6a9a070749c2/0.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/las-italianas/1633136770?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 15,
+          "title": "Sandra Nanor",
+          "artist": "Sandra Nanor",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/c4/1a/13/c41a133a-e3d4-6fa3-7ab8-05b2f16743f3/cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/sandra-nanor/1629506401?uo=2",
+          "genre": "França"
+        },
+        {
+          "rank": 16,
+          "title": "No Pagode",
+          "artist": "Beth Carvalho",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/c4/7f/1b/c47f1b32-84af-c954-c743-b9c791c48daf/886447304976.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/no-pagode/1435264758?uo=2",
+          "genre": "Samba"
+        },
+        {
+          "rank": 17,
+          "title": "How's It Goin'",
+          "artist": "Bryan Adams",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/de/9f/f5/de9ff595-ff1c-e4ab-e5ca-09e43f57386c/5059449450919.png/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/hows-it-goin/6809936545?uo=2",
+          "genre": "Pop/Rock"
+        },
+        {
+          "rank": 18,
+          "title": "iTunes Festival: London 2011 - EP",
+          "artist": "Coldplay",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/43/72/58/437258d9-768d-2e70-f4b1-d5cd5a1806ae/5099930438651.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/itunes-festival-london-2011-ep/717121681?uo=2",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 19,
+          "title": "Muse",
+          "artist": "John Legend",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e0/d8/e2/e0d8e283-e48d-2245-0107-08da6aa60d68/26UM1IM12676.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/muse/6808409890?uo=2",
+          "genre": "R&B/soul"
+        },
+        {
+          "rank": 20,
+          "title": "Dá-Me Lume (O Melhor De...)",
+          "artist": "Jorge Palma",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/8f/a0/ac/8fa0acb0-1e82-c6f2-dfd9-c733a0d98a3f/00601215920727.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/d%C3%A1-me-lume-o-melhor-de/1443717417?uo=2",
+          "genre": "Mundo"
+        },
+        {
+          "rank": 21,
+          "title": "The Essential Leonard Cohen",
+          "artist": "Leonard Cohen",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/b6/d8/5d/b6d85d2e-537e-5a8f-793f-78763de08dab/mzi.ppysthnn.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/the-essential-leonard-cohen/192677178?uo=2",
+          "genre": "Cantautores"
+        },
+        {
+          "rank": 22,
+          "title": "Fallen (Deluxe Edition / Remastered 2023)",
+          "artist": "Evanescence",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/b2/75/55/b27555dd-20fe-0ffe-cb59-50d1c3c7b9b6/23CRGIM37498.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/fallen-deluxe-edition-remastered-2023/1709168452?uo=2",
+          "genre": "Hard rock"
+        },
+        {
+          "rank": 23,
+          "title": "Grace",
+          "artist": "Jeff Buckley",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/26/d6/e3/26d6e339-a7a9-d61e-1b5f-0852a5515a55/886445517880.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/grace/1046187510?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 24,
+          "title": "Sam's Town",
+          "artist": "The Killers",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/0d/d8/d7/0dd8d755-2147-9954-8b2e-991b25e49f51/17UM1IM06934.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/sams-town/1440891236?uo=2",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 25,
+          "title": "Blonde On Blonde",
+          "artist": "Bob Dylan",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/20/9d/bf/209dbf58-f698-7181-33de-0c29480beba0/074640084126.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/blonde-on-blonde/178049863?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 26,
+          "title": "As Canções da Naifa",
+          "artist": "A Naifa",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/6c/0f/d1/6c0fd1a3-478c-d521-f875-7a1e816a5726/825646353804.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/as-can%C3%A7%C3%B5es-da-naifa/734252906?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 27,
+          "title": "The Freewheelin' Bob Dylan",
+          "artist": "Bob Dylan",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/63/3c/98/633c98ab-b4f3-3f40-798b-bdb49d923468/074640878626.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/the-freewheelin-bob-dylan/190758914?uo=2",
+          "genre": "Folk contemporâneo"
+        },
+        {
+          "rank": 28,
+          "title": "Highway 61 Revisited",
+          "artist": "Bob Dylan",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f8/ff/c0/f8ffc056-55b4-2033-657d-32492d1eea25/827969239926.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/highway-61-revisited/201281514?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 29,
+          "title": "Hunky Dory (2015 Remaster)",
+          "artist": "David Bowie",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f0/b9/68/f0b9680e-b028-b3d6-f793-7c268256499a/825646286034.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/hunky-dory-2015-remaster/1039798000?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 30,
+          "title": "Flashpoint (2009 Remaster)",
+          "artist": "The Rolling Stones",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/fd/42/fe/fd42fe27-3dce-d09a-c181-ec3a380d5910/00602537190782.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/flashpoint-2009-remaster/1440819523?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 31,
+          "title": "More Best of Leonard Cohen",
+          "artist": "Leonard Cohen",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/10/a2/54/mzi.oluutzgh.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/more-best-of-leonard-cohen/207090010?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 32,
+          "title": "5150",
+          "artist": "Van Halen",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/a2/ff/14/a2ff145c-ff55-1bc0-50ed-d7817bbcde8f/mzi.hmtxyyhj.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/5150/319402847?uo=2",
+          "genre": "Hard rock"
+        },
+        {
+          "rank": 33,
+          "title": "So Good to Me - EP",
+          "artist": "Chris Malinchak",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/62/92/d0/6292d04f-f5b5-acaa-1682-1374edd21274/888003010772.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/so-good-to-me-ep/697265751?uo=2",
+          "genre": "Dança"
+        },
+        {
+          "rank": 34,
+          "title": "John Wesley Harding",
+          "artist": "Bob Dylan",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2e/90/ac/2e90ac6d-c8e9-0f42-8852-af968be471dd/mzi.uchoqyha.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/john-wesley-harding/181457097?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 35,
+          "title": "Hits and Exit Wounds",
+          "artist": "Alabama 3",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/68/4f/4d/mzi.pzpiakrd.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/hits-and-exit-wounds/283020249?uo=2",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 36,
+          "title": "Sou Benfica - As Canções da Águia",
+          "artist": "UHF",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music2/v4/de/c1/16/dec1160d-b644-e876-01a7-05b31380d66d/888831024927.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/sou-benfica-as-canc-o-es-da-a-guia/867920819?uo=2",
+          "genre": "Mundo"
+        },
+        {
+          "rank": 37,
+          "title": "Ride Lonesome",
+          "artist": "Beck",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/06/e4/45/06e445e7-9c2d-2a52-99b5-b6aa6a35a307/26UMGIM84718.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/ride-lonesome/6788956584?uo=2",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 38,
+          "title": "Bryan Adams Live In Lisbon",
+          "artist": "Bryan Adams",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/14/f8/0c/14f80c1f-f24c-7aa1-d0da-41dfe0f31391/5059449161341.png/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/bryan-adams-live-in-lisbon/1724091722?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 39,
+          "title": "Semitrópico",
+          "artist": "NAPA",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/4d/37/d5/4d37d516-bbd5-10e3-705c-8329b30404ec/26UM1IM22401.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/semitr%C3%B3pico/6815895032?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 40,
+          "title": "\"Heroes\" (2017 Remaster)",
+          "artist": "David Bowie",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e2/65/b2/e265b2ae-48d5-9dd8-0251-6cd6c6c4eb53/190295842826.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/heroes-2017-remaster/1347894082?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 41,
+          "title": "Language of Light",
+          "artist": "Merkaba",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/e5/a4/29/e5a42902-e0c7-0937-7ac9-eadddefcc178/887158154003_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/language-of-light/553353579?uo=2",
+          "genre": "Dança"
+        },
+        {
+          "rank": 42,
+          "title": "As Earth to Sky",
+          "artist": "Merkaba",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/0f/38/b5/0f38b555-835f-1fc1-1372-28c73a6a9bc2/889326701224_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/as-earth-to-sky/1128614578?uo=2",
+          "genre": "Trance"
+        },
+        {
+          "rank": 43,
+          "title": "Relaxing Music",
+          "artist": "Meditation Masters & Yoga Meditation Music",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/86/58/b8/8658b870-aaf1-1be8-dbbf-20d0333f92e2/38926.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/relaxing-music/1608484358?uo=2",
+          "genre": "Eletrónica"
+        },
+        {
+          "rank": 44,
+          "title": "Spanish Leather",
+          "artist": "Guitarricadelafuente",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/97/79/2e/97792e51-4107-bf59-6260-33fd8c7d28f7/196873008608.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/spanish-leather/1804329771?uo=2",
+          "genre": "Pop em espanhol"
+        },
+        {
+          "rank": 45,
+          "title": "Bloco Na Rua (Deluxe)",
+          "artist": "Ney Matogrosso",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/de/78/bc/de78bcc3-43b5-73c3-2a59-d256dcaaf5da/7891430442279.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/bloco-na-rua-deluxe/1487271474?uo=2",
+          "genre": "MPB"
+        },
+        {
+          "rank": 46,
+          "title": "The Cutting Edge 1965-1966: The Bootleg Series, Vol. 12 (Deluxe Edition)",
+          "artist": "Bob Dylan",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/eb/a6/dd/eba6ddd2-a452-e052-7db8-4edace907e02/886445477979.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/the-cutting-edge-1965-1966-the-bootleg-series-vol/1041169203?uo=2",
+          "genre": "Cantautores"
+        },
+        {
+          "rank": 47,
+          "title": "A man from the future",
+          "artist": "Pet Shop Boys",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/35/ae/59/35ae59e4-81e3-75e6-fd95-e917e19e7941/1200214337230.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/a-man-from-the-future/6806305498?uo=2",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 48,
+          "title": "A vous les femmes",
+          "artist": "Julio Iglesias",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/e8/22/20/e8222024-0c31-3507-b5b6-13562a188d33/dj.pliochlt.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/a-vous-les-femmes/255580474?uo=2",
+          "genre": "Pop francês"
+        },
+        {
+          "rank": 49,
+          "title": "AEYSA",
+          "artist": "Aeysa",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/20/3a/bc/203abc80-ed7c-2772-3a47-7817e857d54d/artwork.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/aeysa/6819606436?uo=2",
+          "genre": "Mundo"
+        },
+        {
+          "rank": 50,
+          "title": "O My Beloved",
+          "artist": "Kings of Leon",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c2/84/79/c2847988-ab33-0de8-0dc3-ebf0c6cbd0b4/00823375343684_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/pt/album/o-my-beloved/6802901441?uo=2",
+          "genre": "Alternativa"
+        }
+      ],
+      "songs": [
+        {
+          "rank": 1,
+          "title": "MONTANHA RUSSA (feat. Sam The Kid, XEG, Regula & Valete)",
+          "artist": "MAIS PESADOS DA CAPITAL",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8b/7c/ef/8b7cefdb-df8a-2ea0-5f4b-745d8864fa81/859749877820_cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Hip-Hop/Rap"
+        },
+        {
+          "rank": 2,
+          "title": "Movin' To The Sun",
+          "artist": "HUGEL, Imael Angel & Ultra Naté",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/96/61/7a/96617ab5-51da-7cfc-97e5-c5a6a893c210/1087654.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Eletrónica"
+        },
+        {
+          "rank": 3,
+          "title": "Bad Times (Extended Version)",
+          "artist": "Imael Angel",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/08/03/7f/08037f7d-6173-9348-991d-5966f0686539/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "House"
+        },
+        {
+          "rank": 4,
+          "title": "Bonito, Bonito",
+          "artist": "Thiago Navarro Music",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/77/47/fc/7747fc1e-8167-5de6-b8e7-cf9b1038aea3/882436183713_cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop em espanhol"
+        },
+        {
+          "rank": 5,
+          "title": "PEGA OU LARGA",
+          "artist": "Chico da Tina",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/05/ed/58/05ed5898-a7d7-cbd2-3baa-97326cb50e0f/26UMGIM99731.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 6,
+          "title": "Bi Festinha",
+          "artist": "LUDMILLA, HITMAKER & Puterrier",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/4f/6f/5c/4f6f5c83-f8ed-cc4e-02c0-0f23bc978d26/196874908662.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 7,
+          "title": "Motinha 2.0",
+          "artist": "DENNIS & Luísa Sonza",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/46/90/20/469020c0-9653-26d7-59ce-40d88ddc0eaf/196872819670.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 8,
+          "title": "VÍCIOS",
+          "artist": "Chico da Tina",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/13/fb/50/13fb50a1-28a4-f472-c083-c14f46807d79/26UMGIM46981.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 9,
+          "title": "Última Dança",
+          "artist": "Chico da Tina & Lucas Maia",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/56/2e/4e/562e4eae-b759-6b17-7501-159d5c6ee000/199806178645.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Latina"
+        },
+        {
+          "rank": 10,
+          "title": "Homem Do Meio (feat. Sam The Kid & Regula)",
+          "artist": "MAIS PESADOS DA CAPITAL",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a3/26/b4/a326b42f-aa78-132b-be68-792076b0ccd9/859749604235_cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Hip-Hop/Rap"
+        },
+        {
+          "rank": 11,
+          "title": "Isto nÃO é Para Ti (feat. Valete' & XEG)",
+          "artist": "MAIS PESADOS DA CAPITAL",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d5/95/23/d59523c0-73ff-99a5-76af-d6441185f3ee/859749604976_cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Hip-Hop/Rap"
+        },
+        {
+          "rank": 12,
+          "title": "The Greatest Show On Earth",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/22/aa/69/22aa69a4-2ab6-c37b-1491-8f0d6423c2a3/26UMGIM93067.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 13,
+          "title": "Street Of Dreams",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/22/aa/69/22aa69a4-2ab6-c37b-1491-8f0d6423c2a3/26UMGIM93067.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 14,
+          "title": "Isaltino",
+          "artist": "Plutónio",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b4/6f/c1/b46fc15a-c3c0-943d-543d-22ec80b34b1a/196874839553.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Hip-Hop/Rap"
+        },
+        {
+          "rank": 15,
+          "title": "Beat It",
+          "artist": "Michael Jackson",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/4f/fd/324ffda2-9e51-8f6a-0c2d-c6fd2b41ac55/074643811224.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 16,
+          "title": "Crazy Little Thing Called Love",
+          "artist": "Queen",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/15/c7/55/15c755bc-7603-3ce3-e243-e59f1f9863ea/602527724171.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Rock"
+        },
+        {
+          "rank": 17,
+          "title": "ESPERA",
+          "artist": "Divolly & Markward, Jamy Nox & Quentro",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f0/e0/57/f0e05798-7552-c809-0d40-a390e90f090b/cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Afro-house"
+        },
+        {
+          "rank": 18,
+          "title": "BbY WOW",
+          "artist": "KAROL G, Judeline & rusowsky",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/2b/66/b2/2b66b26c-ab23-faa1-c4ee-06fa2cce8f76/26UM1IM00558.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Urbana latina"
+        },
+        {
+          "rank": 19,
+          "title": "This Is Me",
+          "artist": "Keala Settle & The Greatest Showman Ensemble",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/a6/63/54/a6635418-7d49-b237-d1c9-ba85fa57dbc6/075679886613.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Banda sonora"
+        },
+        {
+          "rank": 20,
+          "title": "CAVALINHO (REMIX)",
+          "artist": "PEDRO SAMPAIO & Gasparzinho",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/cd/60/67/cd60672b-2f79-137c-b789-ef19c0a7cdda/5054197960727.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 21,
+          "title": "POCPOC",
+          "artist": "PEDRO SAMPAIO",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/81/22/37/8122377f-10af-fa96-e8c5-f16f793442de/5054197835780.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Brasileira"
+        },
+        {
+          "rank": 22,
+          "title": "Inside My Soul",
+          "artist": "SK.music",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/bf/6b/68/bf6b68bb-b62a-a478-6ae0-b652972ce5b0/883128956318.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Eletrónica"
+        },
+        {
+          "rank": 23,
+          "title": "Billie Jean",
+          "artist": "Michael Jackson",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/4f/fd/324ffda2-9e51-8f6a-0c2d-c6fd2b41ac55/074643811224.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 24,
+          "title": "Livin' On a Prayer",
+          "artist": "Bon Jovi",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/40/16/3e/40163e24-6985-b785-d4ea-cbae07d74812/06UMGIM05422.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Hard rock"
+        },
+        {
+          "rank": 25,
+          "title": "Madre Tierra (Oye)",
+          "artist": "Chayanne",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/46/f6/30/46f63022-aab9-1b59-766d-fffb72936a91/886444687744.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop em espanhol"
+        },
+        {
+          "rank": 26,
+          "title": "Voilà (Live)",
+          "artist": "André Rieu, Johann Strauss Orchestra & Emma Kok",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5a/58/c1/5a58c18b-6126-9448-cad1-9d25ce961606/7444754914924.png/170x170bb.png",
+          "url": "",
+          "genre": "Transição clássica"
+        },
+        {
+          "rank": 27,
+          "title": "I Won't Give Up",
+          "artist": "Jason Mraz",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2c/ac/8a/2cac8ac4-cb90-ac44-0808-a8e3ccbe05d0/075679962577.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 28,
+          "title": "Don't Let Go",
+          "artist": "Zavyre",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/df/98/a2/df98a249-3555-b75f-76b6-e81957ab3a11/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Cantautores"
+        },
+        {
+          "rank": 29,
+          "title": "Don't Stop the Party (feat. TJR)",
+          "artist": "Pitbull",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/2f/97/a7/2f97a788-25e7-6bd1-b659-b4e5d6c57f3c/886443668539.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 30,
+          "title": "Mr Charm",
+          "artist": "The Rolling Stones",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c2/c5/ad/c2c5ad0d-e9c9-041c-e803-a8466a23ce54/26UMGIM36901.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Rock"
+        },
+        {
+          "rank": 31,
+          "title": "Thriller",
+          "artist": "Michael Jackson",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/4f/fd/324ffda2-9e51-8f6a-0c2d-c6fd2b41ac55/074643811224.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 32,
+          "title": "I Got You (I Feel Good)",
+          "artist": "James Brown & The Famous Flames",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/8a/76/04/8a760498-ce95-c1f3-4bff-958362821728/14UMGIM28794.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "R&B/soul"
+        },
+        {
+          "rank": 33,
+          "title": "stupid song",
+          "artist": "Olivia Rodrigo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1d/1b/f9/1d1bf9b1-44c6-9a6c-6ffb-c158488c06ce/26UMGIM39303.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 34,
+          "title": "Mi Chico (Jason Derulo x Melody Version)",
+          "artist": "DJ Goja, Jason Derulo & Melody",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c5/aa/2b/c5aa2b28-7860-b387-fec4-4cefd5096150/712132026161_cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Afropop"
+        },
+        {
+          "rank": 35,
+          "title": "I'm Yours",
+          "artist": "Jason Mraz",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f8/ac/ec/f8acec21-40e2-fa91-fe61-1be3cbc1467a/mzi.jokpbtnf.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 36,
+          "title": "Wanna Be Startin' Somethin'",
+          "artist": "Michael Jackson",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/4f/fd/324ffda2-9e51-8f6a-0c2d-c6fd2b41ac55/074643811224.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 37,
+          "title": "Street Of Dreams",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/26/db/1f/26db1f9b-840b-0d25-66a3-1dfa0b6f06d7/26UMGIM93067.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 38,
+          "title": "Desfado",
+          "artist": "Ana Moura",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/4c/c0/ca/4cc0ca2b-ddad-b284-ad54-b3641be3b0c9/00602537669837.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 39,
+          "title": "The Greatest Show On Earth",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/26/db/1f/26db1f9b-840b-0d25-66a3-1dfa0b6f06d7/26UMGIM93067.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 40,
+          "title": "Lucky",
+          "artist": "Jason Mraz & Colbie Caillat",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f8/ac/ec/f8acec21-40e2-fa91-fe61-1be3cbc1467a/mzi.jokpbtnf.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 41,
+          "title": "Don't Stop Me Now",
+          "artist": "Queen",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/9e/ae/4a/9eae4a23-130a-4ed7-d590-bfa701f9acaf/602527717685.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Rock"
+        },
+        {
+          "rank": 42,
+          "title": "The Lazy Song",
+          "artist": "Bruno Mars",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/83/88/2f/83882f17-1a88-85e3-07ae-9a45adc15b3e/075679599018.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 43,
+          "title": "LET ME BE",
+          "artist": "The Second Voice",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/0f/68/ba/0f68ba2b-f12c-4a5b-fa4f-b9c378be26a4/825204598296.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Dança"
+        },
+        {
+          "rank": 44,
+          "title": "Believer",
+          "artist": "Imagine Dragons",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/11/7a/b8/117ab805-6811-8929-18b9-0fad7baf0c25/17UMGIM98210.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 45,
+          "title": "Superstition (Single Version)",
+          "artist": "Stevie Wonder",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/29/3a/92/293a9224-329d-3ede-ed4c-caba1c045e97/00602547215086.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "R&B/soul"
+        },
+        {
+          "rank": 46,
+          "title": "Mama, Don't Close Your Eyes",
+          "artist": "Bjorn Bonebreaker",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/05/71/cf/0571cf88-b7fc-b762-d646-8a4b3a598953/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Folk"
+        },
+        {
+          "rank": 47,
+          "title": "Born to Die",
+          "artist": "Lana Del Rey",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/b8/42/39/b8423909-3abd-4b5f-8ebe-709c95e500bc/12UMGIM51209.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 48,
+          "title": "Rabiosa (feat. Pitbull)",
+          "artist": "Shakira",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/ec/15/38/ec1538d9-67b8-e561-6b11-bc5a266cba7c/886444681568.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop em espanhol"
+        },
+        {
+          "rank": 49,
+          "title": "Free Fallin' (Live at the Nokia Theatre, Los Angeles, CA - December 2007)",
+          "artist": "John Mayer",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/99/4f/5f/994f5f40-a842-4dc7-58d4-a0210ae09c8c/dj.rengmjbv.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 50,
+          "title": "Fast Car",
+          "artist": "Tracy Chapman",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/b8/c4/31/b8c431e9-a67d-3917-72e5-be9f5a1ebc46/075596077460.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Cantautores"
+        }
+      ]
+    },
+    "us": {
+      "albums": [
+        {
+          "rank": 1,
+          "title": "Drummer Boy (Original Motion Picture Soundtrack)",
+          "artist": "for KING & COUNTRY & Angel",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/35/fe/0a/35fe0aac-055d-4633-5aa0-01b0bde3a954/194646569462.png/170x170bb.png",
+          "url": "https://music.apple.com/us/album/drummer-boy-original-motion-picture-soundtrack/6819036608?uo=2",
+          "genre": "Soundtrack"
+        },
+        {
+          "rank": 2,
+          "title": "Good Weather For Immaculate Conception",
+          "artist": "Alanis Morissette",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c0/0b/05/c00b0532-1bd3-de7b-14d4-482e2f82be21/00823375487272_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/good-weather-for-immaculate-conception/6816116333?uo=2",
+          "genre": "Holiday"
+        },
+        {
+          "rank": 3,
+          "title": "O My Beloved (iTunes Exclusive Deluxe)",
+          "artist": "Kings of Leon",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/0b/48/3a/0b483a8d-0b76-0722-53d8-9a1dbaabcd22/823375580782_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/o-my-beloved-itunes-exclusive-deluxe/6830889741?uo=2",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 4,
+          "title": "O My Beloved",
+          "artist": "Kings of Leon",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c2/84/79/c2847988-ab33-0de8-0dc3-ebf0c6cbd0b4/00823375343684_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/o-my-beloved/6802901441?uo=2",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 5,
+          "title": "Dying In This House",
+          "artist": "Mack Geiger",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/fb/a2/91/fba291db-11f2-c55d-36bd-f69fe6635771/196874914748.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/dying-in-this-house/6825883834?uo=2",
+          "genre": "Country"
+        },
+        {
+          "rank": 6,
+          "title": "Godzilla Minus Zero (Original Motion Picture Soundtrack)",
+          "artist": "Naoki Sato",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/fa/6b/b9/fa6bb9aa-5211-50eb-2bee-e6ab8208b88c/196874733974.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/godzilla-minus-zero-original-motion-picture-soundtrack/6824385222?uo=2",
+          "genre": "Soundtrack"
+        },
+        {
+          "rank": 7,
+          "title": "Britney (25th Anniversary Edition)",
+          "artist": "Britney Spears",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3d/61/0f/3d610fd5-e074-45bb-1f0e-5a9bac6ac74d/196874836071.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/britney-25th-anniversary-edition/6818422876?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 8,
+          "title": "Good News Of Great Joy (Christmas Songs Of Worship)",
+          "artist": "Chris Tomlin",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ec/45/b8/ec45b83f-56b8-ae22-ee33-ba04ae009d0c/26UM1IM20529.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/good-news-of-great-joy-christmas-songs-of-worship/6813661131?uo=2",
+          "genre": "Christian"
+        },
+        {
+          "rank": 9,
+          "title": "SatchVai: The Sea Of Emotion",
+          "artist": "Joe Satriani & Steve Vai",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/61/a3/26/61a32666-0a4d-2c57-c358-fb1c3332d808/4029759222828.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/satchvai-the-sea-of-emotion/6804731236?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 10,
+          "title": "Outlier - EP",
+          "artist": "Sam Barber",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/65/c6/f6/65c6f691-bd12-f1d9-6ebe-4765ae4d80a8/075679551535.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/outlier-ep/6828607811?uo=2",
+          "genre": "Country"
+        },
+        {
+          "rank": 11,
+          "title": "That's Just Me",
+          "artist": "Riley Green",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/16/cf/71/16cf71b7-bda7-9916-3d11-3b60539ace2c/26BMR0008042.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/thats-just-me/6770725355?uo=2",
+          "genre": "Country"
+        },
+        {
+          "rank": 12,
+          "title": "Requiem for a Village",
+          "artist": "Steven Wilson",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/50/49/86/50498649-9a81-bc78-26c4-09165c7b8779/823375169109_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/requiem-for-a-village/6779529412?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 13,
+          "title": "Dandelion",
+          "artist": "Ella Langley",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/26/35/03/26350323-d656-4817-49e6-4d658af8363a/196874332917.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/dandelion/1895159736?uo=2",
+          "genre": "Country"
+        },
+        {
+          "rank": 14,
+          "title": "Origins 1971-1978",
+          "artist": "Tom Petty & The Heartbreakers",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a3/bb/64/a3bb64a3-6e22-00be-0106-a36bc361cf4e/26UMGIM38873.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/origins-1971-1978/6823307338?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 15,
+          "title": "Made You Look",
+          "artist": "Hudson Westbrook",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/55/b9/04/55b9046c-55b5-986c-328f-c5743431ce48/093624814825.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/made-you-look/6798476482?uo=2",
+          "genre": "Country"
+        },
+        {
+          "rank": 16,
+          "title": "The Faith Tour",
+          "artist": "George Michael",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/94/0c/8a/940c8ac1-82b5-368d-4585-6a3149d99643/196874120323.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/the-faith-tour/6801587846?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 17,
+          "title": "The Rolling Thunder Revue 1976: Fort Worth Texas, May 16th",
+          "artist": "Bob Dylan",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/29/a6/2e/29a62e3a-daa9-9546-8cd8-b231645617c6/196874750681.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/the-rolling-thunder-revue-1976-fort-worth-texas-may-16th/6810863405?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 18,
+          "title": "Dyin' Times - EP",
+          "artist": "Sam Barber",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/30/80/cc/3080cc83-73a9-1cad-d2e1-1a8c024c7543/075679547880.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/dyin-times-ep/6830393588?uo=2",
+          "genre": "Country"
+        },
+        {
+          "rank": 19,
+          "title": "My Country",
+          "artist": "Craig Morgan",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e1/50/d6/e150d671-f6d6-024e-31f3-c2924a6f5a3a/4099964292343.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/my-country/6809880655?uo=2",
+          "genre": "Country"
+        },
+        {
+          "rank": 20,
+          "title": "Airplane Mode",
+          "artist": "James Blunt",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/17/8e/2b/178e2b94-8f53-74b8-3642-7ef36502d5f5/1200214944070.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/airplane-mode/6805055407?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 21,
+          "title": "Their Greatest Hits 1971-1975",
+          "artist": "Eagles",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f0/c7/c8/f0c7c8f4-4319-d357-ddaf-566ef8e2194e/081227979379.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/their-greatest-hits-1971-1975/635829435?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 22,
+          "title": "The Birth Of A King: Live In Concert (Deluxe)",
+          "artist": "Tommee Profitt",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/78/c9/58/78c9582a-a64e-5443-aec7-90551a0244d9/26SYMIM36897.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/the-birth-of-a-king-live-in-concert-deluxe/6823405253?uo=2",
+          "genre": "Holiday"
+        },
+        {
+          "rank": 23,
+          "title": "How's It Goin'",
+          "artist": "Bryan Adams",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/de/9f/f5/de9ff595-ff1c-e4ab-e5ca-09e43f57386c/5059449450919.png/170x170bb.png",
+          "url": "https://music.apple.com/us/album/hows-it-goin/6809936545?uo=2",
+          "genre": "Pop/Rock"
+        },
+        {
+          "rank": 24,
+          "title": "Voices of The Gilded Age: The Christmas Album",
+          "artist": "Cast of 'The Gilded Age'",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ee/be/d6/eebed69d-6d21-14df-ab3a-4252eb525533/26CRGIM55990.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/voices-of-the-gilded-age-the-christmas-album/6812789228?uo=2",
+          "genre": "Holiday"
+        },
+        {
+          "rank": 25,
+          "title": "Indigo",
+          "artist": "Asia",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ee/21/88/ee218830-cc6a-c9ac-4d0f-5daf3ad73913/820233957458.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/indigo/6786070473?uo=2",
+          "genre": "Hard Rock"
+        },
+        {
+          "rank": 26,
+          "title": "Greatest Hits",
+          "artist": "Tom Petty & The Heartbreakers",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/78/61/dd/7861dd44-f796-08ea-c8ff-7f8a12a86db1/15UMGIM69649.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/greatest-hits/1469579555?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 27,
+          "title": "Grateful",
+          "artist": "The Red Clay Strays",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/7a/7a/e4/7a7ae4aa-c96a-bc93-5d04-7c03aa5f35f5/196874013465.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/grateful/1893402542?uo=2",
+          "genre": "Country"
+        },
+        {
+          "rank": 28,
+          "title": "The Definitive Collection: Sammy Kershaw",
+          "artist": "Sammy Kershaw",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ad/70/ba/ad70badc-4ba5-e7a7-ff35-90993832179d/00602498620861.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/the-definitive-collection-sammy-kershaw/1440785646?uo=2",
+          "genre": "Country"
+        },
+        {
+          "rank": 29,
+          "title": "Greatest Hits (2024 Remaster)",
+          "artist": "Journey",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/71/2d/61/712d617d-f4a4-5904-1b11-d4b4b45c47c5/828768588925.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/greatest-hits-2024-remaster/169003304?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 30,
+          "title": "Thriller",
+          "artist": "Michael Jackson",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/4f/fd/324ffda2-9e51-8f6a-0c2d-c6fd2b41ac55/074643811224.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/thriller/269572838?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 31,
+          "title": "Made by These Moments",
+          "artist": "The Red Clay Strays",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/02/17/78/021778f3-9c1f-e211-30b6-854109b992ae/196871996808.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/made-by-these-moments/1746991953?uo=2",
+          "genre": "Country"
+        },
+        {
+          "rank": 32,
+          "title": "Christmas in the City (Deluxe)",
+          "artist": "Pentatonix",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/53/62/b6/5362b694-eebb-e50c-127d-f5f6f28ad4bb/26UM1IM02242.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/christmas-in-the-city-deluxe/6798103849?uo=2",
+          "genre": "Holiday"
+        },
+        {
+          "rank": 33,
+          "title": "I'm So Happy",
+          "artist": "Ms. Rachel",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/0b/88/df/0b88df94-ec02-412b-a6bc-9ebef710142b/820233141529.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/im-so-happy/6792048044?uo=2",
+          "genre": "Children's Music"
+        },
+        {
+          "rank": 34,
+          "title": "Chronicle: The 20 Greatest Hits",
+          "artist": "Creedence Clearwater Revival",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a1/47/ba/a147ba91-31cd-ef4d-d785-040036d14598/12CMGIM34362.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/chronicle-the-20-greatest-hits/1440955595?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 35,
+          "title": "A Drummer Boy Christmas +",
+          "artist": "for KING & COUNTRY",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/e5/6c/b3/e56cb3c4-e86d-12e2-8488-7c61e7e6773f/194646506764.png/170x170bb.png",
+          "url": "https://music.apple.com/us/album/a-drummer-boy-christmas/1586069657?uo=2",
+          "genre": "Holiday"
+        },
+        {
+          "rank": 36,
+          "title": "Rock And Roll Over (50th Anniversary Super Deluxe)",
+          "artist": "Kiss",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/58/d2/01/58d20100-a8de-ed9e-24a1-4940f72dd197/26UM1IM09768.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/rock-and-roll-over-50th-anniversary-super-deluxe/6808375208?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 37,
+          "title": "Hybrid Theory (Deluxe Edition)",
+          "artist": "LINKIN PARK",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/53/a7/7f/53a77fab-c54c-a57b-8130-248fc12d0c80/093624948995.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/hybrid-theory-deluxe-edition/590431776?uo=2",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 38,
+          "title": "20th Century Masters - The Millennium Collection: The Best of Sammy Kershaw",
+          "artist": "Sammy Kershaw",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/86/f2/89/86f28951-8439-e3a8-0fea-6d8b308001dc/07UMGIM01591.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/20th-century-masters-the-millennium-collection-the/1472351404?uo=2",
+          "genre": "Country"
+        },
+        {
+          "rank": 39,
+          "title": "The Essential Michael Jackson",
+          "artist": "Michael Jackson",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/3d/9d/38/3d9d3811-71f0-3a0e-1ada-3004e56ff852/827969428726.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/the-essential-michael-jackson/159292399?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 40,
+          "title": "the most beautiful colours (bonus track version)",
+          "artist": "for KING & COUNTRY",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/2d/f7/d7/2df7d7d5-6465-067e-db62-5d5dce3f83cb/194646552068.png/170x170bb.png",
+          "url": "https://music.apple.com/us/album/the-most-beautiful-colours-bonus-track-version/6766329579?uo=2",
+          "genre": "Christian"
+        },
+        {
+          "rank": 41,
+          "title": "Queen Budapest (Live)",
+          "artist": "Queen",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/51/50/2c/51502c9e-de70-1100-569e-6b50cec92150/196874612422.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/queen-budapest-live/6792889537?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 42,
+          "title": "The Art of Loving",
+          "artist": "Olivia Dean",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/08/e2/21/08e22164-7c0b-1522-818f-e0e74f62dc49/25UMGIM69703.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/the-art-of-loving/1817609404?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 43,
+          "title": "I Am What I Am",
+          "artist": "Kirk Franklin",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/39/5e/45/395e4585-2813-c477-0558-df9db8f6d02b/26UM1IM17728.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/i-am-what-i-am/6827881008?uo=2",
+          "genre": "Gospel"
+        },
+        {
+          "rank": 44,
+          "title": "Godzilla Minus One (Original Soundtrack) [Deluxe Edition]",
+          "artist": "Naoki Sato",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/6b/d3/9d/6bd39dc8-b6b9-3a57-f63e-77423cab2f3d/196872470659.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/godzilla-minus-one-original-soundtrack-deluxe-edition/1771361392?uo=2",
+          "genre": "Soundtrack"
+        },
+        {
+          "rank": 45,
+          "title": "Metallica (Remastered)",
+          "artist": "Metallica",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/9e/80/1b/9e801b06-67fa-0990-2d15-85480ad3cd46/850007452025.png/170x170bb.png",
+          "url": "https://music.apple.com/us/album/metallica-remastered/1572046434?uo=2",
+          "genre": "Metal"
+        },
+        {
+          "rank": 46,
+          "title": "Boston",
+          "artist": "Boston",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/e3/08/9a/e3089ac9-a820-5ee9-64be-39500ad8a5e2/886444824972.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/boston/913902091?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 47,
+          "title": "Greatest Hits",
+          "artist": "Fleetwood Mac",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/d2/48/f4/d248f4ae-a7e4-a48e-1588-6617de3e8d76/mzi.izeorbmm.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/greatest-hits/202271826?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 48,
+          "title": "Holiday Things - EP",
+          "artist": "Hilary Duff",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/1f/8f/28/1f8f28b9-0b13-74e2-cd73-268dad4e2e2a/075679552549.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/holiday-things-ep/6822107106?uo=2",
+          "genre": "Holiday"
+        },
+        {
+          "rank": 49,
+          "title": "Only By the Night",
+          "artist": "Kings of Leon",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/74/25/4c/74254c8b-e03d-44e8-304d-4cde508b8cfb/dj.swemfdrr.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/only-by-the-night/290302885?uo=2",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 50,
+          "title": "Hysteria",
+          "artist": "Def Leppard",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/0f/76/fa/0f76fa8d-8341-c0af-84d8-543b9193c728/17UM1IM41552.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/us/album/hysteria/1440903625?uo=2",
+          "genre": "Hard Rock"
+        }
+      ],
+      "songs": [
+        {
+          "rank": 1,
+          "title": "Choosin' Texas",
+          "artist": "Ella Langley",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e2/91/4d/e2914d0a-7f1d-f04c-fbf4-c50b38548838/196873638690.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 2,
+          "title": "Talk To God",
+          "artist": "Tom MacDonald",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c2/f1/54/c2f154d7-c003-0fb7-b2aa-b8ce39c62ad3/712132267250_cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Hip-Hop/Rap"
+        },
+        {
+          "rank": 3,
+          "title": "Babydoll",
+          "artist": "Jamie Miller",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e6/15/d2/e615d28f-70b5-e43a-b3c8-460dca39c9e5/26UMGIM97516.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 4,
+          "title": "Patient Zero",
+          "artist": "Taylor Swift",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a0/dd/fd/a0ddfd72-ee9e-f046-6466-a5dbefc696fa/26UM1IM21436.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 5,
+          "title": "Bad Times (Extended Version)",
+          "artist": "Imael Angel",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/08/03/7f/08037f7d-6173-9348-991d-5966f0686539/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "House"
+        },
+        {
+          "rank": 6,
+          "title": "Tell me, how is Heaven",
+          "artist": "May the Lord Studio",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ef/bb/cd/efbbcdd9-de9b-1d59-2e91-300afe2143d1/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Christian"
+        },
+        {
+          "rank": 7,
+          "title": "Mama, Don't Close Your Eyes",
+          "artist": "Bjorn Bonebreaker",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/05/71/cf/0571cf88-b7fc-b762-d646-8a4b3a598953/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Folk"
+        },
+        {
+          "rank": 8,
+          "title": "Stop The Wedding!",
+          "artist": "Ashe",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/b7/55/7a/b7557aef-bb0a-cc57-25bf-979eee194f16/075679571403.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 9,
+          "title": "take me home (4 christmas)",
+          "artist": "Olivia Rodrigo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/4f/a6/39/4fa63976-a53a-0084-ef73-b49bc2d8c29e/26UM1IM40331.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 10,
+          "title": "Lies (feat. Lana Del Rey)",
+          "artist": "Zach Bryan & Lana Del Rey",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ea/98/f2/ea98f2b8-5131-29ae-2064-997234ef13bc/093624812647.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 11,
+          "title": "BAD TIMES",
+          "artist": "Imael Angel",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/08/48/e5/0848e51a-c14d-1d5f-494e-871b561ed0f4/26UM1IM27351.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Dance"
+        },
+        {
+          "rank": 12,
+          "title": "Be There In A Minute",
+          "artist": "Thomas Rhett",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ba/ce/79/bace790c-d2f5-3c94-1796-663043e29446/26BMR0008482.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 13,
+          "title": "Babydoll",
+          "artist": "Jamie Miller & Antonio Cipriano",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a9/85/94/a98594bd-8e36-7b9f-a59d-77a3a19eb9a1/26UM1IM19333.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 14,
+          "title": "Don't Close Your Eyes",
+          "artist": "Keith Whitley",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/15/b0/62/15b06272-10fe-a37c-26d7-a87f5729d8a3/dj.bpwfywgf.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 15,
+          "title": "Boston",
+          "artist": "STELLA LEFTY",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/7c/de/5e/7cde5e7a-612d-9714-d34c-1eb234c85ebb/810129961546.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 16,
+          "title": "POKITO",
+          "artist": "Daddy Yankee & Diljit Dosanjh",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/24/2a/a4/242aa4a9-808f-419f-289c-e7e6a1517c08/4593106.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Latin"
+        },
+        {
+          "rank": 17,
+          "title": "Last Thing You Need",
+          "artist": "Morgan Wallen",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/5d/d3/1c/5dd31c9c-1e1c-0bbc-104f-4a42e2bb4c59/075679556424.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 18,
+          "title": "Been By Now",
+          "artist": "Morgan Wallen",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/9f/8d/52/9f8d52a0-b6d9-d038-327b-4fe58bedce67/26UMGIM94572.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 19,
+          "title": "Flower In A Hurricane [From GTAVI: Original Score]",
+          "artist": "Justice, Tame Impala, SZA & King Gizzard & The Lizard Wizard",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/23/54/af235448-23b3-a3bf-0738-87f6c44a4bbc/5056556187486_cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 20,
+          "title": "Dying In This House",
+          "artist": "Mack Geiger",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/fb/a2/91/fba291db-11f2-c55d-36bd-f69fe6635771/196874914748.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 21,
+          "title": "My Years With You",
+          "artist": "RUSTIC DRIFTER",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cd/92/3f/cd923fbb-21e8-3a9f-fa0f-3c2e47ad4ad1/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 22,
+          "title": "Housewife",
+          "artist": "Tate McRae",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/69/64/e4/6964e483-c02c-e389-14f4-c426e8c65f2c/196874840146.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 23,
+          "title": "Rise Slow",
+          "artist": "Kimo Sounds",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/23/27/8a/23278a46-aa21-30f3-9e68-213772c53ea7/825181567094.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Electronic"
+        },
+        {
+          "rank": 24,
+          "title": "Jaded",
+          "artist": "Koe Wetzel & Ella Langley",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b7/97/c1/b797c1fb-2e88-00a8-cf99-74af3ef13b6f/196874698624.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 25,
+          "title": "VALHALLA CALLING",
+          "artist": "Ragal Ironbull",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3c/f5/ce/3cf5ce7f-0eb7-ab67-d641-924cb9f96aef/7300349535632_cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 26,
+          "title": "BbY WOW",
+          "artist": "KAROL G, Judeline & rusowsky",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/2b/66/b2/2b66b26c-ab23-faa1-c4ee-06fa2cce8f76/26UM1IM00558.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Urbano latino"
+        },
+        {
+          "rank": 27,
+          "title": "Peace On Earth",
+          "artist": "Phil Wickham & CeCe Winans",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fb/c4/5f/fbc45fb2-3e8e-deff-b8fc-cdb72c1fa5ac/196874863961.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Christian"
+        },
+        {
+          "rank": 28,
+          "title": "Jesus On My Mind (All the Time) [Pacific Light Orchestra Remix]",
+          "artist": "Tristan Trexler",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/34/83/52/348352c9-cc0c-e6d9-9923-844121db7e25/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Christian"
+        },
+        {
+          "rank": 29,
+          "title": "God Didn’t Let Me Break",
+          "artist": "Still Heals",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/26/a7/62/26a762fb-b712-0629-d24f-14a7296e8f9f/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Christian"
+        },
+        {
+          "rank": 30,
+          "title": "You'll Be In My Heart",
+          "artist": "Phil Collins",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/09/ff/d4/09ffd48c-f525-ae2b-be96-b12696d83a49/18UMGIM62087.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Soundtrack"
+        },
+        {
+          "rank": 31,
+          "title": "Daughter of the Black Pine",
+          "artist": "Bjorn Bonebreaker",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/04/52/9b/04529b09-d98b-8668-06a8-65c6771c97a8/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Folk"
+        },
+        {
+          "rank": 32,
+          "title": "In My Soul",
+          "artist": "Bob Dominator",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c2/5a/9d/c25a9da9-18be-d367-6570-56307fcbc1f7/612891165418.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 33,
+          "title": "Be Her",
+          "artist": "Ella Langley",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/26/35/03/26350323-d656-4817-49e6-4d658af8363a/196874332917.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 34,
+          "title": "All I Want for Christmas Is You",
+          "artist": "Mariah Carey",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/c6/b7/27/c6b727f7-3a32-6b43-cee2-05bb71daf1cf/dj.itfmdeif.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Christmas: Pop"
+        },
+        {
+          "rank": 35,
+          "title": "you look like you love me",
+          "artist": "Ella Langley & Riley Green",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/62/33/40/62334080-6129-4d0c-086b-921cc956cb7a/196872090895.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 36,
+          "title": "Wounds I've Made",
+          "artist": "Burn Eternal",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/bb/09/0e/bb090ec8-f0f7-1e8c-0e64-18b818bb20c7/Burn_Eternal_-_Burn_Eternal.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Metal"
+        },
+        {
+          "rank": 37,
+          "title": "Take a Little",
+          "artist": "Jaxson Blue",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/4c/22/ef/4c22efe8-9ad8-35ca-5946-b53bc872cc6a/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Blues"
+        },
+        {
+          "rank": 38,
+          "title": "She Don't Know She's Beautiful",
+          "artist": "Sammy Kershaw",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ad/70/ba/ad70badc-4ba5-e7a7-ff35-90993832179d/00602498620861.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 39,
+          "title": "Movin' To The Sun",
+          "artist": "HUGEL, Imael Angel & Ultra Naté",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/96/61/7a/96617ab5-51da-7cfc-97e5-c5a6a893c210/1087654.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Electronic"
+        },
+        {
+          "rank": 40,
+          "title": "Who I Hope To Be",
+          "artist": "for KING & COUNTRY, Lucas Leach, Beth Easdown, India Brown, Charles Esten & Angel",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/35/fe/0a/35fe0aac-055d-4633-5aa0-01b0bde3a954/194646569462.png/170x170bb.png",
+          "url": "",
+          "genre": "Soundtrack"
+        },
+        {
+          "rank": 41,
+          "title": "Southern Cross",
+          "artist": "Crosby, Stills & Nash",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/2e/94/48/2e94483a-cfac-1b06-e2bd-0f01a9341d1e/081227653767.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Rock"
+        },
+        {
+          "rank": 42,
+          "title": "The Wreck of the Edmund Fitzgerald",
+          "artist": "Gordon Lightfoot",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/bc/1c/0d/bc1c0d65-5891-ff28-d8b3-4c5d252a43c7/mzi.mgfctwir.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Singer/Songwriter"
+        },
+        {
+          "rank": 43,
+          "title": "DEPENDS",
+          "artist": "XG",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b4/3a/c7/b43ac7b4-71f2-37ff-3587-db03d28a4541/4571694786298.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 44,
+          "title": "Queen of My Double Wide Trailer",
+          "artist": "Sammy Kershaw",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/86/f2/89/86f28951-8439-e3a8-0fea-6d8b308001dc/07UMGIM01591.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 45,
+          "title": "God I'm Just Grateful",
+          "artist": "Elevation Worship & Chandler Moore",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/51/42/01/51420110-806a-86c5-7025-5016e5a2bd57/196873750729.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Christian"
+        },
+        {
+          "rank": 46,
+          "title": "Man I Need",
+          "artist": "Olivia Dean",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/08/e2/21/08e22164-7c0b-1522-818f-e0e74f62dc49/25UMGIM69703.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 47,
+          "title": "You Wouldn't Know",
+          "artist": "Stephen Day",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/75/d9/dc/75d9dc73-fbe8-ba62-5cb0-adbbdbd8baa8/820233976039.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 48,
+          "title": "Mr. Know It All",
+          "artist": "Teddy Swims",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7e/fb/0b/7efb0b1b-8e34-5bd0-99ee-eafc83b8d5c7/054391217349.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 49,
+          "title": "Thunderstruck",
+          "artist": "AC/DC",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/fc/c2/f8/fcc2f850-1d81-7440-c0a0-de7fcef1e911/dj.rrgizfic.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Hard Rock"
+        },
+        {
+          "rank": 50,
+          "title": "DOOMSDAY HOLIDAY",
+          "artist": "NOT A TOY",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/8d/7a/1d/8d7a1dad-a520-3020-ab42-5805c5586310/663918457825.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternative"
+        }
+      ]
+    },
+    "br": {
+      "albums": [
+        {
+          "rank": 1,
+          "title": "Britney (25th Anniversary Edition)",
+          "artist": "Britney Spears",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3d/61/0f/3d610fd5-e074-45bb-1f0e-5a9bac6ac74d/196874836071.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/britney-25th-anniversary-edition/6818422876?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 2,
+          "title": "60 Anos de Carreira (Ao Vivo)",
+          "artist": "Maria Bethânia",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f7/6c/7e/f76c7e80-2cfa-2fb2-d242-c86f36ec6989/7908730010746.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/60-anos-de-carreira-ao-vivo/6822499580?uo=2",
+          "genre": "MPB"
+        },
+        {
+          "rank": 3,
+          "title": "Antologia Acústica",
+          "artist": "Zé Ramalho",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/58/7d/e6/587de66b-7ce6-ce81-6a95-a0e6ad35b9b0/mzi.rkdemkhh.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/antologia-ac%C3%BAstica/380227246?uo=2",
+          "genre": "Latina contemporânea"
+        },
+        {
+          "rank": 4,
+          "title": "Registro Histórico Parte 02 (Ao Vivo)",
+          "artist": "Luan Santana",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e1/2f/47/e12f47af-f1e0-7903-433d-c70b19202499/196873950198.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/registro-hist%C3%B3rico-parte-02-ao-vivo/1861007315?uo=2",
+          "genre": "Sertanejo"
+        },
+        {
+          "rank": 5,
+          "title": "Show Brincadeiras Musicais",
+          "artist": "Palavra Cantada",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music18/v4/80/18/79/80187931-a5c4-e656-7d9a-1a69dcf05e21/0.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/show-brincadeiras-musicais/1128183963?uo=2",
+          "genre": "Música para crianças"
+        },
+        {
+          "rank": 6,
+          "title": "America's Greatest Hits: History",
+          "artist": "America",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/ad/d9/22/add9226e-9c33-246b-e528-a1a96d05df48/mzi.onpokbmx.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/americas-greatest-hits-history/297418495?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 7,
+          "title": "Serious Hits...Live! (Remastered)",
+          "artist": "Phil Collins",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/d6/3d/cf/d63dcfb2-abb6-0788-9a59-106c9c2c3052/603497854233.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/serious-hits-live-remastered/1445062061?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 8,
+          "title": "Requiem for a Village",
+          "artist": "Steven Wilson",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/50/49/86/50498649-9a81-bc78-26c4-09165c7b8779/823375169109_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/requiem-for-a-village/6779529412?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 9,
+          "title": "Fallen",
+          "artist": "Evanescence",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/10/4c/21/104c21e6-9ef0-4d3a-d1bd-d47167f121e5/00601501406300.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/fallen/1440665838?uo=2",
+          "genre": "Hard rock"
+        },
+        {
+          "rank": 10,
+          "title": "Airplane Mode",
+          "artist": "James Blunt",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/17/8e/2b/178e2b94-8f53-74b8-3642-7ef36502d5f5/1200214944070.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/airplane-mode/6805055407?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 11,
+          "title": "MOLHO (Ao Vivo) - EP",
+          "artist": "Grupo Menos É Mais",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/63/da/d1/63dad101-fc9b-606b-122a-c8c656d9c4a4/196873507996.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/molho-ao-vivo-ep/1832056208?uo=2",
+          "genre": "Pagode"
+        },
+        {
+          "rank": 12,
+          "title": "i=!",
+          "artist": "XLOV",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f2/be/13/f2be1332-0427-678c-c396-27859c867662/885288870879.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/i/6820808669?uo=2",
+          "genre": "K-pop"
+        },
+        {
+          "rank": 13,
+          "title": "Thriller",
+          "artist": "Michael Jackson",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/4f/fd/324ffda2-9e51-8f6a-0c2d-c6fd2b41ac55/074643811224.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/thriller/269572838?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 14,
+          "title": "Mamonas Assassinas",
+          "artist": "Mamonas Assassinas",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/fa/4f/0b/fa4f0b92-098b-92dd-f9e7-1907a6fed64a/13UMGIM90180.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/mamonas-assassinas/713659451?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 15,
+          "title": "Acústico MTV",
+          "artist": "Titãs",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music18/v4/8b/23/f1/8b23f112-5da0-95c2-e718-291fa1089135/825646319619.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/ac%C3%BAstico-mtv/1112369004?uo=2",
+          "genre": "Brasileira"
+        },
+        {
+          "rank": 16,
+          "title": "Come Away with Me (Remastered)",
+          "artist": "Norah Jones",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/a0/a0/8d/a0a08df2-390b-ad05-0d32-6673bcf7a2a9/13UABIM02784.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/come-away-with-me-remastered/1624173298?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 17,
+          "title": "As Mais Tocadas Do Zé Neto & Cristiano",
+          "artist": "Zé Neto & Cristiano",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d5/41/5b/d5415bef-cd58-e556-d15d-efd9cfbbd6bb/7891430861476.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/as-mais-tocadas-do-z%C3%A9-neto-cristiano/1718294816?uo=2",
+          "genre": "Sertanejo"
+        },
+        {
+          "rank": 18,
+          "title": "Continuum",
+          "artist": "John Mayer",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/7a/a0/f4/7aa0f487-f983-390e-73ef-005115eea1e0/dj.oqpplyfm.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/continuum/184335550?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 19,
+          "title": "Acústico Capital Inicial (Ao Vivo)",
+          "artist": "Capital Inicial",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music71/v4/6e/ae/87/6eae87e6-8f4d-f108-ebdb-d516dca88886/884977966596.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/ac%C3%BAstico-capital-inicial-ao-vivo/1178171729?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 20,
+          "title": "Cavalo",
+          "artist": "Rodrigo Amarante",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dc/44/2d/dc442d24-6fb1-f04b-4ee9-7fabbd6043c6/644110043399.png/170x170bb.png",
+          "url": "https://music.apple.com/br/album/cavalo/1651276813?uo=2",
+          "genre": "Alternativo"
+        },
+        {
+          "rank": 21,
+          "title": "Ride the Lightning (Remastered)",
+          "artist": "Metallica",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/46/ed/18/46ed18f7-012c-58f0-33b8-95914a2197b2/15UMGIM25536.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/ride-the-lightning-remastered/1440845417?uo=2",
+          "genre": "Metal"
+        },
+        {
+          "rank": 22,
+          "title": "Rosa de Saron: Acústico e ao Vivo",
+          "artist": "Rosa de Saron",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/7c/8d/cd/7c8dcdc1-2f8a-a388-d6a6-e8de9d45cabc/0.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/rosa-de-saron-ac%C3%BAstico-e-ao-vivo/1401700647?uo=2",
+          "genre": "Música religiosa"
+        },
+        {
+          "rank": 23,
+          "title": "O melhor das aquarelas (Ao vivo)",
+          "artist": "Emílio Santiago",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/73/98/a4/7398a4e7-a947-9ce6-936a-1e43b20fd665/7898420123231.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/o-melhor-das-aquarelas-ao-vivo/1300423338?uo=2",
+          "genre": "MPB"
+        },
+        {
+          "rank": 24,
+          "title": "Cartas ao Remetente",
+          "artist": "Rosa de Saron",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/ba/21/f2/ba21f27f-ef5b-5303-d805-b4bd3195f3dc/7891430345525.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/cartas-ao-remetente/878467971?uo=2",
+          "genre": "Rock cristão"
+        },
+        {
+          "rank": 25,
+          "title": "Fine Line",
+          "artist": "Harry Styles",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2b/c4/c9/2bc4c9d4-3bc6-ab13-3f71-df0b89b173de/886448022213.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/fine-line/1485802965?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 26,
+          "title": "The Complete Greatest Hits",
+          "artist": "America",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/0b/38/6b/0b386bc6-3a2a-8221-cacb-5bebb842beff/s06.kxzmrvbk.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/the-complete-greatest-hits/63820303?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 27,
+          "title": "Little Joy",
+          "artist": "Little Joy",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/03/8a/be/mzi.pxsapafh.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/little-joy/495437649?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 28,
+          "title": "Só Danço Samba - Ao Vivo",
+          "artist": "Emílio Santiago",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/ba/08/15/ba0815e2-e7b4-dd9a-f84c-a6a59daa4de7/Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/s%C3%B3-dan%C3%A7o-samba-ao-vivo/512449209?uo=2",
+          "genre": "Samba"
+        },
+        {
+          "rank": 29,
+          "title": "Latitude, Longitude (Ao Vivo)",
+          "artist": "Rosa de Saron",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/c0/af/9c/c0af9ca3-83b8-de76-d254-6a6ab5499f6a/7891430287726.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/latitude-longitude-ao-vivo/669859382?uo=2",
+          "genre": "Rock cristão"
+        },
+        {
+          "rank": 30,
+          "title": "The Very Best of Daryl Hall & John Oates",
+          "artist": "Daryl Hall & John Oates",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/9b/30/4c/9b304cad-7427-b463-6bf7-8c1cf4fae484/078636931920.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/the-very-best-of-daryl-hall-john-oates/273750173?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 31,
+          "title": "Synchronicity (Remastered 2003)",
+          "artist": "The Police",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/a4/67/ba/a467ba62-87df-9d10-98d2-c517f68ac870/16UMGIM60882.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/synchronicity-remastered-2003/1440673959?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 32,
+          "title": "Total",
+          "artist": "New Order & Joy Division",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/bc/99/92/bc9992ae-4e10-e0ea-7b38-b4a9b70f75f6/dj.eoborrdr.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/total/439593473?uo=2",
+          "genre": "Alternativo"
+        },
+        {
+          "rank": 33,
+          "title": "Blaze of Glory (Inspired by the Film \"Young Guns II\")",
+          "artist": "Jon Bon Jovi & Alan Silvestri",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ea/8d/5d/ea8d5d1d-ce2c-b496-bf34-fedf5f75aee3/06UMGIM01792.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/blaze-of-glory-inspired-by-the-film-young-guns-ii/1440657641?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 34,
+          "title": "Not Too Late",
+          "artist": "Norah Jones",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music123/v4/16/62/f0/1662f082-bc75-db16-7635-f643c7c13e61/19UMGIM60299.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/not-too-late/1471082561?uo=2",
+          "genre": "Cantores/Compositores"
+        },
+        {
+          "rank": 35,
+          "title": "John Coltrane and Johnny Hartman",
+          "artist": "John Coltrane & Johnny Hartman",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2b/6c/b7/2b6cb70e-8e01-1d96-f8f8-23aa73d5d7c2/06UMGIM09995.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/john-coltrane-and-johnny-hartman/1440640282?uo=2",
+          "genre": "Jazz"
+        },
+        {
+          "rank": 36,
+          "title": "Villa-Lobos: Bachianas Brasileiras",
+          "artist": "Vários intérpretes",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music5/v4/88/ac/9e/88ac9ef0-63d4-6da2-1268-1b7b79abe414/dj.bxwneauf.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/villa-lobos-bachianas-brasileiras/691825455?uo=2",
+          "genre": "Música clássica"
+        },
+        {
+          "rank": 37,
+          "title": "On ne change pas",
+          "artist": "Céline Dion",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/17/30/45/173045a7-3ac5-0400-82bd-16c0cbebc204/196874384459.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/on-ne-change-pas/6771941211?uo=2",
+          "genre": "Pop francês"
+        },
+        {
+          "rank": 38,
+          "title": "Greatest Hits",
+          "artist": "Grand Funk Railroad",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/bf/16/f3/bf16f373-0718-4e21-d9fa-d45cc0906feb/13UABIM12071.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/greatest-hits/715534629?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 39,
+          "title": "Live at Madison Square Garden",
+          "artist": "Shawn Mendes",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music113/v4/83/f8/76/83f87659-c86b-0cd1-5a6c-80474867fec0/16UMGIM85045.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/live-at-madison-square-garden/1440886021?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 40,
+          "title": "Make It Big",
+          "artist": "Wham!",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/ee/49/ac/ee49accc-78bd-bcdb-1aff-c40c1ac3ccc4/074643959520.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/make-it-big/193084944?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 41,
+          "title": "Antes Que Tu Conte Outra",
+          "artist": "Apanhador Só",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/e0/bb/e9/e0bbe9cc-a7ce-c649-c094-4aa8f0b75bb9/7898563611992.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/antes-que-tu-conte-outra/651726205?uo=2",
+          "genre": "MPB"
+        },
+        {
+          "rank": 42,
+          "title": "Listen Without Prejudice / MTV Unplugged (Deluxe Edition)",
+          "artist": "George Michael",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/29/f7/60/29f7605e-dcb2-2b36-bc7b-0272bddf06ef/886446702438.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/listen-without-prejudice-mtv-unplugged-deluxe-edition/1276741228?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 43,
+          "title": "QVVJFA?",
+          "artist": "Baco Exu do Blues",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/5d/8b/11/5d8b1169-b480-2866-3ced-59f141a58689/8445162576185.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/qvvjfa/1601548374?uo=2",
+          "genre": "Hip-hop"
+        },
+        {
+          "rank": 44,
+          "title": "Michael: Songs From The Motion Picture",
+          "artist": "Michael Jackson",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/54/f2/ef/54f2ef79-c668-8d6f-28cd-ae48c45009b7/196874193211.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/michael-songs-from-the-motion-picture/1883769984?uo=2",
+          "genre": "Trilha sonora"
+        },
+        {
+          "rank": 45,
+          "title": "Friends",
+          "artist": "The Bolshoi",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/8e/10/ed/8e10edb2-ed7b-025e-bf37-c8f8e9fa144c/607618202262.png/170x170bb.png",
+          "url": "https://music.apple.com/br/album/friends/1231485259?uo=2",
+          "genre": "Alternativo"
+        },
+        {
+          "rank": 46,
+          "title": "Drama",
+          "artist": "Rodrigo Amarante",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f5/05/9b/f5059b46-4cfc-3fc4-5c1b-841ca690c5c8/644110042293.png/170x170bb.png",
+          "url": "https://music.apple.com/br/album/drama/1651276420?uo=2",
+          "genre": "Alternativo"
+        },
+        {
+          "rank": 47,
+          "title": "Som do Secreto Vol. 2: Noite",
+          "artist": "Som Do Reino",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ad/f4/c6/adf4c617-6420-c26d-8796-62907df3eebb/7898556748124.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/som-do-secreto-vol-2-noite/6804838709?uo=2",
+          "genre": "Música Cristã Contemporânea (CCM)"
+        },
+        {
+          "rank": 48,
+          "title": "Coast to Coast (Expanded Edition)",
+          "artist": "Westlife",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/1d/48/7d/1d487da2-ed7a-3e31-74d6-49cf93b40aeb/mzi.kpnsbult.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/coast-to-coast-expanded-edition/255641168?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 49,
+          "title": "The Lamb Lies Down On Broadway (50th Anniversary Deluxe Edition)",
+          "artist": "Genesis",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/dd/cb/d1/ddcbd1a3-ce3e-83c8-82c1-3d55b63004f1/603497808410.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/the-lamb-lies-down-on-broadway-50th-anniversary/1841939786?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 50,
+          "title": "D Ao Vivo Maceió",
+          "artist": "Djavan",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/34/02/1b/34021bb2-4db8-87ad-616f-371a623f3ac3/196871927635.jpg/170x170bb.png",
+          "url": "https://music.apple.com/br/album/d-ao-vivo-macei%C3%B3/1738522614?uo=2",
+          "genre": "MPB"
+        }
+      ],
+      "songs": [
+        {
+          "rank": 1,
+          "title": "Aqui Estamos Nós",
+          "artist": "Manu Gavassi",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/3b/5c/21/3b5c21e5-fb1c-4cad-1d60-d1de3400df15/17UMGIM87042.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 2,
+          "title": "Sou + Você",
+          "artist": "Racionais MC's",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/3f/ca/fd/3fcafdad-07c1-c752-7878-39dfd32b3b28/0.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Hip-Hop/Rap"
+        },
+        {
+          "rank": 3,
+          "title": "Pós (Ao Vivo)",
+          "artist": "Felipe e Rodrigo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f0/05/5c/f0055c6d-16b0-f331-058e-703fd7b52590/1200220331840.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Sertanejo"
+        },
+        {
+          "rank": 4,
+          "title": "Marcha do Vestibular",
+          "artist": "Pinduca",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music18/v4/71/00/11/7100114b-8f60-122a-00bc-d4e9a8ce6fab/Pinduca_No_Embalo_do_Pinduca_0742832736633.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Brasileira"
+        },
+        {
+          "rank": 5,
+          "title": "Bi Festinha",
+          "artist": "LUDMILLA, HITMAKER & Puterrier",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/4f/6f/5c/4f6f5c83-f8ed-cc4e-02c0-0f23bc978d26/196874908662.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 6,
+          "title": "SWIM",
+          "artist": "BTS",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e0/a2/b4/e0a2b443-7969-b57a-a591-cb6172c10aa7/198704943959_Cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 7,
+          "title": "I can’t be high around you anymore",
+          "artist": "FLO",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a4/11/88/a41188ed-0f2e-e8d5-1163-d59e373cc58c/26UMGIM30046.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 8,
+          "title": "Ordinary",
+          "artist": "Alex Warren",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/46/78/fb/4678fb84-d19e-f11b-93ff-4dc17660bff8/075679619075.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 9,
+          "title": "Into the Sun",
+          "artist": "BTS",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/69/0a/7b/690a7bb3-4483-2418-158c-9276d7d98f81/823375049500_Cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 10,
+          "title": "Now We Are Free",
+          "artist": "Lisa Gerrard, Gavin Greenaway, The Lyndhurst Orchestra, Bruce Fowler, Yvonne S. Moriarty, Walt Fowler, Ladd McIntosh, Elizabeth Finch, Jack Smalley & Hans Zimmer",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/22/2a/1d/222a1d18-6d21-fec2-3ef0-ce0f7988ed65/06UMGIM05485.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Trilha sonora"
+        },
+        {
+          "rank": 11,
+          "title": "A menina que eu fui",
+          "artist": "7a Essência",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/07/c2/0e/07c20e05-8176-b55e-9a83-3ce0238aed06/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Reggae"
+        },
+        {
+          "rank": 12,
+          "title": "De Quem É a Culpa? (Ao Vivo)",
+          "artist": "Marília Mendonça",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/01/da/2c/01da2c5b-ff1f-e9a1-a634-4db138e1a286/7891430447427.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Sertanejo"
+        },
+        {
+          "rank": 13,
+          "title": "Choosin' Texas",
+          "artist": "Ella Langley",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e2/91/4d/e2914d0a-7f1d-f04c-fbf4-c50b38548838/196873638690.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 14,
+          "title": "Inside My Soul",
+          "artist": "SK.music",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/bf/6b/68/bf6b68bb-b62a-a478-6ae0-b652972ce5b0/883128956318.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Eletrônica"
+        },
+        {
+          "rank": 15,
+          "title": "Thanks for Saving My Life",
+          "artist": "Billy Paul",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/e0/e5/1c/e0e51c62-e82c-c25c-45f1-1af2b9c30652/886449364701.jpg/170x170bb.png",
+          "url": "",
+          "genre": "R&B/soul"
+        },
+        {
+          "rank": 16,
+          "title": "Peão Todo Tatuado",
+          "artist": "Jeninho & Mariana Fagundes",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e4/84/ae/e484ae74-42d3-d896-bd63-50fb1d7c4484/971745.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 17,
+          "title": "Dynamite",
+          "artist": "BTS",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/22/f3/8f/22f38fb9-1690-326a-d891-7aa946c2b06f/195497623273_Cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "K-pop"
+        },
+        {
+          "rank": 18,
+          "title": "Irmão da Lua, Amigo das Estrelas",
+          "artist": "Zezé Di Camargo & Luciano",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/93/6d/9c/mzi.ftmcywno.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Sertanejo"
+        },
+        {
+          "rank": 19,
+          "title": "Black",
+          "artist": "Pearl Jam",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e0/e1/7c/e0e17cf0-62e5-6312-f3df-2462960cc8f1/884977724745.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Rock"
+        },
+        {
+          "rank": 20,
+          "title": "Man I Need",
+          "artist": "Olivia Dean",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/08/e2/21/08e22164-7c0b-1522-818f-e0e74f62dc49/25UMGIM69703.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 21,
+          "title": "Rise Slow",
+          "artist": "Kimo Sounds",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/23/27/8a/23278a46-aa21-30f3-9e68-213772c53ea7/825181567094.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Eletrônica"
+        },
+        {
+          "rank": 22,
+          "title": "Meu Pai Paga Minha Faculdade / Mexe Essa Sanfona / Eu Vou Pra Vaquejada / Vuco Vuco / Rei Do Baralho / Sala De Reboco",
+          "artist": "Filho do Piseiro & Claudio Ney & Juliana",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/72/36/a5/7236a5da-b8bb-7336-ad21-2bb2b046ba9b/859730437774_cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Forró"
+        },
+        {
+          "rank": 23,
+          "title": "Eu Me Rendo (Ao Vivo)",
+          "artist": "Felipe e Rodrigo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f0/05/5c/f0055c6d-16b0-f331-058e-703fd7b52590/1200220331840.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Sertanejo"
+        },
+        {
+          "rank": 24,
+          "title": "Dai Dai",
+          "artist": "Shakira & Burna Boy",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/61/49/8d/61498ded-f0dc-227d-cd1d-2051b5d9f195/196874328590.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 25,
+          "title": "Bênçãos Que Não Têm Fim (Counting My Blessings)",
+          "artist": "Isadora Pompeo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/a2/92/12/a2921245-82be-b2e4-5aa2-20c0c932b0bb/196871586658.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Música religiosa"
+        },
+        {
+          "rank": 26,
+          "title": "Anjos (Pra Quem Tem Fé)",
+          "artist": "O Rappa",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/4b/df/de/4bdfde06-22e8-2fb4-a886-2136b8cd8df8/825646415298.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Brasileira"
+        },
+        {
+          "rank": 27,
+          "title": "Hold Me When It's Breaking",
+          "artist": "Amelia Clark",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2a/76/dd/2a76ddcd-649c-9dc6-e4eb-9300c7be679c/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Blues"
+        },
+        {
+          "rank": 28,
+          "title": "Tubarões (Ao Vivo)",
+          "artist": "Diego & Victor Hugo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ca/af/27/caaf2710-03a9-86bd-4863-56dbb66d1deb/196873800271.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Sertanejo"
+        },
+        {
+          "rank": 29,
+          "title": "Pra Sempre Com Você (Ao Vivo)",
+          "artist": "Jorge & Mateus",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/80/08/e5/8008e50e-7c33-acc3-7f9b-f4b5b09ce43b/7891430408121.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Sertanejo"
+        },
+        {
+          "rank": 30,
+          "title": "Angel (feat. Rayvon)",
+          "artist": "Shaggy",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/5b/78/c0/5b78c053-c5d5-5414-6d95-2a9ab3d3c7a6/06UMGIM55575.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 31,
+          "title": "Everybody Wants to Rule the World",
+          "artist": "Tears for Fears",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/74/41/43/744143ae-afad-8380-106e-1c1bc48922e4/14UMGIM34762.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 32,
+          "title": "Vou Ter Que Superar (feat. Marilia Mendonça) [Ao Vivo]",
+          "artist": "Matheus & Kauan",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/e9/26/d8/e926d81f-a2b6-22bd-66cd-7b16a55695ac/00602577438585.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Sertanejo"
+        },
+        {
+          "rank": 33,
+          "title": "Terra Seca (feat. Padre Ailton Cardoso) [Ao Vivo]",
+          "artist": "Fraternidade São João Paulo II",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/77/17/20/771720e5-f434-80bb-9301-795308a58cda/0.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Música religiosa"
+        },
+        {
+          "rank": 34,
+          "title": "Hino do Palmeiras (Oficial)",
+          "artist": "Orquestra e Coro Cid",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/cb/c1/b5/cbc1b516-caba-75da-0852-0067f3c741a6/Palmeiras.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Trilha sonora"
+        },
+        {
+          "rank": 35,
+          "title": "Esperando na Janela",
+          "artist": "Cogumelo Plutão",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9b/1b/2b/9b1b2bb4-3ca5-9361-b249-d31f684d3687/296115.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Rock"
+        },
+        {
+          "rank": 36,
+          "title": "Call on Me (Radio Mix)",
+          "artist": "Eric Prydz",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/e1/b2/85/e1b285a1-1482-e555-fea4-7ec1c2ed856e/5051823143257.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Dance"
+        },
+        {
+          "rank": 37,
+          "title": "How Long",
+          "artist": "Ace",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/dc/0b/99/dc0b9986-2709-1e74-1d0e-76302113c49c/4050538181197.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 38,
+          "title": "Retrovisor",
+          "artist": "Gusttavo Lima",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3b/d8/a6/3bd8a697-f495-6018-689f-e9b505278bf5/196874116920.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Sertanejo"
+        },
+        {
+          "rank": 39,
+          "title": "Daydream",
+          "artist": "Wallace Collection",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/69/c3/07/69c307de-aec5-054b-2ede-c76c7a5524c5/190295772079.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 40,
+          "title": "Hawaiian Roller Coaster Ride",
+          "artist": "Iam Tongi & Kamehameha Schools Children's Chorus",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/65/7b/a8/657ba834-b841-f421-64b9-144bc5d56d44/25UMGIM68227.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Trilha sonora"
+        },
+        {
+          "rank": 41,
+          "title": "Burning Love",
+          "artist": "Nyjah Music & Zyah Rhythm",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/65/7b/a8/657ba834-b841-f421-64b9-144bc5d56d44/25UMGIM68227.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Trilha sonora"
+        },
+        {
+          "rank": 42,
+          "title": "Isaías 6 (Ao Vivo)",
+          "artist": "MORADA",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/49/4d/d6/494dd63f-f849-e79a-5240-c8cfb25ea678/7898556764728.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Música religiosa"
+        },
+        {
+          "rank": 43,
+          "title": "He Lei Pāpahi No Lilo a me Stitch",
+          "artist": "Mark Keali'i Ho'omalu & Kamehameha Schools Children's Chorus",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/65/7b/a8/657ba834-b841-f421-64b9-144bc5d56d44/25UMGIM68227.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Trilha sonora"
+        },
+        {
+          "rank": 44,
+          "title": "Aloha 'Oe",
+          "artist": "Sydney Agudong & Maia Kealoha",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/65/7b/a8/657ba834-b841-f421-64b9-144bc5d56d44/25UMGIM68227.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Trilha sonora"
+        },
+        {
+          "rank": 45,
+          "title": "Cuidar de Mim (Ao Vivo)",
+          "artist": "Felipe e Rodrigo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f0/05/5c/f0055c6d-16b0-f331-058e-703fd7b52590/1200220331840.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Sertanejo"
+        },
+        {
+          "rank": 46,
+          "title": "Girls Just Want to Have Fun",
+          "artist": "Cyndi Lauper",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/8a/8c/13/8a8c13e0-06af-1710-7b7d-ebec65fb8361/074643893022.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 47,
+          "title": "All I Want for Christmas Is You",
+          "artist": "Mariah Carey",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/c6/b7/27/c6b727f7-3a32-6b43-cee2-05bb71daf1cf/dj.itfmdeif.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Natal: pop"
+        },
+        {
+          "rank": 48,
+          "title": "Tempo Perdido",
+          "artist": "Legião Urbana",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/18/1b/03/181b0329-0b99-5349-da2f-564ab83dc10c/13UABIM70453.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Rock"
+        },
+        {
+          "rank": 49,
+          "title": "Angels Love to Watch the Stars (Drinks)",
+          "artist": "Linnefleur",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/2c/75/35/2c7535f9-7726-534e-d898-7a98d15b4798/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Eletrônica"
+        },
+        {
+          "rank": 50,
+          "title": "AH, JESUS / CORAÇÃO IGUAL AO TEU",
+          "artist": "Julliany Souza",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3c/aa/14/3caa1400-3764-5bc6-428c-c00b72365f02/8718521271329.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Música religiosa"
+        }
+      ]
+    },
+    "gb": {
+      "albums": [
+        {
+          "rank": 1,
+          "title": "Airplane Mode",
+          "artist": "James Blunt",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/17/8e/2b/178e2b94-8f53-74b8-3642-7ef36502d5f5/1200214944070.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/airplane-mode/6805055407?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 2,
+          "title": "O My Beloved",
+          "artist": "Kings of Leon",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c2/84/79/c2847988-ab33-0de8-0dc3-ebf0c6cbd0b4/00823375343684_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/o-my-beloved/6802901441?uo=2",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 3,
+          "title": "The Faith Tour",
+          "artist": "George Michael",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/94/0c/8a/940c8ac1-82b5-368d-4585-6a3149d99643/196874120323.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/the-faith-tour/6801587846?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 4,
+          "title": "NOW That's What I Call An Era - Ballroom Blitz: 1967-1976",
+          "artist": "Various Artists",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/68/8f/6d/688f6d4a-59a7-9f92-86d9-7a5fd2b1c317/196874302347.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/now-thats-what-i-call-an-era-ballroom-blitz-1967-1976/6823711755?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 5,
+          "title": "How's It Goin'",
+          "artist": "Bryan Adams",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/de/9f/f5/de9ff595-ff1c-e4ab-e5ca-09e43f57386c/5059449450919.png/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/hows-it-goin/6809936545?uo=2",
+          "genre": "Pop/Rock"
+        },
+        {
+          "rank": 6,
+          "title": "Wild Love",
+          "artist": "Passenger",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1b/d0/04/1bd00499-92ae-244c-6e73-02d669db062e/067003029230.png/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/wild-love/6789444108?uo=2",
+          "genre": "Singer/Songwriter"
+        },
+        {
+          "rank": 7,
+          "title": "Requiem for a Village",
+          "artist": "Steven Wilson",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/50/49/86/50498649-9a81-bc78-26c4-09165c7b8779/823375169109_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/requiem-for-a-village/6779529412?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 8,
+          "title": "Beam Cottage",
+          "artist": "Johnny Flynn & Lillie Flynn",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b6/4b/ed/b64bed78-0835-caa4-796c-5f3a21f181e3/885288112924.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/beam-cottage/6794346504?uo=2",
+          "genre": "Alternative Folk"
+        },
+        {
+          "rank": 9,
+          "title": "SatchVai: The Sea of Emotion",
+          "artist": "Joe Satriani & Steve Vai",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f9/a3/2b/f9a32bf8-741b-9e53-0024-af320b2bfc23/cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/satchvai-the-sea-of-emotion/6790394334?uo=2",
+          "genre": "Metal"
+        },
+        {
+          "rank": 10,
+          "title": "Visitor (Deluxe)",
+          "artist": "SIENNA SPIRO",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f4/e5/61/f4e561f5-3e73-68c7-7ca4-295ac5a063ed/26UMGIM51351.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/visitor-deluxe/6769552402?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 11,
+          "title": "Joy In Short Moments",
+          "artist": "The Snuts",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/8b/e0/c1/8be0c11c-d833-2f6f-23d5-6afe5b74287c/823375208044_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/joy-in-short-moments/6776430378?uo=2",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 12,
+          "title": "The Return",
+          "artist": "Collabro",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/bd/b9/de/bdb9de6b-2c96-78f1-de05-e47259184a90/5061030862872.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/the-return/6829052590?uo=2",
+          "genre": "Vocal"
+        },
+        {
+          "rank": 13,
+          "title": "Beautiful Mistakes",
+          "artist": "Skerryvore",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/6f/33/16/6f331609-8731-3245-cca1-d580bf62b074/127953.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/beautiful-mistakes/6779651357?uo=2",
+          "genre": "Folk"
+        },
+        {
+          "rank": 14,
+          "title": "THIS MUSIC MAY CONTAIN HOPE.",
+          "artist": "RAYE",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/50/05/10/5005106d-bb8a-32db-1172-f18405cf4a46/820200038890.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/this-music-may-contain-hope/1871085677?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 15,
+          "title": "Songs in the Key of Life",
+          "artist": "Stevie Wonder",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/eb/1f/12/eb1f12ec-474c-63aa-43af-09282f423b9d/00602537004737.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/songs-in-the-key-of-life/1440788438?uo=2",
+          "genre": "Motown"
+        },
+        {
+          "rank": 16,
+          "title": "Big Bad & Back EP - EP",
+          "artist": "Little Angels",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d4/5d/0d/d45d0d80-c4dc-e8e4-9a16-a2ec9ab40679/5037300088587.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/big-bad-back-ep-ep/6812912935?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 17,
+          "title": "Indigo",
+          "artist": "Asia",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ee/21/88/ee218830-cc6a-c9ac-4d0f-5daf3ad73913/820233957458.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/indigo/6786070473?uo=2",
+          "genre": "Hard Rock"
+        },
+        {
+          "rank": 18,
+          "title": "NOW That's What I Call Christmas",
+          "artist": "Various Artists",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/24/95/59/2495592b-000c-a34a-49f9-79ded119d7fb/196872207750.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/now-thats-what-i-call-christmas/1772699510?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 19,
+          "title": "Carry It On",
+          "artist": "Isla Lennox",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c4/57/fc/c457fcbc-06e5-61aa-b7ca-62e0af46571e/artwork.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/carry-it-on/6824219572?uo=2",
+          "genre": "Dance"
+        },
+        {
+          "rank": 20,
+          "title": "Rumours",
+          "artist": "Fleetwood Mac",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4d/13/ba/4d13bac3-d3d5-7581-2c74-034219eadf2b/081227970949.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/rumours/594061854?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 21,
+          "title": "Good Weather For Immaculate Conception",
+          "artist": "Alanis Morissette",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c0/0b/05/c00b0532-1bd3-de7b-14d4-482e2f82be21/00823375487272_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/good-weather-for-immaculate-conception/6816116333?uo=2",
+          "genre": "Christmas"
+        },
+        {
+          "rank": 22,
+          "title": "Dandelion",
+          "artist": "Ella Langley",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/26/35/03/26350323-d656-4817-49e6-4d658af8363a/196874332917.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/dandelion/1895159736?uo=2",
+          "genre": "Country"
+        },
+        {
+          "rank": 23,
+          "title": "Greatest Hits",
+          "artist": "Queen",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/b0/ca/05/b0ca05aa-29c9-4e01-5a16-f6fa06bce05c/602527594347.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/greatest-hits/6781080300?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 24,
+          "title": "Britney (25th Anniversary Edition)",
+          "artist": "Britney Spears",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3d/61/0f/3d610fd5-e074-45bb-1f0e-5a9bac6ac74d/196874836071.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/britney-25th-anniversary-edition/6818422876?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 25,
+          "title": "My Mess, My Heart, My Life.",
+          "artist": "Myles Smith",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c1/42/91/c14291d6-1a87-8fc4-f19c-13accae4eea6/196874174807.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/my-mess-my-heart-my-life/1886119367?uo=2",
+          "genre": "Singer/Songwriter"
+        },
+        {
+          "rank": 26,
+          "title": "Jeff Wayne's Musical Version of The War of The Worlds",
+          "artist": "Jeff Wayne",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/42/b0/9c/42b09c40-9228-94da-b9e3-5bbd24ae6d28/196589033307.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/jeff-waynes-musical-version-of-the-war-of-the-worlds/1615102666?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 27,
+          "title": "Ladies & Gentlemen",
+          "artist": "George Michael",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/89/46/95/8946959a-e959-f22d-ced2-745feb799454/mzm.upagbaeg.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/ladies-gentlemen/429945575?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 28,
+          "title": "12\" 80s Classics",
+          "artist": "Various Artists",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/84/0f/d1/840fd13b-9c22-c9ec-344b-eeadf151cc97/10UMGIM15260.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/12-80s-classics/1440516034?uo=2",
+          "genre": "Electronic"
+        },
+        {
+          "rank": 29,
+          "title": "Christmas (Deluxe 10th Anniversary Edition)",
+          "artist": "Michael Bublé",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b5/64/30/b56430c1-aafb-4af5-0f29-f278c02d2093/093624826903.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/christmas-deluxe-10th-anniversary-edition/1831874210?uo=2",
+          "genre": "Christmas"
+        },
+        {
+          "rank": 30,
+          "title": "The Rolling Thunder Revue 1976: Fort Worth Texas, May 16th",
+          "artist": "Bob Dylan",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/29/a6/2e/29a62e3a-daa9-9546-8cd8-b231645617c6/196874750681.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/the-rolling-thunder-revue-1976-fort-worth-texas-may-16th/6810863405?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 31,
+          "title": "NOW That's What I Call Music! 124",
+          "artist": "Various Artists",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/70/99/07/70990721-08b1-3bbd-13d1-d7076564ae4b/196874108932.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/now-thats-what-i-call-music-124/6789723663?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 32,
+          "title": "Valhalleluja - EP",
+          "artist": "Eldruna",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/28/6c/c0/286cc06d-717f-9b98-8b68-be019b676559/artwork.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/valhalleluja-ep/6766637719?uo=2",
+          "genre": "Christian"
+        },
+        {
+          "rank": 33,
+          "title": "ABBA Gold: Greatest Hits (40th Anniversary Edition)",
+          "artist": "ABBA",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/dc/f7/90/dcf790c3-7c63-f7b3-e57b-5a8747a8ebbe/14UMGIM11148.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/abba-gold-greatest-hits-40th-anniversary-edition/1440816833?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 34,
+          "title": "The Greatest Hits",
+          "artist": "Simply Red",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/0f/67/9b/0f679bc7-d3f6-5702-4f33-09b936293994/825646545636.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/the-greatest-hits/834008062?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 35,
+          "title": "Forever Delayed - The Greatest Hits",
+          "artist": "Manic Street Preachers",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2c/51/eb/2c51eb0d-b8b5-c1d8-fa2a-6270136dd4d0/mzi.dmqyurbz.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/forever-delayed-the-greatest-hits/211440430?uo=2",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 36,
+          "title": "FUDGE",
+          "artist": "Michael Kiwanuka",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/8a/87/68/8a8768b3-d686-dac5-25da-fca1ea373114/25UMGIM95889.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/fudge/1828246469?uo=2",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 37,
+          "title": "Thriller",
+          "artist": "Michael Jackson",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/4f/fd/324ffda2-9e51-8f6a-0c2d-c6fd2b41ac55/074643811224.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/thriller/269572838?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 38,
+          "title": "FIRESTARTER - EP",
+          "artist": "K/DA & League of Legends Music",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9b/7a/b4/9b7ab480-ae42-e28b-0253-b0d6caef607a/823375358978_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/firestarter-ep/6814691428?uo=2",
+          "genre": "K-Pop"
+        },
+        {
+          "rank": 39,
+          "title": "Achtung Baby",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/fe/5e/4f/fe5e4f79-c74f-c39e-39dc-4c8a952b9665/17UMGIM98829.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/achtung-baby/1443063058?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 40,
+          "title": "40 Best Classical Songs",
+          "artist": "Various Artists",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/63/cb/ab/63cbab70-cfd3-2c93-8404-88fe97e31e1d/825646463350.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/40-best-classical-songs/670939620?uo=2",
+          "genre": "Classical"
+        },
+        {
+          "rank": 41,
+          "title": "The User's Guide to Being Human",
+          "artist": "The Script",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/12/fc/61/12fc61d8-c9d5-346c-0180-011cfc78553b/4099964236408.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/the-users-guide-to-being-human/1892457600?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 42,
+          "title": "The 50 Greatest Pieces of Classical Music",
+          "artist": "London Philharmonic Orchestra & David Parry",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/8d/7f/fd/8d7ffd6d-1dca-7012-1859-0241a2a86033/7340027075005.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/the-50-greatest-pieces-of-classical-music/339006385?uo=2",
+          "genre": "Classical"
+        },
+        {
+          "rank": 43,
+          "title": "Origins 1971-1978",
+          "artist": "Tom Petty & The Heartbreakers",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/a3/bb/64/a3bb64a3-6e22-00be-0106-a36bc361cf4e/26UMGIM38873.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/origins-1971-1978/6823307338?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 44,
+          "title": "Sunshine",
+          "artist": "Jungle",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9a/8e/bb/9a8ebb8b-2363-4e2a-b52e-9786decb80a1/820200658401.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/sunshine/1886730527?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 45,
+          "title": "Queen Budapest (Live)",
+          "artist": "Queen",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/51/50/2c/51502c9e-de70-1100-569e-6b50cec92150/196874612422.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/queen-budapest-live/6792889537?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 46,
+          "title": "Take Me to the Alley",
+          "artist": "Gregory Porter",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/e7/c5/12/e7c51285-7fa5-3561-a8cc-8d0630d4f40c/16UMGIM04524.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/take-me-to-the-alley/1440838672?uo=2",
+          "genre": "Jazz"
+        },
+        {
+          "rank": 47,
+          "title": "The Joshua Tree",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/8f/e2/c3/8fe2c384-f6cb-9af7-371d-2b6a9b204e59/17UMGIM79292.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/the-joshua-tree/1443155637?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 48,
+          "title": "The Platinum Collection",
+          "artist": "Queen",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/15/c7/55/15c755bc-7603-3ce3-e243-e59f1f9863ea/602527724171.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/the-platinum-collection/6781080933?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 49,
+          "title": "A Time To Heal - EP",
+          "artist": "James Emmanuel",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/29/0a/c5/290ac5c1-29f9-92ea-ea6f-08b59a6de52d/25UM1IM06824.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/a-time-to-heal-ep/1837218768?uo=2",
+          "genre": "Soul"
+        },
+        {
+          "rank": 50,
+          "title": "Don't Call Me Daddy",
+          "artist": "DJ Bill Bennett",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/20/9a/f6/209af692-280c-837f-ddd2-c2c84fecfca8/artwork.jpg/170x170bb.png",
+          "url": "https://music.apple.com/gb/album/dont-call-me-daddy/6831329496?uo=2",
+          "genre": "Dance"
+        }
+      ],
+      "songs": [
+        {
+          "rank": 1,
+          "title": "Babydoll",
+          "artist": "Jamie Miller",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e6/15/d2/e615d28f-70b5-e43a-b3c8-460dca39c9e5/26UMGIM97516.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 2,
+          "title": "Stop The Wedding!",
+          "artist": "Ashe",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/b7/55/7a/b7557aef-bb0a-cc57-25bf-979eee194f16/075679571403.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 3,
+          "title": "Circles",
+          "artist": "James Blunt",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/17/8e/2b/178e2b94-8f53-74b8-3642-7ef36502d5f5/1200214944070.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 4,
+          "title": "Babydoll",
+          "artist": "Jamie Miller & Antonio Cipriano",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a9/85/94/a98594bd-8e36-7b9f-a59d-77a3a19eb9a1/26UM1IM19333.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 5,
+          "title": "Choosin' Texas",
+          "artist": "Ella Langley",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/e2/91/4d/e2914d0a-7f1d-f04c-fbf4-c50b38548838/196873638690.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 6,
+          "title": "Boston",
+          "artist": "STELLA LEFTY",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/7c/de/5e/7cde5e7a-612d-9714-d34c-1eb234c85ebb/810129961546.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 7,
+          "title": "Movin' To The Sun",
+          "artist": "HUGEL, Imael Angel & Ultra Naté",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/96/61/7a/96617ab5-51da-7cfc-97e5-c5a6a893c210/1087654.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Electronic"
+        },
+        {
+          "rank": 8,
+          "title": "Mama, Don't Close Your Eyes",
+          "artist": "Bjorn Bonebreaker",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/05/71/cf/0571cf88-b7fc-b762-d646-8a4b3a598953/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Folk"
+        },
+        {
+          "rank": 9,
+          "title": "Bad Times (Extended Version)",
+          "artist": "Imael Angel",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/08/03/7f/08037f7d-6173-9348-991d-5966f0686539/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "House"
+        },
+        {
+          "rank": 10,
+          "title": "Supermassive Black Hole",
+          "artist": "Muse",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/4a/c1/5d/4ac15dc9-2ae6-1d5b-3add-43bae227f941/825646095452.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 11,
+          "title": "You Can't Always Get What You Want",
+          "artist": "Sam Fender",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/58/61/00/58610070-0c94-4692-5582-79b08dc704c4/26UM1IM30605.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 12,
+          "title": "The Present",
+          "artist": "Sam Clegg",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/95/27/1b/95271be7-2ced-52b0-84f3-ea0596fa9d80/859749260448_cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 13,
+          "title": "Heaven Is A Place On Earth",
+          "artist": "Katherine Jenkins",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c8/3a/00/c83a0008-c2ec-32cc-62e4-905e8d40cadc/711641019244.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 14,
+          "title": "take me home (4 christmas)",
+          "artist": "Olivia Rodrigo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/4f/a6/39/4fa63976-a53a-0084-ef73-b49bc2d8c29e/26UM1IM40331.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 15,
+          "title": "Great Expectation",
+          "artist": "SIENNA SPIRO",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c6/1e/1b/c61e1b6d-e9dd-40ca-916a-223e1dc5a269/26UMGIM51349.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 16,
+          "title": "Run",
+          "artist": "Snow Patrol",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/d3/4f/62/d34f629f-25c0-6967-62e4-a443f7ae644f/23UMGIM17582.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 17,
+          "title": "Dai Dai",
+          "artist": "Shakira & Burna Boy",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/61/49/8d/61498ded-f0dc-227d-cd1d-2051b5d9f195/196874328590.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 18,
+          "title": "Patient Zero",
+          "artist": "Taylor Swift",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a0/dd/fd/a0ddfd72-ee9e-f046-6466-a5dbefc696fa/26UM1IM21436.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 19,
+          "title": "Rise Slow",
+          "artist": "Kimo Sounds",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/23/27/8a/23278a46-aa21-30f3-9e68-213772c53ea7/825181567094.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Electronic"
+        },
+        {
+          "rank": 20,
+          "title": "She Break",
+          "artist": "shockfactor",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/6d/6e/40/6d6e402b-0f07-b156-c972-110edc2b4fed/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 21,
+          "title": "WHERE IS MY HUSBAND!",
+          "artist": "RAYE",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/69/10/8a/69108a18-55ec-d774-a653-90b2242733db/199538765458.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 22,
+          "title": "Let's Get Loud",
+          "artist": "Jennifer Lopez",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/c7/f4/6d/c7f46dbd-bc8d-7a7a-cf66-4b96dc59e105/888880316592.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 23,
+          "title": "Flower In A Hurricane [From GTAVI: Original Score]",
+          "artist": "Justice, Tame Impala, SZA & King Gizzard & The Lizard Wizard",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/af/23/54/af235448-23b3-a3bf-0738-87f6c44a4bbc/5056556187486_cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 24,
+          "title": "Inside My Soul",
+          "artist": "SK.music",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/bf/6b/68/bf6b68bb-b62a-a478-6ae0-b652972ce5b0/883128956318.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Electronic"
+        },
+        {
+          "rank": 25,
+          "title": "Bad Times",
+          "artist": "Imael Angel",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b4/12/6b/b4126b91-419b-4afa-c36c-2e6c531711b6/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "House"
+        },
+        {
+          "rank": 26,
+          "title": "The Greatest Show On Earth",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/26/db/1f/26db1f9b-840b-0d25-66a3-1dfa0b6f06d7/26UMGIM93067.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 27,
+          "title": "Housewife",
+          "artist": "Tate McRae",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/69/64/e4/6964e483-c02c-e389-14f4-c426e8c65f2c/196874840146.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 28,
+          "title": "Man I Need",
+          "artist": "Olivia Dean",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/08/e2/21/08e22164-7c0b-1522-818f-e0e74f62dc49/25UMGIM69703.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 29,
+          "title": "Run",
+          "artist": "Leona Lewis",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/6c/87/eb/6c87eb8f-0115-4764-04cb-98a10db7109d/mzi.wulvxnqa.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 30,
+          "title": "When I Close My Eyes",
+          "artist": "Tom Odell",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/a5/5f/c3/a55fc31f-e830-f456-f38a-6b24bf591d3b/198704646256_Cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 31,
+          "title": "The Book of Love",
+          "artist": "Peter Gabriel",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/17/2d/6a/172d6ab8-9656-fa38-01b5-68c9744b3b6b/Scratch_My_Back-iTunes.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Rock"
+        },
+        {
+          "rank": 32,
+          "title": "The Sun Will Never Settle",
+          "artist": "Kingfishr",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/0b/71/a7/0b71a77c-c647-8c58-ed0a-21beadc44a4d/075679579034.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 33,
+          "title": "Street Of Dreams",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/26/db/1f/26db1f9b-840b-0d25-66a3-1dfa0b6f06d7/26UMGIM93067.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 34,
+          "title": "Nimrod",
+          "artist": "Royal Philharmonic Orchestra",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/ea/cf/b7/eacfb72b-ac15-9234-b877-26314a4e4cd8/dj.nhfwwxci.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Classical"
+        },
+        {
+          "rank": 35,
+          "title": "Homewrecker",
+          "artist": "sombr",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/84/bf/fb/84bffb0a-023f-419f-d5f7-6636f4e5d970/054391221933.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 36,
+          "title": "expectations",
+          "artist": "Olivia Rodrigo & Chappell Roan",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d2/3c/b2/d23cb283-5f3e-7433-bc41-86c7d77c4503/26UM1IM29619.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 37,
+          "title": "Run",
+          "artist": "Alfie Boe",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/5e/4d/74/5e4d74f0-c18d-abda-0938-8e8e3c634275/4050538971293.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 38,
+          "title": "Coming Up Roses",
+          "artist": "Harry Styles",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/07/41/6a/07416a78-38b9-2d47-7ce8-8a52a44c510f/196874010112.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 39,
+          "title": "Lies (feat. Lana Del Rey)",
+          "artist": "Zach Bryan & Lana Del Rey",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/ea/98/f2/ea98f2b8-5131-29ae-2064-997234ef13bc/093624812647.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 40,
+          "title": "All I Want for Christmas Is You",
+          "artist": "Mariah Carey",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/c6/b7/27/c6b727f7-3a32-6b43-cee2-05bb71daf1cf/dj.itfmdeif.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Christmas: Pop"
+        },
+        {
+          "rank": 41,
+          "title": "Higher",
+          "artist": "Take That",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/29/11/22/291122a2-5136-40a9-f195-715fc0b5d87d/26UM1IM20740.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 42,
+          "title": "I Knew It, I Knew You (From \"Toy Story 5\")",
+          "artist": "Taylor Swift",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/34/35/6c/34356cb4-bd0b-3bac-b118-1a6d7264dc64/26UMGIM69942.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Country"
+        },
+        {
+          "rank": 43,
+          "title": "Another Way To Cry",
+          "artist": "Texas",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/8b/af/7b/8baf7b87-9b1a-7b00-8d10-9ad3711ebc4d/5400863220532_cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 44,
+          "title": "New Religion",
+          "artist": "Bebe Rexha & Faithless",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/1d/99/14/1d99143b-f5ce-6a98-2992-f91a050835e3/199316500523_cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Dance"
+        },
+        {
+          "rank": 45,
+          "title": "Nimrod",
+          "artist": "Band of the Coldstream Guards",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/43/5c/b7/435cb7eb-c462-759e-1ad9-9e63178a5fc6/00602527667331.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Classical"
+        },
+        {
+          "rank": 46,
+          "title": "Two Days",
+          "artist": "Kimo Sounds",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/24/65/e3/2465e3bc-b08e-3e22-0787-50f0e8bc5751/882422564465.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Electronic"
+        },
+        {
+          "rank": 47,
+          "title": "Rose",
+          "artist": "Kings of Leon",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c2/84/79/c2847988-ab33-0de8-0dc3-ebf0c6cbd0b4/00823375343684_Cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternative"
+        },
+        {
+          "rank": 48,
+          "title": "House of Bamboo",
+          "artist": "Andy Williams",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/fd/f5/e8/mzi.hdbsevlw.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Rock"
+        },
+        {
+          "rank": 49,
+          "title": "Sign of the Times",
+          "artist": "Harry Styles",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music111/v4/0c/1e/65/0c1e65b2-5c37-032a-f064-aa9c8e42af50/886446451992.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 50,
+          "title": "Ordinary",
+          "artist": "Alex Warren",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/46/78/fb/4678fb84-d19e-f11b-93ff-4dc17660bff8/075679619075.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        }
+      ]
+    },
+    "es": {
+      "albums": [
+        {
+          "rank": 1,
+          "title": "Manufacturas del Club de la Gente Sola (MCGS)",
+          "artist": "Arde Bogotá",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/6a/2b/32/6a2b32b8-e8c9-a8a4-be4d-fdfec8de8c17/196874547014.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/manufacturas-del-club-de-la-gente-sola-mcgs/6803932365?uo=2",
+          "genre": "Alternativa y rock en español"
+        },
+        {
+          "rank": 2,
+          "title": "Britney (25th Anniversary Edition)",
+          "artist": "Britney Spears",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/3d/61/0f/3d610fd5-e074-45bb-1f0e-5a9bac6ac74d/196874836071.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/britney-25th-anniversary-edition/6818422876?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 3,
+          "title": "El amor no está de moda - EP",
+          "artist": "Olivia Bay",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/8f/9c/e9/8f9ce9c7-7ed0-0196-eb57-9533c0f0a392/196874604007.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/el-amor-no-est%C3%A1-de-moda-ep/6814496639?uo=2",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 4,
+          "title": "Titánicos",
+          "artist": "Camela",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b9/16/95/b916954e-586f-677a-9c58-18dcfd537c0e/1200220139347.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/tit%C3%A1nicos/6817337068?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 5,
+          "title": "O My Beloved",
+          "artist": "Kings of Leon",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c2/84/79/c2847988-ab33-0de8-0dc3-ebf0c6cbd0b4/00823375343684_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/o-my-beloved/6802901441?uo=2",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 6,
+          "title": "LOVG - Grandes Éxitos",
+          "artist": "La Oreja de Van Gogh",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/18/37/bc/1837bcb5-0c94-fff0-2b16-76a23958c15f/888880580344.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/lovg-grandes-%C3%A9xitos/283126673?uo=2",
+          "genre": "Alternativa y rock en español"
+        },
+        {
+          "rank": 7,
+          "title": "Good Weather For Immaculate Conception",
+          "artist": "Alanis Morissette",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c0/0b/05/c00b0532-1bd3-de7b-14d4-482e2f82be21/00823375487272_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/good-weather-for-immaculate-conception/6816116333?uo=2",
+          "genre": "Festividades"
+        },
+        {
+          "rank": 8,
+          "title": "Swim School (Deluxe Edition)",
+          "artist": "swim school",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/4d/fc/12/4dfc12b8-c0c7-a827-6df6-71c0d817c300/5026854127835.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/swim-school-deluxe-edition/1846381677?uo=2",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 9,
+          "title": "How's It Goin'",
+          "artist": "Bryan Adams",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/de/9f/f5/de9ff595-ff1c-e4ab-e5ca-09e43f57386c/5059449450919.png/170x170bb.png",
+          "url": "https://music.apple.com/es/album/hows-it-goin/6809936545?uo=2",
+          "genre": "Pop/Rock"
+        },
+        {
+          "rank": 10,
+          "title": "Relicario",
+          "artist": "El Barrio",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/94/a0/4c/94a04c8c-507e-28e3-d59a-a26d1be52697/8445775410098.png/170x170bb.png",
+          "url": "https://music.apple.com/es/album/relicario/6815044985?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 11,
+          "title": "Precisamente",
+          "artist": "Kiko Veneno",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cc/48/aa/cc48aabe-313c-4166-c533-161c30bcd22f/8436614295228.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/precisamente/6817252049?uo=2",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 12,
+          "title": "Requiem for a Village",
+          "artist": "Steven Wilson",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/50/49/86/50498649-9a81-bc78-26c4-09165c7b8779/823375169109_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/requiem-for-a-village/6779529412?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 13,
+          "title": "Carne con patatas",
+          "artist": "Los Zigarros",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/89/3c/41/893c41c2-5a1f-6936-3f82-a68b61935472/885288051254.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/carne-con-patatas/6810745067?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 14,
+          "title": "The Joshua Tree",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/8f/e2/c3/8fe2c384-f6cb-9af7-371d-2b6a9b204e59/17UMGIM79292.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/the-joshua-tree/1443155637?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 15,
+          "title": "The Platinum Collection",
+          "artist": "Queen",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/15/c7/55/15c755bc-7603-3ce3-e243-e59f1f9863ea/602527724171.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/the-platinum-collection/6781080933?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 16,
+          "title": "ÁNGEL SANTOS",
+          "artist": "ÁNGEL SANTOS",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/db/ca/31/dbca31ca-afdb-27d9-e939-633a1e8ed939/859749130383_cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/%C3%A1ngel-santos/6824832837?uo=2",
+          "genre": "Salsa y Tropical"
+        },
+        {
+          "rank": 17,
+          "title": "Grandes Mana",
+          "artist": "Maná",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/22/05/63/mzi.cuwsykoi.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/grandes-mana/257823076?uo=2",
+          "genre": "Alternativa y rock en español"
+        },
+        {
+          "rank": 18,
+          "title": "The Rolling Thunder Revue 1976: Fort Worth Texas, May 16th",
+          "artist": "Bob Dylan",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/29/a6/2e/29a62e3a-daa9-9546-8cd8-b231645617c6/196874750681.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/the-rolling-thunder-revue-1976-fort-worth-texas-may-16th/6810863405?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 19,
+          "title": "Indigo",
+          "artist": "Asia",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/ee/21/88/ee218830-cc6a-c9ac-4d0f-5daf3ad73913/820233957458.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/indigo/6786070473?uo=2",
+          "genre": "Hard rock"
+        },
+        {
+          "rank": 20,
+          "title": "Wild Love",
+          "artist": "Passenger",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1b/d0/04/1bd00499-92ae-244c-6e73-02d669db062e/067003029230.png/170x170bb.png",
+          "url": "https://music.apple.com/es/album/wild-love/6789444108?uo=2",
+          "genre": "Cantautores"
+        },
+        {
+          "rank": 21,
+          "title": "Canned Heat - the Very Best Of (Canned Heat - the Very Best Of)",
+          "artist": "Canned Heat",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Features4/v4/bf/dd/65/bfdd65c3-3430-8bdb-3185-95986da85ac1/dj.uicvzckb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/canned-heat-the-very-best-of-canned-heat-the-very-best-of/322662669?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 22,
+          "title": "Beam Cottage",
+          "artist": "Johnny Flynn & Lillie Flynn",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/b6/4b/ed/b64bed78-0835-caa4-796c-5f3a21f181e3/885288112924.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/beam-cottage/6794346504?uo=2",
+          "genre": "Folk alternativo"
+        },
+        {
+          "rank": 23,
+          "title": "N1NO",
+          "artist": "Nino Bravo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/3f/b8/db/3fb8db00-1c8b-d117-da7b-6f2e5a11cf9a/00602498765005.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/n1no/1440771374?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 24,
+          "title": "Lunas Rotas",
+          "artist": "Rosana",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/17/39/7e/17397e8e-2a7b-0aab-1670-6f6f4508a5f0/mzi.zopczpaa.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/lunas-rotas/317893441?uo=2",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 25,
+          "title": "Los 35 mejores temas de películas de amor (las bandas sonoras románticas)",
+          "artist": "Michele Garruti, Giampaolo Pasquile & Ilary Barnes",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/ad/ec/92/adec9271-a36f-bbd7-6e2b-a0aaf8387da6/love_movie_themes_3.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/top-35-love-themes-from-the-movies-romantic/1194938276?uo=2",
+          "genre": "Banda sonora"
+        },
+        {
+          "rank": 26,
+          "title": "Thriller",
+          "artist": "Michael Jackson",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/32/4f/fd/324ffda2-9e51-8f6a-0c2d-c6fd2b41ac55/074643811224.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/thriller/269572838?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 27,
+          "title": "Layover - EP",
+          "artist": "V",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/93/51/e0/9351e0b4-a565-4232-d797-f60ca3aba82f/196922580031_Cover.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/layover-ep/1700686527?uo=2",
+          "genre": "K-Pop"
+        },
+        {
+          "rank": 28,
+          "title": "Dedicated To You",
+          "artist": "Branford Marsalis Quartet",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/c3/82/07/c38207f6-4324-a25e-fa30-c5711473b4bc/26UMGIM41160.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/dedicated-to-you/6784822470?uo=2",
+          "genre": "Jazz"
+        },
+        {
+          "rank": 29,
+          "title": "Fijación Oral Volumen 1 (Expanded Edition)",
+          "artist": "Shakira",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/6f/18/1d/6f181d45-8041-cbdc-2c79-bc7374d01207/196872648560.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/fijaci%C3%B3n-oral-volumen-1-expanded-edition/1817217210?uo=2",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 30,
+          "title": "Pies Descalzos",
+          "artist": "Shakira",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/94/18/5e/94185e72-fc57-d3ad-51f6-485b8e188c21/dj.abqorqzf.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/pies-descalzos/193662156?uo=2",
+          "genre": "Música latina"
+        },
+        {
+          "rank": 31,
+          "title": "Pablo Alborán (Deluxe)",
+          "artist": "Pablo Alborán",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/cd/ce/6a/cdce6ace-bfeb-5340-46b2-8729e0052511/5099963694055.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/pablo-albor%C3%A1n-deluxe/734787456?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 32,
+          "title": "Sale el Sol",
+          "artist": "Shakira",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/ec/15/38/ec1538d9-67b8-e561-6b11-bc5a266cba7c/886444681568.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/sale-el-sol/888878323?uo=2",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 33,
+          "title": "Moulin Rouge (Soundtrack from the Motion Picture)",
+          "artist": "Various Artists",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/e1/ae/99/e1ae9974-ef04-a3f2-445c-422f1cf0f88f/00606949050726.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/moulin-rouge-soundtrack-from-the-motion-picture/1440891578?uo=2",
+          "genre": "Banda sonora"
+        },
+        {
+          "rank": 34,
+          "title": "El Viaje de Copperpot",
+          "artist": "La Oreja de Van Gogh",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music/b0/56/f6/mzi.qqnqkkkp.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/el-viaje-de-copperpot/266184850?uo=2",
+          "genre": "Música latina"
+        },
+        {
+          "rank": 35,
+          "title": "Los Ángeles",
+          "artist": "ROSALÍA",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/98/61/1c/98611c07-e3f2-e2bf-213f-794d76b41fc3/00602557394641.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/los-%C3%A1ngeles/1440865143?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 36,
+          "title": "Chopin: Nocturnes",
+          "artist": "Daniel Barenboim",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/55/e7/03/55e703ff-dbbd-7af7-6e46-f0196f888c38/06UMGIM56424.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/chopin-nocturnes/1440761454?uo=2",
+          "genre": "Clásica"
+        },
+        {
+          "rank": 37,
+          "title": "The Definitive Collection",
+          "artist": "Lionel Richie",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/82/eb/98/82eb9852-fd06-697d-9630-bf4c3fe136ff/06UMGIM45469.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/the-definitive-collection/1440781318?uo=2",
+          "genre": "R&B/Soul"
+        },
+        {
+          "rank": 38,
+          "title": "OK Computer",
+          "artist": "Radiohead",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/07/60/ba/0760ba0f-148c-b18f-d0ff-169ee96f3af5/634904078164.png/170x170bb.png",
+          "url": "https://music.apple.com/es/album/ok-computer/1097861387?uo=2",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 39,
+          "title": "The Immaculate Collection",
+          "artist": "Madonna",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/32/fd/6e/32fd6e25-da2b-10e9-df38-2923c01b6c9b/dj.jaxugjvp.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/the-immaculate-collection/80812428?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 40,
+          "title": "VIDA",
+          "artist": "Luis Fonsi",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/e2/ef/f0/e2eff0bc-c51d-7de5-9280-6891ddcee71b/18UMGIM85289.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/vida/1447401519?uo=2",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 41,
+          "title": "Eurythmics: Greatest Hits",
+          "artist": "Eurythmics",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Features124/v4/f6/4c/96/f64c9659-adf6-3256-1193-9e02bc14cc3a/dj.qmleubcf.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/eurythmics-greatest-hits/268544278?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 42,
+          "title": "Greatest Hits",
+          "artist": "Billy Idol",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d0/8f/53/d08f535b-f04d-e683-476a-835efc05bf74/13UABIM74016.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/greatest-hits/1767078693?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 43,
+          "title": "The Final: 14 Greatest Hits (Deluxe Bonus Videos Edition)",
+          "artist": "Wham!",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/bc/28/31/bc2831e9-2646-098a-96c4-adc2e2c901bb/dj.tefnkxmm.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/the-final-14-greatest-hits-deluxe-bonus-videos-edition/477441767?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 44,
+          "title": "Camilo 70",
+          "artist": "Camilo Sesto",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music62/v4/83/4f/85/834f858e-be56-376b-2690-87ce871eae66/886446034140.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/camilo-70/1151004803?uo=2",
+          "genre": "Pop"
+        },
+        {
+          "rank": 45,
+          "title": "ZZ Top's Greatest Hits",
+          "artist": "ZZ Top",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/8e/c8/cf/8ec8cfbe-317c-02a3-4e69-ae343cafef39/0075992684668.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/zz-tops-greatest-hits/1727312369?uo=2",
+          "genre": "Hard rock"
+        },
+        {
+          "rank": 46,
+          "title": "Pyramid (Expanded Edition)",
+          "artist": "The Alan Parsons Project",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/49/7e/43/497e43f2-1c91-b477-8062-b18b7cc7ab97/888880528025.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/pyramid-expanded-edition/281644070?uo=2",
+          "genre": "Rock"
+        },
+        {
+          "rank": 47,
+          "title": "Romances",
+          "artist": "Luis Miguel",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/ff/69/36/ff693624-752f-735e-768d-ddb3f116f612/s06.hsmrwqjq.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/romances/42229482?uo=2",
+          "genre": "Música latina"
+        },
+        {
+          "rank": 48,
+          "title": "El Amor De La Clase Que Sea",
+          "artist": "Viva Suecia",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/eb/dd/ba/ebddbadd-054b-e155-977b-b91aa534d344/22UMGIM69892.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/el-amor-de-la-clase-que-sea/1643883142?uo=2",
+          "genre": "Alternativa y rock en español"
+        },
+        {
+          "rank": 49,
+          "title": "Tchaikovsky",
+          "artist": "Varios Artistas",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/02/ab/88/02ab8825-ed55-2fdd-f597-6995fd568a6f/886788975637.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/tchaikovsky/532795606?uo=2",
+          "genre": "Clásica"
+        },
+        {
+          "rank": 50,
+          "title": "Kick 25 ((Super Deluxe Edition))",
+          "artist": "INXS",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/93/c0/3e/93c03ed7-7a39-8597-a07f-c322863faa43/12UMGIM47215.rgb.jpg/170x170bb.png",
+          "url": "https://music.apple.com/es/album/kick-25-super-deluxe-edition/1445843377?uo=2",
+          "genre": "Rock"
+        }
+      ],
+      "songs": [
+        {
+          "rank": 1,
+          "title": "Bonito, Bonito",
+          "artist": "Thiago Navarro Music",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/77/47/fc/7747fc1e-8167-5de6-b8e7-cf9b1038aea3/882436183713_cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 2,
+          "title": "Rise Slow",
+          "artist": "Kimo Sounds",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/23/27/8a/23278a46-aa21-30f3-9e68-213772c53ea7/825181567094.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Electrónica"
+        },
+        {
+          "rank": 3,
+          "title": "Pobre de mí",
+          "artist": "Juanjo Bona",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/04/94/7e/04947e85-e7c7-87dd-ef38-bd761b0b9ca0/26UM1IM30537.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 4,
+          "title": "Street Of Dreams",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/22/aa/69/22aa69a4-2ab6-c37b-1491-8f0d6423c2a3/26UMGIM93067.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 5,
+          "title": "The Greatest Show On Earth",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/22/aa/69/22aa69a4-2ab6-c37b-1491-8f0d6423c2a3/26UMGIM93067.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 6,
+          "title": "La Nieve (Original song from the film La Bola Negra)",
+          "artist": "Guitarricadelafuente",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f2/22/f7/f222f717-46b7-651c-76d1-e79e4ea28713/196874767580.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 7,
+          "title": "Movin' To The Sun",
+          "artist": "HUGEL, Imael Angel & Ultra Naté",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/96/61/7a/96617ab5-51da-7cfc-97e5-c5a6a893c210/1087654.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Electrónica"
+        },
+        {
+          "rank": 8,
+          "title": "My life, My rules",
+          "artist": "DjElynzoo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f5/31/6d/f5316d37-57d2-1512-5f41-b9b7b513c2ad/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "House"
+        },
+        {
+          "rank": 9,
+          "title": "Algo de Interés",
+          "artist": "María Bonilla",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c4/5f/4c/c45f4c3c-967e-7170-2670-b878514f0d84/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 10,
+          "title": "AGUA",
+          "artist": "Maluma & Shakira",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/51/30/88/51308852-2879-70b1-6028-a5a589a692c9/196874698495.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 11,
+          "title": "hey boyyy",
+          "artist": "Slayyyter",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/36/31/c0/3631c09b-428c-59d9-f2a0-7b93ff0d24a2/196874787007.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 12,
+          "title": "Stop The Wedding!",
+          "artist": "Ashe",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/b7/55/7a/b7557aef-bb0a-cc57-25bf-979eee194f16/075679571403.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 13,
+          "title": "One",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/f2/e1/12/f2e112cc-71ee-807d-dcd3-c923d0a7d826/11UMGIM36566.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Rock"
+        },
+        {
+          "rank": 14,
+          "title": "Titanic",
+          "artist": "Kany García & Camilo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2d/0f/89/2d0f89c1-9711-fe7e-d5bf-1d3b42035fa4/886448491910.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 15,
+          "title": "LA GRACIOSA",
+          "artist": "Quevedo & Elvis Crespo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/56/e5/bf/56e5bfea-2071-1224-1c62-f6119195a949/8718521173821.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Urbano latino"
+        },
+        {
+          "rank": 16,
+          "title": "A Sky Full of Stars",
+          "artist": "Coldplay",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/60/90/ad/6090adc3-8863-861d-afcc-23c55c6fe5da/dj.vmtulfyu.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 17,
+          "title": "Dai Dai",
+          "artist": "Shakira & Burna Boy",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/61/49/8d/61498ded-f0dc-227d-cd1d-2051b5d9f195/196874328590.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 18,
+          "title": "Alors on danse (Radio Edit)",
+          "artist": "Stromae",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/1a/12/f1/1a12f17e-7a49-339a-6cc7-285551a35b08/10UMGIM14302.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Dance"
+        },
+        {
+          "rank": 19,
+          "title": "Memoria",
+          "artist": "Leiva",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/c5/d2/fc/c5d2fc16-5a88-8700-cc3e-b8a7ccfb2393/196874867181.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 20,
+          "title": "BAD TIMES",
+          "artist": "Imael Angel",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/08/48/e5/0848e51a-c14d-1d5f-494e-871b561ed0f4/26UM1IM27351.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Dance"
+        },
+        {
+          "rank": 21,
+          "title": "Walk on the Wild Side",
+          "artist": "Lou Reed",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/2a/e7/69/2ae76967-b94e-3b80-a079-93202eeb6157/886445151930.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Rock"
+        },
+        {
+          "rank": 22,
+          "title": "Where the Streets Have No Name",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/8f/e2/c3/8fe2c384-f6cb-9af7-371d-2b6a9b204e59/17UMGIM79292.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Rock"
+        },
+        {
+          "rank": 23,
+          "title": "Bad Times (Extended Version)",
+          "artist": "Imael Angel",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/08/03/7f/08037f7d-6173-9348-991d-5966f0686539/artwork.jpg/170x170bb.png",
+          "url": "",
+          "genre": "House"
+        },
+        {
+          "rank": 24,
+          "title": "Later Become Never",
+          "artist": "Kimo Sounds",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/39/74/b6/3974b623-a505-d5c3-b486-88b2cb682957/882100782228.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Electrónica"
+        },
+        {
+          "rank": 25,
+          "title": "Pride (In the Name of Love)",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/40/45/51/40455196-536d-d9a2-c8a7-4129ce944a67/17UMGIM94892.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Rock"
+        },
+        {
+          "rank": 26,
+          "title": "NUEVAYoL",
+          "artist": "Bad Bunny",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/90/5e/7e/905e7ed5-a8fa-a8f3-cd06-0028fdf3afaa/199066342442.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Música latina"
+        },
+        {
+          "rank": 27,
+          "title": "Me Rehúso",
+          "artist": "Danny Ocean",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/38/8c/26/388c26af-a2d3-bb9c-391d-bf02e3b2319c/190296949630.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Música latina"
+        },
+        {
+          "rank": 28,
+          "title": "Smalltown Boy",
+          "artist": "Bronski Beat",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/76/df/ee/76dfee41-aca3-76c6-e695-c46ec360e090/639842819527.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 29,
+          "title": "La Boca del Lobo",
+          "artist": "Carlos Ares",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/1c/b4/80/1cb48027-3415-ed41-f089-b49b4c6f97d6/4099964199826.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternativa"
+        },
+        {
+          "rank": 30,
+          "title": "I Still Haven't Found What I'm Looking For",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/8f/e2/c3/8fe2c384-f6cb-9af7-371d-2b6a9b204e59/17UMGIM79292.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Rock"
+        },
+        {
+          "rank": 31,
+          "title": "Muñeca de Trapo",
+          "artist": "La Oreja de Van Gogh",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music49/v4/5c/7c/66/5c7c66ef-820c-a36b-c833-fd4a381366e5/dj.qqulcjwg.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 32,
+          "title": "Sunday Bloody Sunday",
+          "artist": "U2",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/6b/0a/0d/6b0a0d5b-2831-06e9-3471-3befad197c1d/17UMGIM87714.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Rock"
+        },
+        {
+          "rank": 33,
+          "title": "Matador",
+          "artist": "Los Fabulosos Cadillacs",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/b8/df/a7/b8dfa7ff-3949-9532-4e6d-9c7afc5611fe/mzi.xgpwmdem.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Alternativa y rock en español"
+        },
+        {
+          "rank": 34,
+          "title": "L O V E (Bonus Track)",
+          "artist": "Michael Bublé",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/d9/a6/6f/d9a66fa4-7bbb-2a6d-c819-4b18f304b157/093624942795.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 35,
+          "title": "You Make Me Feel (Mighty Real)",
+          "artist": "Sylvester",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/34/ce/21/34ce2196-234e-aded-ddf4-cfb00c868118/20CRGIM23015.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Dance"
+        },
+        {
+          "rank": 36,
+          "title": "Outside World",
+          "artist": "Sunbeam",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/79/44/e6/7944e645-1bf9-fa4b-dbb0-bb04bb0ebece/s05.oksiyqmy.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Electrónica"
+        },
+        {
+          "rank": 37,
+          "title": "La Salvación",
+          "artist": "Arde Bogotá",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/a6/6d/d2/a66dd220-7542-661a-a946-271f1c6ce6b8/196589818317.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 38,
+          "title": "Dardos",
+          "artist": "Romeo Santos & Prince Royce",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/60/66/a9/6066a9a2-b1e8-d171-d8b3-7d044c040b94/196873751887.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 39,
+          "title": "Cero",
+          "artist": "Dani Martín",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/5b/19/c4/5b19c477-9a04-4e1d-d36a-527904c86b51/886444068284.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 40,
+          "title": "Sweet Child O' Mine",
+          "artist": "Guns N' Roses",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/b4/4e/9c/b44e9c1c-54c4-0eab-544c-1c5d0933158a/20UMGIM52444.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Hard rock"
+        },
+        {
+          "rank": 41,
+          "title": "A Thousand Years",
+          "artist": "Christina Perri",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f5/2e/83/f52e8357-9cf4-e644-c365-3c21839f85ac/mzi.staekbjw.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Banda sonora"
+        },
+        {
+          "rank": 42,
+          "title": "pa ti toa <3",
+          "artist": "Ana Mena & Lola Indigo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/9e/fa/6f/9efa6fe0-5ce8-3f55-7ed6-24cda7d77505/196874447369.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 43,
+          "title": "La Bicicleta",
+          "artist": "Carlos Vives & Shakira",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/60/9f/7f/609f7f34-c239-73e8-32da-96fd5f2cba77/886446480060.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 44,
+          "title": "Photograph",
+          "artist": "Ed Sheeran",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Features125/v4/a7/7b/92/a77b92fc-d331-dd1b-8772-80597dc51fd0/dj.xllwtvne.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 45,
+          "title": "Tu Mil Jaaye (From \"KING\")",
+          "artist": "Sachin-Jigar, Arijit Singh, Ed Sheeran, Madhubanti Bagchi & Kumaar",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/cc/bf/37/ccbf3767-04e6-4a7f-ba93-f7377df30506/8903431225320_cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Bollywood"
+        },
+        {
+          "rank": 46,
+          "title": "The First Time",
+          "artist": "Damiano David",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/8b/6b/33/8b6b338b-5173-8d3f-312b-a32e00aec6ba/196873640938.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 47,
+          "title": "Ojitos Lindos",
+          "artist": "Bad Bunny & Bomba Estéreo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music112/v4/3e/04/eb/3e04ebf6-370f-f59d-ec84-2c2643db92f1/196626945068.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Música latina"
+        },
+        {
+          "rank": 48,
+          "title": "BODYPAINTING",
+          "artist": "Emilia",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/d3/6a/e7/d36ae784-84be-5811-5cc2-ce4dc9ae7611/196874897980.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop en español"
+        },
+        {
+          "rank": 49,
+          "title": "Lady (Hear Me Tonight)",
+          "artist": "Modjo",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/1b/cb/79/1bcb7904-be8d-388e-eb25-9ab4ff353219/cover.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop"
+        },
+        {
+          "rank": 50,
+          "title": "CONEXIÓN PSÍQUICA",
+          "artist": "Aitana",
+          "cover": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/43/08/06/430806b8-3b40-649f-37e9-37ff2ab702df/25UMGIM52016.rgb.jpg/170x170bb.png",
+          "url": "",
+          "genre": "Pop en español"
+        }
+      ]
+    }
+  }
+}

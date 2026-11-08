@@ -775,7 +775,7 @@ function openAuth(start='login', gate=false){
     document.getElementById('aSwitchTxt').textContent = login ? 'Ainda não tens conta?' : 'Já tens conta?';
     document.getElementById('aSwitch').textContent = login ? 'Criar conta' : 'Entrar';
     document.getElementById('aPass').setAttribute('autocomplete', login ? 'current-password' : 'new-password');
-    document.getElementById('live').style.display = login ? 'none' : 'block';
+    document.getElementById('live').style.display = 'block';
     err('');
   };
   paint();

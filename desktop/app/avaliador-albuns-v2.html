@@ -470,7 +470,7 @@ function refreshAll(){ renderCatalog(); renderAllLibrary(); }
 
 /* ---------- Modais ---------- */
 function openModal(html){ $('#modal').innerHTML=html; $('#overlay').classList.add('open'); }
-function closeModal(){ $('#overlay').classList.remove('open'); $('#modal').innerHTML=''; }
+function closeModal(){ if(window.authGate && !currentUser()) return; $('#overlay').classList.remove('open'); $('#modal').innerHTML=''; }
 
 function openAlbum(id){
   const a=registry.get(id)||db.find(x=>x.id===id)||catalog.find(x=>x.id===id);
@@ -649,11 +649,13 @@ function logout(){
   refreshAccountButton();
   refreshAll();
   toast('Sessão terminada');
+  openAuth('login', true);
 }
-function openAuth(start='login'){
+function openAuth(start='login', gate=false){
   let mode=start;
+  window.authGate = gate;
   openModal(`
-    <div class="mhead"><h2 id="authTitle"></h2><button class="x" data-close>×</button></div>
+    <div class="mhead"><h2 id="authTitle"></h2>${gate?'':'<button class="x" data-close>×</button>'}</div>
     <form class="mbody" id="authForm">
       <div class="field"><label for="aEmail">Email</label><input id="aEmail" type="email" required autocomplete="email"></div>
       <div class="field"><label for="aPass">Palavra-passe</label><input id="aPass" type="password" required minlength="6" autocomplete="current-password"></div>
@@ -704,6 +706,7 @@ document.getElementById('btnAccount').addEventListener('click', () => {
   else openAuth('login');
 });
 refreshAccountButton();
+if(!currentUser()) openAuth('login', true);
 
 renderChips();
 renderAllLibrary();

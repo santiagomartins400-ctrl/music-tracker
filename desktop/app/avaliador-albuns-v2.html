@@ -275,13 +275,26 @@ function migrate(a){
   const {criteria, ...rest}=a;
   return {...rest, stars: Math.round(m/2*2)/2};
 }
+/* ---------- Contas (locais, neste navegador) ---------- */
+const ACC_KEY = 'album-critico-accounts';
+const SESS_KEY = 'album-critico-session';
+function getAccounts(){ try{ return JSON.parse(localStorage.getItem(ACC_KEY))||{}; }catch(e){ return {}; } }
+function setAccounts(acc){ try{ localStorage.setItem(ACC_KEY, JSON.stringify(acc)); }catch(e){} }
+function currentUser(){ try{ return localStorage.getItem(SESS_KEY)||''; }catch(e){ return ''; } }
+function libKey(){ const u=currentUser(); return u ? `${KEY}:${u}` : KEY; }
+async function hashPw(pw, salt){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(salt+':'+pw));
+  return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
+}
 function load(){
-  try{ const d=JSON.parse(localStorage.getItem(KEY)); if(Array.isArray(d)) return d; }catch(e){}
+  const k=libKey();
+  try{ const d=JSON.parse(localStorage.getItem(k)); if(Array.isArray(d)) return d; }catch(e){}
+  if(k!==KEY) return [];
   try{ const o=JSON.parse(localStorage.getItem(OLD_KEY)); if(Array.isArray(o)) return o.map(migrate); }catch(e){}
   return seed();
 }
 let db = load();
-function persist(){ try{ localStorage.setItem(KEY, JSON.stringify(db)); }catch(e){} if(window.cloudSync) window.cloudSync(db); }
+function persist(){ try{ localStorage.setItem(libKey(), JSON.stringify(db)); }catch(e){} }
 
 const registry = new Map();
 const findLib = a => db.find(x => x.id===a.id || (a.sourceId && x.sourceId===a.sourceId));
@@ -620,137 +633,82 @@ $('#fileImport').onchange=async e=>{
   e.target.value='';
 };
 
+/* ---------- Conta: criar conta e iniciar sessão ---------- */
+function refreshAccountButton(){
+  document.getElementById('btnAccount').textContent = currentUser() || 'Entrar';
+}
+function loginAs(email){
+  try{ localStorage.setItem(SESS_KEY, email); }catch(e){}
+  db = load();
+  refreshAccountButton();
+  refreshAll();
+}
+function logout(){
+  try{ localStorage.removeItem(SESS_KEY); }catch(e){}
+  db = load();
+  refreshAccountButton();
+  refreshAll();
+  toast('Sessão terminada');
+}
+function openAuth(start='login'){
+  let mode=start;
+  openModal(`
+    <div class="mhead"><h2 id="authTitle"></h2><button class="x" data-close>×</button></div>
+    <form class="mbody" id="authForm">
+      <div class="field"><label for="aEmail">Email</label><input id="aEmail" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="aPass">Palavra-passe</label><input id="aPass" type="password" required minlength="6" autocomplete="current-password"></div>
+      <p id="authErr" style="color:#ff6b8a;min-height:20px;margin:0 0 10px"></p>
+      <div class="form-actions"><button type="submit" class="btn primary" id="aSubmit"></button></div>
+      <p style="text-align:center;margin-top:18px;color:var(--muted)"><span id="aSwitchTxt"></span>
+        <button type="button" class="btn ghost" id="aSwitch" style="padding:4px 8px"></button></p>
+    </form>`);
+  const err = m => { document.getElementById('authErr').textContent = m; };
+  const paint = () => {
+    const login = mode==='login';
+    document.getElementById('authTitle').textContent = login ? 'Entrar' : 'Criar conta';
+    document.getElementById('aSubmit').textContent = login ? 'Entrar' : 'Criar conta';
+    document.getElementById('aSwitchTxt').textContent = login ? 'Ainda não tens conta?' : 'Já tens conta?';
+    document.getElementById('aSwitch').textContent = login ? 'Criar conta' : 'Entrar';
+    document.getElementById('aPass').setAttribute('autocomplete', login ? 'current-password' : 'new-password');
+    err('');
+  };
+  paint();
+  document.getElementById('aSwitch').onclick = () => { mode = mode==='login' ? 'signup' : 'login'; paint(); };
+  document.getElementById('authForm').onsubmit = async ev => {
+    ev.preventDefault();
+    const email = document.getElementById('aEmail').value.trim().toLowerCase();
+    const pw = document.getElementById('aPass').value;
+    if (!/^\S+@\S+\.\S+$/.test(email)) { err('Email inválido.'); return; }
+    if (pw.length < 6) { err('A palavra-passe deve ter pelo menos 6 caracteres.'); return; }
+    try {
+      const acc = getAccounts();
+      if (mode==='signup') {
+        if (acc[email]) { err('Já existe uma conta com este email.'); return; }
+        const salt = uid();
+        acc[email] = { salt, hash: await hashPw(pw, salt) };
+        setAccounts(acc);
+      } else {
+        const a = acc[email];
+        if (!a || (await hashPw(pw, a.salt)) !== a.hash) { err('Email ou palavra-passe incorretos.'); return; }
+      }
+      loginAs(email);
+      closeModal();
+      toast(mode==='signup' ? 'Conta criada' : 'Sessão iniciada');
+    } catch (e) {
+      err('Não foi possível concluir. Tenta de novo.');
+    }
+  };
+}
+document.getElementById('btnAccount').addEventListener('click', () => {
+  if (currentUser()) { if (confirm('Terminar sessão?')) logout(); }
+  else openAuth('login');
+});
+refreshAccountButton();
+
 renderChips();
 renderAllLibrary();
 </script>
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, collection, doc, onSnapshot, writeBatch } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-/* >>> COLA AQUI O firebaseConfig DO TEU PROJETO <<< */
-const firebaseConfig = {
-  apiKey: "COLOCAR_AQUI",
-  authDomain: "COLOCAR_AQUI",
-  projectId: "COLOCAR_AQUI",
-  storageBucket: "COLOCAR_AQUI",
-  messagingSenderId: "COLOCAR_AQUI",
-  appId: "COLOCAR_AQUI"
-};
-
-const btnAccount = document.getElementById('btnAccount');
-const configured = !String(firebaseConfig.apiKey).startsWith('COLOCAR');
-
-if (!configured) {
-  btnAccount.addEventListener('click', () => toast('Contas ainda não configuradas: falta o firebaseConfig no ficheiro'));
-} else {
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const fdb = getFirestore(app);
-  let user = null, unsub = null, cloudIds = new Set(), applyingRemote = false;
-
-  const ERR = {
-    'auth/invalid-email': 'Email inválido.',
-    'auth/missing-password': 'Escreve a palavra-passe.',
-    'auth/weak-password': 'A palavra-passe deve ter pelo menos 6 caracteres.',
-    'auth/email-already-in-use': 'Já existe uma conta com este email.',
-    'auth/invalid-credential': 'Email ou palavra-passe incorretos.',
-    'auth/user-not-found': 'Email ou palavra-passe incorretos.',
-    'auth/wrong-password': 'Email ou palavra-passe incorretos.',
-    'auth/too-many-requests': 'Demasiadas tentativas. Espera uns minutos.',
-    'auth/network-request-failed': 'Sem ligação à internet.'
-  };
-  const errMsg = e => ERR[e.code] || 'Não foi possível concluir. Tenta de novo.';
-
-  function refreshButton(){ btnAccount.textContent = user ? (user.email || 'Conta') : 'Entrar'; }
-
-  function openAuth(start = 'login'){
-    openModal(`
-      <div class="mhead"><h2 id="authTitle"></h2><button class="x" data-close>×</button></div>
-      <form class="mbody" id="authForm">
-        <div class="field"><label for="aEmail">Email</label><input id="aEmail" type="email" required autocomplete="email"></div>
-        <div class="field"><label for="aPass">Palavra-passe</label><input id="aPass" type="password" required minlength="6" autocomplete="current-password"></div>
-        <p id="authErr" style="color:#ff6b8a;min-height:20px;margin:0 0 10px"></p>
-        <div class="form-actions" style="justify-content:space-between;align-items:center">
-          <button type="button" class="btn ghost" id="aReset">Esqueci a palavra-passe</button>
-          <button type="submit" class="btn primary" id="aSubmit"></button>
-        </div>
-        <p style="text-align:center;margin-top:18px;color:var(--muted)"><span id="aSwitchTxt"></span>
-          <button type="button" class="btn ghost" id="aSwitch" style="padding:4px 8px"></button></p>
-      </form>`);
-    let mode = start;
-    const paint = () => {
-      const login = mode === 'login';
-      document.getElementById('authTitle').textContent = login ? 'Entrar' : 'Criar conta';
-      document.getElementById('aSubmit').textContent = login ? 'Entrar' : 'Criar conta';
-      document.getElementById('aSwitchTxt').textContent = login ? 'Ainda não tens conta?' : 'Já tens conta?';
-      document.getElementById('aSwitch').textContent = login ? 'Criar conta' : 'Entrar';
-      document.getElementById('authErr').textContent = '';
-    };
-    paint();
-    document.getElementById('aSwitch').onclick = () => { mode = mode === 'login' ? 'signup' : 'login'; paint(); };
-    document.getElementById('aReset').onclick = async () => {
-      const em = document.getElementById('aEmail').value.trim();
-      if (!em) { document.getElementById('authErr').textContent = 'Escreve primeiro o email.'; return; }
-      try { await sendPasswordResetEmail(auth, em); toast('Email para repor a palavra-passe enviado'); }
-      catch (e) { document.getElementById('authErr').textContent = errMsg(e); }
-    };
-    document.getElementById('authForm').onsubmit = async ev => {
-      ev.preventDefault();
-      const em = document.getElementById('aEmail').value.trim();
-      const pw = document.getElementById('aPass').value;
-      const btn = document.getElementById('aSubmit');
-      btn.disabled = true;
-      try {
-        if (mode === 'signup') await createUserWithEmailAndPassword(auth, em, pw);
-        else await signInWithEmailAndPassword(auth, em, pw);
-        closeModal();
-        toast(mode === 'signup' ? 'Conta criada' : 'Sessão iniciada');
-      } catch (e) {
-        document.getElementById('authErr').textContent = errMsg(e);
-      } finally { btn.disabled = false; }
-    };
-  }
-
-  btnAccount.addEventListener('click', () => {
-    if (user) { if (confirm('Terminar sessão?')) signOut(auth); }
-    else openAuth('login');
-  });
-
-  /* Sincronização da biblioteca com a conta (Firestore: users/{uid}/library/{id}) */
-  function cloudSync(items){
-    if (!user || applyingRemote) return;
-    const ids = new Set(items.map(x => x.id));
-    const batch = writeBatch(fdb);
-    items.forEach(x => batch.set(doc(fdb, 'users', user.uid, 'library', x.id), x));
-    cloudIds.forEach(id => { if (!ids.has(id)) batch.delete(doc(fdb, 'users', user.uid, 'library', id)); });
-    batch.commit().then(() => { cloudIds = ids; })
-      .catch(() => toast('Não foi possível sincronizar. Verifica a ligação.'));
-  }
-  window.cloudSync = cloudSync;
-
-  function subscribe(uid){
-    unsub = onSnapshot(collection(fdb, 'users', uid, 'library'), snap => {
-      if (snap.empty && snap.metadata.fromCache) return;
-      if (snap.empty && db.length) { cloudSync(db); return; }
-      const items = [], ids = new Set();
-      snap.forEach(d => { items.push(d.data()); ids.add(d.id); });
-      cloudIds = ids;
-      applyingRemote = true;
-      db = items;
-      try { localStorage.setItem(KEY, JSON.stringify(db)); } catch (e) {}
-      applyingRemote = false;
-      refreshAll();
-    }, () => toast('Não foi possível ler a biblioteca da conta'));
-  }
-
-  onAuthStateChanged(auth, u => {
-    user = u; refreshButton();
-    if (unsub) { unsub(); unsub = null; cloudIds = new Set(); }
-    if (u) subscribe(u.uid);
-  });
-}
-</script>
 
 </body>
 </html>

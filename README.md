@@ -1,4 +1,4 @@
-# Álbum Crítico — site de download
+# Music Tracker — site de download
 
 Página de download e instalação da aplicação de avaliação de álbuns.
 

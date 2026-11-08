@@ -7,7 +7,7 @@ function createWindow() {
     height: 860,
     minWidth: 900,
     minHeight: 600,
-    title: 'Álbum Crítico',
+    title: 'Music Tracker',
     backgroundColor: '#0a0a0f',
     autoHideMenuBar: true,
     webPreferences: {

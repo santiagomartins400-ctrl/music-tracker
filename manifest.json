@@ -1,6 +1,6 @@
 {
-  "name": "Álbum Crítico",
-  "short_name": "Álbum Crítico",
+  "name": "Music Tracker",
+  "short_name": "Music Tracker",
   "description": "Avalia álbuns com critérios próprios, pesquisa um catálogo e vê capas e fotos.",
   "start_url": "avaliador-albuns-v2.html",
   "scope": "./",

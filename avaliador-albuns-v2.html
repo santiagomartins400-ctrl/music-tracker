@@ -226,27 +226,136 @@ body.xmas::after{content:"";position:fixed;inset:-100px 0 0;pointer-events:none;
 .pv-stars{margin-top:6px;display:flex;gap:6px;flex-wrap:wrap;min-height:24px;color:#f59e0b;font-size:1.25rem}
 .pv-stars span{animation:starpop .35s both}
 @keyframes starpop{0%{transform:scale(0) rotate(-60deg);opacity:0}70%{transform:scale(1.25);opacity:1}100%{transform:none}}
+
+/* ===== Redesenho v3: navegação, início, leitor, acessibilidade ===== */
+:root{ --ring:0 0 0 3px rgba(167,139,250,.6); --shadow:0 18px 40px -18px rgba(0,0,0,.75); --radius:18px; }
+body{line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3{letter-spacing:-.02em}
+:focus-visible{outline:none;box-shadow:var(--ring);border-radius:12px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+header{background:rgba(9,9,14,.82)}
+.nav{display:flex;gap:6px}
+.nav-btn{display:flex;align-items:center;gap:12px;background:none;border:none;color:var(--muted);padding:12px 14px;border-radius:14px;font-weight:600;font-size:.95rem;position:relative;transition:background .2s,color .2s}
+.nav-btn:hover{background:rgba(255,255,255,.05);color:var(--text)}
+.nav-btn.on{color:#fff;background:linear-gradient(135deg,rgba(139,92,246,.35),rgba(236,72,153,.28));box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.nav-btn.on svg{color:#e9d5ff}
+.actions{display:flex;gap:8px;align-items:center}
+.sec-h{font-size:1.3rem;margin:34px 0 14px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.sec-h small{color:var(--muted);font-weight:500;font-size:.9rem}
+.hero{position:relative;overflow:hidden;border-radius:26px;padding:34px 28px;border:1px solid var(--line);background:radial-gradient(700px 320px at 0% 0%,rgba(139,92,246,.35),transparent 60%),radial-gradient(600px 300px at 100% 100%,rgba(236,72,153,.26),transparent 60%),var(--panel)}
+.hero h1{font-size:clamp(1.6rem,4vw,2.4rem);margin:4px 0 8px}
+.hero.compact{padding:24px}
+.hero-sub{color:var(--muted);margin:0 0 18px;max-width:560px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;font-weight:700;color:var(--accent2);margin:0}
+.pls{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.pl{display:flex;align-items:center;gap:14px;text-align:left;padding:16px;border-radius:18px;border:1px solid var(--line);background:var(--panel);color:var(--text);transition:transform .2s,border-color .2s,background .2s}
+.pl:hover{transform:translateY(-2px);border-color:rgba(167,139,250,.45);background:var(--panel2)}
+.pl-ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:1.15rem;background:linear-gradient(135deg,var(--accent),var(--accent2));flex:none}
+.pl b{display:block}
+.pl small{color:var(--muted)}
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 18px}
+.rail>.card{flex:0 0 176px;scroll-snap-align:start}
+.rail>.empty{width:100%}
+.card{border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:rgba(167,139,250,.4);box-shadow:0 26px 50px -20px rgba(139,92,246,.45)}
+.card:focus-visible{box-shadow:var(--ring)}
+.play-btn{position:absolute;right:12px;top:12px;z-index:2;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.15);color:#fff;background:rgba(10,10,15,.72);backdrop-filter:blur(8px);opacity:0;transform:translateY(6px) scale(.9);transition:opacity .25s,transform .25s,background .2s}
+.card:hover .play-btn,.play-btn:focus-visible{opacity:1;transform:none}
+.play-btn:hover{background:linear-gradient(135deg,var(--accent),var(--accent2))}
+@media (hover:none){.play-btn{opacity:1;transform:none}}
+.artist-card .cover.round{border-radius:50%;width:calc(100% - 32px);margin:16px auto 0;aspect-ratio:1;overflow:hidden}
+.artist-card .meta{text-align:center}
+.panel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.panel{border:1px solid var(--line);border-radius:20px;padding:22px;background:var(--panel)}
+.panel h3{margin:0 0 6px}
+.panel p{color:var(--muted);margin:0 0 14px;font-size:.92rem}
+.panel .btn{margin:4px 6px 4px 0}
+input:focus-visible,select:focus-visible{outline:none;box-shadow:var(--ring)}
+.player{position:fixed;left:0;right:0;bottom:0;z-index:25;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);align-items:center;gap:18px;padding:12px 20px;background:rgba(14,14,22,.94);backdrop-filter:blur(18px);border-top:1px solid var(--line);box-shadow:0 -20px 40px -20px rgba(0,0,0,.7)}
+.player[hidden]{display:none!important}
+.p-now{display:flex;align-items:center;gap:12px;min-width:0}
+.p-cover{width:54px;height:54px;border-radius:12px;overflow:hidden;flex:none;background:var(--panel2);box-shadow:0 8px 20px -8px rgba(139,92,246,.6)}
+.p-cover img{width:100%;height:100%;object-fit:cover;display:block}
+.p-info{min-width:0;display:flex;flex-direction:column}
+.p-info b,.p-info span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.p-info #pArtist{color:var(--muted);font-size:.86rem}
+.p-note{color:var(--muted);font-size:.74rem}
+.p-ctrl{display:flex;align-items:center;gap:14px;min-width:0}
+.p-play{width:48px;height:48px;border-radius:50%;border:none;display:grid;place-items:center;color:#fff;flex:none;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 10px 26px -8px rgba(139,92,246,.8);transition:transform .15s}
+.p-play:hover{transform:scale(1.06)}
+.p-prog{display:flex;align-items:center;gap:10px;flex:1;min-width:0;font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.p-prog input{flex:1;accent-color:var(--accent)}
+@media (max-width:899px){
+  header{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .brand{font-size:1.1rem;white-space:nowrap}
+  .brand span{white-space:nowrap}
+  .actions .btn{padding:8px 10px;font-size:.8rem}
+  header .bar{padding:12px 16px;gap:10px;flex-wrap:nowrap;justify-content:space-between;max-width:none}
+  .nav{position:fixed;left:0;right:0;bottom:0;z-index:30;justify-content:space-around;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(9,9,14,.94);backdrop-filter:blur(16px);border-top:1px solid var(--line)}
+  .nav-btn{flex-direction:column;gap:4px;font-size:.72rem;padding:6px 8px;min-width:64px;min-height:48px}
+  .nav-btn.on{background:none;box-shadow:none;color:#fff}
+  .nav-btn.on svg{filter:drop-shadow(0 0 8px rgba(167,139,250,.9))}
+  .player{bottom:76px;grid-template-columns:1fr;gap:8px;padding:10px 14px}
+  main{padding-bottom:200px}
+  .hero{padding:26px 20px}
+}
+@media (min-width:900px){
+  .nav{flex-direction:column}
+  .nav-btn{width:100%}
+  .actions{flex-direction:column;align-items:stretch;margin-top:auto}
+  .player{left:250px}
+  main{padding-bottom:130px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
 </style>
 </head>
 <body>
 
 <header>
   <div class="bar">
-    <div class="brand"><i></i>Music Tracker</div>
-    <div class="tabs">
-      <button class="tab on" data-tab="catalog">Catálogo</button>
-      <button class="tab" data-tab="library">Biblioteca</button>
-      <button class="tab" data-tab="charts">Top semanal</button>
-      <button class="tab vip-tab" data-tab="vip">👑 VIP</button>
+    <div class="brand"><i></i><span>Music Tracker</span></div>
+    <nav class="nav" aria-label="Navegação principal">
+      <button class="tab nav-btn on" data-tab="home" type="button"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Início</span></button>
+      <button class="tab nav-btn" data-tab="catalog" type="button"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span>Pesquisa</span></button>
+      <button class="tab nav-btn" data-tab="library" type="button"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5v14M9 5v14M14 4l5 2-4.5 13-5-1.6"/></svg><span>Biblioteca</span></button>
+      <button class="tab nav-btn" data-tab="profile" type="button"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.2-4 4.2-6 8-6s6.8 2 8 6"/></svg><span>Perfil</span></button>
+    </nav>
+    <div class="actions">
+      <button class="btn ghost" id="btnXmas" type="button" title="Tema de Natal">🎄 Natal</button>
+      <button class="btn ghost" id="btnAccount" type="button">Entrar</button>
     </div>
-    <button class="btn ghost" id="btnXmas" type="button" title="Tema de Natal">🎄 Natal</button>
-    <button class="btn ghost" id="btnAccount" type="button">Entrar</button>
   </div>
 </header>
 
 <main>
+  <!-- INÍCIO -->
+  <section id="view-home" class="home">
+    <div class="hero">
+      <p class="eyebrow">Music Tracker</p>
+      <h1 id="homeHello">Olá</h1>
+      <p class="hero-sub">Descobre o que está a bombar e continua onde ficaste.</p>
+      <div class="hero-actions">
+        <button class="btn primary" type="button" data-go="catalog">Pesquisar música</button>
+        <button class="btn ghost" type="button" data-go="charts">Ver top semanal</button>
+      </div>
+    </div>
+    <h2 class="sec-h">Playlists <small>da tua biblioteca</small></h2>
+    <div class="pls">
+      <button class="pl" type="button" data-pl="fav"><span class="pl-ico" aria-hidden="true">★</span><span><b>Favoritos</b><small id="plFavN"></small></span></button>
+      <button class="pl" type="button" data-pl="best"><span class="pl-ico" aria-hidden="true">♪</span><span><b>Melhores avaliações</b><small id="plBestN"></small></span></button>
+      <button class="pl" type="button" data-pl="todo"><span class="pl-ico" aria-hidden="true">+</span><span><b>Por avaliar</b><small id="plTodoN"></small></span></button>
+    </div>
+    <h2 class="sec-h">Recomendados para ti <small>top semanal</small></h2>
+    <div class="rail" id="homeRec"></div>
+    <h2 class="sec-h">Álbuns recentes <small>da tua biblioteca</small></h2>
+    <div class="rail" id="homeRecent"></div>
+  </section>
+
   <!-- CATÁLOGO -->
-  <section id="view-catalog">
+  <section id="view-catalog" class="hidden">
     <form class="searchbox" id="searchForm">
       <input id="cq" placeholder="Artista ou álbum (opcional) — ex.: Radiohead, Amália…" autocomplete="off">
       <button class="btn primary" type="submit">Pesquisar</button>
@@ -256,9 +365,11 @@ body.xmas::after{content:"";position:fixed;inset:-100px 0 0;pointer-events:none;
         <button class="tab on" data-ct="Album">Álbuns <span id="cnt-Album"></span></button>
         <button class="tab" data-ct="EP">EPs <span id="cnt-EP"></span></button>
         <button class="tab" data-ct="Single">Singles <span id="cnt-Single"></span></button>
+        <button class="tab" data-ct="Artist">Artistas</button>
+        <button class="tab" data-ct="Song">Músicas</button>
       </div></aside>
       <div class="pane">
-        <div class="status" id="status">Escreve um artista ou álbum para pesquisar. Enquanto não pesquisas, aparecem os álbuns mais ouvidos da semana.</div>
+        <div class="status" id="status" role="status">Escreve um artista ou álbum para pesquisar. Enquanto não pesquisas, aparecem os álbuns mais ouvidos da semana.</div>
         <section class="grid" id="catGrid"></section>
       </div>
     </div>
@@ -280,10 +391,6 @@ body.xmas::after{content:"";position:fixed;inset:-100px 0 0;pointer-events:none;
         <option value="artist">Artista (A → Z)</option>
         <option value="fav">Favoritos primeiro</option>
       </select>
-      <button class="btn ghost" id="btnSpotify">Ligar Spotify</button>
-      <button class="btn ghost" id="btnExport">Exportar</button>
-      <label class="btn ghost" for="fileImport">Importar</label>
-      <input type="file" id="fileImport" accept="application/json">
     </section>
     <section class="grid" id="libGrid"></section>
   </section>
@@ -316,11 +423,82 @@ body.xmas::after{content:"";position:fixed;inset:-100px 0 0;pointer-events:none;
       <article class="vip-card"><b>🚀</b><h3>Novidades primeiro</h3><p>Acesso antecipado às funcionalidades novas antes de todos.</p></article>
     </div>
   </section>
+  <!-- PERFIL -->
+  <section id="view-profile" class="hidden">
+    <div class="hero compact">
+      <p class="eyebrow">Perfil</p>
+      <h1 id="profName">Visitante</h1>
+      <p class="hero-sub" id="profSub"></p>
+    </div>
+    <h2 class="sec-h">Conta e dados</h2>
+    <div class="panel-grid">
+      <div class="panel">
+        <h3>Conta</h3>
+        <p>Entra ou cria uma conta para guardar as tuas avaliações.</p>
+        <button class="btn primary" type="button" data-account>Entrar / criar conta</button>
+      </div>
+      <div class="panel">
+        <h3>Spotify</h3>
+        <p>Importa os álbuns que tens guardados como "Por avaliar".</p>
+        <button class="btn ghost" id="btnSpotify">Ligar Spotify</button>
+      </div>
+      <div class="panel">
+        <h3>Backup</h3>
+        <p>Exporta a tua biblioteca em JSON ou importa um ficheiro guardado.</p>
+        <button class="btn ghost" id="btnExport">Exportar</button>
+        <label class="btn ghost" for="fileImport">Importar</label>
+        <input type="file" id="fileImport" accept="application/json">
+      </div>
+      <div class="panel">
+        <h3>Aparência</h3>
+        <p>Liga ou desliga o tema de Natal.</p>
+        <button class="btn ghost" type="button" data-xmas-toggle>Alternar tema de Natal</button>
+      </div>
+      <div class="panel vip-panel">
+        <h3>👑 VIP</h3>
+        <p>Benefícios exclusivos. A subscrição ainda não está disponível.</p>
+        <button class="btn ghost" type="button" data-go="vip">Ver benefícios</button>
+      </div>
+    </div>
+  </section>
 </main>
 
+<div class="player" id="player" hidden aria-label="Leitor de música">
+  <div class="p-now">
+    <div class="p-cover" id="pCover"></div>
+    <div class="p-info"><b id="pTitle"></b><span id="pArtist"></span><span class="p-note" id="pNote"></span></div>
+  </div>
+  <div class="p-ctrl">
+    <button class="p-play" id="pBtn" type="button" aria-label="Reproduzir"></button>
+    <div class="p-prog">
+      <span id="pCur">0:00</span>
+      <input type="range" id="pBar" min="0" max="100" value="0" step="0.1" aria-label="Posição da pré-visualização">
+      <span id="pDur">0:00</span>
+    </div>
+  </div>
+</div>
+<audio id="audio" preload="none"></audio>
 <div class="overlay" id="overlay"><div class="modal" id="modal"></div></div>
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+<script>
+/* Definições usadas pelos cartões (carregadas antes do arranque) */
+const PLAY_ICO='<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>';
+const PAUSE_ICO='<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>';
+function playBtn(a){
+  if(!a||!a.id) return '';
+  return `<button class="play-btn" type="button" data-play="${esc(a.id)}" aria-label="Ouvir pré-visualização de ${esc(a.title)}">${PLAY_ICO}</button>`;
+}
+function cardHTML(a,i=0){
+  registry.set(a.id,a);
+  const mine=findLib(a);
+  return `<article class="card" style="animation-delay:${Math.min(i,12)*25}ms" data-open="${esc(a.id)}">${coverHTML(a)}${playBtn(a)}${mine?`<span class="badge-stars">${starsRead(mine.stars)}</span>`:''}<div class="meta"><h3>${esc(a.title)}</h3><p>${esc(a.artist)}${a.year?' · '+esc(a.year):''}</p></div></article>`;
+}
+function topItems(list){
+  return list.map(x=>{ const id='top-'+x.artist+'|'+x.title; return {id,sourceId:id,artist:x.artist,title:x.title,type:'Album',genre:x.genre||'',year:null,cover:x.cover||'',tracks:0,rgid:null}; });
+}
+
+</script>
 <script>
 const KEY = 'album-critico-v3';
 const OLD_KEY = 'album-critico-v2';
@@ -484,6 +662,7 @@ function renderCatalog(){
   const count=t=>catalog.filter(a=>a.type===t).length;
   ['Album','EP','Single'].forEach(t=>{ const el=$('#cnt-'+t); if(el) el.textContent=count(t)?`(${count(t)})`:''; });
   document.querySelectorAll('[data-ct]').forEach(b=>b.classList.toggle('on', b.dataset.ct===catTab));
+  if(catTab==='Artist'||catTab==='Song'){ renderExtra(); return; }
   if(!catalog.length){
     $('#catGrid').innerHTML=`<div class="empty"><b>Pesquisa um artista ou álbum</b>Os resultados aparecem aqui.</div>`;
     return;
@@ -495,7 +674,7 @@ function renderCatalog(){
     registry.set(a.id,a);
     const mine=findLib(a);
     return `<article class="card" style="animation-delay:${Math.min(i,12)*25}ms" data-open="${esc(a.id)}">
-      ${coverHTML(a)}
+      ${coverHTML(a)}${playBtn(a)}
       ${mine?`<span class="badge-stars">${starsRead(mine.stars)}</span>`:''}
       <div class="meta"><h3>${esc(a.title)}</h3><p>${esc(a.artist)}${a.year?' · '+esc(a.year):''}</p>
         <span class="tag">${({Album:'Álbum',EP:'EP',Single:'Single'})[a.type]||a.type}</span></div>
@@ -555,7 +734,7 @@ function renderLibrary(){
   $('#libGrid').innerHTML=list.map((a,i)=>{
     registry.set(a.id,a);
     return `<article class="card" style="animation-delay:${Math.min(i,12)*25}ms" data-open="${a.id}">
-      ${coverHTML(a)}
+      ${coverHTML(a)}${playBtn(a)}
       ${a.fav?'<span class="fav">★</span>':''}
       <span class="badge-stars">${a.stars?starsRead(a.stars)+' '+fmt(a.stars):'Por avaliar'}</span>
       <div class="meta"><h3>${esc(a.title)}</h3><p>${esc(a.artist)}${a.year?' · '+esc(a.year):''}</p>
@@ -682,6 +861,10 @@ function setTab(name){
   $('#view-library').classList.toggle('hidden',name!=='library');
   $('#view-charts').classList.toggle('hidden',name!=='charts');
   $('#view-vip').classList.toggle('hidden',name!=='vip');
+  $('#view-home').classList.toggle('hidden',name!=='home');
+  $('#view-profile').classList.toggle('hidden',name!=='profile');
+  if(name==='home') renderHome();
+  if(name==='profile') renderProfile();
   if(name==='charts') loadCharts();
   if(name==='library') renderAllLibrary();
   if(name==='catalog') renderCatalog();
@@ -697,8 +880,9 @@ $('#lgenre').addEventListener('change',renderLibrary);
 $('#sort').addEventListener('change',renderLibrary);
 
 document.addEventListener('click',e=>{
+  if(e.target.closest('[data-play]')) return;
   const card=e.target.closest('[data-open]');
-  if(card && (card.closest('#catGrid')||card.closest('#libGrid'))) openAlbum(card.dataset.open);
+  if(card && (card.closest('#catGrid')||card.closest('#libGrid')||card.closest('.rail'))) openAlbum(card.dataset.open);
 });
 
 $('#overlay').addEventListener('click',e=>{
@@ -863,9 +1047,11 @@ function renderCharts(){
       cover: data.albums.find(a=>a.artist===name)?.cover || ''
     }));
   }
+  list.forEach((x,i)=>{ if(!x.id) x.id='ch-'+chKind+'-'+i; registry.set(x.id,x); });
   $('#chGrid').innerHTML = list.map(x => `
     <article class="card">
       <div class="cover">${x.cover ? `<img loading="lazy" src="${esc(x.cover)}" alt="">` : ''}</div>
+      ${chKind==='artists'?'':playBtn(x)}
       <span class="badge-stars">#${x.rank}</span>
       <div class="meta"><h3>${esc(x.title)}</h3><p>${esc(x.artist)}</p></div>
     </article>`).join('');
@@ -980,5 +1166,121 @@ renderAllLibrary();
 </script>
 
 
+
+<script>
+/* ===== Redesenho: início, perfil, leitor e pesquisa por artistas/músicas ===== */
+async function renderHome(){
+  const u=(currentUser()||'').split('@')[0];
+  $('#homeHello').textContent = u ? `Olá, ${u}` : 'Olá';
+  const fav=db.filter(a=>a.fav).length, best=db.filter(a=>a.stars>=4).length, todo=db.filter(a=>!a.stars).length;
+  $('#plFavN').textContent = `${fav} ${fav===1?'álbum':'álbuns'}`;
+  $('#plBestN').textContent = `${best} com 4★ ou mais`;
+  $('#plTodoN').textContent = `${todo} ${todo===1?'álbum':'álbuns'} sem avaliação`;
+  const recent=[...db].sort((a,b)=>b.createdAt-a.createdAt).slice(0,14);
+  $('#homeRecent').innerHTML = recent.length
+    ? recent.map((a,i)=>cardHTML(a,i)).join('')
+    : `<div class="empty"><b>Ainda sem álbuns</b>Pesquisa e avalia o primeiro.</div>`;
+  const d = await getCharts();
+  const top = topItems(d?.global?.albums||[]).slice(0,14);
+  $('#homeRec').innerHTML = top.length
+    ? top.map((a,i)=>cardHTML(a,i)).join('')
+    : `<div class="empty"><b>Top ainda não disponível</b>Volta mais tarde.</div>`;
+}
+
+function openPlaylist(k){
+  setTab('library');
+  $('#favOnly').checked = k==='fav';
+  $('#sort').value = k==='fav' ? 'fav' : (k==='best' ? 'stars-desc' : 'stars-asc');
+  renderLibrary();
+}
+
+function renderProfile(){
+  const u=currentUser();
+  $('#profName').textContent = u ? u.split('@')[0] : 'Visitante';
+  $('#profSub').textContent = u ? 'Sessão iniciada. As tuas avaliações ficam guardadas nesta conta.' : 'Entra para guardar a tua conta e as tuas avaliações.';
+}
+
+/* Pesquisa: artistas agrupados e músicas do top semanal */
+function renderExtra(){
+  const pane=$('#catGrid');
+  if(catTab==='Artist'){
+    const map=new Map();
+    catalog.forEach(a=>{ const c=map.get(a.artist)||{artist:a.artist,n:0,cover:a.cover}; c.n++; if(!c.cover) c.cover=a.cover; map.set(a.artist,c); });
+    const arts=[...map.values()].sort((x,y)=>y.n-x.n);
+    if(!arts.length){ pane.innerHTML=`<div class="empty"><b>Sem artistas nesta pesquisa</b>Pesquisa um artista para ver os seus lançamentos.</div>`; return; }
+    pane.innerHTML=arts.map((x,i)=>`<article class="card artist-card" style="animation-delay:${Math.min(i,12)*25}ms" data-search="${esc(x.artist)}" tabindex="0" role="button" aria-label="Ver lançamentos de ${esc(x.artist)}">
+      <div class="cover round">${x.cover?`<img loading="lazy" src="${esc(x.cover)}" alt="">`:''}</div>
+      <div class="meta"><h3>${esc(x.artist)}</h3><p>${x.n} ${x.n===1?'lançamento':'lançamentos'}</p></div></article>`).join('');
+    return;
+  }
+  const q=normTxt($('#cq').value.trim());
+  const songs=(chartsData?.global?.songs||[]).filter(s=>!q||normTxt(s.artist+s.title).includes(q));
+  if(!songs.length){ pane.innerHTML=`<div class="empty"><b>Sem músicas no top semanal para esta pesquisa</b>Pesquisa um artista ou álbum.</div>`; return; }
+  pane.innerHTML=songs.map((s,i)=>cardHTML({id:'song-'+i+'-'+s.title,sourceId:'',artist:s.artist,title:s.title,type:'Single',cover:s.cover||'',tracks:0,rgid:null},i)).join('');
+}
+
+/* Leitor: pré-visualizações de 30 segundos (iTunes) */
+const audio=document.getElementById('audio');
+let nowItem=null;
+const mmss=s=>{ s=Math.max(0,Math.floor(s||0)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); };
+function setPlaying(on){ const b=$('#pBtn'); b.innerHTML=on?PAUSE_ICO:PLAY_ICO; b.setAttribute('aria-label',on?'Pausa':'Reproduzir'); }
+function showPlayer(a,note){
+  $('#player').hidden=false;
+  $('#pTitle').textContent=a.title;
+  $('#pArtist').textContent=a.artist||'';
+  $('#pCover').innerHTML=a.cover?`<img src="${esc(a.cover)}" alt="">`:'';
+  $('#pNote').textContent=note||'';
+}
+async function previewFor(a){
+  const r=await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(a.artist+' '+a.title)}&entity=song&limit=10&country=pt`);
+  if(!r.ok) throw new Error('itunes '+r.status);
+  const j=await r.json();
+  const nt=normTxt(a.title), res=(j.results||[]).filter(x=>x.previewUrl);
+  const hit=res.find(x=>normTxt(x.collectionName||'').includes(nt))||res[0];
+  return hit?{url:hit.previewUrl,track:hit.trackName||a.title}:null;
+}
+async function playItem(a){
+  if(!a) return;
+  if(nowItem && nowItem.id===a.id && audio.src){ if(audio.paused) audio.play(); else audio.pause(); return; }
+  nowItem=a; showPlayer(a,'A carregar pré-visualização…'); setPlaying(false);
+  try{
+    const p=await previewFor(a);
+    if(!p){ showPlayer(a,'Sem pré-visualização para este título.'); return; }
+    audio.src=p.url;
+    showPlayer(a,`Pré-visualização · ${p.track}`);
+    await audio.play();
+  }catch(e){ showPlayer(a,'Não foi possível tocar agora.'); }
+}
+audio.addEventListener('play',()=>setPlaying(true));
+audio.addEventListener('pause',()=>setPlaying(false));
+audio.addEventListener('ended',()=>setPlaying(false));
+audio.addEventListener('loadedmetadata',()=>{ $('#pDur').textContent=mmss(audio.duration); });
+audio.addEventListener('timeupdate',()=>{ const d=audio.duration||0; $('#pBar').value=d?(audio.currentTime/d*100):0; $('#pCur').textContent=mmss(audio.currentTime); });
+$('#pBtn').addEventListener('click',()=>{
+  if(!nowItem) return;
+  if(audio.paused){ if(audio.src) audio.play(); else playItem(nowItem); } else audio.pause();
+});
+$('#pBar').addEventListener('input',e=>{ if(audio.duration) audio.currentTime=audio.duration*e.target.value/100; });
+setPlaying(false);
+
+/* Cliques de navegação e ações */
+document.addEventListener('click',e=>{
+  const pb=e.target.closest('[data-play]');
+  if(pb){ e.preventDefault(); playItem(registry.get(pb.dataset.play)); return; }
+  const go=e.target.closest('[data-go]');
+  if(go){ setTab(go.dataset.go); if(go.dataset.go==='catalog' && !$('#cq').value.trim()) loadSuggestions(); return; }
+  const s=e.target.closest('[data-search]');
+  if(s){ setTab('catalog'); catTab='Album'; renderCatalog(); searchCatalog(s.dataset.search); return; }
+  const pl=e.target.closest('[data-pl]');
+  if(pl){ openPlaylist(pl.dataset.pl); return; }
+  if(e.target.closest('[data-xmas-toggle]')){ applyXmas(!document.body.classList.contains('xmas')); return; }
+  if(e.target.closest('[data-account]')){ document.getElementById('btnAccount').click(); return; }
+});
+document.addEventListener('keydown',e=>{
+  if((e.key==='Enter'||e.key===' ') && e.target.matches && e.target.matches('[data-search]')){ e.preventDefault(); e.target.click(); }
+});
+
+setTab('home');
+</script>
 </body>
 </html>

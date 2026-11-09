@@ -888,7 +888,7 @@ function saveRate(src,existing){
 
 /* ---------- Toast ---------- */
 let tt;
-function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('show'),2200); }
+function toast(msg,ms=2200){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('show'),ms); }
 
 /* ---------- Separadores ---------- */
 function setTab(name){
@@ -1003,17 +1003,23 @@ async function spotifyToken(){
 async function spotifyImport(){
   const tok = await spotifyToken();
   if(!tok){ toast('Liga primeiro o Spotify'); refreshSpotifyButton(); return; }
-  let who = '';
+  let who = '', meErr = '';
   try{
-    const me = await (await fetch('https://api.spotify.com/v1/me', {headers:{Authorization:'Bearer '+tok}})).json();
+    const r0 = await fetch('https://api.spotify.com/v1/me', {headers:{Authorization:'Bearer '+tok}});
+    const me = await r0.json();
+    if(!r0.ok) meErr = 'perfil: '+r0.status+' '+(me.error?.message||'');
     who = me.display_name || me.id || '';
-  }catch(e){}
+  }catch(e){ meErr = 'perfil: sem ligação'; }
   let url = 'https://api.spotify.com/v1/me/albums?limit=50';
   let added = 0, existing = 0, found = 0, failed = '';
   try{
     while(url){
       const r = await fetch(url, {headers:{Authorization:'Bearer '+tok}});
-      if(!r.ok){ failed = 'Spotify respondeu com erro '+r.status; break; }
+      if(!r.ok){
+        const body = await r.json().catch(()=>({}));
+        failed = 'biblioteca: '+r.status+' '+(body.error?.message||'');
+        break;
+      }
       const j = await r.json();
       (j.items||[]).forEach(it=>{
         found++;
@@ -1028,8 +1034,8 @@ async function spotifyImport(){
     }
   }catch(e){ failed = 'Sem ligação ao Spotify'; }
   persist(); refreshAll();
-  if(failed) toast(failed);
-  toast(`Conta ${who||'desconhecida'}: ${found} álbuns guardados, ${added} novos, ${existing} já existiam`);
+  const errs = [meErr, failed].filter(Boolean).join(' · ');
+  toast(`Conta ${who||'desconhecida'}: ${found} álbuns, ${added} novos, ${existing} já existiam${errs ? ' — ERRO ' + errs : ''}`, errs ? 9000 : 2200);
 }
 document.getElementById('btnSpotify').addEventListener('click', ()=>{
   if(spConnected()) spotifyImport(); else spotifyConnect();

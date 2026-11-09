@@ -99,7 +99,7 @@ body.xmas .card:hover{box-shadow:0 0 0 1px rgba(245,197,66,.45),0 18px 40px -12p
 .favonly input{accent-color:var(--accent)}
 .vtabs .tab{text-align:left;padding:10px 14px}
 .pane{min-width:0}
-@media (max-width:760px){.split{grid-template-columns:1fr}.side{position:static}.vtabs{flex-direction:row;overflow-x:auto}.vtabs .tab{white-space:nowrap}}
+@media (max-width:760px){.split{grid-template-columns:minmax(0,1fr)}.split>*{min-width:0}.side{position:static}.vtabs{flex-direction:row;overflow-x:auto}.vtabs .tab{white-space:nowrap}}
 
 /* Pesquisa */
 .searchbox{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:14px;margin-bottom:12px;display:grid;grid-template-columns:1fr auto;gap:10px}

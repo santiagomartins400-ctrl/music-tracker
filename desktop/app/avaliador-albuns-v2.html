@@ -93,10 +93,6 @@ body.xmas{
 body.xmas header{background:rgba(8,21,16,.88)}
 body.xmas .brand i{background:conic-gradient(from 200deg,#d62828,#f5c542,#2e9d5a,#d62828)!important}
 body.xmas .card:hover{box-shadow:0 0 0 1px rgba(245,197,66,.45),0 18px 40px -12px rgba(214,40,40,.45)}
-body.xmas::after{content:"";position:fixed;inset:-100px 0 0;pointer-events:none;z-index:-1;opacity:.55;
-  background-image:radial-gradient(2px 2px at 20px 30px,#fff,transparent),radial-gradient(2px 2px at 120px 90px,#f5c542,transparent),radial-gradient(1.5px 1.5px at 200px 160px,#fff,transparent),radial-gradient(2px 2px at 300px 50px,#fff,transparent);
-  background-size:340px 220px;animation:snow 14s linear infinite}
-@keyframes snow{to{transform:translateY(220px)}}
 .favonly{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-weight:600;font-size:.9rem;padding:0 6px;white-space:nowrap}
 .favonly input{accent-color:var(--accent)}
 .vtabs .tab{text-align:left;padding:10px 14px}
@@ -310,6 +306,40 @@ input:focus-visible,select:focus-visible{outline:none;box-shadow:var(--ring)}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
+
+/* ===== Redesenho v4: acabamento e tema de Natal (luzes e neve) ===== */
+main>section:not(.hidden){animation:fadeUp .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.chips-row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px}
+.stat-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--muted);font-size:.88rem}
+.stat-pill b{color:#fff;font-size:1rem;font-variant-numeric:tabular-nums}
+.card .meta h3{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* Luzes de Natal (penduradas no topo) */
+.lights{position:fixed;top:0;left:0;right:0;height:34px;z-index:40;pointer-events:none}
+.lights::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:#16261b}
+.bulb{position:absolute;top:8px;width:12px;height:16px;border-radius:50% 50% 45% 45%;transform:translateX(-50%);animation:twinkle 2.4s ease-in-out infinite}
+.bulb::before{content:"";position:absolute;left:50%;bottom:100%;width:1px;height:8px;margin-left:-.5px;background:#0d1a12}
+.bulb.r{background:#ff4040;box-shadow:0 0 10px 3px rgba(255,64,64,.75)}
+.bulb.g{background:#42ff86;box-shadow:0 0 10px 3px rgba(66,255,134,.7)}
+.bulb.y{background:#ffd95a;box-shadow:0 0 10px 3px rgba(255,217,90,.75)}
+.bulb.b{background:#63c2ff;box-shadow:0 0 10px 3px rgba(99,194,255,.7)}
+@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.3}}
+@media (min-width:900px){.lights{left:250px}}
+@media (max-width:899px){.lights{height:26px}.bulb{top:6px;width:10px;height:13px}}
+
+/* Flocos de neve a cair */
+.snow{position:fixed;inset:0;pointer-events:none;z-index:3;overflow:hidden}
+.flake{position:absolute;top:-12px;border-radius:50%;background:radial-gradient(circle,#fff 0 60%,rgba(255,255,255,.35) 70%,transparent 72%);animation:fall linear infinite;will-change:transform}
+@keyframes fall{0%{transform:translate3d(0,-5vh,0)}50%{transform:translate3d(22px,50vh,0)}100%{transform:translate3d(-14px,108vh,0)}}
+
+/* Herói e acentos com tom de Natal */
+body.xmas .hero{background:radial-gradient(700px 320px at 0% 0%,rgba(214,40,40,.38),transparent 60%),radial-gradient(600px 300px at 100% 100%,rgba(46,157,90,.32),transparent 60%),var(--panel)}
+body.xmas .eyebrow{color:#f5c542}
+body.xmas .stat-pill{border-color:rgba(245,197,66,.25)}
+body.xmas .nav-btn.on{background:linear-gradient(135deg,rgba(214,40,40,.4),rgba(46,157,90,.35))}
+
+@media (prefers-reduced-motion:reduce){ .snow,.lights{display:none} }
 </style>
 </head>
 <body>
@@ -342,6 +372,7 @@ input:focus-visible,select:focus-visible{outline:none;box-shadow:var(--ring)}
         <button class="btn ghost" type="button" data-go="charts">Ver top semanal</button>
       </div>
     </div>
+    <div class="chips-row" id="homeChips"></div>
     <h2 class="sec-h">Playlists <small>da tua biblioteca</small></h2>
     <div class="pls">
       <button class="pl" type="button" data-pl="fav"><span class="pl-ico" aria-hidden="true">★</span><span><b>Favoritos</b><small id="plFavN"></small></span></button>
@@ -1145,8 +1176,30 @@ function openAuth(start='login', gate=false){
     }
   };
 }
+function buildFestive(on){
+  let lt=document.querySelector('.lights'), sn=document.querySelector('.snow');
+  if(on){
+    if(!lt){
+      const n=24, cols=['r','g','y','b'];
+      lt=document.createElement('div'); lt.className='lights'; lt.setAttribute('aria-hidden','true');
+      lt.innerHTML=Array.from({length:n},(_,i)=>`<i class="bulb ${cols[i%4]}" style="left:${((i+.5)*100/n).toFixed(2)}%;animation-delay:${((i*0.37)%2.4).toFixed(2)}s"></i>`).join('');
+      document.body.appendChild(lt);
+    }
+    if(!sn){
+      sn=document.createElement('div'); sn.className='snow'; sn.setAttribute('aria-hidden','true');
+      const f=[];
+      for(let i=0;i<70;i++){
+        const z=(Math.random()*5+3).toFixed(1);
+        f.push(`<span class="flake" style="left:${(Math.random()*100).toFixed(1)}%;width:${z}px;height:${z}px;animation-duration:${(Math.random()*10+9).toFixed(1)}s;animation-delay:${(-Math.random()*20).toFixed(1)}s;opacity:${(Math.random()*.5+.5).toFixed(2)}"></span>`);
+      }
+      sn.innerHTML=f.join('');
+      document.body.appendChild(sn);
+    }
+  } else { if(lt) lt.remove(); if(sn) sn.remove(); }
+}
 function applyXmas(on){
   document.body.classList.toggle('xmas', on);
+  buildFestive(on);
   const b=document.getElementById('btnXmas'); if(b) b.textContent = on ? '✨ Tema normal' : '🎄 Natal';
   try{ localStorage.setItem('music-tracker-xmas', on ? '1' : '0'); }catch(e){}
 }
@@ -1170,6 +1223,13 @@ renderAllLibrary();
 <script>
 /* ===== Redesenho: início, perfil, leitor e pesquisa por artistas/músicas ===== */
 async function renderHome(){
+  const rated=db.filter(a=>a.stars>0), avg=rated.length?(rated.reduce((t,a)=>t+a.stars,0)/rated.length).toFixed(1):'–';
+  const favN=db.filter(a=>a.fav).length;
+  $('#homeChips').innerHTML=[
+    `<span class="stat-pill"><b>${db.length}</b> ${db.length===1?'álbum':'álbuns'} na biblioteca</span>`,
+    `<span class="stat-pill"><b>${avg}</b> média ★</span>`,
+    `<span class="stat-pill"><b>${favN}</b> ${favN===1?'favorito':'favoritos'}</span>`
+  ].join('');
   const u=(currentUser()||'').split('@')[0];
   $('#homeHello').textContent = u ? `Olá, ${u}` : 'Olá';
   const fav=db.filter(a=>a.fav).length, best=db.filter(a=>a.stars>=4).length, todo=db.filter(a=>!a.stars).length;

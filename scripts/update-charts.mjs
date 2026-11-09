@@ -56,8 +56,9 @@ async function artistPhoto(name) {
   try {
     await sleep(1100);
     const s = await (await fetch(`https://musicbrainz.org/ws/2/artist/?query=${encodeURIComponent(`artist:"${name}"`)}&limit=1&fmt=json`, { headers: { 'User-Agent': UA } })).json();
-    const a = s.artists?.[0];
-    if (!a || a.name.toLowerCase() !== name.toLowerCase()) return '';
+    const norm = x => x.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
+    const a = (s.artists || []).find(x => norm(x.name) === norm(name) || (x.score >= 90 && norm(name).includes(norm(x.name))));
+    if (!a) return '';
     await sleep(1100);
     const d = await (await fetch(`https://musicbrainz.org/ws/2/artist/${a.id}?inc=url-rels&fmt=json`, { headers: { 'User-Agent': UA } })).json();
     const wd = (d.relations || []).find(r => r.type === 'wikidata')?.url?.resource;

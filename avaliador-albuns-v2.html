@@ -791,7 +791,13 @@ function renderCharts(){
   let list;
   if(chKind==='albums') list = data.albums;
   else if(chKind==='songs') list = data.songs;
-  else {
+  else if(data.artists) {
+    list = data.artists.map(x => ({
+      rank: x.rank, title: x.name,
+      artist: `${x.albums} ${x.albums===1?'álbum':'álbuns'} no top`,
+      cover: x.photo || x.cover || ''
+    }));
+  } else {
     const c = {};
     data.albums.forEach(a => { c[a.artist] = (c[a.artist]||0)+1; });
     list = Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,50).map(([name,n],i)=>({

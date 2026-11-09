@@ -358,6 +358,32 @@ body.xmas .nav-btn.on{background:linear-gradient(135deg,rgba(214,40,40,.4),rgba(
 .bd-bar{height:8px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden}
 .bd-bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .6s}
 .bd-row b{color:var(--text);text-align:right}
+/* v5: glass, faixas e confirmação */
+.overlay{backdrop-filter:blur(14px) saturate(130%);-webkit-backdrop-filter:blur(14px) saturate(130%)}
+.modal{background:linear-gradient(160deg,rgba(46,42,74,.58),rgba(14,14,24,.74)) !important;backdrop-filter:blur(28px) saturate(170%);-webkit-backdrop-filter:blur(28px) saturate(170%);border:1px solid rgba(255,255,255,.16) !important;box-shadow:0 40px 100px -30px #000,inset 0 1px 0 rgba(255,255,255,.14) !important}
+.mhead{background:rgba(18,18,30,.42) !important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.card{background:linear-gradient(160deg,rgba(255,255,255,.085),rgba(255,255,255,.02)) !important;border-color:rgba(255,255,255,.13) !important;box-shadow:0 18px 40px -18px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.12) !important}
+.panel{background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02)) !important;border-color:rgba(255,255,255,.13) !important;backdrop-filter:blur(16px) saturate(150%);-webkit-backdrop-filter:blur(16px) saturate(150%);box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
+.player{background:rgba(14,14,24,.62) !important;backdrop-filter:blur(26px) saturate(170%);-webkit-backdrop-filter:blur(26px) saturate(170%);border-top:1px solid rgba(255,255,255,.12) !important;box-shadow:0 -20px 50px -20px rgba(0,0,0,.6)}
+.tracks{display:flex;flex-direction:column;gap:6px}
+.trk{display:grid;grid-template-columns:28px 38px minmax(0,1fr) auto;align-items:center;gap:12px;padding:8px 12px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);transition:background .2s}
+.trk:hover{background:rgba(255,255,255,.08)}
+.trk-n{color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;font-size:.85rem}
+.trk-play{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.18);background:rgba(139,92,246,.24);color:#fff;cursor:pointer;padding:0}
+.trk-play:hover{background:rgba(139,92,246,.45)}
+.trk-play:disabled{opacity:.35;cursor:default;background:transparent}
+.trk-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.trk-dur{color:var(--muted);font-size:.85rem;font-variant-numeric:tabular-nums}
+.trk-skel{height:50px;border-radius:14px}
+.cf-overlay{z-index:70}
+.cf-box{width:min(380px,100%);padding:26px 24px 20px;border-radius:22px;text-align:center;background:linear-gradient(160deg,rgba(52,48,84,.72),rgba(16,16,28,.82));backdrop-filter:blur(28px) saturate(170%);-webkit-backdrop-filter:blur(28px) saturate(170%);border:1px solid rgba(255,255,255,.16);box-shadow:0 40px 100px -30px #000,inset 0 1px 0 rgba(255,255,255,.14);animation:pop .25s}
+.cf-ico{width:52px;height:52px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;font-size:1.3rem;background:rgba(139,92,246,.22);border:1px solid rgba(255,255,255,.14)}
+.cf-ico.danger{background:rgba(255,107,138,.18)}
+.cf-box h3{margin:0 0 8px;font-size:1.15rem}
+.cf-box p{margin:0 0 20px;color:var(--muted);font-size:.93rem;line-height:1.5;word-break:break-word}
+.cf-actions{display:flex;gap:10px;justify-content:center}
+.cf-actions .btn{flex:1;justify-content:center}
+@media (prefers-reduced-motion:reduce){ .cf-box{animation:none} }
 </style>
 </head>
 <body>
@@ -874,6 +900,8 @@ function openAlbum(id){
       </div>
       ${review}
       <div class="actions">${actions}</div>
+      <div class="gal-title">Faixas <small>iTunes</small></div>
+      <div class="tracks" id="tracks" data-aid="${esc(a.id)}">${Array.from({length:5},()=>'<div class="skel trk-skel"></div>').join('')}</div>
       <div class="gal-title">Capas e artes <small>Cover Art Archive</small></div>
       <div class="gallery" id="gallery">${Array.from({length:6},()=>'<div class="skel"></div>').join('')}</div>
     </div>`);
@@ -886,6 +914,80 @@ function openAlbum(id){
   }).catch(()=>{
     const g=$('#gallery'); if(g) g.innerHTML=`<div class="empty" style="grid-column:1/-1;padding:30px">Não foi possível carregar as capas.</div>`;
   });
+  loadTracks(a);
+}
+
+/* Confirmação dentro da app (substitui a caixa nativa do Windows) */
+function askConfirm(o){
+  document.querySelectorAll('.cf-overlay').forEach(x=>x.remove());
+  const ov=document.createElement('div');
+  ov.className='overlay cf-overlay open';
+  ov.innerHTML=`<div class="cf-box" role="alertdialog" aria-modal="true" aria-labelledby="cfT">
+    <div class="cf-ico${o.danger?' danger':''}" aria-hidden="true">${o.danger?'🗑':'?'}</div>
+    <h3 id="cfT">${esc(o.title)}</h3>
+    <p>${esc(o.text||'')}</p>
+    <div class="cf-actions">
+      <button class="btn" data-cf="no">Cancelar</button>
+      <button class="btn ${o.danger?'danger':'primary'}" data-cf="yes">${esc(o.ok||'OK')}</button>
+    </div></div>`;
+  const close=()=>{ ov.remove(); document.removeEventListener('keydown',onKey,true); };
+  const onKey=e=>{ if(e.key==='Escape'){ e.preventDefault(); e.stopImmediatePropagation(); close(); } };
+  ov.addEventListener('click',e=>{
+    if(e.target===ov || e.target.closest('[data-cf="no"]')) return close();
+    if(e.target.closest('[data-cf="yes"]')){ close(); if(o.onOk) o.onOk(); }
+  });
+  document.addEventListener('keydown',onKey,true);
+  document.body.appendChild(ov);
+  setTimeout(()=>{ const b=ov.querySelector('[data-cf="yes"]'); if(b) b.focus(); },30);
+}
+
+/* Faixas do álbum (iTunes): só a edição cujo nome e artista batem com o álbum */
+const trackCache=new Map();
+const normT=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\s*[\(\[][^\)\]]*[\)\]]\s*/g,' ').replace(/[^a-z0-9]+/g,' ').trim();
+const trkDur=ms=>{ if(!ms) return ''; const t=Math.round(ms/1000); return Math.floor(t/60)+':'+String(t%60).padStart(2,'0'); };
+async function fetchTracks(a){
+  if(trackCache.has(a.id)) return trackCache.get(a.id);
+  const term=`${a.artist||''} ${a.title||''}`.trim();
+  const r=await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(term)}&entity=song&limit=200&country=pt`);
+  if(!r.ok) throw new Error('itunes '+r.status);
+  const j=await r.json();
+  const want=normT(a.title), artist=normT(a.artist);
+  const artistOk=n=>{ const x=normT(n); return !artist || x.includes(artist) || artist.includes(x); };
+  const pool=(j.results||[]).filter(x=>x.wrapperType==='track' && x.collectionName && artistOk(x.artistName));
+  const match=pool.filter(x=>normT(x.collectionName)===want);
+  const counts={}; match.forEach(x=>{ counts[x.collectionId]=(counts[x.collectionId]||0)+1; });
+  const best=Object.keys(counts).sort((p,q)=>counts[q]-counts[p])[0];
+  const seen=new Set();
+  const list=(best ? match.filter(x=>String(x.collectionId)===best) : [])
+    .sort((p,q)=>((p.discNumber||1)-(q.discNumber||1)) || ((p.trackNumber||0)-(q.trackNumber||0)))
+    .filter(x=>{ if(!x.trackNumber) return true; const k=(x.discNumber||1)+'-'+x.trackNumber; if(seen.has(k)) return false; seen.add(k); return true; });
+  trackCache.set(a.id,list);
+  return list;
+}
+function renderTracks(a,list){
+  const box=$('#tracks'); if(!box || box.dataset.aid!==String(a.id)) return;
+  if(!list.length){ box.innerHTML='<div class="empty" style="padding:26px">Não encontrámos a lista de faixas deste álbum.</div>'; return; }
+  box.innerHTML=list.map((t,i)=>`
+    <div class="trk">
+      <span class="trk-n">${t.trackNumber||i+1}</span>
+      <button class="trk-play" data-track="${i}" ${t.previewUrl?'':'disabled'} aria-label="Reproduzir ${esc(t.trackName)}">${t.previewUrl?PLAY_ICO:'—'}</button>
+      <span class="trk-name">${esc(t.trackName)}</span>
+      <span class="trk-dur">${trkDur(t.trackTimeMillis)}</span>
+    </div>`).join('');
+  box._album=a; box._list=list;
+}
+function loadTracks(a){
+  fetchTracks(a).then(list=>renderTracks(a,list)).catch(()=>{
+    const box=$('#tracks'); if(box && box.dataset.aid===String(a.id)) box.innerHTML='<div class="empty" style="padding:26px">Não foi possível carregar as faixas agora.</div>';
+  });
+}
+function playTrack(a,t){
+  if(!a||!t||!t.previewUrl) return;
+  nowItem=null;
+  const item={title:t.trackName, artist:a.artist, cover:a.cover};
+  showPlayer(item,'A carregar pré-visualização…'); setPlaying(false);
+  audio.src=t.previewUrl;
+  audio.play().then(()=>showPlayer(item,'Pré-visualização · '+t.trackName)).catch(()=>showPlayer(item,'Não foi possível tocar agora.'));
 }
 
 /* Avaliação: só classificação, review e favorito. Os detalhes do álbum não são editáveis. */
@@ -985,6 +1087,7 @@ document.addEventListener('click',e=>{
 
 $('#overlay').addEventListener('click',e=>{
   if(e.target.id==='overlay'||e.target.closest('[data-close]')) return closeModal();
+  const tk=e.target.closest('[data-track]'); if(tk){ const box=$('#tracks'); if(box&&box._list) playTrack(box._album, box._list[+tk.dataset.track]); return; }
   const rateBtn=e.target.closest('[data-rate]'), fv=e.target.closest('[data-fav]'), dl=e.target.closest('[data-del]');
   if(rateBtn){
     const a=registry.get(rateBtn.dataset.rate)||db.find(x=>x.id===rateBtn.dataset.rate)||catalog.find(x=>x.id===rateBtn.dataset.rate);
@@ -993,7 +1096,7 @@ $('#overlay').addEventListener('click',e=>{
   if(fv){ const a=db.find(x=>x.id===fv.dataset.fav); a.fav=!a.fav; persist(); refreshAll(); openAlbum(a.id); }
   if(dl){
     const a=db.find(x=>x.id===dl.dataset.del);
-    if(a && confirm(`Remover “${a.title}” da biblioteca?`)){ db=db.filter(x=>x.id!==a.id); persist(); refreshAll(); closeModal(); toast('Removido da biblioteca'); }
+    if(a) askConfirm({title:'Remover da biblioteca', text:`“${a.title}” sai da tua biblioteca. Podes voltar a adicioná-lo depois.`, ok:'Remover', danger:true, onOk:()=>{ db=db.filter(x=>x.id!==a.id); persist(); refreshAll(); closeModal(); toast('Removido da biblioteca'); }});
   }
 });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
@@ -1270,7 +1373,7 @@ function buildFestive(on){
   let lt=document.querySelector('.lights'), sn=document.querySelector('.snow');
   if(on){
     if(!lt){
-      const n=24, cols=['r','g','y','b'];
+      const n=36, cols=['r','g','y','b'];
       lt=document.createElement('div'); lt.className='lights'; lt.setAttribute('aria-hidden','true');
       lt.innerHTML=Array.from({length:n},(_,i)=>`<i class="bulb ${cols[i%4]}" style="left:${((i+.5)*100/n).toFixed(2)}%;animation-delay:${((i*0.37)%2.4).toFixed(2)}s"></i>`).join('');
       document.body.appendChild(lt);
@@ -1278,7 +1381,7 @@ function buildFestive(on){
     if(!sn){
       sn=document.createElement('div'); sn.className='snow'; sn.setAttribute('aria-hidden','true');
       const f=[];
-      for(let i=0;i<70;i++){
+      for(let i=0;i<130;i++){
         const z=(Math.random()*5+3).toFixed(1);
         f.push(`<span class="flake" style="left:${(Math.random()*100).toFixed(1)}%;width:${z}px;height:${z}px;animation-duration:${(Math.random()*10+9).toFixed(1)}s;animation-delay:${(-Math.random()*20).toFixed(1)}s;opacity:${(Math.random()*.5+.5).toFixed(2)}"></span>`);
       }
@@ -1296,7 +1399,7 @@ function applyXmas(on){
 document.getElementById('btnXmas').addEventListener('click', () => applyXmas(!document.body.classList.contains('xmas')));
 try{ applyXmas(localStorage.getItem('music-tracker-xmas')==='1'); }catch(e){ applyXmas(false); }
 document.getElementById('btnAccount').addEventListener('click', () => {
-  if (currentUser()) { if (confirm('Terminar sessão?')) logout(); }
+  if (currentUser()) askConfirm({title:'Terminar sessão', text:'Queres terminar a sessão nesta app?', ok:'Terminar', onOk:()=>logout()});
   else openAuth('login');
 });
 refreshAccountButton();

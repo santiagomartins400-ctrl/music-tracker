@@ -345,6 +345,17 @@ body.xmas .stat-pill{border-color:rgba(245,197,66,.25)}
 body.xmas .nav-btn.on{background:linear-gradient(135deg,rgba(214,40,40,.4),rgba(46,157,90,.35))}
 
 @media (prefers-reduced-motion:reduce){ .snow,.lights{display:none} }
+
+/* Estatísticas por género e década */
+.breakdown{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:4px 0 8px}
+.bd{border:1px solid var(--line);border-radius:18px;padding:18px;background:var(--panel)}
+.bd h3{margin:0 0 12px;font-size:1rem}
+.bd p{color:var(--muted);margin:0}
+.bd-row{display:grid;grid-template-columns:110px 1fr 28px;gap:10px;align-items:center;font-size:.88rem;margin:8px 0;color:var(--muted)}
+.bd-row span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bd-bar{height:8px;border-radius:99px;background:rgba(255,255,255,.06);overflow:hidden}
+.bd-bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .6s}
+.bd-row b{color:var(--text);text-align:right}
 </style>
 </head>
 <body>
@@ -384,6 +395,8 @@ body.xmas .nav-btn.on{background:linear-gradient(135deg,rgba(214,40,40,.4),rgba(
       <button class="pl" type="button" data-pl="best"><span class="pl-ico" aria-hidden="true">♪</span><span><b>Melhores avaliações</b><small id="plBestN"></small></span></button>
       <button class="pl" type="button" data-pl="todo"><span class="pl-ico" aria-hidden="true">+</span><span><b>Por avaliar</b><small id="plTodoN"></small></span></button>
     </div>
+    <h2 class="sec-h">Continuar a avaliar <small>sem nota ainda</small></h2>
+    <div class="rail" id="homeTodo"></div>
     <h2 class="sec-h">Recomendados para ti <small>top semanal</small></h2>
     <div class="rail" id="homeRec"></div>
     <h2 class="sec-h">Álbuns recentes <small>da tua biblioteca</small></h2>
@@ -414,10 +427,18 @@ body.xmas .nav-btn.on{background:linear-gradient(135deg,rgba(214,40,40,.4),rgba(
   <!-- BIBLIOTECA -->
   <section id="view-library" class="hidden">
     <section class="stats" id="stats"></section>
+    <section class="breakdown" id="breakdown"></section>
     <section class="tools">
       <div class="search"><input id="q" placeholder="Pesquisar na biblioteca…" autocomplete="off"></div>
       <select id="lgenre"></select>
       <label class="favonly"><input type="checkbox" id="favOnly"> Só favoritos</label>
+      <select id="ldecade" aria-label="Filtrar por década"></select>
+      <select id="lmin" aria-label="Nota mínima">
+        <option value="0">Qualquer nota</option>
+        <option value="3">3★ ou mais</option>
+        <option value="4">4★ ou mais</option>
+        <option value="4.5">4,5★ ou mais</option>
+      </select>
       <select id="sort">
         <option value="stars-desc">Melhor classificação</option>
         <option value="stars-asc">Pior classificação</option>
@@ -537,6 +558,30 @@ function topItems(list){
 }
 
 </script>
+
+<script>
+/* ===== Biblioteca: filtros por década e nota, estatísticas por género e década ===== */
+function libDecade(a){ const y=+a.year; return y ? Math.floor(y/10)*10 : null; }
+function renderLibFilters(){
+  const dsel=document.getElementById('ldecade'); if(!dsel) return;
+  const dv=dsel.value||'all';
+  const ds=[...new Set(db.map(libDecade).filter(x=>x!==null))].sort((a,b)=>a-b);
+  dsel.innerHTML='<option value="all">Todas as décadas</option>'+ds.map(d=>`<option value="${d}">${d}s</option>`).join('');
+  dsel.value = (dv==='all' || ds.includes(+dv)) ? dv : 'all';
+}
+function renderBreakdown(){
+  const el=document.getElementById('breakdown'); if(!el) return;
+  const cnt=fn=>{ const c={}; db.forEach(a=>{ const k=fn(a); if(k) c[k]=(c[k]||0)+1; }); return Object.entries(c); };
+  const bars=(title,items)=>{
+    const top=[...items].sort((a,b)=>b[1]-a[1]).slice(0,8);
+    const max=Math.max(1,...top.map(x=>x[1]));
+    return `<div class="bd"><h3>${title}</h3>${top.length ? top.map(([k,v])=>`<div class="bd-row"><span title="${esc(k)}">${esc(k)}</span><div class="bd-bar"><i style="width:${(v/max*100).toFixed(0)}%"></i></div><b>${v}</b></div>`).join('') : '<p>Sem dados ainda.</p>'}</div>`;
+  };
+  const dec=cnt(a=>{ const d=libDecade(a); return d===null?null:d+'s'; }).sort((a,b)=>parseInt(a[0])-parseInt(b[0]));
+  el.innerHTML = bars('Por género', cnt(a=>a.genre||'Sem género')) + bars('Por década', dec);
+}
+</script>
+
 <script>
 const KEY = 'album-critico-v3';
 const OLD_KEY = 'album-critico-v2';
@@ -744,6 +789,8 @@ async function loadCovers(a){
 
 /* ---------- Biblioteca ---------- */
 function renderStats(){
+  if(typeof renderLibFilters==='function') renderLibFilters();
+  if(typeof renderBreakdown==='function') renderBreakdown();
   const n=db.length, rated=db.filter(a=>a.stars>0);
   const mean=rated.length?rated.reduce((s,a)=>s+a.stars,0)/rated.length:0;
   const best=rated.length?[...rated].sort((a,b)=>b.stars-a.stars)[0]:null;
@@ -766,7 +813,9 @@ function renderLibrary(){
     'artist':(a,b)=>a.artist.localeCompare(b.artist,'pt'),'fav':(a,b)=>(b.fav-a.fav)||(b.stars-a.stars)
   }[$('#sort').value];
   const favOnly=$('#favOnly').checked;
-  const list=db.filter(a=>(!favOnly||a.fav)&&(g==='all'||a.genre===g)&&(!q||[a.artist,a.title,a.genre,a.review].join(' ').toLowerCase().includes(q))).sort(cmp);
+  const dsel=document.getElementById('ldecade'), msel=document.getElementById('lmin');
+  const dec=(dsel&&dsel.value)||'all', minS=+((msel&&msel.value)||0);
+  const list=db.filter(a=>(!favOnly||a.fav)&&(g==='all'||a.genre===g)&&(dec==='all'||libDecade(a)===+dec)&&(a.stars>=minS)&&(!q||[a.artist,a.title,a.genre,a.review].join(' ').toLowerCase().includes(q))).sort(cmp);
   if(!db.length){ $('#libGrid').innerHTML=`<div class="empty"><b>A biblioteca está vazia</b>Pesquisa no catálogo, escolhe um álbum e avalia-o com estrelas.</div>`; return; }
   if(!list.length){ $('#libGrid').innerHTML=`<div class="empty"><b>Nada encontrado</b>Experimenta outra pesquisa ou filtro.</div>`; return; }
   $('#libGrid').innerHTML=list.map((a,i)=>{
@@ -1255,6 +1304,8 @@ renderAllLibrary();
 async function renderHome(){
   const rated=db.filter(a=>a.stars>0), avg=rated.length?(rated.reduce((t,a)=>t+a.stars,0)/rated.length).toFixed(1):'–';
   const favN=db.filter(a=>a.fav).length;
+  const todoL=db.filter(a=>!a.stars).sort((a,b)=>b.createdAt-a.createdAt).slice(0,14);
+  $('#homeTodo').innerHTML = todoL.length ? todoL.map((a,i)=>cardHTML(a,i)).join('') : '<div class="empty"><b>Tudo avaliado</b>Não tens álbuns por avaliar.</div>';
   $('#homeChips').innerHTML=[
     `<span class="stat-pill"><b>${db.length}</b> ${db.length===1?'álbum':'álbuns'} na biblioteca</span>`,
     `<span class="stat-pill"><b>${avg}</b> média ★</span>`,
@@ -1375,6 +1426,8 @@ document.addEventListener('keydown',e=>{
   if((e.key==='Enter'||e.key===' ') && e.target.matches && e.target.matches('[data-search]')){ e.preventDefault(); e.target.click(); }
 });
 
+$('#ldecade').addEventListener('change',renderLibrary);
+$('#lmin').addEventListener('change',renderLibrary);
 setTab('home');
 </script>
 </body>

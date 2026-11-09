@@ -470,19 +470,21 @@ body.xmas .nav-btn.on{background:linear-gradient(135deg,rgba(214,40,40,.4),rgba(
     <div class="panel-grid">
       <div class="panel">
         <h3>Conta</h3>
-        <p>Entra ou cria uma conta para guardar as tuas avaliações.</p>
-        <button class="btn primary" type="button" data-account>Entrar / criar conta</button>
+        <p id="accText">Entra ou cria uma conta para guardar as tuas avaliações.</p>
+        <button class="btn primary" type="button" data-account id="accIn">Entrar / criar conta</button>
+        <button class="btn ghost" type="button" data-logout id="accOut" hidden>Terminar sessão</button>
       </div>
       <div class="panel">
         <h3>Spotify</h3>
-        <p>Importa os álbuns que tens guardados como "Por avaliar".</p>
+        <p>Importa os álbuns que tens guardados no Spotify como "Por avaliar". Se aparecer erro 403, a conta com que entraste tem de estar na lista de utilizadores do painel do Spotify.</p>
         <button class="btn ghost" id="btnSpotify">Ligar Spotify</button>
+        <button class="btn ghost" type="button" id="btnSpotifyOut" hidden>Terminar sessão Spotify</button>
       </div>
       <div class="panel">
         <h3>Backup</h3>
         <p>Exporta a tua biblioteca em JSON ou importa um ficheiro guardado.</p>
-        <button class="btn ghost" id="btnExport">Exportar</button>
-        <label class="btn ghost" for="fileImport">Importar</label>
+        <button class="btn ghost" id="btnExport">Exportar ficheiro</button>
+        <label class="btn ghost" for="fileImport">Importar ficheiro</label>
         <input type="file" id="fileImport" accept="application/json">
       </div>
       <div class="panel">
@@ -957,8 +959,15 @@ const SPOTIFY_REDIRECT = 'https://santiagomartins400-ctrl.github.io/music-tracke
 const spKey = () => 'album-critico-spotify:' + (currentUser() || 'guest');
 const spConnected = () => !!localStorage.getItem(spKey());
 function b64url(bytes){ return btoa(String.fromCharCode(...new Uint8Array(bytes))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,''); }
+function spotifyLogout(){
+  try{ localStorage.removeItem(spKey()); }catch(e){}
+  refreshSpotifyButton();
+  toast('Sessão do Spotify terminada nesta app. Para trocar de conta, sai também em spotify.com.', 6000);
+}
+document.getElementById('btnSpotifyOut').addEventListener('click', spotifyLogout);
 function refreshSpotifyButton(){
   const b=document.getElementById('btnSpotify'); if(b) b.textContent = spConnected() ? 'Importar do Spotify' : 'Ligar Spotify';
+  const o=document.getElementById('btnSpotifyOut'); if(o) o.hidden = !spConnected();
 }
 async function spotifyConnect(){
   if(SPOTIFY_CLIENT_ID.startsWith('COLOCAR')){ toast('Falta o SPOTIFY_CLIENT_ID no ficheiro'); return; }
@@ -1274,6 +1283,10 @@ function openPlaylist(k){
 
 function renderProfile(){
   const u=currentUser();
+  $('#accText').textContent = u ? 'Sessão iniciada como ' + u + '. As tuas avaliações ficam guardadas nesta conta.' : 'Entra ou cria uma conta para guardar as tuas avaliações.';
+  $('#accIn').hidden = !!u;
+  $('#accOut').hidden = !u;
+  refreshSpotifyButton();
   $('#profName').textContent = u ? u.split('@')[0] : 'Visitante';
   $('#profSub').textContent = u ? 'Sessão iniciada. As tuas avaliações ficam guardadas nesta conta.' : 'Entra para guardar a tua conta e as tuas avaliações.';
 }
@@ -1353,6 +1366,7 @@ document.addEventListener('click',e=>{
   if(pl){ openPlaylist(pl.dataset.pl); return; }
   if(e.target.closest('[data-xmas-toggle]')){ applyXmas(!document.body.classList.contains('xmas')); return; }
   if(e.target.closest('[data-account]')){ document.getElementById('btnAccount').click(); return; }
+  if(e.target.closest('[data-logout]')){ logout(); renderProfile(); toast('Sessão terminada.'); return; }
 });
 document.addEventListener('keydown',e=>{
   if((e.key==='Enter'||e.key===' ') && e.target.matches && e.target.matches('[data-search]')){ e.preventDefault(); e.target.click(); }

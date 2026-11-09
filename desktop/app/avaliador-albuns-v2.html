@@ -117,7 +117,7 @@ body.xmas .card:hover{box-shadow:0 0 0 1px rgba(245,197,66,.45),0 18px 40px -12p
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
 .stat{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--r);padding:18px}
 .stat small{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em}
-.stat b{display:block;margin-top:6px;font-size:1.5rem;font-family:"Space Grotesk";white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stat b{display:block;margin-top:6px;font-size:1.5rem;font-family:"Space Grotesk",Inter,system-ui,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .stat span{color:var(--muted);font-size:.8rem}
 
 /* Cartões (só capa) */
@@ -126,7 +126,7 @@ body.xmas .card:hover{box-shadow:0 0 0 1px rgba(245,197,66,.45),0 18px 40px -12p
 .card:hover{transform:translateY(-4px);border-color:#3c3c58;box-shadow:0 20px 40px -20px rgba(0,0,0,.8)}
 .cover{aspect-ratio:1;position:relative;overflow:hidden;background:var(--panel2)}
 .cover img{width:100%;height:100%;object-fit:cover;display:block}
-.badge-stars{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);padding:4px 9px;border-radius:10px;font-weight:700;font-size:.85rem;font-family:"Space Grotesk";display:flex;align-items:center;gap:5px}
+.badge-stars{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12);padding:4px 9px;border-radius:10px;font-weight:700;font-size:.85rem;font-family:"Space Grotesk",Inter,system-ui,sans-serif;display:flex;align-items:center;gap:5px}
 .badge-stars .g{font-size:.9rem}
 .fav{position:absolute;top:10px;left:10px;font-size:1.1rem;color:#fde047;text-shadow:0 2px 8px #000}
 .meta{padding:14px 16px 16px}
@@ -148,7 +148,7 @@ body.xmas .card:hover{box-shadow:0 0 0 1px rgba(245,197,66,.45),0 18px 40px -12p
 .sw{position:relative;display:inline-block}
 .hit{position:absolute;top:0;bottom:0;width:50%;background:transparent;border:none;padding:0;cursor:pointer}
 .hit.l{left:0}.hit.r{right:0}
-.rate-out{display:block;margin-top:12px;font-family:"Space Grotesk";font-weight:700;font-size:1.3rem;color:var(--accent2)}
+.rate-out{display:block;margin-top:12px;font-family:"Space Grotesk",Inter,system-ui,sans-serif;font-weight:700;font-size:1.3rem;color:var(--accent2)}
 .rate-box{background:var(--panel2);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px;text-align:center}
 .rate-label{color:var(--muted);font-weight:600;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
 
@@ -169,7 +169,7 @@ body.xmas .card:hover{box-shadow:0 0 0 1px rgba(245,197,66,.45),0 18px 40px -12p
 .dinfo h2,.rate-head h2{font-size:1.8rem;margin:0}
 .artist{color:var(--accent2);font-weight:600;margin-top:4px}
 .sub{color:var(--muted);font-size:.9rem;margin-top:6px}
-.big{font-family:"Space Grotesk";font-size:2.2rem;font-weight:700;margin:16px 0 4px}
+.big{font-family:"Space Grotesk",Inter,system-ui,sans-serif;font-size:2.2rem;font-weight:700;margin:16px 0 4px}
 .big small{font-size:1rem;color:var(--muted)}
 .review{margin-top:20px;padding:16px 18px;background:var(--panel2);border:1px solid var(--line);border-radius:14px;line-height:1.6;white-space:pre-wrap;color:#d6d4e6}
 .review.muted{color:var(--muted);font-style:italic}
@@ -415,6 +415,7 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
 }
 @media (max-width:899px){ body::before{inset:-5%} }
 @media (prefers-reduced-motion:reduce){ .card:hover{transform:none} }
+@media (max-width:600px){ .actions .btn[data-del]{margin-left:0 !important;width:100%;justify-content:center} }
 </style>
 </head>
 <body>

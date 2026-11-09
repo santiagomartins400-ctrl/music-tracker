@@ -61,6 +61,19 @@ main{max-width:1240px;margin:auto;padding:26px 20px 60px}
 .split{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:start}
 .side{position:sticky;top:18px}
 .vtabs{display:flex;flex-direction:column;gap:4px;padding:6px}
+body.xmas{
+  --bg:#081510; --panel:#0f2419; --panel2:#15301f; --line:#24472f; --accent:#d62828; --accent2:#2e9d5a; --muted:#a9c4b0;
+  background-image:
+    radial-gradient(900px 500px at -10% -10%,rgba(214,40,40,.22),transparent 60%),
+    radial-gradient(800px 500px at 110% 0%,rgba(46,157,90,.2),transparent 55%);
+}
+body.xmas header{background:rgba(8,21,16,.88)}
+body.xmas .brand i{background:conic-gradient(from 200deg,#d62828,#f5c542,#2e9d5a,#d62828)!important}
+body.xmas .card:hover{box-shadow:0 0 0 1px rgba(245,197,66,.45),0 18px 40px -12px rgba(214,40,40,.45)}
+body.xmas::after{content:"";position:fixed;inset:-100px 0 0;pointer-events:none;z-index:-1;opacity:.55;
+  background-image:radial-gradient(2px 2px at 20px 30px,#fff,transparent),radial-gradient(2px 2px at 120px 90px,#f5c542,transparent),radial-gradient(1.5px 1.5px at 200px 160px,#fff,transparent),radial-gradient(2px 2px at 300px 50px,#fff,transparent);
+  background-size:340px 220px;animation:snow 14s linear infinite}
+@keyframes snow{to{transform:translateY(220px)}}
 .favonly{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-weight:600;font-size:.9rem;padding:0 6px;white-space:nowrap}
 .favonly input{accent-color:var(--accent)}
 .vtabs .tab{text-align:left;padding:10px 14px}
@@ -202,6 +215,7 @@ main{max-width:1240px;margin:auto;padding:26px 20px 60px}
       <button class="tab" data-tab="library">Biblioteca</button>
       <button class="tab" data-tab="charts">Top semanal</button>
     </div>
+    <button class="btn ghost" id="btnXmas" type="button" title="Tema de Natal">🎄 Natal</button>
     <button class="btn ghost" id="btnAccount" type="button">Entrar</button>
   </div>
 </header>
@@ -389,39 +403,39 @@ async function loadSuggestions(){
   renderCatalog();
   setStatus('Sugestões: os álbuns mais populares da semana · escreve acima para pesquisar');
 }
+const normTxt = x => (x||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
 async function searchCatalog(term){
   const q=(term ?? $('#cq').value).trim().replace(/"/g,'');
   $('#cq').value=q;
   if(!q){ loadSuggestions(); return; }
-  const query=`(artist:"${q}" OR tag:"${q}")`;
-  catSuggest = false; catalog=[]; renderCatalog();
-  setStatus(`A procurar “${q}”…`);
+  const cacheKey='music-tracker-search:'+q.toLowerCase();
+  let cached=null;
+  try{ cached=JSON.parse(sessionStorage.getItem(cacheKey)||'null'); }catch(e){}
+  if(cached){
+    catSuggest=true; catalog=cached; cached.forEach(x=>registry.set(x.id,x));
+    renderCatalog(); setStatus(`${cached.length} lançamentos para “${q}” · fonte: MusicBrainz`);
+    return;
+  }
+  catSuggest=true; catalog=[]; renderCatalog();
   $('#catGrid').innerHTML=skeletons(8);
+  setStatus(`A procurar “${q}”…`);
   try{
-    const a = await mbGet(`/artist/?query=${encodeURIComponent(query)}&fmt=json&limit=8`);
-    const artists = a.artists||[];
-    if(!artists.length){
-      $('#catGrid').innerHTML='';
-      setStatus(`Nenhum resultado para “${q}”. Experimenta outro termo.`);
-      return;
-    }
-    const all=[];
-    for(let i=0;i<artists.length;i++){
-      const ar=artists[i];
-      setStatus(`A carregar a discografia de ${ar.name} (${i+1}/${artists.length})…`);
-      try{
-        const rg = await mbGet(`/release-group/?artist=${ar.id}&limit=100&fmt=json`);
-        (rg['release-groups']||[]).forEach(g=>{
-          if((g['secondary-types']||[]).length) return;
-          if(!['Album','EP','Single'].includes(g['primary-type'])) return;
-          all.push(rgNormalize(g, ar.name));
-        });
-      }catch(e){}
-      if(i<artists.length-1) await sleep(1100);
-    }
+    // Um só pedido: artistas e títulos com o termo, só álbuns, EPs e singles (sem compilações, ao vivo, etc.).
+    const query=`(artist:"${q}" OR releasegroup:"${q}") AND (primarytype:album OR primarytype:ep OR primarytype:single) AND NOT secondarytype:*`;
+    const d=await mbGet(`/release-group/?query=${encodeURIComponent(query)}&limit=100&fmt=json`);
+    const nq=normTxt(q), seen=new Map();
+    (d['release-groups']||[]).forEach(g=>{
+      const x=rgNormalize(g,'');
+      if(!normTxt(x.artist).includes(nq) && !normTxt(x.title).includes(nq)) return;
+      const key=(normTxt(x.artist)+'|'+normTxt(x.title)+'|'+x.type);
+      const prev=seen.get(key);
+      if(!prev || (x.year && (!prev.year || x.year<prev.year))) seen.set(key,x);
+    });
+    const all=[...seen.values()].sort((a,b)=>a.artist.localeCompare(b.artist,'pt')||((+a.year||9999)-(+b.year||9999))||a.title.localeCompare(b.title,'pt'));
+    try{ sessionStorage.setItem(cacheKey, JSON.stringify(all)); }catch(e){}
     catalog=all; all.forEach(x=>registry.set(x.id,x));
     renderCatalog();
-    setStatus(`${all.length} lançamentos de ${artists.length} artistas para “${q}” · fonte: MusicBrainz`);
+    setStatus(all.length ? `${all.length} lançamentos para “${q}” · fonte: MusicBrainz` : `Nenhum resultado para “${q}”. Experimenta outro termo.`);
   }catch(e){
     renderCatalog();
     setStatus('Não foi possível obter resultados. Verifica a ligação à internet e tenta de novo.');
@@ -905,6 +919,13 @@ function openAuth(start='login', gate=false){
     }
   };
 }
+function applyXmas(on){
+  document.body.classList.toggle('xmas', on);
+  const b=document.getElementById('btnXmas'); if(b) b.textContent = on ? '✨ Tema normal' : '🎄 Natal';
+  try{ localStorage.setItem('music-tracker-xmas', on ? '1' : '0'); }catch(e){}
+}
+document.getElementById('btnXmas').addEventListener('click', () => applyXmas(!document.body.classList.contains('xmas')));
+try{ applyXmas(localStorage.getItem('music-tracker-xmas')==='1'); }catch(e){}
 document.getElementById('btnAccount').addEventListener('click', () => {
   if (currentUser()) { if (confirm('Terminar sessão?')) logout(); }
   else openAuth('login');

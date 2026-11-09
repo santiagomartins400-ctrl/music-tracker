@@ -1003,16 +1003,22 @@ async function spotifyToken(){
 async function spotifyImport(){
   const tok = await spotifyToken();
   if(!tok){ toast('Liga primeiro o Spotify'); refreshSpotifyButton(); return; }
+  let who = '';
+  try{
+    const me = await (await fetch('https://api.spotify.com/v1/me', {headers:{Authorization:'Bearer '+tok}})).json();
+    who = me.display_name || me.id || '';
+  }catch(e){}
   let url = 'https://api.spotify.com/v1/me/albums?limit=50';
-  let added = 0;
+  let added = 0, existing = 0, found = 0, failed = '';
   try{
     while(url){
       const r = await fetch(url, {headers:{Authorization:'Bearer '+tok}});
-      if(!r.ok){ toast('Não foi possível importar do Spotify'); break; }
+      if(!r.ok){ failed = 'Spotify respondeu com erro '+r.status; break; }
       const j = await r.json();
       (j.items||[]).forEach(it=>{
+        found++;
         const al = it.album; const sid = 'spotify-'+al.id;
-        if(db.some(x=>x.sourceId===sid)) return;
+        if(db.some(x=>x.sourceId===sid)){ existing++; return; }
         db.unshift({id:uid(), sourceId:sid, artist:al.artists.map(x=>x.name).join(', '), title:al.name,
           year:(al.release_date||'').slice(0,4), genre:'', cover:al.images?.[0]?.url||'', tracks:al.total_tracks||0,
           stars:0, review:'', fav:false, createdAt:Date.now()});
@@ -1020,9 +1026,10 @@ async function spotifyImport(){
       });
       url = j.next;
     }
-  }catch(e){ toast('Sem ligação ao Spotify'); }
+  }catch(e){ failed = 'Sem ligação ao Spotify'; }
   persist(); refreshAll();
-  toast(`${added} álbuns importados do Spotify`);
+  if(failed) toast(failed);
+  toast(`Conta ${who||'desconhecida'}: ${found} álbuns guardados, ${added} novos, ${existing} já existiam`);
 }
 document.getElementById('btnSpotify').addEventListener('click', ()=>{
   if(spConnected()) spotifyImport(); else spotifyConnect();

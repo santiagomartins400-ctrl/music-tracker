@@ -61,6 +61,29 @@ main{max-width:1240px;margin:auto;padding:26px 20px 60px}
 .split{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:start}
 .side{position:sticky;top:18px}
 .vtabs{display:flex;flex-direction:column;gap:4px;padding:6px}
+.card{position:relative;overflow:hidden}
+.card::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.16) 50%,transparent 65%);transform:translateX(-120%);transition:transform .8s ease}
+.card:hover::after{transform:translateX(120%)}
+.shine-text{background:linear-gradient(90deg,#c4b5fd,#f9a8d4,#fde68a,#c4b5fd);background-size:250% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gshift2 4s linear infinite}
+.brand{background:linear-gradient(90deg,#fff,#c4b5fd,#fff);background-size:220% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gshift2 7s linear infinite}
+.brand i{-webkit-text-fill-color:initial}
+#view-vip{padding-top:10px}
+.vip-hero{text-align:center;padding:40px 20px 30px;border:1px solid var(--line);border-radius:24px;background:radial-gradient(600px 300px at 50% 0%,rgba(245,197,66,.18),transparent 70%),var(--panel);margin-bottom:22px;position:relative;overflow:hidden}
+.vip-hero::before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent,rgba(245,197,66,.12),transparent 30%);animation:spin 9s linear infinite;pointer-events:none}
+.vip-hero>*{position:relative}
+.vip-hero h2{font-size:2rem;margin:10px 0 6px}
+.vip-hero p{color:var(--muted);margin:0 0 18px}
+.vip-hero small{display:block;color:var(--muted);margin-top:12px;font-size:.82rem}
+.vip-crown{display:inline-block;font-size:3rem;animation:floaty 3s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(245,197,66,.6))}
+.vip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.vip-card{border:1px solid var(--line);border-radius:20px;padding:22px;background:linear-gradient(160deg,var(--panel2),var(--panel));position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.vip-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -14px rgba(245,197,66,.35)}
+.vip-card b{font-size:1.8rem;display:block;margin-bottom:8px}
+.vip-card h3{margin:0 0 6px}
+.vip-card p{margin:0;color:var(--muted);font-size:.92rem}
+.vip-tab.on{background:linear-gradient(135deg,#f5c542,#e8842b)!important;color:#1a1200!important}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:899px){ header .bar{gap:10px} header .tabs{flex:1 1 100%;order:3;justify-content:space-between} header .tab{flex:1;padding:8px 6px;font-size:.84rem;white-space:nowrap} }
 body.xmas{
   --bg:#081510; --panel:#0f2419; --panel2:#15301f; --line:#24472f; --accent:#d62828; --accent2:#2e9d5a; --muted:#a9c4b0;
   background-image:
@@ -214,6 +237,7 @@ body.xmas::after{content:"";position:fixed;inset:-100px 0 0;pointer-events:none;
       <button class="tab on" data-tab="catalog">Catálogo</button>
       <button class="tab" data-tab="library">Biblioteca</button>
       <button class="tab" data-tab="charts">Top semanal</button>
+      <button class="tab vip-tab" data-tab="vip">👑 VIP</button>
     </div>
     <button class="btn ghost" id="btnXmas" type="button" title="Tema de Natal">🎄 Natal</button>
     <button class="btn ghost" id="btnAccount" type="button">Entrar</button>
@@ -275,6 +299,21 @@ body.xmas::after{content:"";position:fixed;inset:-100px 0 0;pointer-events:none;
         <span class="status" id="chStatus" style="display:block;margin:0 0 14px"></span>
         <section class="grid" id="chGrid"></section>
       </div>
+    </div>
+  </section>
+  <section id="view-vip" class="hidden">
+    <div class="vip-hero">
+      <span class="vip-crown">👑</span>
+      <h2>Music Tracker <span class="shine-text">VIP</span></h2>
+      <p>Mais estilo, mais detalhe e mais coisas para os teus tops e a tua biblioteca.</p>
+      <button class="btn primary" type="button" disabled>Em breve</button>
+      <small>Ainda não há pagamentos nesta versão. Os benefícios ficam ativos quando a subscrição estiver disponível.</small>
+    </div>
+    <div class="vip-grid">
+      <article class="vip-card"><b>🎄</b><h3>Temas exclusivos</h3><p>Tema de Natal, temas sazonais e cores extra para a interface.</p></article>
+      <article class="vip-card"><b>⭐</b><h3>Badge VIP</h3><p>Um selo dourado ao lado do teu nome nas avaliações públicas.</p></article>
+      <article class="vip-card"><b>📊</b><h3>Estatísticas avançadas</h3><p>Médias por género, por década e por artista na tua biblioteca.</p></article>
+      <article class="vip-card"><b>🚀</b><h3>Novidades primeiro</h3><p>Acesso antecipado às funcionalidades novas antes de todos.</p></article>
     </div>
   </section>
 </main>
@@ -642,6 +681,7 @@ function setTab(name){
   $('#view-catalog').classList.toggle('hidden',name!=='catalog');
   $('#view-library').classList.toggle('hidden',name!=='library');
   $('#view-charts').classList.toggle('hidden',name!=='charts');
+  $('#view-vip').classList.toggle('hidden',name!=='vip');
   if(name==='charts') loadCharts();
   if(name==='library') renderAllLibrary();
   if(name==='catalog') renderCatalog();
@@ -925,7 +965,7 @@ function applyXmas(on){
   try{ localStorage.setItem('music-tracker-xmas', on ? '1' : '0'); }catch(e){}
 }
 document.getElementById('btnXmas').addEventListener('click', () => applyXmas(!document.body.classList.contains('xmas')));
-try{ applyXmas(localStorage.getItem('music-tracker-xmas')==='1'); }catch(e){}
+try{ const saved=localStorage.getItem('music-tracker-xmas'); applyXmas(saved===null ? true : saved==='1'); }catch(e){ applyXmas(true); }
 document.getElementById('btnAccount').addEventListener('click', () => {
   if (currentUser()) { if (confirm('Terminar sessão?')) logout(); }
   else openAuth('login');

@@ -658,9 +658,12 @@ let catTab = 'Album';
 const sleep = ms => new Promise(r=>setTimeout(r,ms));
 const MB = 'https://musicbrainz.org/ws/2';
 async function mbGet(path){
-  const r = await fetch(MB + path);
-  if(!r.ok) throw new Error('mb '+r.status);
-  return r.json();
+  for(let t=0;t<2;t++){
+    const r = await fetch(MB + path);
+    if(r.ok) return r.json();
+    if((r.status===503 || r.status===429) && t===0){ await sleep(1600); continue; }
+    throw new Error('MusicBrainz ' + r.status);
+  }
 }
 function rgNormalize(g, fallback){
   const artist = (g['artist-credit']||[]).map(c=>c.name + (c.joinphrase||'')).join('') || fallback;
@@ -738,7 +741,7 @@ async function searchCatalog(term){
     setStatus(all.length ? `${all.length} lançamentos para “${q}” · fonte: MusicBrainz` : `Nenhum resultado para “${q}”. Experimenta outro termo.`);
   }catch(e){
     renderCatalog();
-    setStatus('Não foi possível obter resultados. Verifica a ligação à internet e tenta de novo.');
+    setStatus(`Não foi possível obter resultados (${e.message || 'erro desconhecido'}). Tenta de novo daqui a um minuto.`);
   }
 }
 function renderCatalog(){

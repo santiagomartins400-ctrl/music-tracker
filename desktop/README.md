@@ -21,7 +21,7 @@ Este projeto gera um instalador `.exe` (Windows 10/11, 64 bits) da aplicação.
    ```
 5. Quando terminar, o instalador fica em:
    ```
-   dist\Music Tracker Setup 2.27.0.exe
+   dist\Music Tracker Setup 2.28.0.exe
    ```
 
 Basta fazer duplo clique nesse ficheiro para instalar. Fica com atalho no ambiente de trabalho e no menu Iniciar.
@@ -37,7 +37,7 @@ npm start
 
 1. No repositório do GitHub, vai a **Releases → Create a new release**.
 2. Dá-lhe um nome, por exemplo `v2.0.0`.
-3. Arrasta o ficheiro `Music Tracker Setup 2.27.0.exe` para a área de anexos e publica.
+3. Arrasta o ficheiro `Music Tracker Setup 2.28.0.exe` para a área de anexos e publica.
 4. Copia o link do ficheiro e usa-o no botão de download da página `index.html`.
 
 ## Notas

@@ -711,7 +711,7 @@ async function searchCatalog(term){
   const q=(term ?? $('#cq').value).trim().replace(/"/g,'');
   $('#cq').value=q;
   if(!q){ loadSuggestions(); return; }
-  const cacheKey='music-tracker-search:'+q.toLowerCase();
+  const cacheKey='music-tracker-search-v3:'+q.toLowerCase();
   let cached=null;
   try{ cached=JSON.parse(sessionStorage.getItem(cacheKey)||'null'); }catch(e){}
   if(cached){
@@ -729,7 +729,13 @@ async function searchCatalog(term){
     const nq=normTxt(q), seen=new Map();
     (d['release-groups']||[]).forEach(g=>{
       const x=rgNormalize(g,'');
-      if(!normTxt(x.artist).includes(nq) && !normTxt(x.title).includes(nq)) return;
+      // Só o que é mesmo do artista, ou um título igual ao que foi pesquisado
+      const artistOk = normTxt(x.artist).includes(nq);
+      const titleOk = normTxt(x.title) === nq;
+      if(!artistOk && !titleOk) return;
+      // Sem bootlegs nem promos (lançamentos não oficiais)
+      const rel = g.releases || [];
+      if(rel.length && rel.every(r=>r.status==='Bootleg' || r.status==='Promotion')) return;
       const key=(normTxt(x.artist)+'|'+normTxt(x.title)+'|'+x.type);
       const prev=seen.get(key);
       if(!prev || (x.year && (!prev.year || x.year<prev.year))) seen.set(key,x);

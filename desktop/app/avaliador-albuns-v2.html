@@ -61,6 +61,8 @@ main{max-width:1240px;margin:auto;padding:26px 20px 60px}
 .split{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:start}
 .side{position:sticky;top:18px}
 .vtabs{display:flex;flex-direction:column;gap:4px;padding:6px}
+.favonly{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-weight:600;font-size:.9rem;padding:0 6px;white-space:nowrap}
+.favonly input{accent-color:var(--accent)}
 .vtabs .tab{text-align:left;padding:10px 14px}
 .pane{min-width:0}
 @media (max-width:760px){.split{grid-template-columns:1fr}.side{position:static}.vtabs{flex-direction:row;overflow-x:auto}.vtabs .tab{white-space:nowrap}}
@@ -230,6 +232,7 @@ main{max-width:1240px;margin:auto;padding:26px 20px 60px}
     <section class="tools">
       <div class="search"><input id="q" placeholder="Pesquisar na biblioteca…" autocomplete="off"></div>
       <select id="lgenre"></select>
+      <label class="favonly"><input type="checkbox" id="favOnly"> Só favoritos</label>
       <select id="sort">
         <option value="stars-desc">Melhor classificação</option>
         <option value="stars-asc">Pior classificação</option>
@@ -492,7 +495,8 @@ function renderLibrary(){
     'year-desc':(a,b)=>(+b.year||0)-(+a.year||0),'year-asc':(a,b)=>(+a.year||0)-(+b.year||0),
     'artist':(a,b)=>a.artist.localeCompare(b.artist,'pt'),'fav':(a,b)=>(b.fav-a.fav)||(b.stars-a.stars)
   }[$('#sort').value];
-  const list=db.filter(a=>(g==='all'||a.genre===g)&&(!q||[a.artist,a.title,a.genre,a.review].join(' ').toLowerCase().includes(q))).sort(cmp);
+  const favOnly=$('#favOnly').checked;
+  const list=db.filter(a=>(!favOnly||a.fav)&&(g==='all'||a.genre===g)&&(!q||[a.artist,a.title,a.genre,a.review].join(' ').toLowerCase().includes(q))).sort(cmp);
   if(!db.length){ $('#libGrid').innerHTML=`<div class="empty"><b>A biblioteca está vazia</b>Pesquisa no catálogo, escolhe um álbum e avalia-o com estrelas.</div>`; return; }
   if(!list.length){ $('#libGrid').innerHTML=`<div class="empty"><b>Nada encontrado</b>Experimenta outra pesquisa ou filtro.</div>`; return; }
   $('#libGrid').innerHTML=list.map((a,i)=>{
@@ -812,6 +816,7 @@ function renderCharts(){
       <div class="meta"><h3>${esc(x.title)}</h3><p>${esc(x.artist)}</p></div>
     </article>`).join('');
 }
+$('#favOnly').addEventListener('change', renderLibrary);
 document.querySelectorAll('[data-chk]').forEach(b => b.addEventListener('click', () => {
   chKind = b.dataset.chk;
   document.querySelectorAll('[data-chk]').forEach(x => x.classList.toggle('on', x===b));

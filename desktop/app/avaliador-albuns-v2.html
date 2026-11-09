@@ -991,7 +991,7 @@ async function spotifyHandleRedirect(){
   sessionStorage.removeItem('sp_verifier');
   if(!r.ok){ toast('Não foi possível ligar ao Spotify'); return; }
   const t = await r.json();
-  localStorage.setItem(spKey(), JSON.stringify({access:t.access_token, refresh:t.refresh_token, exp:Date.now()+t.expires_in*1000}));
+  localStorage.setItem(spKey(), JSON.stringify({access:t.access_token, refresh:t.refresh_token, exp:Date.now()+t.expires_in*1000, scope:t.scope||''}));
   refreshSpotifyButton();
   toast('Spotify ligado');
   await spotifyImport();
@@ -1012,21 +1012,24 @@ async function spotifyToken(){
 async function spotifyImport(){
   const tok = await spotifyToken();
   if(!tok){ toast('Liga primeiro o Spotify'); refreshSpotifyButton(); return; }
-  let who = '', meErr = '';
+  let who = '', meErr = '', scope = '';
+  try{ scope = JSON.parse(localStorage.getItem(spKey())||'{}').scope || '(vazio)'; }catch(e){}
   try{
     const r0 = await fetch('https://api.spotify.com/v1/me', {headers:{Authorization:'Bearer '+tok}});
-    const me = await r0.json();
-    if(!r0.ok) meErr = 'perfil: '+r0.status+' '+(me.error?.message||'');
+    const txt0 = await r0.text();
+    let me = {}; try{ me = JSON.parse(txt0); }catch(e){}
+    if(!r0.ok) meErr = 'perfil '+r0.status+': '+(me.error?.message || txt0.slice(0,120) || '(sem texto)');
     who = me.display_name || me.id || '';
-  }catch(e){ meErr = 'perfil: sem ligação'; }
+  }catch(e){ meErr = 'perfil: falha de rede ('+(e.message||e)+')'; }
   let url = 'https://api.spotify.com/v1/me/albums?limit=50';
   let added = 0, existing = 0, found = 0, failed = '';
   try{
     while(url){
       const r = await fetch(url, {headers:{Authorization:'Bearer '+tok}});
       if(!r.ok){
-        const body = await r.json().catch(()=>({}));
-        failed = 'biblioteca: '+r.status+' '+(body.error?.message||'');
+        const txt = await r.text();
+        let body = {}; try{ body = JSON.parse(txt); }catch(e){}
+        failed = 'biblioteca '+r.status+': '+(body.error?.message || txt.slice(0,120) || '(sem texto)');
         break;
       }
       const j = await r.json();
@@ -1044,7 +1047,7 @@ async function spotifyImport(){
   }catch(e){ failed = 'Sem ligação ao Spotify'; }
   persist(); refreshAll();
   const errs = [meErr, failed].filter(Boolean).join(' · ');
-  toast(`Conta ${who||'desconhecida'}: ${found} álbuns, ${added} novos, ${existing} já existiam${errs ? ' — ERRO ' + errs : ''}`, errs ? 9000 : 2200);
+  toast(`Conta ${who||'desconhecida'}: ${found} álbuns, ${added} novos, ${existing} já existiam · permissões: ${scope}${errs ? ' — ERRO ' + errs : ''}`, errs ? 12000 : 2200);
 }
 document.getElementById('btnSpotify').addEventListener('click', ()=>{
   if(spConnected()) spotifyImport(); else spotifyConnect();

@@ -386,40 +386,9 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
 @media (max-width:899px){ body::before{inset:-5%} }
 @media (prefers-reduced-motion:reduce){ .card:hover{transform:none} }
 @media (max-width:600px){ .actions .btn[data-del]{margin-left:0 !important;width:100%;justify-content:center} }
-/* v7: pesquisa por ano + Music IA */
+/* v7: pesquisa por ano */
 .grp-title{grid-column:1/-1;display:flex;align-items:baseline;gap:10px;margin:14px 0 0;padding-bottom:8px;border-bottom:1px solid var(--line);font-family:"Space Grotesk",Inter,system-ui,sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:-.01em}
 .grp-title small{color:var(--muted);font-weight:500;font-size:.85rem;font-family:Inter,system-ui,sans-serif}
-.ia-fab{position:fixed;right:18px;bottom:22px;z-index:60;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:12px 18px;font-weight:700;color:#fff;cursor:pointer;background:linear-gradient(135deg,#8b5cf6,#ec4899);box-shadow:0 18px 40px -12px rgba(236,72,153,.7)}
-.ia-panel{position:fixed;right:18px;bottom:82px;z-index:61;width:min(380px,calc(100vw - 36px));height:min(520px,70vh);display:flex;flex-direction:column;border-radius:22px;background:linear-gradient(165deg,rgba(34,31,58,.94),rgba(12,12,22,.96));border:1px solid rgba(255,255,255,.16);box-shadow:0 40px 90px -30px #000}
-.ia-panel[hidden]{display:none}
-.ia-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
-.ia-head small{display:block;color:var(--muted);font-size:.8rem}
-.ia-x{background:none;border:0;color:#fff;font-size:1.1rem;cursor:pointer;padding:6px}
-.ia-log{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
-.ia-msg{max-width:88%;padding:10px 13px;border-radius:16px;line-height:1.45;font-size:.93rem;word-wrap:break-word}
-.ia-msg.bot{align-self:flex-start;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08)}
-.ia-msg.me{align-self:flex-end;background:linear-gradient(135deg,rgba(139,92,246,.55),rgba(236,72,153,.5))}
-.ia-form{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.1)}
-.ia-form input{flex:1;min-width:0;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(8,8,16,.5)}
-@media (max-width:899px){ .ia-fab{bottom:86px} .ia-panel{bottom:146px} }
-/* v8: balões animados da Music IA */
-@keyframes iaPanel{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
-@keyframes iaIn{from{opacity:0;transform:translateY(12px) scale(.94)}to{opacity:1;transform:none}}
-@keyframes iaShine{to{transform:translateX(120%)}}
-@keyframes iaDot{0%,80%,100%{transform:translateY(0);opacity:.35}40%{transform:translateY(-5px);opacity:1}}
-.ia-panel:not([hidden]){animation:iaPanel .32s cubic-bezier(.2,.8,.2,1) both}
-.ia-fab{transition:transform .2s,box-shadow .2s}
-.ia-fab:hover{transform:translateY(-2px);box-shadow:0 22px 46px -12px rgba(236,72,153,.85)}
-.ia-msg{animation:iaIn .38s cubic-bezier(.2,.8,.2,1) both;position:relative;overflow:hidden}
-.ia-msg.me{transform-origin:bottom right;background:linear-gradient(135deg,rgba(139,92,246,.7),rgba(236,72,153,.62));box-shadow:0 10px 24px -14px rgba(236,72,153,.9)}
-.ia-msg.bot{transform-origin:bottom left;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.04));border:1px solid rgba(167,139,250,.22);box-shadow:0 10px 24px -16px rgba(139,92,246,.8)}
-.ia-msg.bot::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.14) 50%,transparent 70%);transform:translateX(-120%);animation:iaShine 1.2s .25s ease-out 1 both}
-.ia-typing{display:flex;gap:5px;align-items:center;padding:12px 14px;width:auto}
-.ia-typing::after{display:none}
-.ia-typing span{width:7px;height:7px;border-radius:50%;background:#c4b5fd;animation:iaDot 1s infinite}
-.ia-typing span:nth-child(2){animation-delay:.15s}
-.ia-typing span:nth-child(3){animation-delay:.3s}
-@media (prefers-reduced-motion:reduce){ .ia-panel,.ia-msg,.ia-msg.bot::after,.ia-typing span{animation:none !important} .ia-fab:hover{transform:none} }
 /* v9: fila, playlists, cores, fundo do álbum e cache */
 .modal{position:relative;isolation:isolate}
 .modal::before{content:"";position:absolute;inset:-20%;z-index:-1;pointer-events:none;background:var(--hero,none) center/cover no-repeat;filter:blur(46px) saturate(150%);opacity:.3}
@@ -468,6 +437,50 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
 @media (prefers-reduced-motion:reduce){
   .card::after,.card .cover img,.tab.on,.nav-btn.on,.panel,.vip-card,.vip-hero::before{animation:none!important;transition:none!important}
   .card:hover .cover img{transform:none}
+}
+/* v11: leitor em cápsula de vidro, com brilho e animação */
+.player{left:12px;right:12px;bottom:12px;border-radius:24px;padding:12px 18px;overflow:hidden;background:linear-gradient(160deg,rgba(40,36,66,.78),rgba(12,12,22,.86))!important;backdrop-filter:blur(26px) saturate(170%);-webkit-backdrop-filter:blur(26px) saturate(170%);border:1px solid rgba(255,255,255,.14)!important;box-shadow:0 26px 60px -22px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.12)!important}
+.player::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent));background-size:200% 100%;animation:gshift2 4s linear infinite;pointer-events:none}
+.player::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.12) 50%,transparent 60%);transform:translateX(-100%);animation:playerSheen 7s ease-in-out infinite}
+@keyframes playerSheen{0%,70%,100%{transform:translateX(-100%)}85%{transform:translateX(100%)}}
+@media (min-width:900px){ .player{left:318px;right:18px;bottom:16px} }
+@media (max-width:899px){ .player{left:10px;right:10px;bottom:82px;border-radius:20px;padding:10px 12px} }
+.p-now{display:flex;align-items:center;gap:12px;min-width:0}
+.p-cover{width:52px;height:52px;border-radius:14px;transition:box-shadow .4s,transform .4s}
+#player.is-playing .p-cover{box-shadow:0 0 0 2px rgba(255,255,255,.14),0 14px 30px -10px var(--accent)}
+.p-info b{font-family:"Space Grotesk",Inter,system-ui,sans-serif;font-size:.98rem;letter-spacing:-.01em}
+.eq{display:inline-flex;align-items:flex-end;gap:3px;height:16px;flex:none;opacity:0;transition:opacity .35s}
+.eq i{width:3px;height:100%;border-radius:2px;background:linear-gradient(var(--accent2),var(--accent));transform:scaleY(.3);transform-origin:bottom}
+#player.is-playing .eq{opacity:1}
+#player.is-playing .eq i{animation:eqBar .9s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:.15s}.eq i:nth-child(3){animation-delay:.3s}.eq i:nth-child(4){animation-delay:.45s}
+@keyframes eqBar{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
+.player .p-ctrl{display:flex;align-items:center;gap:10px;min-width:0}
+.p-side{border-radius:12px;padding:8px 10px;transition:transform .2s,background .2s,opacity .2s,color .2s}
+.p-side:hover{background:rgba(255,255,255,.08);transform:translateY(-1px);opacity:1}
+.p-side:active{transform:scale(.9)}
+#pShuf{color:var(--muted)}
+#pShuf.on{color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));opacity:1;box-shadow:0 8px 18px -8px var(--accent)}
+.p-play{position:relative;isolation:isolate;width:50px;height:50px;transition:transform .2s,box-shadow .3s;box-shadow:0 12px 26px -10px var(--accent)}
+.p-play:hover{transform:scale(1.08);box-shadow:0 16px 34px -10px var(--accent)}
+.p-play:active{transform:scale(.94)}
+#player.is-playing .p-play::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--accent);animation:ringPulse 1.8s ease-out infinite;z-index:-1}
+@keyframes ringPulse{0%{transform:scale(.85);opacity:.75}100%{transform:scale(1.35);opacity:0}}
+.player .p-prog{flex:1;display:flex;align-items:center;gap:12px;min-width:0}
+#pCur,#pDur{font-variant-numeric:tabular-nums;font-size:.8rem;color:var(--muted);min-width:38px;font-weight:600}
+#pDur{text-align:right}
+#pBar{-webkit-appearance:none;appearance:none;flex:1;min-width:80px;height:6px;margin:0;border-radius:999px;cursor:pointer;outline:none;background:linear-gradient(90deg,var(--accent),var(--accent2)) 0 0/var(--p,0%) 100% no-repeat,rgba(255,255,255,.14)}
+#pBar::-webkit-slider-runnable-track{height:6px;background:transparent}
+#pBar::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;margin-top:-4.5px;border-radius:50%;border:0;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.14),0 0 16px rgba(236,72,153,.75);transition:transform .2s}
+#pBar::-moz-range-track{height:6px;background:transparent;border:0}
+#pBar::-moz-range-progress{height:6px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:999px}
+#pBar::-moz-range-thumb{width:15px;height:15px;border:0;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.14),0 0 16px rgba(236,72,153,.75)}
+#pBar:hover::-webkit-slider-thumb,#pBar:focus-visible::-webkit-slider-thumb{transform:scale(1.25)}
+#pBar:focus-visible{box-shadow:0 0 0 3px rgba(167,139,250,.5);border-radius:999px}
+@media (max-width:899px){ .player .p-ctrl{gap:6px} .p-side{padding:6px} .eq{display:none} }
+@media (prefers-reduced-motion:reduce){
+  .player::before,.player::after,.eq i,.p-play::before,#player.is-playing .p-play::before{animation:none!important}
+  .p-play:hover,.p-side:hover{transform:none}
 }
 </style>
 </head>
@@ -592,8 +605,7 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
       <article class="vip-card" style="--i:0"><span class="vip-ico" aria-hidden="true">⭐</span><h3>Selo VIP</h3><p>Um selo dourado ao lado do teu nome nas avaliações públicas.</p><span class="vip-tag">Previsto</span></article>
       <article class="vip-card" style="--i:1"><span class="vip-ico" aria-hidden="true">📊</span><h3>Estatísticas avançadas</h3><p>Médias por género, por década e por artista, com gráficos na tua biblioteca.</p><span class="vip-tag">Previsto</span></article>
       <article class="vip-card" style="--i:2"><span class="vip-ico" aria-hidden="true">🎨</span><h3>Temas exclusivos</h3><p>Cores e fundos extra para personalizar a interface.</p><span class="vip-tag">Previsto</span></article>
-      <article class="vip-card" style="--i:3"><span class="vip-ico" aria-hidden="true">🤖</span><h3>Music IA reforçada</h3><p>Respostas mais detalhadas e recomendações com base no que já ouviste.</p><span class="vip-tag">Previsto</span></article>
-      <article class="vip-card" style="--i:4"><span class="vip-ico" aria-hidden="true">🚀</span><h3>Novidades primeiro</h3><p>Acesso antecipado às funcionalidades novas, antes de todos.</p><span class="vip-tag">Previsto</span></article>
+      <article class="vip-card" style="--i:3"><span class="vip-ico" aria-hidden="true">🚀</span><h3>Novidades primeiro</h3><p>Acesso antecipado às funcionalidades novas, antes de todos.</p><span class="vip-tag">Previsto</span></article>
     </div>
   </section>
   <!-- PERFIL -->
@@ -638,6 +650,7 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
   <div class="p-now">
     <div class="p-cover" id="pCover"></div>
     <div class="p-info"><b id="pTitle"></b><span id="pArtist"></span><span class="p-note" id="pNote"></span></div>
+    <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
   </div>
   <div class="p-ctrl">
     <button class="p-side" id="pPrev" type="button" aria-label="Faixa anterior">⏮</button>
@@ -653,12 +666,6 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
 </div>
 <audio id="audio" preload="none"></audio>
 <div class="overlay" id="overlay"><div class="modal" id="modal"></div></div>
-<button class="ia-fab" id="iaFab" type="button" aria-expanded="false" aria-controls="iaPanel">✨ Music IA</button>
-<section class="ia-panel" id="iaPanel" aria-label="Music IA" hidden>
-  <div class="ia-head"><div><b>Music IA</b><small>Respondo sobre a app e a tua biblioteca</small></div><button class="ia-x" id="iaClose" type="button" aria-label="Fechar">✕</button></div>
-  <div class="ia-log" id="iaLog" aria-live="polite"></div>
-  <form class="ia-form" id="iaForm" autocomplete="off"><input id="iaInput" maxlength="200" placeholder="Ex.: o que me recomendas?" aria-label="Pergunta para a Music IA"><button class="btn primary" type="submit">Enviar</button></form>
-</section>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -1660,7 +1667,7 @@ function renderExtra(){
 const audio=document.getElementById('audio');
 let nowItem=null;
 const mmss=s=>{ s=Math.max(0,Math.floor(s||0)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); };
-function setPlaying(on){ const b=$('#pBtn'); b.innerHTML=on?PAUSE_ICO:PLAY_ICO; b.setAttribute('aria-label',on?'Pausa':'Reproduzir'); }
+function setPlaying(on){ const b=$('#pBtn'); b.innerHTML=on?PAUSE_ICO:PLAY_ICO; b.setAttribute('aria-label',on?'Pausa':'Reproduzir'); $('#player').classList.toggle('is-playing', !!on); }
 function showPlayer(a,note){
   $('#player').hidden=false;
   $('#pTitle').textContent=a.title;
@@ -1692,12 +1699,12 @@ audio.addEventListener('play',()=>setPlaying(true));
 audio.addEventListener('pause',()=>setPlaying(false));
 audio.addEventListener('ended',()=>setPlaying(false));
 audio.addEventListener('loadedmetadata',()=>{ $('#pDur').textContent=mmss(audio.duration); });
-audio.addEventListener('timeupdate',()=>{ const d=audio.duration||0; $('#pBar').value=d?(audio.currentTime/d*100):0; $('#pCur').textContent=mmss(audio.currentTime); });
+audio.addEventListener('timeupdate',()=>{ const d=audio.duration||0; const pct=d?(audio.currentTime/d*100):0; $('#pBar').value=pct; $('#pBar').style.setProperty('--p',pct+'%'); $('#pCur').textContent=mmss(audio.currentTime); });
 $('#pBtn').addEventListener('click',()=>{
   if(!nowItem && !queue.length) return;
   if(audio.paused){ if(audio.src) audio.play(); else playItem(nowItem); } else audio.pause();
 });
-$('#pBar').addEventListener('input',e=>{ if(audio.duration) audio.currentTime=audio.duration*e.target.value/100; });
+$('#pBar').addEventListener('input',e=>{ e.target.style.setProperty('--p',e.target.value+'%'); if(audio.duration) audio.currentTime=audio.duration*e.target.value/100; });
 setPlaying(false);
 
 /* Cliques de navegação e ações */
@@ -1720,179 +1727,6 @@ document.addEventListener('keydown',e=>{
 $('#ldecade').addEventListener('change',renderLibrary);
 $('#lmin').addEventListener('change',renderLibrary);
 setTab('home');
-</script>
-<script>
-/* Music IA: assistente local, sem servidor. Responde com regras sobre a app e sobre a biblioteca do utilizador. */
-(function(){
-  const norm = x => String(x||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
-  const re = (q, pat) => new RegExp(pat).test(q);
-  // Endereço do servidor da Music IA (ver ia-proxy/README.md). Vazio = só respostas locais.
-  const IA_ENDPOINT = window.MUSIC_IA_ENDPOINT || '';
-  const iaHistory = []; // só pares pergunta/resposta bem-sucedidos
-  function libSummary(){
-    const st = stats();
-    const top = [...db].filter(a=>a.stars>0).sort((x,y)=>y.stars-x.stars).slice(0,10).map(a=>`${a.title} — ${a.artist} (${a.stars}/5)`);
-    const favs = db.filter(a=>a.fav).slice(0,10).map(a=>`${a.title} — ${a.artist}`);
-    const genres = byCount(db,'genre').slice(0,6).map(([k,n])=>`${k} (${n})`);
-    return `Álbuns: ${st.n}; avaliados: ${st.rated}; favoritos: ${st.favs}; média: ${st.rated?fmt(st.avg):'sem dados'}/5.\n`
-      + `Melhor avaliados: ${top.join('; ') || 'nenhum'}.\n`
-      + `Favoritos: ${favs.join('; ') || 'nenhum'}.\n`
-      + `Géneros: ${genres.join(', ') || 'nenhum'}.`;
-  }
-  async function askRemote(text){
-    if(!IA_ENDPOINT) return null;
-    const messages = iaHistory.slice(-8).concat([{role:'user', content:text}]);
-    try{
-      const ctl = new AbortController(); const timer = setTimeout(()=>ctl.abort(), 20000);
-      const r = await fetch(IA_ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({messages, library: libSummary()}), signal: ctl.signal});
-      clearTimeout(timer);
-      if(!r.ok) throw new Error('HTTP '+r.status);
-      const j = await r.json();
-      if(!j.text) throw new Error('vazio');
-      iaHistory.push({role:'user', content:text}, {role:'assistant', content:j.text});
-      return j.text;
-    }catch(e){ return null; }
-  }
-  const plural = (n, one, many) => n===1 ? one : many;
-  const pick = arr => arr[Math.floor(Math.random()*arr.length)];
-  const list5 = arr => arr.slice(0,5).map(a=>`<b>${esc(a.title)}</b> (${esc(a.artist)})`).join(', ');
-  const byCount = (items, key) => { const c={}; items.forEach(a=>{ const k=a[key]||'Sem dados'; c[k]=(c[k]||0)+1; }); return Object.entries(c).sort((x,y)=>y[1]-x[1]); };
-  const decadeOf = a => a.year ? Math.floor(Number(a.year)/10)*10 : null;
-
-  function stats(){
-    const rated = db.filter(a=>a.stars>0);
-    const avg = rated.length ? rated.reduce((t,a)=>t+a.stars,0)/rated.length : 0;
-    return {n:db.length, rated:rated.length, favs:db.filter(a=>a.fav).length, avg};
-  }
-  function recommend(){
-    const pool = db.filter(a=>!a.fav && a.stars>=4).sort((x,y)=>y.stars-x.stars);
-    const cands = pool.length ? pool : [...db].sort((x,y)=>(y.stars||0)-(x.stars||0));
-    if(!cands.length) return null;
-    return pick(cands.slice(0,Math.min(3,cands.length)));
-  }
-  const empty = 'A tua biblioteca ainda está vazia. Pesquisa um álbum e guarda-o para começares.';
-
-  function answer(text){
-    const q = norm(text).trim();
-    if(!q) return 'Escreve uma pergunta. Posso ajudar com a app ou falar da tua biblioteca.';
-
-    // Conversa
-    if(re(q,'\\b(ola|oi|hey|bom dia|boa tarde|boa noite|tudo bem)\\b')) return pick([
-      'Olá! Sou a Music IA. Pergunta-me sobre a app ou sobre a tua biblioteca, por exemplo "o que me recomendas?".',
-      'Olá! Em que posso ajudar hoje? Posso falar de avaliações, pesquisa, recomendações ou da tua biblioteca.']);
-    if(re(q,'\\b(obrigad|valeu|thanks|brigad)')) return 'De nada! Se precisares de mais alguma coisa, é só perguntar.';
-    if(re(q,'\\b(tchau|adeus|ate logo|bye)\\b')) return 'Até logo! Boas audições.';
-    if(re(q,'quem es|o que es|como te chamas|quem e voce|o que fazes')) return 'Sou a Music IA, uma assistente que vive dentro desta app. Respondo sobre a app e sobre a tua biblioteca. Trabalho localmente, sem internet, por isso não respondo a perguntas gerais de conhecimento.';
-    if(re(q,'o que (sabes|consegues|podes)|ajuda|como funciona|o que posso')) return 'Posso ajudar com: recomendações, o resumo da biblioteca, os teus melhores e piores álbuns, favoritos, géneros, décadas, artistas, como avaliar, pesquisar, importar do Spotify, remover álbuns, as contas, o top semanal, as pré-visualizações e a privacidade dos dados.';
-
-    // Biblioteca
-    if(re(q,'recomenda|sugere|o que (ouvir|escutar|ouço|oucso)|ouvir (agora|hoje)|algo para ouvir|o que poss? ouvir')){
-      const a = recommend();
-      if(!a) return empty + ' Depois consigo recomendar-te algo.';
-      return `Sugiro <b>${esc(a.title)}</b> de ${esc(a.artist)} (${fmt(a.stars)} / 5). Encontra-o na biblioteca para ver os detalhes.`;
-    }
-    if(re(q,'melhor (album|disco)|o melhor|mais bem avaliad|top da biblioteca')){
-      const rated = db.filter(a=>a.stars>0).sort((x,y)=>y.stars-x.stars);
-      if(!rated.length) return 'Ainda não avaliaste nenhum álbum. Abre um álbum e carrega em Avaliar.';
-      const top = rated.filter(a=>a.stars===rated[0].stars);
-      return `O teu melhor avaliado é ${top.length>1?'estes':'este'}: ${list5(top)} com ${fmt(rated[0].stars)} / 5.`;
-    }
-    if(re(q,'pior|menos gost|mais fraco|menor nota')){
-      const rated = db.filter(a=>a.stars>0).sort((x,y)=>x.stars-y.stars);
-      if(!rated.length) return 'Ainda não avaliaste nenhum álbum.';
-      return `O que avaliaste com menos nota foi <b>${esc(rated[0].title)}</b> de ${esc(rated[0].artist)} (${fmt(rated[0].stars)} / 5).`;
-    }
-    if(re(q,'favorit')){
-      const f = db.filter(a=>a.fav);
-      if(!f.length) return 'Ainda não marcaste nenhum favorito. Abre um álbum e carrega em Favorito.';
-      return `Tens ${f.length} ${plural(f.length,'favorito','favoritos')}: ${list5(f)}${f.length>5?' e mais '+(f.length-5)+'.':'.'}`;
-    }
-    if(re(q,'ultim|recente|novo na biblioteca|acabei de')){
-      if(!db.length) return empty;
-      const last = [...db].sort((x,y)=>(y.createdAt||0)-(x.createdAt||0))[0];
-      return `O último álbum que guardaste foi <b>${esc(last.title)}</b> de ${esc(last.artist)}.`;
-    }
-    if(re(q,'quantos|estatist|media|resumo|como esta a biblioteca|numeros')){
-      if(!db.length) return empty;
-      const st = stats();
-      return `Tens <b>${st.n}</b> ${plural(st.n,'álbum','álbuns')} na biblioteca, <b>${st.rated}</b> ${plural(st.rated,'avaliado','avaliados')} e <b>${st.favs}</b> ${plural(st.favs,'favorito','favoritos')}. A média é <b>${fmt(st.avg)}</b> / 5.`;
-    }
-    if(re(q,'genero|estilo|que musica (ouço|gosto)|generos')){
-      if(!db.length) return empty;
-      const g = byCount(db,'genre').slice(0,5);
-      return 'Os géneros que mais tens: ' + g.map(([k,n])=>`<b>${esc(k)}</b> (${n})`).join(', ') + '.';
-    }
-    if(re(q,'decada|anos (60|70|80|90)|anos \\d|epoca|dos anos')){
-      if(!db.length) return empty;
-      const d = byCount(db.map(a=>({...a, dec: decadeOf(a)?decadeOf(a)+'s':'Sem data'})),'dec').slice(0,5);
-      return 'As décadas que mais tens: ' + d.map(([k,n])=>`<b>${esc(k)}</b> (${n})`).join(', ') + '.';
-    }
-    if(re(q,'artista|cantor|banda|grupo') && re(q,'mais|favorit|tenho|ouv')){
-      if(!db.length) return empty;
-      const a = byCount(db,'artist')[0];
-      return `O artista que mais tens na biblioteca é <b>${esc(a[0])}</b>, com ${a[1]} ${plural(a[1],'álbum','álbuns')}.`;
-    }
-    if(re(q,'pesquisa na biblioteca|filtr|ordena|ordenar|filtro')) return 'Na Biblioteca podes pesquisar pelo título ou artista, filtrar por género, década e nota mínima, mostrar só favoritos e ordenar a lista.';
-
-    // Pesquisa e problemas
-    if(re(q,'capa|imagem|foto|sem capa')) return 'As capas vêm da Cover Art Archive. Se um álbum não tiver capa, aparece um espaço vazio: é normal para álbuns pouco conhecidos.';
-    if(re(q,'sem resultado|nao aparece\\b|nao encontr|nao da|nao funciona|nada aparece|vazio')) return 'Se a pesquisa não mostra nada: confirma a escrita, tenta só o nome do artista, espera um minuto (o serviço de dados tem limites de pedidos) e verifica a ligação à internet. A mensagem por baixo da pesquisa mostra o motivo.';
-    if(re(q,'pesquis|procur|encontr|search')) return 'Vai ao separador Pesquisa e escreve o nome do artista ou do álbum. Os resultados aparecem organizados por ano, do mais recente para o mais antigo. Podes filtrar por Álbuns, EPs, Singles, Artistas e Músicas.';
-    if(re(q,'top|semana|popular|tendencia|ranking|chart|mais ouvid|parada')) return 'Em Início vês o top semanal global, com os álbuns e artistas mais ouvidos. É atualizado uma vez por semana, a partir das paradas do iTunes.';
-    if(re(q,'faixa|musica|tocar|ouvir o album|pre-?visualiz|preview|play|reproduz')) return 'Ao abrir um álbum vês a lista de faixas. Carrega no botão de play de uma faixa para ouvir a pré-visualização de cerca de 30 segundos. Também há um botão de play nos cartões.';
-
-    // Ações
-    if(re(q,'spotify')){
-      if(re(q,'403|erro|premium|nao (da|funciona)')) return 'O erro 403 do Spotify acontece quando a conta dona da app não tem Premium. Esse problema só se resolve pelo lado do dono da app. Depois de ligares o Spotify, a ligação fica guardada neste dispositivo.';
-      if(re(q,'redirect|ligar|liga')) return 'Para ligar o Spotify, carrega em Ligar Spotify na Conta e autoriza a app. A ligação fica guardada neste dispositivo, por isso precisas de ligar outra vez noutros dispositivos.';
-      return 'Na Conta, liga o Spotify e depois usa Importar. A importação traz os álbuns guardados na tua conta Spotify. Se der erro 403, a conta dona da app precisa de Premium.';
-    }
-    if(re(q,'importar|importa')) return 'Na Conta, liga o Spotify e depois carrega em Importar. Os álbuns guardados no Spotify entram na biblioteca.';
-    if(re(q,'remov|apag|elimin|tirar da')) return 'Abre o álbum e carrega em "Remover da biblioteca". A app pede confirmação antes de apagar, e podes cancelar.';
-    if(re(q,'avali|estrela|nota|review|critica|escrever|comentar')) return 'Abre o álbum, carrega em "Avaliar" e escolhe as estrelas de 0,5 a 5. Podes escrever uma review e marcar como favorito.';
-    if(re(q,'conta|entrar|sessao|palavra|password|senha|login|registar|registo|logout|sair')) return 'Na Conta podes criar uma conta ou entrar com email e palavra-passe. Para terminar a sessão, carrega em Terminar sessão e confirma.';
-    if(re(q,'dados|privacid|guardad|backup|apagar conta|onde ficam')) return 'Os teus dados ficam guardados neste dispositivo, no navegador ou na app. Não são enviados para um servidor. Por isso, se mudares de computador, a biblioteca não vem contigo para já.';
-    if(re(q,'vip|premium|pagar|pagamento|subscri|assinatur')) return 'O separador VIP mostra os benefícios previstos. Os pagamentos ainda não estão ativos, por isso ninguém é cobrado.';
-    if(re(q,'instal|download|transferir|windows|exe|telemovel|telefone|celular|android|iphone')) return 'Para Windows, descarrega o instalador a partir do site, na secção de download. No telemóvel, abre o site e adiciona-o ao ecrã principal para usar como app.';
-    if(re(q,'separador|menu|navega|inicio|pagina')) return 'A navegação tem quatro separadores: Início (top semanal e recomendações), Pesquisa, Biblioteca e Perfil. No telemóvel estão em baixo.';
-
-    return 'Ainda não tenho uma resposta para isso. Posso ajudar com recomendações, o resumo da biblioteca, melhores e piores álbuns, favoritos, géneros, décadas, pesquisa, Spotify, avaliações, contas, o top semanal e a privacidade dos dados.';
-  }
-
-  const log = document.getElementById('iaLog');
-  const add = (cls, html) => { const d=document.createElement('div'); d.className='ia-msg '+cls; d.innerHTML=html; log.appendChild(d); log.scrollTop=log.scrollHeight; return d; };
-  const typingBubble = () => { const t=document.createElement('div'); t.className='ia-msg bot ia-typing'; t.setAttribute('aria-label','A escrever'); t.innerHTML='<span></span><span></span><span></span>'; log.appendChild(t); log.scrollTop=log.scrollHeight; return t; };
-  const botReply = html => {
-    const t=typingBubble();
-    const delay = 380 + Math.min(700, String(html).length*2);
-    setTimeout(()=>{ t.remove(); add('bot', html); }, delay);
-  };
-  let greeted = false;
-  const modeEl = document.querySelector('#iaPanel .ia-head small');
-  if(modeEl) modeEl.textContent = IA_ENDPOINT ? 'Ligada ao Claude' : 'Modo local (sem IA ligada)';
-  const fab = document.getElementById('iaFab'), panel = document.getElementById('iaPanel');
-  function setOpen(on){
-    panel.hidden = !on; fab.setAttribute('aria-expanded', on?'true':'false');
-    if(on && !greeted){ greeted=true; add('bot','Olá, sou a <b>Music IA</b>. Respondo sobre a app e a tua biblioteca. Experimenta perguntar "o que me recomendas?" ou "quantos álbuns tenho?".'); }
-    if(on) document.getElementById('iaInput').focus();
-  }
-  fab.addEventListener('click', ()=>setOpen(panel.hidden));
-  document.getElementById('iaClose').addEventListener('click', ()=>setOpen(false));
-  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && !panel.hidden) setOpen(false); });
-  document.getElementById('iaForm').addEventListener('submit', e=>{
-    e.preventDefault();
-    const input = document.getElementById('iaInput');
-    const text = input.value.trim(); input.value='';
-    if(!text) return;
-    add('me', esc(text));
-    const pending = typingBubble();
-    askRemote(text).then(reply=>{
-      pending.remove();
-      if(reply){ add('bot', esc(reply).replace(/\n/g,'<br>')); }
-      else { add('bot', (IA_ENDPOINT ? '<i>A IA não respondeu agora; resposta local:</i><br>' : '') + answer(text)); }
-    });
-  });
-})();
 </script>
 </body>
 </html>

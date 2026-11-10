@@ -1,6 +1,6 @@
 /* Service worker: guarda a página e a app para funcionarem offline.
    Estratégia: cache primeiro para os ficheiros do site; rede para o resto (APIs de música e fotos). */
-const CACHE = 'album-critico-v2-40';
+const CACHE = 'album-critico-v2-41';
 const SHELL = [
   './',
   './index.html',
@@ -38,6 +38,17 @@ self.addEventListener('fetch', e => {
           const copy = res.clone();
           caches.open(CACHE).then(c => c.put(req, copy));
         }
+        return res;
+      }).catch(() => caches.match(req))
+    );
+    return;
+  }
+
+  // Dados (top semanal): primeiro a rede, para não mostrar uma versão antiga; a cache serve só offline.
+  if (url.pathname.includes('/data/')) {
+    e.respondWith(
+      fetch(req).then(res => {
+        if (res && res.status === 200) caches.open(CACHE).then(c => c.put(req, res.clone()));
         return res;
       }).catch(() => caches.match(req))
     );

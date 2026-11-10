@@ -7,6 +7,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Music Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://itunes.apple.com" crossorigin>
+<link rel="preconnect" href="https://coverartarchive.org" crossorigin>
+<link rel="dns-prefetch" href="https://musicbrainz.org">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <style>
@@ -86,15 +89,6 @@ main{max-width:1240px;margin:auto;padding:26px 20px 60px}
 .vip-tab.on{background:linear-gradient(135deg,#f5c542,#e8842b)!important;color:#1a1200!important}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media (max-width:899px){ header .bar{gap:10px} header .tabs{flex:1 1 100%;order:3;justify-content:space-between} header .tab{flex:1;padding:8px 6px;font-size:.84rem;white-space:nowrap} }
-body.xmas{
-  --bg:#081510; --panel:#0f2419; --panel2:#15301f; --line:#24472f; --accent:#d62828; --accent2:#2e9d5a; --muted:#a9c4b0;
-  background-image:
-    radial-gradient(900px 500px at -10% -10%,rgba(214,40,40,.22),transparent 60%),
-    radial-gradient(800px 500px at 110% 0%,rgba(46,157,90,.2),transparent 55%);
-}
-body.xmas header{background:rgba(8,21,16,.88)}
-body.xmas .brand i{background:conic-gradient(from 200deg,#d62828,#f5c542,#2e9d5a,#d62828)!important}
-body.xmas .card:hover{box-shadow:0 0 0 1px rgba(245,197,66,.45),0 18px 40px -12px rgba(214,40,40,.45)}
 .favonly{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-weight:600;font-size:.9rem;padding:0 6px;white-space:nowrap}
 .favonly input{accent-color:var(--accent)}
 .vtabs .tab{text-align:left;padding:10px 14px}
@@ -314,7 +308,7 @@ input:focus-visible,select:focus-visible{outline:none;box-shadow:var(--ring)}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
 
-/* ===== Redesenho v4: acabamento e tema de Natal (luzes e neve) ===== */
+/* ===== Redesenho v4: acabamento ===== */
 main>section:not(.hidden){animation:fadeUp .45s cubic-bezier(.2,.7,.2,1) both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .chips-row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px}
@@ -322,31 +316,7 @@ main>section:not(.hidden){animation:fadeUp .45s cubic-bezier(.2,.7,.2,1) both}
 .stat-pill b{color:#fff;font-size:1rem;font-variant-numeric:tabular-nums}
 .card .meta h3{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
-/* Luzes de Natal (penduradas no topo) */
-.lights{position:fixed;top:0;left:0;right:0;height:34px;z-index:40;pointer-events:none}
-.lights::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:#16261b}
-.bulb{position:absolute;top:8px;width:12px;height:16px;border-radius:50% 50% 45% 45%;transform:translateX(-50%);animation:twinkle 2.4s ease-in-out infinite}
-.bulb::before{content:"";position:absolute;left:50%;bottom:100%;width:1px;height:8px;margin-left:-.5px;background:#0d1a12}
-.bulb.r{background:#ff4040;box-shadow:0 0 10px 3px rgba(255,64,64,.75)}
-.bulb.g{background:#42ff86;box-shadow:0 0 10px 3px rgba(66,255,134,.7)}
-.bulb.y{background:#ffd95a;box-shadow:0 0 10px 3px rgba(255,217,90,.75)}
-.bulb.b{background:#63c2ff;box-shadow:0 0 10px 3px rgba(99,194,255,.7)}
-@keyframes twinkle{0%,100%{opacity:1}50%{opacity:.3}}
-@media (min-width:900px){.lights{left:300px}.snow{left:300px}}
-@media (max-width:899px){.lights{height:26px}.bulb{top:6px;width:10px;height:13px}}
 
-/* Flocos de neve a cair */
-.snow{position:fixed;inset:0;pointer-events:none;z-index:3;overflow:hidden}
-.flake{position:absolute;top:-12px;border-radius:50%;background:radial-gradient(circle,#fff 0 60%,rgba(255,255,255,.35) 70%,transparent 72%);animation:fall linear infinite;will-change:transform}
-@keyframes fall{0%{transform:translate3d(0,-5vh,0)}50%{transform:translate3d(22px,50vh,0)}100%{transform:translate3d(-14px,108vh,0)}}
-
-/* Herói e acentos com tom de Natal */
-body.xmas .hero{background:radial-gradient(700px 320px at 0% 0%,rgba(214,40,40,.38),transparent 60%),radial-gradient(600px 300px at 100% 100%,rgba(46,157,90,.32),transparent 60%),var(--panel)}
-body.xmas .eyebrow{color:#f5c542}
-body.xmas .stat-pill{border-color:rgba(245,197,66,.25)}
-body.xmas .nav-btn.on{background:linear-gradient(135deg,rgba(214,40,40,.4),rgba(46,157,90,.35))}
-
-@media (prefers-reduced-motion:reduce){ .snow,.lights{display:none} }
 
 /* Estatísticas por género e década */
 .breakdown{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:4px 0 8px}
@@ -472,6 +442,33 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
 .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
 .stats>*,.stat{min-width:0}
 .stat b{max-width:100%}
+/* v10: brilho, animação e VIP */
+.card{position:relative}
+.card::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.2) 50%,transparent 65%);transform:translateX(-130%);transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.card:hover::after{transform:translateX(130%)}
+.card .cover img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.card:hover .cover img{transform:scale(1.07)}
+.btn{transition:transform .18s,box-shadow .25s,filter .25s,background .25s}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{transform:scale(.96)}
+.tab.on,.nav-btn.on{animation:pulseGlow 2.8s ease-in-out infinite}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(236,72,153,0)}50%{box-shadow:0 0 22px 2px rgba(236,72,153,.35)}}
+.panel{animation:fadeUp .5s cubic-bezier(.2,.7,.2,1) both}
+.stat-pill,.plc,.themes button{transition:transform .2s,box-shadow .25s,background .25s}
+.stat-pill:hover,.plc:hover,.themes button:hover{transform:translateY(-2px)}
+.vip-hero{position:relative;overflow:hidden}
+.vip-hero::before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent 0 70%,rgba(250,204,21,.18) 80%,transparent 90%);animation:spin 9s linear infinite;pointer-events:none}
+.vip-hero>*{position:relative}
+.vip-cta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center;margin:14px 0 8px}
+.vip-pill{padding:6px 12px;border-radius:999px;border:1px solid rgba(250,204,21,.4);color:#fde68a;font-size:.82rem;font-weight:600}
+.vip-card{position:relative;overflow:hidden;animation:fadeUp .55s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*90ms)}
+.vip-card:hover{transform:translateY(-4px);box-shadow:0 22px 46px -18px rgba(250,204,21,.35)}
+.vip-ico{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:14px;font-size:1.25rem;background:linear-gradient(135deg,rgba(250,204,21,.25),rgba(236,72,153,.2));border:1px solid rgba(255,255,255,.12);margin-bottom:10px}
+.vip-tag{display:inline-block;margin-top:12px;padding:4px 10px;border-radius:999px;font-size:.75rem;font-weight:700;letter-spacing:.02em;color:#fde68a;background:rgba(250,204,21,.12);border:1px solid rgba(250,204,21,.3)}
+@media (prefers-reduced-motion:reduce){
+  .card::after,.card .cover img,.tab.on,.nav-btn.on,.panel,.vip-card,.vip-hero::before{animation:none!important;transition:none!important}
+  .card:hover .cover img{transform:none}
+}
 </style>
 </head>
 <body>
@@ -486,7 +483,6 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
       <button class="tab nav-btn" data-tab="profile" type="button"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.2-4 4.2-6 8-6s6.8 2 8 6"/></svg><span>Perfil</span></button>
     </nav>
     <div class="actions">
-      <button class="btn ghost" id="btnXmas" type="button" title="Tema de Natal">🎄 Natal</button>
       <button class="btn ghost" id="btnAccount" type="button">Entrar</button>
     </div>
   </div>
@@ -584,17 +580,20 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
   </section>
   <section id="view-vip" class="hidden">
     <div class="vip-hero">
-      <span class="vip-crown">👑</span>
+      <span class="vip-crown" aria-hidden="true">👑</span>
+      <p class="eyebrow">Subscrição</p>
       <h2>Music Tracker <span class="shine-text">VIP</span></h2>
-      <p>Mais estilo, mais detalhe e mais coisas para os teus tops e a tua biblioteca.</p>
-      <button class="btn primary" type="button" disabled>Em breve</button>
-      <small>Ainda não há pagamentos nesta versão. Os benefícios ficam ativos quando a subscrição estiver disponível.</small>
+      <p>Mais detalhe para a tua biblioteca, mais estilo na interface e acesso antecipado às novidades.</p>
+      <div class="vip-cta"><button class="btn primary" type="button" disabled>Em breve</button><span class="vip-pill">Pagamentos ainda não ativos</span></div>
+      <small>Nada é cobrado agora. Os benefícios são ativados quando a subscrição estiver disponível.</small>
     </div>
+    <h2 class="sec-h">O que vai incluir</h2>
     <div class="vip-grid">
-      <article class="vip-card"><b>🎄</b><h3>Temas exclusivos</h3><p>Tema de Natal, temas sazonais e cores extra para a interface.</p></article>
-      <article class="vip-card"><b>⭐</b><h3>Badge VIP</h3><p>Um selo dourado ao lado do teu nome nas avaliações públicas.</p></article>
-      <article class="vip-card"><b>📊</b><h3>Estatísticas avançadas</h3><p>Médias por género, por década e por artista na tua biblioteca.</p></article>
-      <article class="vip-card"><b>🚀</b><h3>Novidades primeiro</h3><p>Acesso antecipado às funcionalidades novas antes de todos.</p></article>
+      <article class="vip-card" style="--i:0"><span class="vip-ico" aria-hidden="true">⭐</span><h3>Selo VIP</h3><p>Um selo dourado ao lado do teu nome nas avaliações públicas.</p><span class="vip-tag">Previsto</span></article>
+      <article class="vip-card" style="--i:1"><span class="vip-ico" aria-hidden="true">📊</span><h3>Estatísticas avançadas</h3><p>Médias por género, por década e por artista, com gráficos na tua biblioteca.</p><span class="vip-tag">Previsto</span></article>
+      <article class="vip-card" style="--i:2"><span class="vip-ico" aria-hidden="true">🎨</span><h3>Temas exclusivos</h3><p>Cores e fundos extra para personalizar a interface.</p><span class="vip-tag">Previsto</span></article>
+      <article class="vip-card" style="--i:3"><span class="vip-ico" aria-hidden="true">🤖</span><h3>Music IA reforçada</h3><p>Respostas mais detalhadas e recomendações com base no que já ouviste.</p><span class="vip-tag">Previsto</span></article>
+      <article class="vip-card" style="--i:4"><span class="vip-ico" aria-hidden="true">🚀</span><h3>Novidades primeiro</h3><p>Acesso antecipado às funcionalidades novas, antes de todos.</p><span class="vip-tag">Previsto</span></article>
     </div>
   </section>
   <!-- PERFIL -->
@@ -625,11 +624,6 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
         <button class="btn ghost" id="btnExport">Exportar ficheiro</button>
         <label class="btn ghost" for="fileImport">Importar ficheiro</label>
         <input type="file" id="fileImport" accept="application/json">
-      </div>
-      <div class="panel">
-        <h3>Aparência</h3>
-        <p>Liga ou desliga o tema de Natal.</p>
-        <button class="btn ghost" type="button" data-xmas-toggle>Alternar tema de Natal</button>
       </div>
       <div class="panel vip-panel">
         <h3>👑 VIP</h3>
@@ -776,7 +770,7 @@ function starsInput(){
 
 /* ---------- Capas ---------- */
 function coverHTML(a){
-  const img = a.cover ? `<img loading="lazy" src="${esc(a.cover)}" alt="${esc(a.title)}" onerror="this.remove()">` : '';
+  const img = a.cover ? `<img loading="lazy" decoding="async" src="${esc(a.cover)}" alt="${esc(a.title)}" onerror="this.remove()">` : '';
   return `<div class="cover">${img}</div>`;
 }
 
@@ -810,10 +804,13 @@ function mixByGenre(list){
   for(let i=0; out.length < list.length; i++) groups.forEach(gr=>{ if(i<gr.length) out.push(gr[i]); });
   return out;
 }
-function getCharts(){
+let chartsReq = null;
+function fetchCharts(){
   if(chartsData) return Promise.resolve(chartsData);
-  return fetch('data/charts.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>(chartsData=d)).catch(()=>null);
+  if(!chartsReq) chartsReq = fetch('data/charts.json').then(r=>r.json()).then(d=>(chartsData=d)).catch(()=>{ chartsReq=null; return null; });
+  return chartsReq;
 }
+function getCharts(){ return fetchCharts(); }
 async function loadSuggestions(){
   setStatus('A carregar os álbuns mais populares…');
   $('#catGrid').innerHTML=skeletons(8);
@@ -1442,10 +1439,7 @@ showTermsIfNeeded();
 /* ---------- Top semanal (data/charts.json, atualizado por tarefa semanal) ---------- */
 let chartsData = null, chKind = 'albums';
 async function loadCharts(){
-  if(!chartsData){
-    try{ const r = await fetch('data/charts.json', {cache:'no-cache'}); chartsData = await r.json(); }
-    catch(e){ chartsData = null; }
-  }
+  await fetchCharts();
   renderCharts();
 }
 function renderCharts(){
@@ -1569,35 +1563,6 @@ function openAuth(start='login', gate=false){
     }
   };
 }
-function buildFestive(on){
-  let lt=document.querySelector('.lights'), sn=document.querySelector('.snow');
-  if(on){
-    if(!lt){
-      const n=36, cols=['r','g','y','b'];
-      lt=document.createElement('div'); lt.className='lights'; lt.setAttribute('aria-hidden','true');
-      lt.innerHTML=Array.from({length:n},(_,i)=>`<i class="bulb ${cols[i%4]}" style="left:${((i+.5)*100/n).toFixed(2)}%;animation-delay:${((i*0.37)%2.4).toFixed(2)}s"></i>`).join('');
-      document.body.appendChild(lt);
-    }
-    if(!sn){
-      sn=document.createElement('div'); sn.className='snow'; sn.setAttribute('aria-hidden','true');
-      const f=[];
-      for(let i=0;i<130;i++){
-        const z=(Math.random()*5+3).toFixed(1);
-        f.push(`<span class="flake" style="left:${(Math.random()*100).toFixed(1)}%;width:${z}px;height:${z}px;animation-duration:${(Math.random()*10+9).toFixed(1)}s;animation-delay:${(-Math.random()*20).toFixed(1)}s;opacity:${(Math.random()*.5+.5).toFixed(2)}"></span>`);
-      }
-      sn.innerHTML=f.join('');
-      document.body.appendChild(sn);
-    }
-  } else { if(lt) lt.remove(); if(sn) sn.remove(); }
-}
-function applyXmas(on){
-  document.body.classList.toggle('xmas', on);
-  buildFestive(on);
-  const b=document.getElementById('btnXmas'); if(b) b.textContent = on ? '✨ Voltar ao normal' : '🎄 Ativar Natal';
-  try{ localStorage.setItem('music-tracker-xmas', on ? '1' : '0'); }catch(e){}
-}
-document.getElementById('btnXmas').addEventListener('click', () => applyXmas(!document.body.classList.contains('xmas')));
-try{ applyXmas(localStorage.getItem('music-tracker-xmas')==='1'); }catch(e){ applyXmas(false); }
 document.getElementById('btnAccount').addEventListener('click', () => {
   if (currentUser()) askConfirm({title:'Terminar sessão', text:'Queres terminar a sessão nesta app?', ok:'Terminar', onOk:()=>logout()});
   else openAuth('login');
@@ -1733,7 +1698,6 @@ document.addEventListener('click',e=>{
   if(s){ setTab('catalog'); catTab='Album'; renderCatalog(); searchCatalog(s.dataset.search); return; }
   const pl=e.target.closest('[data-pl]');
   if(pl){ openPlaylist(pl.dataset.pl); return; }
-  if(e.target.closest('[data-xmas-toggle]')){ applyXmas(!document.body.classList.contains('xmas')); return; }
   if(e.target.closest('[data-account]')){ document.getElementById('btnAccount').click(); return; }
   if(e.target.closest('[data-logout]')){ logout(); renderProfile(); toast('Sessão terminada.'); return; }
 });
@@ -1807,7 +1771,7 @@ setTab('home');
     if(re(q,'\\b(obrigad|valeu|thanks|brigad)')) return 'De nada! Se precisares de mais alguma coisa, é só perguntar.';
     if(re(q,'\\b(tchau|adeus|ate logo|bye)\\b')) return 'Até logo! Boas audições.';
     if(re(q,'quem es|o que es|como te chamas|quem e voce|o que fazes')) return 'Sou a Music IA, uma assistente que vive dentro desta app. Respondo sobre a app e sobre a tua biblioteca. Trabalho localmente, sem internet, por isso não respondo a perguntas gerais de conhecimento.';
-    if(re(q,'o que (sabes|consegues|podes)|ajuda|como funciona|o que posso')) return 'Posso ajudar com: recomendações, o resumo da biblioteca, os teus melhores e piores álbuns, favoritos, géneros, décadas, artistas, como avaliar, pesquisar, importar do Spotify, o Natal, remover álbuns, as contas, o top semanal, as pré-visualizações e a privacidade dos dados.';
+    if(re(q,'o que (sabes|consegues|podes)|ajuda|como funciona|o que posso')) return 'Posso ajudar com: recomendações, o resumo da biblioteca, os teus melhores e piores álbuns, favoritos, géneros, décadas, artistas, como avaliar, pesquisar, importar do Spotify, remover álbuns, as contas, o top semanal, as pré-visualizações e a privacidade dos dados.';
 
     // Biblioteca
     if(re(q,'recomenda|sugere|o que (ouvir|escutar|ouço|oucso)|ouvir (agora|hoje)|algo para ouvir|o que poss? ouvir')){
@@ -1872,7 +1836,6 @@ setTab('home');
       return 'Na Conta, liga o Spotify e depois usa Importar. A importação traz os álbuns guardados na tua conta Spotify. Se der erro 403, a conta dona da app precisa de Premium.';
     }
     if(re(q,'importar|importa')) return 'Na Conta, liga o Spotify e depois carrega em Importar. Os álbuns guardados no Spotify entram na biblioteca.';
-    if(re(q,'natal|xmas|christmas|neve|luzes|flocos')) return 'Carrega em 🎄 Natal no topo para ligar o tema de Natal, com luzes e neve. Para voltar ao normal, carrega no mesmo botão. Começa sempre desligado.';
     if(re(q,'remov|apag|elimin|tirar da')) return 'Abre o álbum e carrega em "Remover da biblioteca". A app pede confirmação antes de apagar, e podes cancelar.';
     if(re(q,'avali|estrela|nota|review|critica|escrever|comentar')) return 'Abre o álbum, carrega em "Avaliar" e escolhe as estrelas de 0,5 a 5. Podes escrever uma review e marcar como favorito.';
     if(re(q,'conta|entrar|sessao|palavra|password|senha|login|registar|registo|logout|sair')) return 'Na Conta podes criar uma conta ou entrar com email e palavra-passe. Para terminar a sessão, carrega em Terminar sessão e confirma.';
@@ -1881,7 +1844,7 @@ setTab('home');
     if(re(q,'instal|download|transferir|windows|exe|telemovel|telefone|celular|android|iphone')) return 'Para Windows, descarrega o instalador a partir do site, na secção de download. No telemóvel, abre o site e adiciona-o ao ecrã principal para usar como app.';
     if(re(q,'separador|menu|navega|inicio|pagina')) return 'A navegação tem quatro separadores: Início (top semanal e recomendações), Pesquisa, Biblioteca e Perfil. No telemóvel estão em baixo.';
 
-    return 'Ainda não tenho uma resposta para isso. Posso ajudar com recomendações, o resumo da biblioteca, melhores e piores álbuns, favoritos, géneros, décadas, pesquisa, Spotify, Natal, avaliações, contas, o top semanal e a privacidade dos dados.';
+    return 'Ainda não tenho uma resposta para isso. Posso ajudar com recomendações, o resumo da biblioteca, melhores e piores álbuns, favoritos, géneros, décadas, pesquisa, Spotify, avaliações, contas, o top semanal e a privacidade dos dados.';
   }
 
   const log = document.getElementById('iaLog');

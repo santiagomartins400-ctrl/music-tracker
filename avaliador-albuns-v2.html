@@ -416,6 +416,22 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
 @media (max-width:899px){ body::before{inset:-5%} }
 @media (prefers-reduced-motion:reduce){ .card:hover{transform:none} }
 @media (max-width:600px){ .actions .btn[data-del]{margin-left:0 !important;width:100%;justify-content:center} }
+/* v7: pesquisa por ano + Music IA */
+.grp-title{grid-column:1/-1;display:flex;align-items:baseline;gap:10px;margin:14px 0 0;padding-bottom:8px;border-bottom:1px solid var(--line);font-family:"Space Grotesk",Inter,system-ui,sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:-.01em}
+.grp-title small{color:var(--muted);font-weight:500;font-size:.85rem;font-family:Inter,system-ui,sans-serif}
+.ia-fab{position:fixed;right:18px;bottom:22px;z-index:60;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:12px 18px;font-weight:700;color:#fff;cursor:pointer;background:linear-gradient(135deg,#8b5cf6,#ec4899);box-shadow:0 18px 40px -12px rgba(236,72,153,.7)}
+.ia-panel{position:fixed;right:18px;bottom:82px;z-index:61;width:min(380px,calc(100vw - 36px));height:min(520px,70vh);display:flex;flex-direction:column;border-radius:22px;background:linear-gradient(165deg,rgba(34,31,58,.94),rgba(12,12,22,.96));border:1px solid rgba(255,255,255,.16);box-shadow:0 40px 90px -30px #000}
+.ia-panel[hidden]{display:none}
+.ia-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
+.ia-head small{display:block;color:var(--muted);font-size:.8rem}
+.ia-x{background:none;border:0;color:#fff;font-size:1.1rem;cursor:pointer;padding:6px}
+.ia-log{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.ia-msg{max-width:88%;padding:10px 13px;border-radius:16px;line-height:1.45;font-size:.93rem;word-wrap:break-word}
+.ia-msg.bot{align-self:flex-start;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08)}
+.ia-msg.me{align-self:flex-end;background:linear-gradient(135deg,rgba(139,92,246,.55),rgba(236,72,153,.5))}
+.ia-form{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.1)}
+.ia-form input{flex:1;min-width:0;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(8,8,16,.5)}
+@media (max-width:899px){ .ia-fab{bottom:86px} .ia-panel{bottom:146px} }
 </style>
 </head>
 <body>
@@ -598,6 +614,12 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
 </div>
 <audio id="audio" preload="none"></audio>
 <div class="overlay" id="overlay"><div class="modal" id="modal"></div></div>
+<button class="ia-fab" id="iaFab" type="button" aria-expanded="false" aria-controls="iaPanel">✨ Music IA</button>
+<section class="ia-panel" id="iaPanel" aria-label="Music IA" hidden>
+  <div class="ia-head"><div><b>Music IA</b><small>Respondo sobre a app e a tua biblioteca</small></div><button class="ia-x" id="iaClose" type="button" aria-label="Fechar">✕</button></div>
+  <div class="ia-log" id="iaLog" aria-live="polite"></div>
+  <form class="ia-form" id="iaForm" autocomplete="off"><input id="iaInput" maxlength="200" placeholder="Ex.: o que me recomendas?" aria-label="Pergunta para a Music IA"><button class="btn primary" type="submit">Enviar</button></form>
+</section>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -800,7 +822,7 @@ async function searchCatalog(term){
       const prev=seen.get(key);
       if(!prev || (x.year && (!prev.year || x.year<prev.year))) seen.set(key,x);
     });
-    const all=[...seen.values()].sort((a,b)=>a.artist.localeCompare(b.artist,'pt')||((+a.year||9999)-(+b.year||9999))||a.title.localeCompare(b.title,'pt'));
+    const all=[...seen.values()].sort((a,b)=>a.artist.localeCompare(b.artist,'pt')||((+a.year||9999)-(+b.year||9999))||(a.title||'').localeCompare(b.title||'','pt'));
     try{ sessionStorage.setItem(cacheKey, JSON.stringify(all)); }catch(e){}
     catalog=all; all.forEach(x=>registry.set(x.id,x));
     renderCatalog();
@@ -819,19 +841,27 @@ function renderCatalog(){
     $('#catGrid').innerHTML=`<div class="empty"><b>Pesquisa um artista ou álbum</b>Os resultados aparecem aqui.</div>`;
     return;
   }
-  const list=catalog.filter(a=>a.type===catTab).sort((a,b)=>catSuggest ? 0 : (b.year||0)-(a.year||0)||a.title.localeCompare(b.title,'pt'));
+  const list=catalog.filter(a=>a.type===catTab).sort((a,b)=>catSuggest ? 0 : (b.year||0)-(a.year||0)||(a.title||'').localeCompare(b.title||'','pt'));
   const label={Album:'álbuns',EP:'EPs',Single:'singles'}[catTab];
   if(!list.length){ $('#catGrid').innerHTML=`<div class="empty"><b>Sem ${label} nesta pesquisa</b>Experimenta outro separador.</div>`; return; }
-  $('#catGrid').innerHTML=list.map((a,i)=>{
+  const card=(a,i)=>{
     registry.set(a.id,a);
     const mine=findLib(a);
     return `<article class="card" style="animation-delay:${Math.min(i,12)*25}ms" data-open="${esc(a.id)}">
       ${coverHTML(a)}${playBtn(a)}
       ${mine?`<span class="badge-stars">${starsRead(mine.stars)}</span>`:''}
-      <div class="meta"><h3>${esc(a.title)}</h3><p>${esc(a.artist)}${a.year?' · '+esc(a.year):''}</p>
-        <span class="tag">${({Album:'Álbum',EP:'EP',Single:'Single'})[a.type]||a.type}</span></div>
+      <div class="meta"><h3>${esc(a.title||'')}</h3><p>${esc(a.artist||'')}${a.year?' · '+esc(a.year):''}</p>
+        <span class="tag">${({Album:'Álbum',EP:'EP',Single:'Single'})[a.type]||esc(a.type||'')}</span></div>
     </article>`;
-  }).join('');
+  };
+  if(catSuggest){ $('#catGrid').innerHTML=list.map(card).join(''); return; }
+  // Pesquisa: agrupado por ano, do mais recente para o mais antigo; sem data no fim
+  const groups=new Map();
+  list.forEach(a=>{ const k=a.year?String(a.year):'Sem data'; if(!groups.has(k)) groups.set(k,[]); groups.get(k).push(a); });
+  let idx=0;
+  $('#catGrid').innerHTML=[...groups.entries()].map(([year,items])=>
+    `<div class="grp-title">${esc(year)} <small>${items.length} ${items.length===1?({Album:'álbum',EP:'EP',Single:'single'})[catTab]:label}</small></div>`+items.map(a=>card(a,idx++)).join('')
+  ).join('');
 }
 function setStatus(t){ $('#status').textContent=t; }
 function skeletons(n){
@@ -1575,6 +1605,66 @@ document.addEventListener('keydown',e=>{
 $('#ldecade').addEventListener('change',renderLibrary);
 $('#lmin').addEventListener('change',renderLibrary);
 setTab('home');
+</script>
+<script>
+/* Music IA: assistente local, sem servidor. Responde com regras sobre a app e sobre a biblioteca do utilizador. */
+(function(){
+  const norm = x => String(x||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+  const has = (q, words) => words.some(w => q.includes(w));
+  function stats(){
+    const rated = db.filter(a=>a.stars>0);
+    const avg = rated.length ? rated.reduce((t,a)=>t+a.stars,0)/rated.length : 0;
+    return {n:db.length, rated:rated.length, favs:db.filter(a=>a.fav).length, avg};
+  }
+  function recommend(){
+    const pool = db.filter(a=>!a.fav && a.stars>=4).sort((x,y)=>y.stars-x.stars);
+    const cands = pool.length ? pool : [...db].sort((x,y)=>(y.stars||0)-(x.stars||0));
+    if(!cands.length) return null;
+    return cands[Math.floor(Math.random()*Math.min(3,cands.length))];
+  }
+  function answer(text){
+    const q = norm(text).trim();
+    if(!q) return 'Escreve uma pergunta. Posso explicar como usar a app ou falar da tua biblioteca.';
+    if(has(q,['ola','oi ','bom dia','boa tarde','boa noite'])) return 'Olá! Sou a Music IA. Pergunta-me como avaliar, como pesquisar, como importar do Spotify, o que ouvir a seguir ou como está a tua biblioteca. Trabalho localmente, por isso não tenho acesso à internet.';
+    if(has(q,['recomenda','sugere','o que ouvir','ouvir agora','o que escutar'])){
+      const a = recommend();
+      if(!a) return 'Ainda não tens álbuns na biblioteca. Pesquisa um álbum e avalia-o, e depois eu consigo recomendar-te algo.';
+      return `Sugiro <b>${esc(a.title)}</b> de ${esc(a.artist)} (${fmt(a.stars)} / 5). Encontra-o na biblioteca para ver os detalhes.`;
+    }
+    if(has(q,['quantos','estatist','media','favorit','biblioteca','como esta','resumo'])){
+      const st = stats();
+      if(!st.n) return 'A tua biblioteca está vazia. Pesquisa um álbum e guarda-o para começares.';
+      return `Tens <b>${st.n}</b> ${st.n===1?'álbum':'álbuns'} na biblioteca, <b>${st.rated}</b> ${st.rated===1?'avaliado':'avaliados'} e <b>${st.favs}</b> ${st.favs===1?'favorito':'favoritos'}. A média é <b>${fmt(st.avg)}</b> / 5.`;
+    }
+    if(has(q,['pesquis','procur','search','encontr'])) return 'Vai ao separador Pesquisa e escreve o nome do artista ou do álbum. Os resultados aparecem organizados por ano, do mais recente para o mais antigo. Podes filtrar por Álbuns, EPs, Singles, Artistas e Músicas.';
+    if(has(q,['spotify','importar','importa'])) return 'Na Conta, liga o Spotify e depois usa Importar. A importação traz os álbuns guardados na tua conta Spotify. Se der erro 403, a conta dona da app precisa de Premium.';
+    if(has(q,['natal','xmas','christmas','neve','luzes'])) return 'Carrega em 🎄 Natal no topo para ligar o tema de Natal, com luzes e neve. Para voltar ao normal, carrega no mesmo botão.';
+    if(has(q,['remov','apag','elimin','tirar'])) return 'Abre o álbum e carrega em "Remover da biblioteca". A app pede confirmação antes de apagar.';
+    if(has(q,['avali','estrela','nota','review','critica','escrever'])) return 'Abre o álbum, carrega em "Avaliar" e escolhe as estrelas de 0,5 a 5. Podes escrever uma review e marcar como favorito.';
+    if(has(q,['conta','entrar','sessao','palavra','login','registar','logout'])) return 'Na Conta podes criar uma conta ou entrar com email e palavra-passe. Para terminar a sessão, usa o botão de sair e confirma.';
+    return 'Não tenho uma resposta para isso ainda. Posso ajudar com: avaliar, pesquisar, Spotify, Natal, remover álbuns, a tua biblioteca ou recomendações.';
+  }
+  const log = document.getElementById('iaLog');
+  const add = (cls, html) => { const d=document.createElement('div'); d.className='ia-msg '+cls; d.innerHTML=html; log.appendChild(d); log.scrollTop=log.scrollHeight; };
+  let greeted = false;
+  const fab = document.getElementById('iaFab'), panel = document.getElementById('iaPanel');
+  function setOpen(on){
+    panel.hidden = !on; fab.setAttribute('aria-expanded', on?'true':'false');
+    if(on && !greeted){ greeted=true; add('bot','Olá, sou a <b>Music IA</b>. Respondo sobre a app e a tua biblioteca. Pergunta-me, por exemplo, "o que me recomendas?".'); }
+    if(on) document.getElementById('iaInput').focus();
+  }
+  fab.addEventListener('click', ()=>setOpen(panel.hidden));
+  document.getElementById('iaClose').addEventListener('click', ()=>setOpen(false));
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && !panel.hidden) setOpen(false); });
+  document.getElementById('iaForm').addEventListener('submit', e=>{
+    e.preventDefault();
+    const input = document.getElementById('iaInput');
+    const text = input.value.trim(); input.value='';
+    if(!text) return;
+    add('me', esc(text));
+    add('bot', answer(text));
+  });
+})();
 </script>
 </body>
 </html>

@@ -1750,6 +1750,33 @@ setTab('home');
 (function(){
   const norm = x => String(x||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
   const re = (q, pat) => new RegExp(pat).test(q);
+  // Endereço do servidor da Music IA (ver ia-proxy/README.md). Vazio = só respostas locais.
+  const IA_ENDPOINT = window.MUSIC_IA_ENDPOINT || '';
+  const iaHistory = []; // só pares pergunta/resposta bem-sucedidos
+  function libSummary(){
+    const st = stats();
+    const top = [...db].filter(a=>a.stars>0).sort((x,y)=>y.stars-x.stars).slice(0,10).map(a=>`${a.title} — ${a.artist} (${a.stars}/5)`);
+    const favs = db.filter(a=>a.fav).slice(0,10).map(a=>`${a.title} — ${a.artist}`);
+    const genres = byCount(db,'genre').slice(0,6).map(([k,n])=>`${k} (${n})`);
+    return `Álbuns: ${st.n}; avaliados: ${st.rated}; favoritos: ${st.favs}; média: ${st.rated?fmt(st.avg):'sem dados'}/5.\n`
+      + `Melhor avaliados: ${top.join('; ') || 'nenhum'}.\n`
+      + `Favoritos: ${favs.join('; ') || 'nenhum'}.\n`
+      + `Géneros: ${genres.join(', ') || 'nenhum'}.`;
+  }
+  async function askRemote(text){
+    if(!IA_ENDPOINT) return null;
+    const messages = iaHistory.slice(-8).concat([{role:'user', content:text}]);
+    try{
+      const ctl = new AbortController(); const timer = setTimeout(()=>ctl.abort(), 20000);
+      const r = await fetch(IA_ENDPOINT, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({messages, library: libSummary()}), signal: ctl.signal});
+      clearTimeout(timer);
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      const j = await r.json();
+      if(!j.text) throw new Error('vazio');
+      iaHistory.push({role:'user', content:text}, {role:'assistant', content:j.text});
+      return j.text;
+    }catch(e){ return null; }
+  }
   const plural = (n, one, many) => n===1 ? one : many;
   const pick = arr => arr[Math.floor(Math.random()*arr.length)];
   const list5 = arr => arr.slice(0,5).map(a=>`<b>${esc(a.title)}</b> (${esc(a.artist)})`).join(', ');
@@ -1859,13 +1886,15 @@ setTab('home');
 
   const log = document.getElementById('iaLog');
   const add = (cls, html) => { const d=document.createElement('div'); d.className='ia-msg '+cls; d.innerHTML=html; log.appendChild(d); log.scrollTop=log.scrollHeight; return d; };
+  const typingBubble = () => { const t=document.createElement('div'); t.className='ia-msg bot ia-typing'; t.setAttribute('aria-label','A escrever'); t.innerHTML='<span></span><span></span><span></span>'; log.appendChild(t); log.scrollTop=log.scrollHeight; return t; };
   const botReply = html => {
-    const t=document.createElement('div'); t.className='ia-msg bot ia-typing'; t.setAttribute('aria-label','A escrever'); t.innerHTML='<span></span><span></span><span></span>';
-    log.appendChild(t); log.scrollTop=log.scrollHeight;
+    const t=typingBubble();
     const delay = 380 + Math.min(700, String(html).length*2);
     setTimeout(()=>{ t.remove(); add('bot', html); }, delay);
   };
   let greeted = false;
+  const modeEl = document.querySelector('#iaPanel .ia-head small');
+  if(modeEl) modeEl.textContent = IA_ENDPOINT ? 'Ligada ao Claude' : 'Modo local (sem IA ligada)';
   const fab = document.getElementById('iaFab'), panel = document.getElementById('iaPanel');
   function setOpen(on){
     panel.hidden = !on; fab.setAttribute('aria-expanded', on?'true':'false');
@@ -1881,7 +1910,12 @@ setTab('home');
     const text = input.value.trim(); input.value='';
     if(!text) return;
     add('me', esc(text));
-    botReply(answer(text));
+    const pending = typingBubble();
+    askRemote(text).then(reply=>{
+      pending.remove();
+      if(reply){ add('bot', esc(reply).replace(/\n/g,'<br>')); }
+      else { add('bot', (IA_ENDPOINT ? '<i>A IA não respondeu agora; resposta local:</i><br>' : '') + answer(text)); }
+    });
   });
 })();
 </script>

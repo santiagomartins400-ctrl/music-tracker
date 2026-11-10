@@ -1,0 +1,7 @@
+name = "music-ia"
+main = "worker.js"
+compatibility_date = "2024-09-01"
+
+# Modelo usado (podes trocar por claude-sonnet-5-5 para respostas mais ricas, com mais custo)
+[vars]
+ANTHROPIC_MODEL = "claude-haiku-5-5"

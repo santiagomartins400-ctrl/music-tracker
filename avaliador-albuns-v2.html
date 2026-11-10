@@ -432,6 +432,24 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
 .ia-form{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.1)}
 .ia-form input{flex:1;min-width:0;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(8,8,16,.5)}
 @media (max-width:899px){ .ia-fab{bottom:86px} .ia-panel{bottom:146px} }
+/* v8: balões animados da Music IA */
+@keyframes iaPanel{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes iaIn{from{opacity:0;transform:translateY(12px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes iaShine{to{transform:translateX(120%)}}
+@keyframes iaDot{0%,80%,100%{transform:translateY(0);opacity:.35}40%{transform:translateY(-5px);opacity:1}}
+.ia-panel:not([hidden]){animation:iaPanel .32s cubic-bezier(.2,.8,.2,1) both}
+.ia-fab{transition:transform .2s,box-shadow .2s}
+.ia-fab:hover{transform:translateY(-2px);box-shadow:0 22px 46px -12px rgba(236,72,153,.85)}
+.ia-msg{animation:iaIn .38s cubic-bezier(.2,.8,.2,1) both;position:relative;overflow:hidden}
+.ia-msg.me{transform-origin:bottom right;background:linear-gradient(135deg,rgba(139,92,246,.7),rgba(236,72,153,.62));box-shadow:0 10px 24px -14px rgba(236,72,153,.9)}
+.ia-msg.bot{transform-origin:bottom left;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.04));border:1px solid rgba(167,139,250,.22);box-shadow:0 10px 24px -16px rgba(139,92,246,.8)}
+.ia-msg.bot::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.14) 50%,transparent 70%);transform:translateX(-120%);animation:iaShine 1.2s .25s ease-out 1 both}
+.ia-typing{display:flex;gap:5px;align-items:center;padding:12px 14px;width:auto}
+.ia-typing::after{display:none}
+.ia-typing span{width:7px;height:7px;border-radius:50%;background:#c4b5fd;animation:iaDot 1s infinite}
+.ia-typing span:nth-child(2){animation-delay:.15s}
+.ia-typing span:nth-child(3){animation-delay:.3s}
+@media (prefers-reduced-motion:reduce){ .ia-panel,.ia-msg,.ia-msg.bot::after,.ia-typing span{animation:none !important} .ia-fab:hover{transform:none} }
 </style>
 </head>
 <body>
@@ -1610,7 +1628,13 @@ setTab('home');
 /* Music IA: assistente local, sem servidor. Responde com regras sobre a app e sobre a biblioteca do utilizador. */
 (function(){
   const norm = x => String(x||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
-  const has = (q, words) => words.some(w => q.includes(w));
+  const re = (q, pat) => new RegExp(pat).test(q);
+  const plural = (n, one, many) => n===1 ? one : many;
+  const pick = arr => arr[Math.floor(Math.random()*arr.length)];
+  const list5 = arr => arr.slice(0,5).map(a=>`<b>${esc(a.title)}</b> (${esc(a.artist)})`).join(', ');
+  const byCount = (items, key) => { const c={}; items.forEach(a=>{ const k=a[key]||'Sem dados'; c[k]=(c[k]||0)+1; }); return Object.entries(c).sort((x,y)=>y[1]-x[1]); };
+  const decadeOf = a => a.year ? Math.floor(Number(a.year)/10)*10 : null;
+
   function stats(){
     const rated = db.filter(a=>a.stars>0);
     const avg = rated.length ? rated.reduce((t,a)=>t+a.stars,0)/rated.length : 0;
@@ -1620,37 +1644,111 @@ setTab('home');
     const pool = db.filter(a=>!a.fav && a.stars>=4).sort((x,y)=>y.stars-x.stars);
     const cands = pool.length ? pool : [...db].sort((x,y)=>(y.stars||0)-(x.stars||0));
     if(!cands.length) return null;
-    return cands[Math.floor(Math.random()*Math.min(3,cands.length))];
+    return pick(cands.slice(0,Math.min(3,cands.length)));
   }
+  const empty = 'A tua biblioteca ainda está vazia. Pesquisa um álbum e guarda-o para começares.';
+
   function answer(text){
     const q = norm(text).trim();
-    if(!q) return 'Escreve uma pergunta. Posso explicar como usar a app ou falar da tua biblioteca.';
-    if(has(q,['ola','oi ','bom dia','boa tarde','boa noite'])) return 'Olá! Sou a Music IA. Pergunta-me como avaliar, como pesquisar, como importar do Spotify, o que ouvir a seguir ou como está a tua biblioteca. Trabalho localmente, por isso não tenho acesso à internet.';
-    if(has(q,['recomenda','sugere','o que ouvir','ouvir agora','o que escutar'])){
+    if(!q) return 'Escreve uma pergunta. Posso ajudar com a app ou falar da tua biblioteca.';
+
+    // Conversa
+    if(re(q,'\\b(ola|oi|hey|bom dia|boa tarde|boa noite|tudo bem)\\b')) return pick([
+      'Olá! Sou a Music IA. Pergunta-me sobre a app ou sobre a tua biblioteca, por exemplo "o que me recomendas?".',
+      'Olá! Em que posso ajudar hoje? Posso falar de avaliações, pesquisa, recomendações ou da tua biblioteca.']);
+    if(re(q,'\\b(obrigad|valeu|thanks|brigad)')) return 'De nada! Se precisares de mais alguma coisa, é só perguntar.';
+    if(re(q,'\\b(tchau|adeus|ate logo|bye)\\b')) return 'Até logo! Boas audições.';
+    if(re(q,'quem es|o que es|como te chamas|quem e voce|o que fazes')) return 'Sou a Music IA, uma assistente que vive dentro desta app. Respondo sobre a app e sobre a tua biblioteca. Trabalho localmente, sem internet, por isso não respondo a perguntas gerais de conhecimento.';
+    if(re(q,'o que (sabes|consegues|podes)|ajuda|como funciona|o que posso')) return 'Posso ajudar com: recomendações, o resumo da biblioteca, os teus melhores e piores álbuns, favoritos, géneros, décadas, artistas, como avaliar, pesquisar, importar do Spotify, o Natal, remover álbuns, as contas, o top semanal, as pré-visualizações e a privacidade dos dados.';
+
+    // Biblioteca
+    if(re(q,'recomenda|sugere|o que (ouvir|escutar|ouço|oucso)|ouvir (agora|hoje)|algo para ouvir|o que poss? ouvir')){
       const a = recommend();
-      if(!a) return 'Ainda não tens álbuns na biblioteca. Pesquisa um álbum e avalia-o, e depois eu consigo recomendar-te algo.';
+      if(!a) return empty + ' Depois consigo recomendar-te algo.';
       return `Sugiro <b>${esc(a.title)}</b> de ${esc(a.artist)} (${fmt(a.stars)} / 5). Encontra-o na biblioteca para ver os detalhes.`;
     }
-    if(has(q,['quantos','estatist','media','favorit','biblioteca','como esta','resumo'])){
-      const st = stats();
-      if(!st.n) return 'A tua biblioteca está vazia. Pesquisa um álbum e guarda-o para começares.';
-      return `Tens <b>${st.n}</b> ${st.n===1?'álbum':'álbuns'} na biblioteca, <b>${st.rated}</b> ${st.rated===1?'avaliado':'avaliados'} e <b>${st.favs}</b> ${st.favs===1?'favorito':'favoritos'}. A média é <b>${fmt(st.avg)}</b> / 5.`;
+    if(re(q,'melhor (album|disco)|o melhor|mais bem avaliad|top da biblioteca')){
+      const rated = db.filter(a=>a.stars>0).sort((x,y)=>y.stars-x.stars);
+      if(!rated.length) return 'Ainda não avaliaste nenhum álbum. Abre um álbum e carrega em Avaliar.';
+      const top = rated.filter(a=>a.stars===rated[0].stars);
+      return `O teu melhor avaliado é ${top.length>1?'estes':'este'}: ${list5(top)} com ${fmt(rated[0].stars)} / 5.`;
     }
-    if(has(q,['pesquis','procur','search','encontr'])) return 'Vai ao separador Pesquisa e escreve o nome do artista ou do álbum. Os resultados aparecem organizados por ano, do mais recente para o mais antigo. Podes filtrar por Álbuns, EPs, Singles, Artistas e Músicas.';
-    if(has(q,['spotify','importar','importa'])) return 'Na Conta, liga o Spotify e depois usa Importar. A importação traz os álbuns guardados na tua conta Spotify. Se der erro 403, a conta dona da app precisa de Premium.';
-    if(has(q,['natal','xmas','christmas','neve','luzes'])) return 'Carrega em 🎄 Natal no topo para ligar o tema de Natal, com luzes e neve. Para voltar ao normal, carrega no mesmo botão.';
-    if(has(q,['remov','apag','elimin','tirar'])) return 'Abre o álbum e carrega em "Remover da biblioteca". A app pede confirmação antes de apagar.';
-    if(has(q,['avali','estrela','nota','review','critica','escrever'])) return 'Abre o álbum, carrega em "Avaliar" e escolhe as estrelas de 0,5 a 5. Podes escrever uma review e marcar como favorito.';
-    if(has(q,['conta','entrar','sessao','palavra','login','registar','logout'])) return 'Na Conta podes criar uma conta ou entrar com email e palavra-passe. Para terminar a sessão, usa o botão de sair e confirma.';
-    return 'Não tenho uma resposta para isso ainda. Posso ajudar com: avaliar, pesquisar, Spotify, Natal, remover álbuns, a tua biblioteca ou recomendações.';
+    if(re(q,'pior|menos gost|mais fraco|menor nota')){
+      const rated = db.filter(a=>a.stars>0).sort((x,y)=>x.stars-y.stars);
+      if(!rated.length) return 'Ainda não avaliaste nenhum álbum.';
+      return `O que avaliaste com menos nota foi <b>${esc(rated[0].title)}</b> de ${esc(rated[0].artist)} (${fmt(rated[0].stars)} / 5).`;
+    }
+    if(re(q,'favorit')){
+      const f = db.filter(a=>a.fav);
+      if(!f.length) return 'Ainda não marcaste nenhum favorito. Abre um álbum e carrega em Favorito.';
+      return `Tens ${f.length} ${plural(f.length,'favorito','favoritos')}: ${list5(f)}${f.length>5?' e mais '+(f.length-5)+'.':'.'}`;
+    }
+    if(re(q,'ultim|recente|novo na biblioteca|acabei de')){
+      if(!db.length) return empty;
+      const last = [...db].sort((x,y)=>(y.createdAt||0)-(x.createdAt||0))[0];
+      return `O último álbum que guardaste foi <b>${esc(last.title)}</b> de ${esc(last.artist)}.`;
+    }
+    if(re(q,'quantos|estatist|media|resumo|como esta a biblioteca|numeros')){
+      if(!db.length) return empty;
+      const st = stats();
+      return `Tens <b>${st.n}</b> ${plural(st.n,'álbum','álbuns')} na biblioteca, <b>${st.rated}</b> ${plural(st.rated,'avaliado','avaliados')} e <b>${st.favs}</b> ${plural(st.favs,'favorito','favoritos')}. A média é <b>${fmt(st.avg)}</b> / 5.`;
+    }
+    if(re(q,'genero|estilo|que musica (ouço|gosto)|generos')){
+      if(!db.length) return empty;
+      const g = byCount(db,'genre').slice(0,5);
+      return 'Os géneros que mais tens: ' + g.map(([k,n])=>`<b>${esc(k)}</b> (${n})`).join(', ') + '.';
+    }
+    if(re(q,'decada|anos (60|70|80|90)|anos \\d|epoca|dos anos')){
+      if(!db.length) return empty;
+      const d = byCount(db.map(a=>({...a, dec: decadeOf(a)?decadeOf(a)+'s':'Sem data'})),'dec').slice(0,5);
+      return 'As décadas que mais tens: ' + d.map(([k,n])=>`<b>${esc(k)}</b> (${n})`).join(', ') + '.';
+    }
+    if(re(q,'artista|cantor|banda|grupo') && re(q,'mais|favorit|tenho|ouv')){
+      if(!db.length) return empty;
+      const a = byCount(db,'artist')[0];
+      return `O artista que mais tens na biblioteca é <b>${esc(a[0])}</b>, com ${a[1]} ${plural(a[1],'álbum','álbuns')}.`;
+    }
+    if(re(q,'pesquisa na biblioteca|filtr|ordena|ordenar|filtro')) return 'Na Biblioteca podes pesquisar pelo título ou artista, filtrar por género, década e nota mínima, mostrar só favoritos e ordenar a lista.';
+
+    // Pesquisa e problemas
+    if(re(q,'capa|imagem|foto|sem capa')) return 'As capas vêm da Cover Art Archive. Se um álbum não tiver capa, aparece um espaço vazio: é normal para álbuns pouco conhecidos.';
+    if(re(q,'sem resultado|nao aparece\\b|nao encontr|nao da|nao funciona|nada aparece|vazio')) return 'Se a pesquisa não mostra nada: confirma a escrita, tenta só o nome do artista, espera um minuto (o serviço de dados tem limites de pedidos) e verifica a ligação à internet. A mensagem por baixo da pesquisa mostra o motivo.';
+    if(re(q,'pesquis|procur|encontr|search')) return 'Vai ao separador Pesquisa e escreve o nome do artista ou do álbum. Os resultados aparecem organizados por ano, do mais recente para o mais antigo. Podes filtrar por Álbuns, EPs, Singles, Artistas e Músicas.';
+    if(re(q,'top|semana|popular|tendencia|ranking|chart|mais ouvid|parada')) return 'Em Início vês o top semanal global, com os álbuns e artistas mais ouvidos. É atualizado uma vez por semana, a partir das paradas do iTunes.';
+    if(re(q,'faixa|musica|tocar|ouvir o album|pre-?visualiz|preview|play|reproduz')) return 'Ao abrir um álbum vês a lista de faixas. Carrega no botão de play de uma faixa para ouvir a pré-visualização de cerca de 30 segundos. Também há um botão de play nos cartões.';
+
+    // Ações
+    if(re(q,'spotify')){
+      if(re(q,'403|erro|premium|nao (da|funciona)')) return 'O erro 403 do Spotify acontece quando a conta dona da app não tem Premium. Esse problema só se resolve pelo lado do dono da app. Depois de ligares o Spotify, a ligação fica guardada neste dispositivo.';
+      if(re(q,'redirect|ligar|liga')) return 'Para ligar o Spotify, carrega em Ligar Spotify na Conta e autoriza a app. A ligação fica guardada neste dispositivo, por isso precisas de ligar outra vez noutros dispositivos.';
+      return 'Na Conta, liga o Spotify e depois usa Importar. A importação traz os álbuns guardados na tua conta Spotify. Se der erro 403, a conta dona da app precisa de Premium.';
+    }
+    if(re(q,'importar|importa')) return 'Na Conta, liga o Spotify e depois carrega em Importar. Os álbuns guardados no Spotify entram na biblioteca.';
+    if(re(q,'natal|xmas|christmas|neve|luzes|flocos')) return 'Carrega em 🎄 Natal no topo para ligar o tema de Natal, com luzes e neve. Para voltar ao normal, carrega no mesmo botão. Começa sempre desligado.';
+    if(re(q,'remov|apag|elimin|tirar da')) return 'Abre o álbum e carrega em "Remover da biblioteca". A app pede confirmação antes de apagar, e podes cancelar.';
+    if(re(q,'avali|estrela|nota|review|critica|escrever|comentar')) return 'Abre o álbum, carrega em "Avaliar" e escolhe as estrelas de 0,5 a 5. Podes escrever uma review e marcar como favorito.';
+    if(re(q,'conta|entrar|sessao|palavra|password|senha|login|registar|registo|logout|sair')) return 'Na Conta podes criar uma conta ou entrar com email e palavra-passe. Para terminar a sessão, carrega em Terminar sessão e confirma.';
+    if(re(q,'dados|privacid|guardad|backup|apagar conta|onde ficam')) return 'Os teus dados ficam guardados neste dispositivo, no navegador ou na app. Não são enviados para um servidor. Por isso, se mudares de computador, a biblioteca não vem contigo para já.';
+    if(re(q,'vip|premium|pagar|pagamento|subscri|assinatur')) return 'O separador VIP mostra os benefícios previstos. Os pagamentos ainda não estão ativos, por isso ninguém é cobrado.';
+    if(re(q,'instal|download|transferir|windows|exe|telemovel|telefone|celular|android|iphone')) return 'Para Windows, descarrega o instalador a partir do site, na secção de download. No telemóvel, abre o site e adiciona-o ao ecrã principal para usar como app.';
+    if(re(q,'separador|menu|navega|inicio|pagina')) return 'A navegação tem quatro separadores: Início (top semanal e recomendações), Pesquisa, Biblioteca e Perfil. No telemóvel estão em baixo.';
+
+    return 'Ainda não tenho uma resposta para isso. Posso ajudar com recomendações, o resumo da biblioteca, melhores e piores álbuns, favoritos, géneros, décadas, pesquisa, Spotify, Natal, avaliações, contas, o top semanal e a privacidade dos dados.';
   }
+
   const log = document.getElementById('iaLog');
-  const add = (cls, html) => { const d=document.createElement('div'); d.className='ia-msg '+cls; d.innerHTML=html; log.appendChild(d); log.scrollTop=log.scrollHeight; };
+  const add = (cls, html) => { const d=document.createElement('div'); d.className='ia-msg '+cls; d.innerHTML=html; log.appendChild(d); log.scrollTop=log.scrollHeight; return d; };
+  const botReply = html => {
+    const t=document.createElement('div'); t.className='ia-msg bot ia-typing'; t.setAttribute('aria-label','A escrever'); t.innerHTML='<span></span><span></span><span></span>';
+    log.appendChild(t); log.scrollTop=log.scrollHeight;
+    const delay = 380 + Math.min(700, String(html).length*2);
+    setTimeout(()=>{ t.remove(); add('bot', html); }, delay);
+  };
   let greeted = false;
   const fab = document.getElementById('iaFab'), panel = document.getElementById('iaPanel');
   function setOpen(on){
     panel.hidden = !on; fab.setAttribute('aria-expanded', on?'true':'false');
-    if(on && !greeted){ greeted=true; add('bot','Olá, sou a <b>Music IA</b>. Respondo sobre a app e a tua biblioteca. Pergunta-me, por exemplo, "o que me recomendas?".'); }
+    if(on && !greeted){ greeted=true; add('bot','Olá, sou a <b>Music IA</b>. Respondo sobre a app e a tua biblioteca. Experimenta perguntar "o que me recomendas?" ou "quantos álbuns tenho?".'); }
     if(on) document.getElementById('iaInput').focus();
   }
   fab.addEventListener('click', ()=>setOpen(panel.hidden));
@@ -1662,7 +1760,7 @@ setTab('home');
     const text = input.value.trim(); input.value='';
     if(!text) return;
     add('me', esc(text));
-    add('bot', answer(text));
+    botReply(answer(text));
   });
 })();
 </script>

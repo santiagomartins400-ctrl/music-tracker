@@ -1,5 +1,8 @@
 # Music IA — servidor (Cloudflare Worker)
 
+> **Nota (2.39.0):** esta pasta não é usada pela app. A Music IA foi removida do site e este Worker não está implantado. Mantém-se só como referência para uma eventual ligação futura.
+
+
 A app é pública (GitHub Pages), por isso a chave da API nunca vai para o código.
 Este Worker recebe as perguntas da app, fala com o Claude usando uma chave guardada no Cloudflare e devolve a resposta.
 

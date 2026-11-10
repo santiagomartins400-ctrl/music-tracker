@@ -1055,22 +1055,34 @@ const trackCache=new Map();
 const normT=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\s*[\(\[][^\)\]]*[\)\]]\s*/g,' ').replace(/[^a-z0-9]+/g,' ').trim();
 const trkDur=ms=>{ if(!ms) return ''; const t=Math.round(ms/1000); return Math.floor(t/60)+':'+String(t%60).padStart(2,'0'); };
 async function fetchTracks(a){
-  const dk='music-tracker-tracks:'+new Date().toISOString().slice(0,10)+':'+a.id;
+  const dk='music-tracker-tracks2:'+new Date().toISOString().slice(0,10)+':'+a.id;
   if(trackCache.has(a.id)) return trackCache.get(a.id);
   try{ const hit=JSON.parse(localStorage.getItem(dk)||'null'); if(hit){ trackCache.set(a.id,hit); return hit; } }catch(e){}
   const term=`${a.artist||''} ${a.title||''}`.trim();
-  const r=await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(term)}&entity=song&limit=200&country=pt`);
-  if(!r.ok) throw new Error('itunes '+r.status);
-  const j=await r.json();
   const want=normT(a.title), artist=normT(a.artist);
   const artistOk=n=>{ const x=normT(n); return !artist || x.includes(artist) || artist.includes(x); };
-  const pool=(j.results||[]).filter(x=>x.wrapperType==='track' && x.collectionName && artistOk(x.artistName));
-  const match=pool.filter(x=>normT(x.collectionName)===want);
-  const counts={}; match.forEach(x=>{ counts[x.collectionId]=(counts[x.collectionId]||0)+1; });
-  const best=Object.keys(counts).sort((p,q)=>counts[q]-counts[p])[0];
+  const getJSON=async url=>{ const r=await fetch(url); if(!r.ok) throw new Error('itunes '+r.status); return r.json(); };
+  let list=[];
+  // 1) encontrar a edição do álbum e pedir TODAS as faixas dessa edição
+  const sj=await getJSON(`https://itunes.apple.com/search?term=${encodeURIComponent(term)}&entity=album&limit=25&country=pt`);
+  const albums=(sj.results||[]).filter(x=>x.wrapperType==='collection' && x.collectionName && artistOk(x.artistName) && normT(x.collectionName)===want);
+  albums.sort((x,y)=>(y.trackCount||0)-(x.trackCount||0));
+  if(albums.length){
+    const lj=await getJSON(`https://itunes.apple.com/lookup?id=${albums[0].collectionId}&entity=song&country=pt`);
+    list=(lj.results||[]).filter(x=>x.wrapperType==='track' && x.trackName);
+  }
+  // 2) reserva: pesquisa de músicas, filtrada pelo nome do álbum
+  if(!list.length){
+    const sg=await getJSON(`https://itunes.apple.com/search?term=${encodeURIComponent(term)}&entity=song&limit=200&country=pt`);
+    const pool=(sg.results||[]).filter(x=>x.wrapperType==='track' && x.collectionName && artistOk(x.artistName));
+    const match=pool.filter(x=>normT(x.collectionName)===want);
+    const counts={}; match.forEach(x=>{ counts[x.collectionId]=(counts[x.collectionId]||0)+1; });
+    const best=Object.keys(counts).sort((p,q)=>counts[q]-counts[p])[0];
+    list=best ? match.filter(x=>String(x.collectionId)===best) : [];
+  }
+  // ordenar e remover duplicados (versões explícitas/limpas)
   const seen=new Set();
-  const list=(best ? match.filter(x=>String(x.collectionId)===best) : [])
-    .sort((p,q)=>((p.discNumber||1)-(q.discNumber||1)) || ((p.trackNumber||0)-(q.trackNumber||0)))
+  list=list.sort((p,q)=>((p.discNumber||1)-(q.discNumber||1)) || ((p.trackNumber||0)-(q.trackNumber||0)))
     .filter(x=>{ if(!x.trackNumber) return true; const k=(x.discNumber||1)+'-'+x.trackNumber; if(seen.has(k)) return false; seen.add(k); return true; });
   trackCache.set(a.id,list);
   try{ localStorage.setItem(dk, JSON.stringify(list)); }catch(e){}
@@ -1682,7 +1694,7 @@ audio.addEventListener('ended',()=>setPlaying(false));
 audio.addEventListener('loadedmetadata',()=>{ $('#pDur').textContent=mmss(audio.duration); });
 audio.addEventListener('timeupdate',()=>{ const d=audio.duration||0; $('#pBar').value=d?(audio.currentTime/d*100):0; $('#pCur').textContent=mmss(audio.currentTime); });
 $('#pBtn').addEventListener('click',()=>{
-  if(!nowItem) return;
+  if(!nowItem && !queue.length) return;
   if(audio.paused){ if(audio.src) audio.play(); else playItem(nowItem); } else audio.pause();
 });
 $('#pBar').addEventListener('input',e=>{ if(audio.duration) audio.currentTime=audio.duration*e.target.value/100; });

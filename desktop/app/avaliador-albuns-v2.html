@@ -4,6 +4,7 @@
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <meta charset="utf-8">
+<script>try{document.documentElement.dataset.mode=localStorage.getItem("music-tracker-mode")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.mode="light"}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Music Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -519,35 +520,47 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
 h2{font-weight:700}
 
 /* Estilo claro e minimalista (inspirado nas páginas da Apple) */
-:root{
+:root,html[data-mode="light"]{
   --bg:#f5f5f7; --panel:#ffffff; --panel2:#f2f2f4; --line:#e5e5ea;
   --text:#1d1d1f; --muted:#6e6e73;
-  --accent:#0071e3; --accent2:#2997ff;
+  --glass:rgba(255,255,255,.82); --glass-strong:rgba(255,255,255,.94); --hover:rgba(0,0,0,.04);
+  --accent:#0071e3; --accent2:#2997ff; color-scheme:light;
+}
+html[data-mode="dark"]{
+  --bg:#0f1013; --panel:#17181d; --panel2:#1d1f25; --line:#2a2d35;
+  --text:#ecedf0; --muted:#9a9ea8;
+  --glass:rgba(15,16,19,.82); --glass-strong:rgba(15,16,19,.94); --hover:rgba(255,255,255,.05);
+  --accent:#0071e3; --accent2:#2997ff; color-scheme:dark;
 }
 body{background:var(--bg) !important;background-image:none !important;color:var(--text)}
 body::before{display:none !important}
-header{background:rgba(255,255,255,.82) !important;border-bottom:1px solid var(--line) !important;color:var(--text)}
+header{background:var(--glass) !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;border-bottom:1px solid var(--line) !important;color:var(--text)}
 .brand{color:var(--text) !important}
 .nav-btn{color:var(--muted) !important}
-.nav-btn:hover{background:rgba(0,0,0,.04) !important;color:var(--text) !important}
-.nav-btn.on{color:var(--accent) !important;background:rgba(0,113,227,.10) !important;box-shadow:none !important}
+.nav-btn:hover{background:var(--hover) !important;color:var(--text) !important}
+.nav-btn.on{color:var(--accent) !important;background:color-mix(in srgb,var(--accent) 12%,transparent) !important;box-shadow:none !important;animation:none !important}
 .nav-btn.on svg{color:var(--accent) !important}
 header .tab.on:not(.nav-btn){color:#fff !important}
-.vtabs .tab:hover{color:var(--text) !important;background:rgba(0,0,0,.04) !important}
+.vtabs .tab:hover{color:var(--text) !important;background:var(--hover) !important}
 .btn.primary{color:#fff !important;background:var(--accent) !important;box-shadow:0 8px 22px -12px rgba(0,113,227,.6) !important;border-radius:999px !important}
 .btn{background:var(--panel) !important;color:var(--text);border-radius:999px !important}
+.btn:hover{background:var(--panel2) !important}
 .btn.ghost{background:transparent !important}
 .hero,.vip-hero{background:var(--panel) !important;border-color:var(--line) !important}
 .card{background:var(--panel) !important;border-color:var(--line) !important;border-radius:20px !important;box-shadow:0 1px 2px rgba(0,0,0,.04) !important}
 .card:hover{border-color:rgba(0,113,227,.35) !important;box-shadow:0 14px 34px -18px rgba(0,0,0,.25) !important}
 .modal{background:var(--panel) !important;border-color:var(--line) !important;box-shadow:0 30px 80px -30px rgba(0,0,0,.35) !important;border-radius:24px !important}
-.player{background:rgba(255,255,255,.92) !important;border-color:var(--line) !important;box-shadow:0 12px 40px -18px rgba(0,0,0,.25) !important;border-radius:22px !important}
+.player{background:var(--glass-strong) !important;border-color:var(--line) !important;box-shadow:0 12px 40px -18px rgba(0,0,0,.25) !important;border-radius:22px !important}
 .stat-pill b{color:var(--text) !important}
 .trk-play{background:var(--panel2) !important;border-color:var(--line) !important;color:var(--text)}
 #pShuf.on{color:#fff !important;background:var(--accent) !important}
 .p-play{color:#fff !important;background:var(--accent) !important;box-shadow:0 10px 24px -10px rgba(0,113,227,.7) !important}
-#pBar{background:linear-gradient(90deg,var(--accent) calc(var(--p,0%)),#d2d2d7 calc(var(--p,0%))) !important}
+#pBar{background:linear-gradient(90deg,var(--accent) calc(var(--p,0%)),var(--line) calc(var(--p,0%))) !important}
 h1,h2,h3{color:var(--text)}
+.tab.on,.nav-btn.on{animation:none !important}
+.player::after{animation:none !important}
+.card{will-change:auto}
+body::after{display:none}
 </style>
 </head>
 <body>
@@ -716,6 +729,7 @@ h1,h2,h3{color:var(--text)}
       <p class="eyebrow">Perfil</p>
       <h1 id="profName">Visitante</h1>
       <p class="hero-sub" id="profSub"></p>
+      <div class="themes" id="modes" role="group" aria-label="Modo da app" style="margin-bottom:10px"><button type="button" data-mode-set="light" style="--sw1:#f5f5f7;--sw2:#ffffff">Claro</button><button type="button" data-mode-set="dark" style="--sw1:#0f1013;--sw2:#2a2d35">Escuro</button></div>
       <div class="themes" id="themes" role="group" aria-label="Cor da app"><button type="button" data-theme="azul" style="--sw1:#0071e3;--sw2:#2997ff">Azul</button><button type="button" data-theme="violeta" style="--sw1:#8b5cf6;--sw2:#ec4899">Violeta</button><button type="button" data-theme="oceano" style="--sw1:#06b6d4;--sw2:#3b82f6">Oceano</button><button type="button" data-theme="sol" style="--sw1:#f97316;--sw2:#ef4444">Sol</button><button type="button" data-theme="menta" style="--sw1:#10b981;--sw2:#84cc16">Menta</button></div>
     </div>
     <h2 class="sec-h">Conta e dados</h2>
@@ -1304,6 +1318,14 @@ function applyTheme(name){
 }
 $('#themes').addEventListener('click', e=>{ const b=e.target.closest('[data-theme]'); if(b) applyTheme(b.dataset.theme); });
 try{ applyTheme(localStorage.getItem('music-tracker-theme')||'azul'); }catch(e){ applyTheme('azul'); }
+function applyMode(m){
+  const mode=m==='dark'?'dark':'light';
+  document.documentElement.dataset.mode=mode;
+  document.querySelectorAll('[data-mode-set]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.modeSet===mode?'true':'false'));
+  try{ localStorage.setItem('music-tracker-mode',mode); }catch(e){}
+}
+document.querySelectorAll('[data-mode-set]').forEach(b=>b.addEventListener('click',()=>applyMode(b.dataset.modeSet)));
+applyMode(document.documentElement.dataset.mode);
 
 /* Avaliação: só classificação, review e favorito. Os detalhes do álbum não são editáveis. */
 let rate={value:0,preview:null};

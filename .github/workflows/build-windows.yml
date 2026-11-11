@@ -41,7 +41,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v2.39.2
-          name: Music Tracker 2.39.2
+          tag_name: v2.39.3
+          name: Music Tracker 2.39.3
           body: Instalador para Windows (64 bits). Faz duplo clique para instalar.
           files: desktop/dist/*.exe

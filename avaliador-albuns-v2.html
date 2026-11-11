@@ -1391,7 +1391,7 @@ $('#fileImport').onchange=async e=>{
 
 /* ---------- Spotify (ligação por conta e importação dos álbuns guardados) ---------- */
 const SPOTIFY_CLIENT_ID = 'a8dec1fd7eaf4ea58dead64851bcbe3d';
-const SPOTIFY_REDIRECT = 'https://santiagomartins400-ctrl.github.io/music-tracker/avaliador-albuns-v2.html';
+const SPOTIFY_REDIRECT = 'https://santiagomartins400-ctrl.github.io/musictracker/avaliador-albuns-v2.html';
 const spKey = () => 'album-critico-spotify:device';
 const spConnected = () => !!localStorage.getItem(spKey());
 function b64url(bytes){ return btoa(String.fromCharCode(...new Uint8Array(bytes))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,''); }

@@ -14,9 +14,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <style>
 :root{
-  --bg:#0a0a0f; --panel:#13131b; --panel2:#1a1a25; --line:#262636;
+  --bg:#0f1013; --panel:#16171c; --panel2:#1c1d24; --line:#25272e;
   --text:#eceaf5; --muted:#8c8ca6;
-  --accent:#8b5cf6; --accent2:#ec4899; --good:#22c55e; --warn:#f59e0b;
+  --accent:#ff6b5b; --accent2:#ff8a7a; --good:#22c55e; --warn:#f59e0b;
   --r:18px;
 }
 *{box-sizing:border-box}
@@ -671,7 +671,7 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
       <p class="eyebrow">Perfil</p>
       <h1 id="profName">Visitante</h1>
       <p class="hero-sub" id="profSub"></p>
-      <div class="themes" id="themes" role="group" aria-label="Cor da app"><button type="button" data-theme="violeta" style="--sw1:#8b5cf6;--sw2:#ec4899">Violeta</button><button type="button" data-theme="oceano" style="--sw1:#06b6d4;--sw2:#3b82f6">Oceano</button><button type="button" data-theme="sol" style="--sw1:#f97316;--sw2:#ef4444">Sol</button><button type="button" data-theme="menta" style="--sw1:#10b981;--sw2:#84cc16">Menta</button></div>
+      <div class="themes" id="themes" role="group" aria-label="Cor da app"><button type="button" data-theme="coral" style="--sw1:#ff6b5b;--sw2:#ff8a7a">Coral</button><button type="button" data-theme="violeta" style="--sw1:#8b5cf6;--sw2:#ec4899">Violeta</button><button type="button" data-theme="oceano" style="--sw1:#06b6d4;--sw2:#3b82f6">Oceano</button><button type="button" data-theme="sol" style="--sw1:#f97316;--sw2:#ef4444">Sol</button><button type="button" data-theme="menta" style="--sw1:#10b981;--sw2:#84cc16">Menta</button></div>
     </div>
     <h2 class="sec-h">Conta e dados</h2>
     <div class="panel-grid">
@@ -1249,16 +1249,16 @@ $('#plBar').addEventListener('click', e=>{
   if(d) askConfirm({title:'Apagar playlist', text:'A playlist é apagada. Os álbuns continuam na biblioteca.', ok:'Apagar', danger:true, onOk:()=>{ playlists=playlists.filter(p=>p.id!==d.dataset.pldel); libPl=null; savePlaylists(); renderPlaylistBar(); renderLibrary(); toast('Playlist apagada'); }});
 });
 
-const THEMES={violeta:['#8b5cf6','#ec4899'], oceano:['#06b6d4','#3b82f6'], sol:['#f97316','#ef4444'], menta:['#10b981','#84cc16']};
+const THEMES={coral:['#ff6b5b','#ff8a7a'], violeta:['#8b5cf6','#ec4899'], oceano:['#06b6d4','#3b82f6'], sol:['#f97316','#ef4444'], menta:['#10b981','#84cc16']};
 function applyTheme(name){
-  const t=THEMES[name]||THEMES.violeta;
+  const t=THEMES[name]||THEMES.coral;
   document.documentElement.style.setProperty('--accent',t[0]);
   document.documentElement.style.setProperty('--accent2',t[1]);
-  document.querySelectorAll('[data-theme]').forEach(b=>b.setAttribute('aria-pressed', b.dataset.theme===(THEMES[name]?name:'violeta')?'true':'false'));
-  try{ localStorage.setItem('music-tracker-theme', THEMES[name]?name:'violeta'); }catch(e){}
+  document.querySelectorAll('[data-theme]').forEach(b=>b.setAttribute('aria-pressed', b.dataset.theme===(THEMES[name]?name:'coral')?'true':'false'));
+  try{ localStorage.setItem('music-tracker-theme', THEMES[name]?name:'coral'); }catch(e){}
 }
 $('#themes').addEventListener('click', e=>{ const b=e.target.closest('[data-theme]'); if(b) applyTheme(b.dataset.theme); });
-try{ applyTheme(localStorage.getItem('music-tracker-theme')||'violeta'); }catch(e){ applyTheme('violeta'); }
+try{ applyTheme(localStorage.getItem('music-tracker-theme')||'coral'); }catch(e){ applyTheme('coral'); }
 
 /* Avaliação: só classificação, review e favorito. Os detalhes do álbum não são editáveis. */
 let rate={value:0,preview:null};

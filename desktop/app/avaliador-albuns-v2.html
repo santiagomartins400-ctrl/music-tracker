@@ -503,6 +503,20 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
 .vip-faq summary{cursor:pointer;font-weight:700}
 .vip-faq p{color:var(--muted);margin:10px 0 0;font-size:.92rem}
 @media (max-width:560px){.vip-row{grid-template-columns:1.6fr 1fr 1.3fr;font-size:.82rem;padding:12px 12px}}
+
+/* Estilo novo (linha da opção C): cor sólida, sem gradientes de fundo, brilho controlado */
+.brand{background:none !important;-webkit-background-clip:initial !important;background-clip:initial !important;-webkit-text-fill-color:initial;color:var(--text) !important;animation:none !important}
+.brand i{background:var(--accent) !important;box-shadow:0 0 18px -4px var(--accent) !important}
+.nav-btn.on{background:rgba(255,107,91,.12) !important;color:var(--text) !important;box-shadow:inset 3px 0 0 var(--accent) !important}
+.nav-btn.on svg{color:var(--accent) !important}
+.btn.primary{background:var(--accent) !important;color:#16110f !important;box-shadow:0 10px 26px -12px var(--accent) !important}
+.btn.primary:hover{filter:brightness(1.06)}
+.card{background:var(--panel) !important;border-color:var(--line) !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important}
+.card:hover{transform:translateY(-4px) !important;border-color:rgba(255,107,91,.45) !important;box-shadow:0 22px 44px -22px rgba(255,107,91,.45) !important}
+.modal{background:var(--panel) !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;border-color:var(--line) !important}
+.modal .dcover{box-shadow:0 26px 50px -22px #000 !important}
+.player{background:var(--panel) !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;border-color:var(--line) !important}
+h2{font-weight:700}
 </style>
 </head>
 <body>

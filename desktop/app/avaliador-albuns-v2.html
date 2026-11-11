@@ -16,7 +16,7 @@
 :root{
   --bg:#0f1013; --panel:#16171c; --panel2:#1c1d24; --line:#25272e;
   --text:#eceaf5; --muted:#8c8ca6;
-  --accent:#ff6b5b; --accent2:#ff8a7a; --good:#22c55e; --warn:#f59e0b;
+  --accent:#0071e3; --accent2:#2997ff; --good:#22c55e; --warn:#f59e0b;
   --r:18px;
 }
 *{box-sizing:border-box}
@@ -517,6 +517,37 @@ body::before{content:"";position:fixed;inset:-10%;z-index:-2;pointer-events:none
 .modal .dcover{box-shadow:0 26px 50px -22px #000 !important}
 .player{background:var(--panel) !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;border-color:var(--line) !important}
 h2{font-weight:700}
+
+/* Estilo claro e minimalista (inspirado nas páginas da Apple) */
+:root{
+  --bg:#f5f5f7; --panel:#ffffff; --panel2:#f2f2f4; --line:#e5e5ea;
+  --text:#1d1d1f; --muted:#6e6e73;
+  --accent:#0071e3; --accent2:#2997ff;
+}
+body{background:var(--bg) !important;background-image:none !important;color:var(--text)}
+body::before{display:none !important}
+header{background:rgba(255,255,255,.82) !important;border-bottom:1px solid var(--line) !important;color:var(--text)}
+.brand{color:var(--text) !important}
+.nav-btn{color:var(--muted) !important}
+.nav-btn:hover{background:rgba(0,0,0,.04) !important;color:var(--text) !important}
+.nav-btn.on{color:var(--accent) !important;background:rgba(0,113,227,.10) !important;box-shadow:none !important}
+.nav-btn.on svg{color:var(--accent) !important}
+header .tab.on:not(.nav-btn){color:#fff !important}
+.vtabs .tab:hover{color:var(--text) !important;background:rgba(0,0,0,.04) !important}
+.btn.primary{color:#fff !important;background:var(--accent) !important;box-shadow:0 8px 22px -12px rgba(0,113,227,.6) !important;border-radius:999px !important}
+.btn{background:var(--panel) !important;color:var(--text);border-radius:999px !important}
+.btn.ghost{background:transparent !important}
+.hero,.vip-hero{background:var(--panel) !important;border-color:var(--line) !important}
+.card{background:var(--panel) !important;border-color:var(--line) !important;border-radius:20px !important;box-shadow:0 1px 2px rgba(0,0,0,.04) !important}
+.card:hover{border-color:rgba(0,113,227,.35) !important;box-shadow:0 14px 34px -18px rgba(0,0,0,.25) !important}
+.modal{background:var(--panel) !important;border-color:var(--line) !important;box-shadow:0 30px 80px -30px rgba(0,0,0,.35) !important;border-radius:24px !important}
+.player{background:rgba(255,255,255,.92) !important;border-color:var(--line) !important;box-shadow:0 12px 40px -18px rgba(0,0,0,.25) !important;border-radius:22px !important}
+.stat-pill b{color:var(--text) !important}
+.trk-play{background:var(--panel2) !important;border-color:var(--line) !important;color:var(--text)}
+#pShuf.on{color:#fff !important;background:var(--accent) !important}
+.p-play{color:#fff !important;background:var(--accent) !important;box-shadow:0 10px 24px -10px rgba(0,113,227,.7) !important}
+#pBar{background:linear-gradient(90deg,var(--accent) calc(var(--p,0%)),#d2d2d7 calc(var(--p,0%))) !important}
+h1,h2,h3{color:var(--text)}
 </style>
 </head>
 <body>
@@ -685,7 +716,7 @@ h2{font-weight:700}
       <p class="eyebrow">Perfil</p>
       <h1 id="profName">Visitante</h1>
       <p class="hero-sub" id="profSub"></p>
-      <div class="themes" id="themes" role="group" aria-label="Cor da app"><button type="button" data-theme="coral" style="--sw1:#ff6b5b;--sw2:#ff8a7a">Coral</button><button type="button" data-theme="violeta" style="--sw1:#8b5cf6;--sw2:#ec4899">Violeta</button><button type="button" data-theme="oceano" style="--sw1:#06b6d4;--sw2:#3b82f6">Oceano</button><button type="button" data-theme="sol" style="--sw1:#f97316;--sw2:#ef4444">Sol</button><button type="button" data-theme="menta" style="--sw1:#10b981;--sw2:#84cc16">Menta</button></div>
+      <div class="themes" id="themes" role="group" aria-label="Cor da app"><button type="button" data-theme="azul" style="--sw1:#0071e3;--sw2:#2997ff">Azul</button><button type="button" data-theme="violeta" style="--sw1:#8b5cf6;--sw2:#ec4899">Violeta</button><button type="button" data-theme="oceano" style="--sw1:#06b6d4;--sw2:#3b82f6">Oceano</button><button type="button" data-theme="sol" style="--sw1:#f97316;--sw2:#ef4444">Sol</button><button type="button" data-theme="menta" style="--sw1:#10b981;--sw2:#84cc16">Menta</button></div>
     </div>
     <h2 class="sec-h">Conta e dados</h2>
     <div class="panel-grid">
@@ -1263,16 +1294,16 @@ $('#plBar').addEventListener('click', e=>{
   if(d) askConfirm({title:'Apagar playlist', text:'A playlist é apagada. Os álbuns continuam na biblioteca.', ok:'Apagar', danger:true, onOk:()=>{ playlists=playlists.filter(p=>p.id!==d.dataset.pldel); libPl=null; savePlaylists(); renderPlaylistBar(); renderLibrary(); toast('Playlist apagada'); }});
 });
 
-const THEMES={coral:['#ff6b5b','#ff8a7a'], violeta:['#8b5cf6','#ec4899'], oceano:['#06b6d4','#3b82f6'], sol:['#f97316','#ef4444'], menta:['#10b981','#84cc16']};
+const THEMES={azul:['#0071e3','#2997ff'], violeta:['#8b5cf6','#ec4899'], oceano:['#06b6d4','#3b82f6'], sol:['#f97316','#ef4444'], menta:['#10b981','#84cc16']};
 function applyTheme(name){
-  const t=THEMES[name]||THEMES.coral;
+  const t=THEMES[name]||THEMES.azul;
   document.documentElement.style.setProperty('--accent',t[0]);
   document.documentElement.style.setProperty('--accent2',t[1]);
-  document.querySelectorAll('[data-theme]').forEach(b=>b.setAttribute('aria-pressed', b.dataset.theme===(THEMES[name]?name:'coral')?'true':'false'));
-  try{ localStorage.setItem('music-tracker-theme', THEMES[name]?name:'coral'); }catch(e){}
+  document.querySelectorAll('[data-theme]').forEach(b=>b.setAttribute('aria-pressed', b.dataset.theme===(THEMES[name]?name:'azul')?'true':'false'));
+  try{ localStorage.setItem('music-tracker-theme', THEMES[name]?name:'azul'); }catch(e){}
 }
 $('#themes').addEventListener('click', e=>{ const b=e.target.closest('[data-theme]'); if(b) applyTheme(b.dataset.theme); });
-try{ applyTheme(localStorage.getItem('music-tracker-theme')||'coral'); }catch(e){ applyTheme('coral'); }
+try{ applyTheme(localStorage.getItem('music-tracker-theme')||'azul'); }catch(e){ applyTheme('azul'); }
 
 /* Avaliação: só classificação, review e favorito. Os detalhes do álbum não são editáveis. */
 let rate={value:0,preview:null};

@@ -1,6 +1,6 @@
 # Music IA — servidor (Cloudflare Worker)
 
-> **Nota (2.39.0):** esta pasta não é usada pela app. A Music IA foi removida do site e este Worker não está implantado. Mantém-se só como referência para uma eventual ligação futura.
+> **Estado:** a app volta a ter a Music IA. Para funcionar, publica este Worker no Cloudflare, define o segredo ANTHROPIC_API_KEY e preenche IA_ENDPOINT em avaliador-albuns-v2.html com o URL do Worker.
 
 
 A app é pública (GitHub Pages), por isso a chave da API nunca vai para o código.

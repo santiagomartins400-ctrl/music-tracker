@@ -1,7 +1,7 @@
 {
   "name": "album-critico",
   "productName": "Music Tracker",
-  "version": "2.39.9",
+  "version": "2.39.10",
   "description": "Avalia álbuns com critérios próprios, pesquisa um catálogo e vê capas e fotos.",
   "main": "main.js",
   "license": "UNLICENSED",
@@ -40,7 +40,10 @@
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
       "installerIcon": "build/icon.ico",
-      "uninstallerIcon": "build/icon.ico"
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeader": "build/installerHeader.bmp",
+      "installerSidebar": "build/installerSidebar.bmp",
+      "uninstallerSidebar": "build/installerSidebar.bmp"
     }
   }
 }

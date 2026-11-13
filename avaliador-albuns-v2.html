@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0f1013">
 <meta charset="utf-8">
-<script>const APP_VERSION='2.39.15';</script>
+<script>const APP_VERSION='2.39.16';</script>
 <script>try{document.documentElement.dataset.mode=localStorage.getItem("music-tracker-mode")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.mode="light"}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Music Tracker</title>
@@ -568,34 +568,6 @@ h1,h2,h3{color:var(--text)}
 .card{will-change:auto}
 body::after{display:none}
 
-/* Music IA: botão flutuante e painel de conversa */
-.ia-fab{position:fixed;right:20px;bottom:120px;z-index:60;height:52px;padding:0 18px 0 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--text);display:flex;align-items:center;gap:10px;font:600 14px Inter,system-ui,sans-serif;cursor:pointer;box-shadow:0 14px 34px -14px rgba(0,0,0,.35)}
-.ia-fab i{width:26px;height:26px;border-radius:50%;background:var(--accent);display:grid;place-items:center;color:#fff;font-style:normal;font-size:13px;box-shadow:0 0 0 0 var(--accent);animation:iaHalo 2.8s ease-in-out infinite}
-@keyframes iaHalo{0%,100%{box-shadow:0 0 0 0 rgba(0,113,227,.35)}50%{box-shadow:0 0 0 7px rgba(0,113,227,0)}}
-.ia-panel{position:fixed;right:20px;bottom:184px;z-index:61;width:min(380px,calc(100vw - 32px));height:min(520px,calc(100vh - 220px));display:none;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:22px;box-shadow:0 30px 70px -30px rgba(0,0,0,.45);overflow:hidden}
-.ia-panel.open{display:flex;animation:iaIn .28s ease both}
-@keyframes iaIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
-.ia-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line)}
-.ia-head b{font-size:15px}
-.ia-head small{display:block;color:var(--muted);font-size:12px}
-.ia-x{border:0;background:transparent;color:var(--muted);font-size:22px;cursor:pointer;padding:4px 8px;border-radius:10px}
-.ia-x:hover{background:var(--hover)}
-.ia-log{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
-.ia-msg{max-width:84%;padding:10px 14px;border-radius:18px;font-size:14px;line-height:1.5;white-space:pre-wrap;word-wrap:break-word;animation:iaPop .3s ease both}
-.ia-msg.user{align-self:flex-end;background:var(--accent);color:#fff;border-bottom-right-radius:6px}
-.ia-msg.bot{align-self:flex-start;background:var(--panel2);color:var(--text);border-bottom-left-radius:6px}
-.ia-msg.err{align-self:flex-start;color:var(--muted);font-style:italic}
-@keyframes iaPop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.ia-typing{align-self:flex-start;display:flex;gap:5px;padding:12px 14px;background:var(--panel2);border-radius:18px}
-.ia-typing span{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:iaDot 1.1s ease-in-out infinite}
-.ia-typing span:nth-child(2){animation-delay:.15s}.ia-typing span:nth-child(3){animation-delay:.3s}
-@keyframes iaDot{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
-.ia-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
-.ia-form input{flex:1;min-width:0;height:44px;border-radius:999px;border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:0 16px;font:inherit}
-.ia-form input:focus{outline:2px solid var(--accent);outline-offset:1px}
-.ia-form button{height:44px;padding:0 18px;border-radius:999px;border:0;background:var(--accent);color:#fff;font-weight:600;font-size:14px;cursor:pointer}
-.ia-form button:disabled{opacity:.5;cursor:default}
-@media (prefers-reduced-motion: reduce){.ia-fab i,.ia-panel.open,.ia-msg,.ia-typing span{animation:none !important}}
 
 /* Minimalista: sem gradientes e com animações fortes */
 *,*::before,*::after{background-image:none !important}
@@ -613,14 +585,11 @@ section[id^="view-"]:not(.hidden){animation:mIn .55s cubic-bezier(.2,.9,.25,1) b
 .card:nth-child(3n){animation-delay:.1s}
 .card:hover{transform:translateY(-6px) scale(1.015) !important}
 .card:active{transform:scale(.97) !important}
-.btn,.nav-btn,.tab,.ia-fab,.themes button,.p-play,#pShuf,#pPrev,#pNext{transition:transform .25s cubic-bezier(.2,.9,.25,1),background-color .2s,color .2s,box-shadow .3s !important}
-.btn:hover{transform:translateY(-2px)}
-.btn:active,.nav-btn:active,.ia-fab:active,.themes button:active,.p-play:active,#pShuf:active,#pPrev:active,#pNext:active{transform:scale(.92) !important}
-.nav-btn:hover{transform:translateX(4px) !important}
+.btn,.nav-btn,.tab,.btn:hover{transform:translateY(-2px)}
+.btn:active,.nav-btn:active,.nav-btn:hover{transform:translateX(4px) !important}
 .nav-btn.on{animation:mPop .45s cubic-bezier(.2,.9,.25,1) both !important}
 .modal{animation:mPop .5s cubic-bezier(.2,.9,.25,1) both !important}
 #overlay:not(.hidden),.overlay:not(.hidden){animation:mFade .25s ease both}
-.ia-panel.open{animation:mPop .4s cubic-bezier(.2,.9,.25,1) both !important}
 .p-play{animation:none}
 #player.is-playing .p-play{animation:ringPulse 1.6s ease-out infinite !important}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
@@ -638,12 +607,7 @@ section[id^="view-"]:not(.hidden){animation:mIn .55s cubic-bezier(.2,.9,.25,1) b
 .upd .btn{height:36px;padding:0 16px}
 /* Telemóvel: menos elementos ao mesmo tempo */
 @media (max-width:700px){
-  #iaFab{display:none !important}
-  .ia-open{width:100%;margin:0 0 14px}
-  .ia-panel{left:12px;right:12px;width:auto;bottom:100px}
 }
-.ia-open{display:none}
-@media (max-width:700px){.ia-open{display:inline-flex}}
 </style>
 </head>
 <body>
@@ -812,8 +776,7 @@ section[id^="view-"]:not(.hidden){animation:mIn .55s cubic-bezier(.2,.9,.25,1) b
       <p class="eyebrow">Perfil</p>
       <h1 id="profName">Visitante</h1>
       <p class="hero-sub" id="profSub"></p>
-      <button class="btn primary ia-open" id="iaOpen" type="button">Falar com a Music IA</button>
-<div class="inst-card" id="instCard" hidden>
+      <div class="inst-card" id="instCard" hidden>
   <div><b>Instalar a app</b><small id="instText">No iPhone: abre no Safari, carrega em Partilhar e escolhe "Adicionar ao ecrã principal".</small></div>
   <button class="btn primary" id="instBtn" type="button" hidden>Instalar</button>
 </div>
@@ -1940,59 +1903,8 @@ $('#ldecade').addEventListener('change',renderLibrary);
 $('#lmin').addEventListener('change',renderLibrary);
 setTab('home');
 </script>
-<button class="ia-fab" id="iaFab" type="button" aria-expanded="false" aria-controls="iaPanel"><i aria-hidden="true">✦</i>Music IA</button>
-<div class="upd" id="updBar" role="status" hidden><span>Nova versão disponível</span><button class="btn primary" id="updBtn" type="button">Atualizar agora</button></div>
-<section class="ia-panel" id="iaPanel" role="dialog" aria-label="Music IA">
-  <div class="ia-head"><div><b>Music IA</b><small>Pergunta o que quiseres</small></div><button class="ia-x" id="iaClose" type="button" aria-label="Fechar">×</button></div>
-  <div class="ia-log" id="iaLog" aria-live="polite"><div class="ia-msg bot">Olá! Sou a Music IA. Posso ajudar com música, com a tua biblioteca ou com qualquer outra dúvida.</div></div>
-  <form class="ia-form" id="iaForm" autocomplete="off"><input id="iaIn" type="text" maxlength="1000" placeholder="Escreve uma mensagem…" aria-label="Mensagem"><button type="submit" id="iaSend">Enviar</button></form>
-</section>
-<script>
-/* Music IA: conversa com o Worker (ver ia-proxy/). Preenche IA_ENDPOINT com o URL publicado. */
-(function(){
-  const IA_ENDPOINT = '';
-  const fab=document.getElementById('iaFab'), panel=document.getElementById('iaPanel'),
-        log=document.getElementById('iaLog'), form=document.getElementById('iaForm'),
-        input=document.getElementById('iaIn'), send=document.getElementById('iaSend'),
-        close=document.getElementById('iaClose');
-  const history=[];
-  function add(text, cls){ const d=document.createElement('div'); d.className='ia-msg '+cls; d.textContent=text; log.appendChild(d); log.scrollTop=log.scrollHeight; return d; }
-  function typing(on){
-    const t=log.querySelector('.ia-typing');
-    if(on && !t){ const d=document.createElement('div'); d.className='ia-typing'; d.setAttribute('aria-label','A escrever'); d.innerHTML='<span></span><span></span><span></span>'; log.appendChild(d); log.scrollTop=log.scrollHeight; }
-    if(!on && t) t.remove();
-  }
-  function libraryContext(){
-    try{
-      const items=(typeof db!=='undefined' && Array.isArray(db)) ? db : [];
-      if(!items.length) return '';
-      const top=items.filter(a=>a.stars).sort((a,b)=>b.stars-a.stars).slice(0,8)
-        .map(a=>`${a.title} (${a.artist}, ${a.stars}★)`).join('; ');
-      return `Álbuns na biblioteca: ${items.length}. Melhor avaliados: ${top || 'nenhum ainda'}.`;
-    }catch(e){ return ''; }
-  }
-  function setOpen(on){ panel.classList.toggle('open',on); fab.setAttribute('aria-expanded',String(on)); if(on) input.focus(); }
-  fab.addEventListener('click',()=>setOpen(!panel.classList.contains('open')));
-  close.addEventListener('click',()=>setOpen(false));
-  document.addEventListener('keydown',e=>{ if(e.key==='Escape' && panel.classList.contains('open')) setOpen(false); });
-  form.addEventListener('submit', async e=>{
-    e.preventDefault();
-    const q=input.value.trim(); if(!q) return;
-    input.value=''; add(q,'user'); history.push({role:'user',content:q});
-    if(!IA_ENDPOINT){ add('A Music IA ainda não está ligada. Falta publicar o servidor (ia-proxy/).','err'); return; }
-    send.disabled=true; typing(true);
-    try{
-      const r=await fetch(IA_ENDPOINT,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({messages:history.slice(-12),library:libraryContext()})});
-      const data=await r.json().catch(()=>({}));
-      if(!r.ok) throw new Error(data.error||'Erro ao falar com a Music IA.');
-      typing(false);
-      add(data.text,'bot'); history.push({role:'assistant',content:data.text});
-    }catch(err){
-      typing(false); add('Não consegui responder agora. '+(err.message||''),'err'); history.pop();
-    }finally{ send.disabled=false; input.focus(); }
-  });
-})();
-</script>
+
+
 <script>
 /* Instalar como app: iPhone (Safari, Adicionar ao ecrã principal) e Android (botão de instalar) */
 (function(){
@@ -2040,8 +1952,6 @@ setTab('home');
   setTimeout(check, 4000);
   setInterval(check, 10*60*1000);
   document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='visible') check(); });
-  const open=document.getElementById('iaOpen'), fab=document.getElementById('iaFab');
-  if(open && fab) open.addEventListener('click',()=>fab.click());
 })();
 </script>
 </body>

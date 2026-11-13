@@ -20,7 +20,9 @@ const files = [
   ['sw.js', [[/const CACHE = 'album-critico-v2-(\d+)'/, (m, n) => `const CACHE = 'album-critico-v2-${Number(n) + 1}'`]]],
 ];
 
+import { existsSync } from 'node:fs';
 for (const [file, reps] of files) {
+  if (!existsSync(file)) { console.log('ignorado (não existe):', file); continue; }
   let s = await readFile(file, 'utf8');
   for (const [re, to] of reps) s = s.replace(re, to);
   await writeFile(file, s);

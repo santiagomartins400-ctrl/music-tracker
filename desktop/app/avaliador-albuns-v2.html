@@ -2,10 +2,15 @@
 <html lang="pt-PT">
 <head>
 <link rel="icon" href="icons/icon-192.png" type="image/png">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Music Tracker">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0f1013">
 <meta charset="utf-8">
 <script>try{document.documentElement.dataset.mode=localStorage.getItem("music-tracker-mode")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.mode="light"}</script>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Music Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://itunes.apple.com" crossorigin>
@@ -618,6 +623,13 @@ section[id^="view-"]:not(.hidden){animation:mIn .55s cubic-bezier(.2,.9,.25,1) b
 .p-play{animation:none}
 #player.is-playing .p-play{animation:ringPulse 1.6s ease-out infinite !important}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
+
+/* Instalar como app (iPhone e Android) */
+.inst-card{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:16px 18px;margin:0 0 14px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
+.inst-card b{display:block;font-size:15px}
+.inst-card small{display:block;color:var(--muted);font-size:13px;line-height:1.45;margin-top:4px;max-width:46ch}
+.inst-card .btn{flex:none}
+.inst-card[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -786,6 +798,10 @@ section[id^="view-"]:not(.hidden){animation:mIn .55s cubic-bezier(.2,.9,.25,1) b
       <p class="eyebrow">Perfil</p>
       <h1 id="profName">Visitante</h1>
       <p class="hero-sub" id="profSub"></p>
+      <div class="inst-card" id="instCard" hidden>
+  <div><b>Instalar a app</b><small id="instText">No iPhone: abre no Safari, carrega em Partilhar e escolhe "Adicionar ao ecrã principal".</small></div>
+  <button class="btn primary" id="instBtn" type="button" hidden>Instalar</button>
+</div>
       <div class="themes" id="modes" role="group" aria-label="Modo da app" style="margin-bottom:10px"><button type="button" data-mode-set="light" style="--sw1:#f5f5f7;--sw2:#ffffff">Claro</button><button type="button" data-mode-set="dark" style="--sw1:#0f1013;--sw2:#2a2d35">Escuro</button></div>
       <div class="themes" id="themes" role="group" aria-label="Cor da app"><button type="button" data-theme="azul" style="--sw1:#0071e3;--sw2:#2997ff">Azul</button><button type="button" data-theme="violeta" style="--sw1:#8b5cf6;--sw2:#ec4899">Violeta</button><button type="button" data-theme="oceano" style="--sw1:#06b6d4;--sw2:#3b82f6">Oceano</button><button type="button" data-theme="sol" style="--sw1:#f97316;--sw2:#ef4444">Sol</button><button type="button" data-theme="menta" style="--sw1:#10b981;--sw2:#84cc16">Menta</button></div>
     </div>
@@ -1959,6 +1975,28 @@ setTab('home');
       typing(false); add('Não consegui responder agora. '+(err.message||''),'err'); history.pop();
     }finally{ send.disabled=false; input.focus(); }
   });
+})();
+</script>
+<script>
+/* Instalar como app: iPhone (Safari, Adicionar ao ecrã principal) e Android (botão de instalar) */
+(function(){
+  const card=document.getElementById('instCard'), btn=document.getElementById('instBtn'), text=document.getElementById('instText');
+  if(!card) return;
+  const standalone=window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone===true;
+  if(standalone) return;
+  const ua=navigator.userAgent;
+  const ios=/iPhone|iPad|iPod/.test(ua) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
+  const safari=ios && !/CriOS|FxiOS|EdgiOS/.test(ua);
+  let deferred=null;
+  window.addEventListener('beforeinstallprompt', e=>{ e.preventDefault(); deferred=e; btn.hidden=false; card.hidden=false; });
+  btn.addEventListener('click', async ()=>{ if(!deferred) return; deferred.prompt(); await deferred.userChoice.catch(()=>{}); deferred=null; btn.hidden=true; card.hidden=true; });
+  window.addEventListener('appinstalled', ()=>{ card.hidden=true; });
+  if(ios){
+    card.hidden=false;
+    text.textContent = safari
+      ? 'Abre esta página no Safari, carrega em Partilhar e escolhe "Adicionar ao ecrã principal".'
+      : 'Para instalar no iPhone, abre esta página no Safari (no Chrome não é possível) e escolhe "Adicionar ao ecrã principal".';
+  }
 })();
 </script>
 </body>

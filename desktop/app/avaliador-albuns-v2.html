@@ -9,6 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0f1013">
 <meta charset="utf-8">
+<script>const APP_VERSION='2.39.14';</script>
 <script>try{document.documentElement.dataset.mode=localStorage.getItem("music-tracker-mode")==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.mode="light"}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Music Tracker</title>
@@ -630,6 +631,19 @@ section[id^="view-"]:not(.hidden){animation:mIn .55s cubic-bezier(.2,.9,.25,1) b
 .inst-card small{display:block;color:var(--muted);font-size:13px;line-height:1.45;margin-top:4px;max-width:46ch}
 .inst-card .btn{flex:none}
 .inst-card[hidden]{display:none}
+
+/* Atualização disponível */
+.upd{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:14px;padding:10px 10px 10px 18px;border-radius:999px;background:var(--panel);border:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(0,0,0,.4);font-size:14px;font-weight:600;animation:mPop .45s cubic-bezier(.2,.9,.25,1) both;white-space:nowrap}
+.upd[hidden]{display:none}
+.upd .btn{height:36px;padding:0 16px}
+/* Telemóvel: menos elementos ao mesmo tempo */
+@media (max-width:700px){
+  #iaFab{display:none !important}
+  .ia-open{width:100%;margin:0 0 14px}
+  .ia-panel{left:12px;right:12px;width:auto;bottom:100px}
+}
+.ia-open{display:none}
+@media (max-width:700px){.ia-open{display:inline-flex}}
 </style>
 </head>
 <body>
@@ -798,7 +812,8 @@ section[id^="view-"]:not(.hidden){animation:mIn .55s cubic-bezier(.2,.9,.25,1) b
       <p class="eyebrow">Perfil</p>
       <h1 id="profName">Visitante</h1>
       <p class="hero-sub" id="profSub"></p>
-      <div class="inst-card" id="instCard" hidden>
+      <button class="btn primary ia-open" id="iaOpen" type="button">Falar com a Music IA</button>
+<div class="inst-card" id="instCard" hidden>
   <div><b>Instalar a app</b><small id="instText">No iPhone: abre no Safari, carrega em Partilhar e escolhe "Adicionar ao ecrã principal".</small></div>
   <button class="btn primary" id="instBtn" type="button" hidden>Instalar</button>
 </div>
@@ -1926,6 +1941,7 @@ $('#lmin').addEventListener('change',renderLibrary);
 setTab('home');
 </script>
 <button class="ia-fab" id="iaFab" type="button" aria-expanded="false" aria-controls="iaPanel"><i aria-hidden="true">✦</i>Music IA</button>
+<div class="upd" id="updBar" role="status" hidden><span>Nova versão disponível</span><button class="btn primary" id="updBtn" type="button">Atualizar agora</button></div>
 <section class="ia-panel" id="iaPanel" role="dialog" aria-label="Music IA">
   <div class="ia-head"><div><b>Music IA</b><small>Pergunta o que quiseres</small></div><button class="ia-x" id="iaClose" type="button" aria-label="Fechar">×</button></div>
   <div class="ia-log" id="iaLog" aria-live="polite"><div class="ia-msg bot">Olá! Sou a Music IA. Posso ajudar com música, com a tua biblioteca ou com qualquer outra dúvida.</div></div>
@@ -1997,6 +2013,35 @@ setTab('home');
       ? 'Abre esta página no Safari, carrega em Partilhar e escolhe "Adicionar ao ecrã principal".'
       : 'Para instalar no iPhone, abre esta página no Safari (no Chrome não é possível) e escolhe "Adicionar ao ecrã principal".';
   }
+})();
+</script>
+<script>
+/* Atualização: avisa quando existe uma versão nova do site */
+(function(){
+  const bar=document.getElementById('updBar'), btn=document.getElementById('updBtn');
+  if(!bar) return;
+  let shown=false;
+  async function check(){
+    if(shown || document.visibilityState==='hidden') return;
+    try{
+      const r=await fetch('version.json?t='+Date.now(),{cache:'no-store'});
+      if(!r.ok) return;
+      const v=(await r.json()).version;
+      if(v && v!==APP_VERSION){ shown=true; bar.hidden=false; }
+    }catch(e){}
+  }
+  btn.addEventListener('click', async ()=>{
+    btn.disabled=true; btn.textContent='A atualizar…';
+    try{
+      if('serviceWorker' in navigator){ const regs=await navigator.serviceWorker.getRegistrations(); await Promise.all(regs.map(r=>r.update().catch(()=>{}))); }
+    }catch(e){}
+    location.reload();
+  });
+  setTimeout(check, 4000);
+  setInterval(check, 10*60*1000);
+  document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='visible') check(); });
+  const open=document.getElementById('iaOpen'), fab=document.getElementById('iaFab');
+  if(open && fab) open.addEventListener('click',()=>fab.click());
 })();
 </script>
 </body>

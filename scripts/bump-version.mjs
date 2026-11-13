@@ -26,4 +26,15 @@ for (const [file, reps] of files) {
   await writeFile(file, s);
   console.log('atualizado:', file);
 }
+// version.json: a app consulta-o para mostrar "Atualizar agora" quando há versão nova
+await writeFile('version.json', JSON.stringify({ version: next }, null, 2) + '\n');
+console.log('atualizado: version.json');
+// versão embutida na app
+{
+  let s = await readFile('avaliador-albuns-v2.html', 'utf8');
+  s = s.replace(/const APP_VERSION='[^']*';/, `const APP_VERSION='${next}';`);
+  await writeFile('avaliador-albuns-v2.html', s);
+  console.log('atualizado: avaliador-albuns-v2.html (APP_VERSION)');
+}
+
 console.log(`Versão ${cur} -> ${next}. Revê com git diff antes de publicar.`);

@@ -590,6 +590,34 @@ body::after{display:none}
 .ia-form button{height:44px;padding:0 18px;border-radius:999px;border:0;background:var(--accent);color:#fff;font-weight:600;font-size:14px;cursor:pointer}
 .ia-form button:disabled{opacity:.5;cursor:default}
 @media (prefers-reduced-motion: reduce){.ia-fab i,.ia-panel.open,.ia-msg,.ia-typing span{animation:none !important}}
+
+/* Minimalista: sem gradientes e com animações fortes */
+*,*::before,*::after{background-image:none !important}
+.shine-text,.brand{background:none !important;-webkit-background-clip:border-box !important;background-clip:border-box !important;-webkit-text-fill-color:currentColor !important;animation:none !important}
+.shine-text{color:var(--accent) !important}
+.brand{color:var(--text) !important}
+#pBar{background-image:linear-gradient(90deg,var(--accent) calc(var(--p,0%)),var(--line) calc(var(--p,0%))) !important}
+.themes button::before{background:var(--sw1) !important}
+@keyframes mIn{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes mPop{0%{transform:scale(.7);opacity:0}65%{transform:scale(1.06);opacity:1}100%{transform:none}}
+@keyframes mFade{from{opacity:0}to{opacity:1}}
+section[id^="view-"]:not(.hidden){animation:mIn .55s cubic-bezier(.2,.9,.25,1) both}
+.card{animation:mIn .6s cubic-bezier(.2,.9,.25,1) both;transition:transform .35s cubic-bezier(.2,.9,.25,1),box-shadow .35s,border-color .3s !important}
+.card:nth-child(3n+2){animation-delay:.05s}
+.card:nth-child(3n){animation-delay:.1s}
+.card:hover{transform:translateY(-6px) scale(1.015) !important}
+.card:active{transform:scale(.97) !important}
+.btn,.nav-btn,.tab,.ia-fab,.themes button,.p-play,#pShuf,#pPrev,#pNext{transition:transform .25s cubic-bezier(.2,.9,.25,1),background-color .2s,color .2s,box-shadow .3s !important}
+.btn:hover{transform:translateY(-2px)}
+.btn:active,.nav-btn:active,.ia-fab:active,.themes button:active,.p-play:active,#pShuf:active,#pPrev:active,#pNext:active{transform:scale(.92) !important}
+.nav-btn:hover{transform:translateX(4px) !important}
+.nav-btn.on{animation:mPop .45s cubic-bezier(.2,.9,.25,1) both !important}
+.modal{animation:mPop .5s cubic-bezier(.2,.9,.25,1) both !important}
+#overlay:not(.hidden),.overlay:not(.hidden){animation:mFade .25s ease both}
+.ia-panel.open{animation:mPop .4s cubic-bezier(.2,.9,.25,1) both !important}
+.p-play{animation:none}
+#player.is-playing .p-play{animation:ringPulse 1.6s ease-out infinite !important}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none !important;transition:none !important}}
 </style>
 </head>
 <body>
